@@ -25,3 +25,5 @@ C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\UnitTest\bin\Debug\Telerik.
 C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
 C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\UnitTest\obj\Debug\UnitTest.dll
 C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\UnitTest\obj\Debug\UnitTest.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\UnitTest\obj\Debug\UnitTest.csproj.CoreCompileInputs.cache

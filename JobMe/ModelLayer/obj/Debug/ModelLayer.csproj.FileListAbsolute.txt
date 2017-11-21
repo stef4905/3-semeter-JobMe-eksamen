@@ -2,3 +2,8 @@ C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ModelLayer\bin\Debug\ModelL
 C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ModelLayer\bin\Debug\ModelLayer.pdb
 C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ModelLayer\obj\Debug\ModelLayer.dll
 C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ModelLayer\obj\Debug\ModelLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\ModelLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\ModelLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.pdb
