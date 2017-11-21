@@ -1,7 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DataAccessLayer;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using ModelLayer;
+using DataAccessLayer;
 
 namespace UnitTest.DataAccessLayer
 {
@@ -13,7 +15,7 @@ namespace UnitTest.DataAccessLayer
         {
             //Arrange
             DbJobApplication dbJobApplication = new DbJobApplication();
-            JobApplication jobApplication = new JobApplication("Title", "Description", 15);
+            JobApplication jobApplication = new JobApplication(1, "Title", "Description", 15);
 
             //Act
             bool inserted = dbJobApplication.Create(jobApplication);

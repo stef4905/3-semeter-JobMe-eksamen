@@ -5,13 +5,21 @@ using ModelLayer;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DataAccessLayer
 {
     public class DBJobAppendix : IDataAccess<JobAppendix>
     {
         //Is an instance of DBConnection
-        DbConnection conn = new DbConnection();
+        public static DbConnection conn { get; set; }
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+
+        public DBJobAppendix(DbConnection connection)
+        {
+            conn = connection;
+        }
 
         /// <summary>
         /// Inserts a object of JobAppendix into the database
@@ -53,8 +61,9 @@ namespace DataAccessLayer
         public JobAppendix Get(int id)
         {
             JobAppendix jobAppendix = new JobAppendix();
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = conn.conn)
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM JobAppendix WHERE Id = @Id";
@@ -84,8 +93,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public List<JobAppendix> GetAllByJobCVId(int jobCVId)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM JobAppendix WHERE JobCVId = @JobCVId";
@@ -93,14 +103,17 @@ namespace DataAccessLayer
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     List<JobAppendix> AppendixList = new List<JobAppendix>();
-                    while (reader.Read())
+                    if (reader.HasRows)
                     {
-                        JobAppendix jobAppendix = new JobAppendix();
-                        jobAppendix.Id = (int)reader["Id"];
-                        jobAppendix.Title = (string)reader["Title"];
-                        jobAppendix.FilePath = (string)reader["FilePath"];
-                        jobAppendix.JobCVId = (int)reader["JobCVId"];
-                        AppendixList.Add(jobAppendix);
+                        while (reader.Read())
+                        {
+                            JobAppendix jobAppendix = new JobAppendix();
+                            jobAppendix.Id = (int)reader["Id"];
+                            jobAppendix.Title = (string)reader["Title"];
+                            jobAppendix.FilePath = (string)reader["FilePath"];
+                            jobAppendix.JobCVId = (int)reader["JobCVId"];
+                            AppendixList.Add(jobAppendix);
+                        }
                     }
                     return AppendixList;
                 }
@@ -114,8 +127,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Update(JobAppendix obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = conn.conn)
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     try

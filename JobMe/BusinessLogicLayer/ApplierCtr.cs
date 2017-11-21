@@ -11,12 +11,25 @@ namespace BusinessLogicLayer
     public class ApplierCtr : IController<Applier>
     {
         //Connection to database
-        private DbApplier dbApplier = new DbApplier();
+        public static DbConnection DbConnection = new DbConnection();
+
+        public DbApplier dbApplier = new DbApplier(DbConnection);
+        public JobCVCtr jobCVCtr = new JobCVCtr();
 
         public void Create(Applier obj)
         {
-            dbApplier.Create(obj);
-        }
+            try {
+                Applier applier = dbApplier.CreateAndReturnApplier(obj);
+                Applier applierReturned = jobCVCtr.CreateAndReturnPrimaryKey(new JobCV(), applier);
+                Update(applierReturned);
+            } catch (Exception exeption)
+            {
+                throw exeption;
+            }
+
+
+
+         }
 
         public void Delete(int id)
         {
@@ -30,7 +43,9 @@ namespace BusinessLogicLayer
         /// <returns></returns>
         public Applier Get(int id)
         {
-            return dbApplier.Get(id);
+            Applier applier = dbApplier.Get(id);
+           applier.JobCV = jobCVCtr.Get(applier.Id);
+            return applier;
         }
 
         public List<Applier> GetAll()
@@ -40,7 +55,7 @@ namespace BusinessLogicLayer
 
         public void Update(Applier obj)
         {
-            throw new NotImplementedException();
+            dbApplier.Update(obj);
         }
 
 

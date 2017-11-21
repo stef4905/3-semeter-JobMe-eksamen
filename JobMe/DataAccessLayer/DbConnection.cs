@@ -11,15 +11,31 @@ namespace DataAccessLayer
 {
     public class DbConnection
     {
-        private SqlDataAdapter myAdapter;
-        private SqlConnection conn;
+        public SqlDataAdapter myAdapter;
+        public SqlConnection conn { get; }
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public DbConnection()
         {
-            myAdapter = new SqlDataAdapter();
-            conn = new SqlConnection(ConnectionString);
+            try
+            {
+                myAdapter = new SqlDataAdapter();
+                
+            } catch (StackOverflowException e)
+            {
+                throw e;
+            }
+            try
+            {
+                conn = new SqlConnection(ConnectionString);
+
+            }
+            catch (StackOverflowException e)
+            {
+                throw e;
+            }
+            
         }
 
         public SqlConnection OpenConnection()

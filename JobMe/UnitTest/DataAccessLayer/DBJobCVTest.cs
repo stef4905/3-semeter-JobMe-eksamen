@@ -1,39 +1,40 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DataAccessLayer;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Text;
 using ModelLayer;
-using BusinessLogicLayer;
+using DataAccessLayer;
 
 namespace UnitTest.DataAccessLayer
 {
     [TestClass]
     public class DBJobCVTest
     {
-        [TestMethod]
-        public void CreateJobCVInDB()
-        {
-            //Arrange
-            JobCV jobCV = new JobCV(1, "Jensens bøfhus", 15, "Bio");
-            DBJobCV dbJobCV = new DBJobCV();
+        //[TestMethod]
+        //public void CreateJobCVInDB()
+        //{
+        //    //Arrange
+        //    JobCV jobCV = new JobCV(1, "Jensens bøfhus", 15, "Bio");
+        //    DBJobCV dbJobCV = new DBJobCV();
 
-            //Act
-            bool inserted = dbJobCV.Create(jobCV);
+        //    //Act
+        //    bool inserted = dbJobCV.Create(jobCV);
 
-            //Assert
-            Assert.IsTrue(inserted);
-        }
+        //    //Assert
+        //    Assert.IsTrue(inserted);
+        //}
 
         [TestMethod]
         public void GetTest()
         {
             //Arrange
-            JobCVCtr jobCVCtr = new JobCVCtr();
+            DBJobCV dbJobCV = new DBJobCV();
 
             //Act
-            JobCV jobCv = jobCVCtr.Get(15);
+            JobCV jobCv = dbJobCV.Get(1);
 
             //Assert
-            Assert.IsTrue(jobCv != null);
+            Assert.IsNotNull(jobCv);
 
         }
     }

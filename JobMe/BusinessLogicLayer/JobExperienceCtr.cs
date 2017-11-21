@@ -10,7 +10,10 @@ namespace BusinessLogicLayer
 {
     public class JobExperienceCtr : IController<JobExperience>
     {
-        DBJobExperience dbJobExperience = new DBJobExperience();
+        //Connection to database
+        public static DbConnection DbConnection = new DbConnection();
+
+        DBJobExperience dbJobExperience = new DBJobExperience(DbConnection);
 
         public void Create(JobExperience obj)
         {

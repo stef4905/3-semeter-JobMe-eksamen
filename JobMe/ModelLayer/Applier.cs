@@ -15,6 +15,8 @@ namespace ModelLayer
         [DataMember]
         public string Email { get; set; }
         [DataMember]
+        public int Phone { get; set; }
+        [DataMember]
         public string Password { get; set; }
         [DataMember]
         public string Address { get; set; }
@@ -43,7 +45,9 @@ namespace ModelLayer
         [DataMember]
         public DateTime Birthdate { get; set; }
         [DataMember]
-        public List<JobCategory> jobCategoryList { get; set; }
+        public List<JobCategory> JobCategoryList { get; set; }
+        [DataMember]
+        public JobCV JobCV { get; set; }
 
         /// <summary>
         /// Constructor for Applier with the needed parameters.

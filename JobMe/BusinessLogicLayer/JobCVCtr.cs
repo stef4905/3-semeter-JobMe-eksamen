@@ -11,14 +11,23 @@ namespace BusinessLogicLayer
 {
     public class JobCVCtr : IController<JobCV>
     {
-        DBJobCV dbJobCV = new DBJobCV();
-        JobExperienceCtr jobExperienceCtr = new JobExperienceCtr();
-        ApplierEducationCtr applierEducationCtr = new ApplierEducationCtr();
-        JobAppendixCtr jobAppendixCtr = new JobAppendixCtr();
+        //Connection to database
+        public static DbConnection DbConnection = new DbConnection();
+
+        public DBJobCV dbJobCV = new DBJobCV(DbConnection);
+        public JobExperienceCtr jobExperienceCtr = new JobExperienceCtr();
+        public ApplierEducationCtr applierEducationCtr = new ApplierEducationCtr();
+        public JobAppendixCtr jobAppendixCtr = new JobAppendixCtr();
+
+        public Applier CreateAndReturnPrimaryKey(JobCV obj, Applier applier)
+        {
+            Applier applierReturned = dbJobCV.Create(obj, applier);
+            return applierReturned;
+        }
 
         public void Create(JobCV obj)
         {
-            dbJobCV.Create(obj);
+            throw new NotImplementedException();
         }
 
         public void Delete(int id)
@@ -29,9 +38,6 @@ namespace BusinessLogicLayer
         public JobCV Get(int applierId)
         {
             JobCV jobCV = dbJobCV.Get(applierId);
-            jobCV.JobExperienceList = jobExperienceCtr.GetAllByJobCVId(jobCV.Id);
-            jobCV.ApplierEducationList = applierEducationCtr.GetAllByJobCVId(jobCV.Id);
-            jobCV.JobAppendixList = jobAppendixCtr.GetAllByJobCVId(jobCV.Id);
             return jobCV;
         }
 

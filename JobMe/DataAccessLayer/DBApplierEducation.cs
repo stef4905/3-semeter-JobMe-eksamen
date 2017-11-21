@@ -5,13 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelLayer;
 using System.Data.SqlClient;
+using System.Configuration;
+
 namespace DataAccessLayer
 {
     public class DBApplierEducation : IDataAccess<ApplierEducation>
     {
         //Is an instance of DBConnection
-        DbConnection conn = new DbConnection();
+        public static DbConnection conn { get; set; }
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
+        public DBApplierEducation(DbConnection connection)
+        {
+            conn = connection;
+        }
 
         /// <summary>
         /// Inserts the ApplierEducation Object into the database
@@ -20,8 +27,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Create(ApplierEducation obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = conn.conn)
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     try
@@ -55,8 +63,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public ApplierEducation Get(int id)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = conn.conn)
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM ApplierEducation WHERE Id = @Id";
@@ -93,8 +102,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public List<ApplierEducation> GetAllByJobCVId(int jobCVId)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM ApplierEducation WHERE JobCVId = @JobCVId";
@@ -102,16 +112,19 @@ namespace DataAccessLayer
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     List<ApplierEducation> EducationList = new List<ApplierEducation>();
-                    while(reader.Read())
+                    if (reader.HasRows)
                     {
-                        ApplierEducation applierEducation = new ApplierEducation();
-                        applierEducation.id = (int)reader["id"];
-                        applierEducation.EducationName = (string)reader["EducationName"];
-                        applierEducation.Institution = (string)reader["Institution"];
-                        applierEducation.StartDate = (DateTime)reader["StartDate"];
-                        applierEducation.EndDate = (DateTime)reader["EndDate"];
-                        applierEducation.JobCVId = (int)reader["JobCVId"];
-                        EducationList.Add(applierEducation);
+                        while (reader.Read())
+                        {
+                            ApplierEducation applierEducation = new ApplierEducation();
+                            applierEducation.id = (int)reader["id"];
+                            applierEducation.EducationName = (string)reader["EducationName"];
+                            applierEducation.Institution = (string)reader["Institution"];
+                            applierEducation.StartDate = (DateTime)reader["StartDate"];
+                            applierEducation.EndDate = (DateTime)reader["EndDate"];
+                            applierEducation.JobCVId = (int)reader["JobCVId"];
+                            EducationList.Add(applierEducation);
+                        }
                     }
                     return EducationList;
                 }
@@ -120,8 +133,9 @@ namespace DataAccessLayer
 
         public bool Update(ApplierEducation obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = conn.conn)
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     try

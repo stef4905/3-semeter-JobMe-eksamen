@@ -5,20 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelLayer;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DataAccessLayer
 {
-    public class DBJobCV : IDataAccess<JobCV>
+    public class DBJobCV
     {
         //Is an instance of DBConnection
-        DbConnection conn = new DbConnection();
+        public DbConnection conn { get; set; }
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+        public DBJobCV(DbConnection connection)
+        {
+            conn = connection;
+        }
 
         /// <summary>
         /// Add the specifik jobcv into the database
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public bool Create(JobCV obj)
+        public Applier Create(JobCV obj, Applier applier)
         {
             using (SqlConnection connection = conn.OpenConnection())
             {
@@ -26,14 +33,15 @@ namespace DataAccessLayer
                 {
                     try
                     {
-                        cmd.CommandText = "INSERT INTO JobCV (ApplierId) VALUES (@ApplierId)";
-                        cmd.Parameters.AddWithValue("ApplierId", obj.ApplierId);
-                        cmd.ExecuteNonQuery();
-                        return true;
+                        cmd.CommandText = "INSERT INTO JobCV (Title, Bio) output INSERTED.Id VALUES (@Title, @Bio)";
+                        cmd.Parameters.AddWithValue("Title", obj.Title);
+                        cmd.Parameters.AddWithValue("Bio", obj.Bio);
+                        applier.JobCV.Id = (int)cmd.ExecuteScalar();
+                        return applier;
                     }
                     catch (SqlException)
                     {
-                        return false;
+                        return null;
                     }
                 }
             }
@@ -50,26 +58,39 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="apllier"></param>
         /// <returns></returns>
-        public JobCV Get(int applierId)
+        public JobCV Get(int JobCVId)
         {
            
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM JobCV WHERE ApplierId = @ApplierId";
-                    cmd.Parameters.AddWithValue("@ApplierId", applierId);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
+                    cmd.CommandText = "SELECT * FROM JobCV WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("@Id", JobCVId);
+                    
+                    DBApplierEducation dbApplierEducation = new DBApplierEducation(conn);
+                    DBJobAppendix dbJobAppendix = new DBJobAppendix(conn);
+                    DBJobExperience dbJobExperience = new DBJobExperience(conn);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        JobCV jobCV = new JobCV();
-                        jobCV.Id = (int)reader["Id"];
-                        jobCV.Title = (string)reader["Title"];
-                        jobCV.Bio = (string)reader["Bio"];
-                        return jobCV;
-                    }
-                    else {
-                        return null;
+                        if (reader.Read())
+                        {
+                            JobCV jobCV = new JobCV()
+                            {
+                                Id = (int)reader["Id"],
+                                Title = (string)reader["Title"],
+                                Bio = (string)reader["Bio"],
+                                ApplierEducationList = dbApplierEducation.GetAllByJobCVId((int)reader["Id"]),
+                                JobAppendixList = dbJobAppendix.GetAllByJobCVId((int)reader["Id"]),
+                                JobExperienceList = dbJobExperience.GetAllByJobCVId((int)reader["Id"])
+                            };
+                            return jobCV;
+                        }
+                        else
+                        {
+                            return null;
+                        }
                     }
                 }  
             }

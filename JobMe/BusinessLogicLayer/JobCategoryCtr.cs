@@ -10,6 +10,9 @@ namespace BusinessLogicLayer
 {
     public class JobCategoryCtr : IController<JobCategory>
     {
+        //Connection to database
+        public static DbConnection DbConnection = new DbConnection();
+
         DbJobCategory dbJobCategory = new DbJobCategory();
         public void Create(JobCategory obj)
         {

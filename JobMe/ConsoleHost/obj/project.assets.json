@@ -1,0 +1,418 @@
+{
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.6.1": {
+      "Microsoft.Data.Tools.UnitTest/10.0.60809": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll": {},
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll": {},
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll": {}
+        },
+        "resource": {
+          "lib/net40/br/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "br"
+          },
+          "lib/net40/cn/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "cn"
+          },
+          "lib/net40/de/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/es/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/fr/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/it/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/ja/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ko/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ru/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/tw/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "tw"
+          }
+        }
+      },
+      "BusinessLogicLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "DataAccessLayer": "1.0.0",
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      },
+      "DataAccessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      },
+      "ModelLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809"
+        }
+      },
+      "WCFJobMeService/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "BusinessLogicLayer": "1.0.0",
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.1/win": {
+      "Microsoft.Data.Tools.UnitTest/10.0.60809": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll": {},
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll": {},
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll": {}
+        },
+        "resource": {
+          "lib/net40/br/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "br"
+          },
+          "lib/net40/cn/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "cn"
+          },
+          "lib/net40/de/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/es/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/fr/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/it/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/ja/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ko/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ru/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/tw/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "tw"
+          }
+        }
+      },
+      "BusinessLogicLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "DataAccessLayer": "1.0.0",
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      },
+      "DataAccessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      },
+      "ModelLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809"
+        }
+      },
+      "WCFJobMeService/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "BusinessLogicLayer": "1.0.0",
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.1/win-x64": {
+      "Microsoft.Data.Tools.UnitTest/10.0.60809": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll": {},
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll": {},
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll": {}
+        },
+        "resource": {
+          "lib/net40/br/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "br"
+          },
+          "lib/net40/cn/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "cn"
+          },
+          "lib/net40/de/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/es/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/fr/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/it/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/ja/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ko/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ru/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/tw/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "tw"
+          }
+        }
+      },
+      "BusinessLogicLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "DataAccessLayer": "1.0.0",
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      },
+      "DataAccessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      },
+      "ModelLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809"
+        }
+      },
+      "WCFJobMeService/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "BusinessLogicLayer": "1.0.0",
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      }
+    },
+    ".NETFramework,Version=v4.6.1/win-x86": {
+      "Microsoft.Data.Tools.UnitTest/10.0.60809": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll": {},
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll": {},
+          "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll": {}
+        },
+        "resource": {
+          "lib/net40/br/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "br"
+          },
+          "lib/net40/cn/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "cn"
+          },
+          "lib/net40/de/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net40/es/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net40/fr/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net40/it/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net40/ja/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net40/ko/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net40/ru/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net40/tw/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll": {
+            "locale": "tw"
+          }
+        }
+      },
+      "BusinessLogicLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "DataAccessLayer": "1.0.0",
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      },
+      "DataAccessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      },
+      "ModelLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809"
+        }
+      },
+      "WCFJobMeService/1.0.0": {
+        "type": "project",
+        "framework": ".NETFramework,Version=v4.6.1",
+        "dependencies": {
+          "BusinessLogicLayer": "1.0.0",
+          "Microsoft.Data.Tools.UnitTest": "10.0.60809",
+          "ModelLayer": "1.0.0"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Microsoft.Data.Tools.UnitTest/10.0.60809": {
+      "sha512": "idJg7UR4H63Dwup1ps5gsebYddniuup03TWDR1PDNuMf60LrDVOGEaUUv3ZK0pHSNQv1+Xqdqs9Lq3pff9EQQw==",
+      "type": "package",
+      "path": "microsoft.data.tools.unittest/10.0.60809",
+      "files": [
+        "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll",
+        "lib/net40/Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll",
+        "lib/net40/br/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll",
+        "lib/net40/cn/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll",
+        "lib/net40/de/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll",
+        "lib/net40/es/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll",
+        "lib/net40/fr/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll",
+        "lib/net40/it/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll",
+        "lib/net40/ja/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll",
+        "lib/net40/ko/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll",
+        "lib/net40/ru/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll",
+        "lib/net40/tw/Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll",
+        "microsoft.data.tools.unittest.10.0.60809.nupkg.sha512",
+        "microsoft.data.tools.unittest.nuspec"
+      ]
+    },
+    "BusinessLogicLayer/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLogicLayer/BusinessLogicLayer.csproj",
+      "msbuildProject": "../BusinessLogicLayer/BusinessLogicLayer.csproj"
+    },
+    "DataAccessLayer/1.0.0": {
+      "type": "project",
+      "path": "../DataAccessLayer/DataAccessLayer.csproj",
+      "msbuildProject": "../DataAccessLayer/DataAccessLayer.csproj"
+    },
+    "ModelLayer/1.0.0": {
+      "type": "project",
+      "path": "../ModelLayer/ModelLayer.csproj",
+      "msbuildProject": "../ModelLayer/ModelLayer.csproj"
+    },
+    "WCFJobMeService/1.0.0": {
+      "type": "project",
+      "path": "../WCFJobMeService/WCFJobMeService.csproj",
+      "msbuildProject": "../WCFJobMeService/WCFJobMeService.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.6.1": [
+      "Microsoft.Data.Tools.UnitTest >= 10.0.60809",
+      "WCFJobMeService >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\wow99\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
+      "projectName": "ConsoleHost",
+      "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
+      "outputPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ConsoleHost\\obj\\",
+      "projectStyle": "PackageReference",
+      "originalTargetFrameworks": [
+        "net461"
+      ],
+      "frameworks": {
+        "net461": {
+          "projectReferences": {
+            "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj": {
+              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj"
+            }
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "Microsoft.Data.Tools.UnitTest": {
+        "target": "Package",
+        "version": "10.0.60809"
+      }
+    },
+    "frameworks": {
+      "net461": {
+        "dependencies": {
+          "Microsoft.Data.Tools.UnitTest": {
+            "target": "Package",
+            "version": "10.0.60809"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

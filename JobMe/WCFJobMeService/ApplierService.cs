@@ -11,7 +11,7 @@ namespace WCFJobMeService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ApplierService" in both code and config file together.
     public class ApplierService : IApplierService
     {
-        private ApplierCtr applierCtr = new ApplierCtr();
+        ApplierCtr applierCtr = new ApplierCtr();
 
 
         /// <summary>

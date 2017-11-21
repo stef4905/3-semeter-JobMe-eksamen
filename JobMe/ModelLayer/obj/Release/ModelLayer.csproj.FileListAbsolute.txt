@@ -1,0 +1,16 @@
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Release\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Release\ModelLayer.pdb

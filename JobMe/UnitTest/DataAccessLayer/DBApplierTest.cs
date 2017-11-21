@@ -1,7 +1,9 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using DataAccessLayer;
+using System.Collections.Generic;
+using System.Text;
 using ModelLayer;
+using DataAccessLayer;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTest.DataAccessLayer
 {
@@ -25,7 +27,7 @@ namespace UnitTest.DataAccessLayer
         [TestMethod]
 
         public void ApplierGetById()
-        {   
+        {
             //Arrange
             DbApplier dbApplier = new DbApplier();
             Applier applier = new Applier();

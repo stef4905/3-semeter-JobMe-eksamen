@@ -10,7 +10,10 @@ namespace BusinessLogicLayer
 {
     public class JobAppendixCtr : IController<JobAppendix>
     {
-        DBJobAppendix dbJobAppendix = new DBJobAppendix();
+        //Connection to database
+        public static DbConnection DbConnection = new DbConnection();
+
+        DBJobAppendix dbJobAppendix = new DBJobAppendix(DbConnection);
 
         public void Create(JobAppendix obj)
         {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelLayer;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DataAccessLayer
 {
@@ -13,7 +14,12 @@ namespace DataAccessLayer
 
         //Is an instance of DBConnection
         DbConnection conn = new DbConnection();
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
+        public DBJobExperience(DbConnection connection)
+        {
+            conn = connection;
+        }
 
         /// <summary>
         /// Inserts the JobExperince obejct into the database
@@ -94,8 +100,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public List<JobExperience> GetAllByJobCVId(int jobCVId)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM JobExperience WHERE JobCVId = @JobCVId";
@@ -103,16 +110,19 @@ namespace DataAccessLayer
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     List<JobExperience> ExperienceList = new List<JobExperience>();
-                    while (reader.Read())
+                    if (reader.HasRows)
                     {
-                        JobExperience jobExperience = new JobExperience();
-                        jobExperience.Id = (int)reader["Id"];
-                        jobExperience.Title = (string)reader["Title"];
-                        jobExperience.StartDate = (DateTime)reader["StartDate"];
-                        jobExperience.EndDate = (DateTime)reader["EndDate"];
-                        jobExperience.Description = (string)reader["Description"];
-                        jobExperience.JobCVId = (int)reader["JobCVId"];
-                        ExperienceList.Add(jobExperience);
+                        while (reader.Read())
+                        {
+                            JobExperience jobExperience = new JobExperience();
+                            jobExperience.Id = (int)reader["Id"];
+                            jobExperience.Title = (string)reader["Title"];
+                            jobExperience.StartDate = (DateTime)reader["StartDate"];
+                            jobExperience.EndDate = (DateTime)reader["EndDate"];
+                            jobExperience.Description = (string)reader["Description"];
+                            jobExperience.JobCVId = (int)reader["JobCVId"];
+                            ExperienceList.Add(jobExperience);
+                        }
                     }
                     return ExperienceList;
                 }

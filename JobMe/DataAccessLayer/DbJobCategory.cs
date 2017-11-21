@@ -1,6 +1,7 @@
 ﻿using ModelLayer;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,8 @@ namespace DataAccessLayer
     public class DbJobCategory : IDataAccess<JobCategory>
     {
         //Is an instance of DBConnection
-        DbConnection conn = new DbConnection();
+        public static DbConnection conn { get; set; }
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public bool Create(JobCategory obj)
         {
@@ -31,17 +33,22 @@ namespace DataAccessLayer
         public JobCategory Get(int id)
         {
             JobCategory jobCategory = new JobCategory();
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM JobCategories WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Id", id);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
+
+                    
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        jobCategory.Id = (int)reader["Id"];
-                        jobCategory.Title = (string)reader["Title"];
+                        if (reader.Read())
+                        {
+                            jobCategory.Id = (int)reader["Id"];
+                            jobCategory.Title = (string)reader["Title"];
+                        }
                     }
                     return jobCategory;
                 }
