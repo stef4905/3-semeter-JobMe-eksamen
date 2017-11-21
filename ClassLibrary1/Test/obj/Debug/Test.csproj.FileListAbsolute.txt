@@ -1,0 +1,16 @@
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\Test.exe.config
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\Test.exe
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\Test.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\DataAccessLayer.dll.config
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\obj\Debug\Test.exe
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\obj\Debug\Test.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\JobProject.Service.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\JobProject.Service.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\Test\bin\Debug\JobProject.Service.dll.config

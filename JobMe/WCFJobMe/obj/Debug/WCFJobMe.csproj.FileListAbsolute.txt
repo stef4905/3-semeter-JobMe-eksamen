@@ -1,0 +1,14 @@
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\bin\Debug\WCFJobMe.dll.config
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\bin\Debug\WCFJobMe.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\bin\Debug\WCFJobMe.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\bin\Debug\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\bin\Debug\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\bin\Debug\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\bin\Debug\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\bin\Debug\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\bin\Debug\DataAccessLayer.dll.config
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\obj\Debug\WCFJobMe.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\obj\Debug\XsdGeneratedCode\GeneratedXsdTypes.cs
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\obj\Debug\WCFJobMe.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\WCFJobMe\obj\Debug\WCFJobMe.pdb

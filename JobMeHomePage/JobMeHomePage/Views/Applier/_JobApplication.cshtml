@@ -1,0 +1,30 @@
+﻿@model JobMeHomePage.Models.VMJobCVAndApplication
+
+<!-- #region Deployement-->
+<div class="col-sm-12" id="experience-col">
+
+    <div class="row" id="profileInfoRight">
+        <div class="col-sm-12">
+            <p id="ApplicationHeadline">Personlig Ansøgning</p>
+        </div>
+
+        <div class="applicationTitle">@Model.jobApplication.Title</div>
+        <div class="applicationDescription">@Model.jobApplication.Description</div>
+
+        </div>
+
+    <div class="row" id="seperator">
+        <div class="col-sm-12"></div>
+    </div>
+    <div class="row">
+
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-success" id="saveButton">Godkend ansøgning</button>
+        </div>
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-warning" id="saveButton">Afslag</button>
+        </div>
+    </div>
+
+    </div>
+        <!--#endregion-->

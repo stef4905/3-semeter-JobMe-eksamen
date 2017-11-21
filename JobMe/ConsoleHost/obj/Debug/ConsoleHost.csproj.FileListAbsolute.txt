@@ -1,0 +1,16 @@
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\ConsoleHost.exe.config
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\ConsoleHost.exe
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\ConsoleHost.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\WCFJobMeService.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\WCFJobMeService.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\WCFJobMeService.dll.config
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\bin\Debug\DataAccessLayer.dll.config
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\obj\Debug\ConsoleHost.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\obj\Debug\ConsoleHost.exe
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMe\ConsoleHost\obj\Debug\ConsoleHost.pdb

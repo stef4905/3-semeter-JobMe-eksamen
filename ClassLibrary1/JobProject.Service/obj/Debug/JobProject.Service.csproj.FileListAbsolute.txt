@@ -1,0 +1,14 @@
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\bin\Debug\JobProject.Service.dll.config
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\bin\Debug\JobProject.Service.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\bin\Debug\JobProject.Service.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\bin\Debug\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\bin\Debug\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\bin\Debug\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\bin\Debug\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\bin\Debug\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\bin\Debug\DataAccessLayer.dll.config
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\obj\Debug\JobProject.Service.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\obj\Debug\JobProject.Service.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\obj\Debug\JobProject.Service.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\JobProject.Service\obj\Debug\XsdGeneratedCode\GeneratedXsdTypes.cs

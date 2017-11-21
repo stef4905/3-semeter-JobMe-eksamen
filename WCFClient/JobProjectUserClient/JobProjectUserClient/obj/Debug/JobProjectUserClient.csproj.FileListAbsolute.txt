@@ -1,0 +1,5 @@
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\WCFClient\JobProjectUserClient\JobProjectUserClient\bin\Debug\JobProjectUserClient.exe.config
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\WCFClient\JobProjectUserClient\JobProjectUserClient\bin\Debug\JobProjectUserClient.exe
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\WCFClient\JobProjectUserClient\JobProjectUserClient\bin\Debug\JobProjectUserClient.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\WCFClient\JobProjectUserClient\JobProjectUserClient\obj\Debug\JobProjectUserClient.exe
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\WCFClient\JobProjectUserClient\JobProjectUserClient\obj\Debug\JobProjectUserClient.pdb

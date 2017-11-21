@@ -1,0 +1,5 @@
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\ModelLayer\bin\Debug\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\ModelLayer\bin\Debug\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\ModelLayer\obj\Debug\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\ModelLayer\obj\Debug\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-Semester-Projekt\ClassLibrary1\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
