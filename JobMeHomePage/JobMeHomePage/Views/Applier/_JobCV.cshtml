@@ -1,4 +1,4 @@
-﻿@model JobMeHomePage.JobCVServiceReference.JobCV
+﻿@model JobMeHomePage.Models.VMJobCVAndApplication
 <!-- #region Deployement-->
 <div class="col-sm-12" id="experience-col">
 
@@ -7,7 +7,7 @@
             <p id="CVHeadlinge">Erhvervserfaring</p>
         </div>
 
-		@foreach (var item in Model.JobExperienceList)
+		@foreach (var item in Model.Applier.JobCV.JobExperienceList)
 		{
 			<div class="companyName">@item.Title</div>
 			<div class="DateAndPosition">@item.StartDate.ToShortDateString() -  @item.EndDate.ToShortDateString() <!--<div id="boldText">Marketing Specialist</div>--></div>
@@ -21,7 +21,7 @@
             <p id="CVHeadlinge">Uddannelse</p>
         </div>
 
-		@foreach (var education in Model.ApplierEducationList)
+		@foreach (var education in Model.Applier.JobCV.ApplierEducationList)
 		{
 			<div class="row" id="educationMargin">
 				<div class="col-sm-6">
@@ -42,7 +42,7 @@
             <p id="CVHeadlinge">Certifikater og andet</p>
         </div>
 
-		@foreach (var appendix in Model.JobAppendixList)
+		@foreach (var appendix in Model.Applier.JobCV.JobAppendixList)
 		{
 			<div class="row" id="certificateMargin">
 				<div class="col-sm-10">

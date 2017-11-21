@@ -236,7 +236,7 @@ namespace DataAccessLayer
 
 
                     SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.HasRows)
+                    if (reader.Read())
                     {
                         applier.Id = (int)reader["Id"];
                         applier.Email = (string)reader["Email"];

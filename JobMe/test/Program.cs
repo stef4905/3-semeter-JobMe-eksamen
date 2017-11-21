@@ -19,6 +19,8 @@ namespace test
             Applier applier = applierCtr.Get(2);
             Console.WriteLine(applier.JobCV.Id);
             Console.ReadLine();
+            Applier applier2 = applierCtr.Login("stampe@gmail.com", "123456");
+            Console.ReadLine();
         }
     }
 }
