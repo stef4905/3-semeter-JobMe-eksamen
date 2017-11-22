@@ -62,8 +62,9 @@ namespace DataAccessLayer
         public List<JobCategory> GetAll()
         {
             List<JobCategory> jobCategoryList = new List<JobCategory>();
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM JobCategories";
