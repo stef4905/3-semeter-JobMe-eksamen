@@ -12,14 +12,7 @@ namespace DataAccessLayer
     public class DBJobAppendix : IDataAccess<JobAppendix>
     {
         //Is an instance of DBConnection
-        public static DbConnection conn { get; set; }
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-
-        public DBJobAppendix(DbConnection connection)
-        {
-            conn = connection;
-        }
 
         /// <summary>
         /// Inserts a object of JobAppendix into the database
@@ -28,8 +21,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Create(JobAppendix obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     try {
@@ -61,7 +55,7 @@ namespace DataAccessLayer
         public JobAppendix Get(int id)
         {
             JobAppendix jobAppendix = new JobAppendix();
-            using (SqlConnection connection = conn.conn)
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
@@ -127,7 +121,7 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Update(JobAppendix obj)
         {
-            using (SqlConnection connection = conn.conn)
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())

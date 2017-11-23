@@ -12,7 +12,6 @@ namespace DataAccessLayer
     public class DbJobCategory : IDataAccess<JobCategory>
     {
         //Is an instance of DBConnection
-        public static DbConnection conn { get; set; }
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public bool Create(JobCategory obj)

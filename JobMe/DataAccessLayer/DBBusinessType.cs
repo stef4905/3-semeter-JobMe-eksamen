@@ -5,16 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelLayer;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DataAccessLayer
 {
     class DBBusinessType : IDataAccess<BusinessType>
     {
 
-        /// <summary>
-        /// Opens a new connection to our database
-        /// </summary>
-        DbConnection conn = new DbConnection();
+        //Connection string for instanciating sql connection 
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
 
         public bool Create(BusinessType obj)
@@ -30,7 +29,7 @@ namespace DataAccessLayer
         public BusinessType Get(int id)
         {
             BusinessType businessType = new BusinessType();
-            using(SqlConnection connection = conn.OpenConnection())
+            using(SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 using(SqlCommand cmd = connection.CreateCommand())
                 {
