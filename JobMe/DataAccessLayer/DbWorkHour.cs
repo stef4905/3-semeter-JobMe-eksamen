@@ -14,11 +14,20 @@ namespace DataAccessLayer
         //Is an instance of DBConnection
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
+        /// <summary>
+        /// Is a method that creates a WorkHours object in the databse with the varibles....
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Create(WorkHours obj)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Is a method that deletes a WorkHours Object from the database by its Id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -79,6 +88,11 @@ namespace DataAccessLayer
             return workHoursList;
         }
 
+        /// <summary>
+        /// Is a method that Updates the WorkHours Object in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Update(WorkHours obj)
         {
             throw new NotImplementedException();

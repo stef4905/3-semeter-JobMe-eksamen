@@ -16,7 +16,7 @@ namespace DataAccessLayer
 
 
         /// <summary>
-        /// Add the specifik jobcv into the database
+        /// Is a method that creates a JobCV in the database with the varibles Title and Bio
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -44,13 +44,17 @@ namespace DataAccessLayer
 
         }
 
+        /// <summary>
+        /// is a method that deletes a JobCv from the databse by its Id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Return a single JobCV Object by the given Applier
+        /// Returns a JobCV Object by the given Applier
         /// </summary>
         /// <param name="apllier"></param>
         /// <returns></returns>
@@ -98,7 +102,7 @@ namespace DataAccessLayer
         }
 
         /// <summary>
-        /// Updates the given object JobCV in the database
+        /// Updates the JobCV object in the database
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>

@@ -15,8 +15,7 @@ namespace DataAccessLayer
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         /// <summary>
-        /// Creates an object and executes it into the database through the database connection.
-        /// Its protected against SQL Injections with Parameters.
+        /// its method that create a Company in the database with  the varibles Email & passeword
         /// </summary>
         /// <param name="obj"></param>
         public bool Create(Company obj)
@@ -45,7 +44,10 @@ namespace DataAccessLayer
             }
         }
 
-
+        /// <summary>
+        /// Is a method that deletes a company from the database by the Id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();

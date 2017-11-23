@@ -14,11 +14,20 @@ namespace DataAccessLayer
         //Is an instance of DBConnection
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
+        /// <summary>
+        /// Is  a mathod that creates a JobCategory in the databse with the variables....
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Create(JobCategory obj)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Is a method that deletes a JobCategory from the databse by its Id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -83,6 +92,11 @@ namespace DataAccessLayer
             return jobCategoryList;
         }
 
+        /// <summary>
+        /// Updates the JobCategory Object in the databse.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Update(JobCategory obj)
         {
             throw new NotImplementedException();

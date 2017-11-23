@@ -15,7 +15,7 @@ namespace DataAccessLayer
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         /// <summary>
-        /// Inserts a object of JobAppendix into the database
+        /// is a method that create a JobAppendix in the database with the variables Title, FilePath, JobCVId and Id
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -41,6 +41,10 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Is a method that deletes a JobAppendix by its Id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -75,6 +79,10 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Is a methid that returns a list of all JobAppendixes
+        /// </summary>
+        /// <returns></returns>
         public List<JobAppendix> GetAll()
         {
             throw new NotImplementedException();
@@ -115,7 +123,7 @@ namespace DataAccessLayer
         }
 
         /// <summary>
-        /// Updates the given JobAppendix object in the database
+        /// Updates the JobAppendix object in the database
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
