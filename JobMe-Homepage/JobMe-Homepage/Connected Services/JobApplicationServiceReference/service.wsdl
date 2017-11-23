@@ -25,6 +25,18 @@
   <wsdl:message name="IJobApplicationService_GetAllByApplierId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllByApplierIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IJobApplicationService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IJobApplicationService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobApplicationService_update_InputMessage">
+    <wsdl:part name="parameters" element="tns:update" />
+  </wsdl:message>
+  <wsdl:message name="IJobApplicationService_update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateResponse" />
+  </wsdl:message>
   <wsdl:portType name="IJobApplicationService">
     <wsdl:operation name="Create">
       <wsdl:input wsaw:Action="http://tempuri.org/IJobApplicationService/Create" message="tns:IJobApplicationService_Create_InputMessage" />
@@ -37,6 +49,14 @@
     <wsdl:operation name="GetAllByApplierId">
       <wsdl:input wsaw:Action="http://tempuri.org/IJobApplicationService/GetAllByApplierId" message="tns:IJobApplicationService_GetAllByApplierId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJobApplicationService/GetAllByApplierIdResponse" message="tns:IJobApplicationService_GetAllByApplierId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobApplicationService/Delete" message="tns:IJobApplicationService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobApplicationService/DeleteResponse" message="tns:IJobApplicationService_Delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobApplicationService/update" message="tns:IJobApplicationService_update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobApplicationService/updateResponse" message="tns:IJobApplicationService_update_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IJobApplicationService" type="tns:IJobApplicationService">
@@ -61,6 +81,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllByApplierId">
       <soap:operation soapAction="http://tempuri.org/IJobApplicationService/GetAllByApplierId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap:operation soapAction="http://tempuri.org/IJobApplicationService/Delete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update">
+      <soap:operation soapAction="http://tempuri.org/IJobApplicationService/update" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

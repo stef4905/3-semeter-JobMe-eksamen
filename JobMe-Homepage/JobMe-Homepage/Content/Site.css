@@ -260,7 +260,9 @@
     margin-right: 20px;
 }
 
-
+.createApplication {
+    color: cornflowerblue;
+}
 
 /*Find JobPosts*/
 .stylish-input-group .input-group-addon {
@@ -341,3 +343,4 @@
     height: 100%;
     max-height: 200px;
 }
+
