@@ -84,6 +84,10 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Returns a list of all ApplierEducations the Applier has.
+        /// </summary>
+        /// <returns></returns>
         public List<ApplierEducation> GetAll()
         {
             return null;
@@ -125,6 +129,11 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Updates ApplierEducations the Applier has.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Update(ApplierEducation obj)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
