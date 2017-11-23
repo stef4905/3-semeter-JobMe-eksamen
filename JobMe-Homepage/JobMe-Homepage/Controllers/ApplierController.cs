@@ -74,7 +74,7 @@ namespace JobMe_Homepage.Controllers
 
             VM.JobPostList = jobClient.GetAllJobPost().ToList();
             VM.JobCategoryList = jobClient.GetAllJobCategories().ToList();
-            VM.WorkHoursList = jobClient.GetlAllWorkHours().ToList();
+            VM.WorkHoursList = jobClient.GetAllWorkHours().ToList();
 
             return View(VM);
         }
@@ -105,7 +105,7 @@ namespace JobMe_Homepage.Controllers
             }
             VM.JobPostList = JobPostsList.ToList();
             VM.JobCategoryList = jobClient.GetAllJobCategories().ToList();
-            VM.WorkHoursList = jobClient.GetlAllWorkHours().ToList();
+            VM.WorkHoursList = jobClient.GetAllWorkHours().ToList();
             ViewBag.SearchField = "Søgeord:" + search;
             return View(VM);
         }
@@ -225,7 +225,7 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult JobPost(int id)
         {
-            JobPost jobPost = jobClient.Get(id);
+            JobPost jobPost = jobClient.GetJobPost(id);
             return View(jobPost);
         }
     }

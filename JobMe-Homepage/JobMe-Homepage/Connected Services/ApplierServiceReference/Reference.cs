@@ -901,6 +901,12 @@ namespace JobMe_Homepage.ApplierServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/Create", ReplyAction="http://tempuri.org/IApplierService/CreateResponse")]
         System.Threading.Tasks.Task CreateAsync(JobMe_Homepage.ApplierServiceReference.Applier applier);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/Delete", ReplyAction="http://tempuri.org/IApplierService/DeleteResponse")]
+        void Delete(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/Delete", ReplyAction="http://tempuri.org/IApplierService/DeleteResponse")]
+        System.Threading.Tasks.Task DeleteAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetAllAppliers", ReplyAction="http://tempuri.org/IApplierService/GetAllAppliersResponse")]
         JobMe_Homepage.ApplierServiceReference.Applier[] GetAllAppliers();
         
@@ -912,6 +918,12 @@ namespace JobMe_Homepage.ApplierServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetApplier", ReplyAction="http://tempuri.org/IApplierService/GetApplierResponse")]
         System.Threading.Tasks.Task<JobMe_Homepage.ApplierServiceReference.Applier> GetApplierAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/Update", ReplyAction="http://tempuri.org/IApplierService/UpdateResponse")]
+        void Update(JobMe_Homepage.ApplierServiceReference.Applier applier);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/Update", ReplyAction="http://tempuri.org/IApplierService/UpdateResponse")]
+        System.Threading.Tasks.Task UpdateAsync(JobMe_Homepage.ApplierServiceReference.Applier applier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/Login", ReplyAction="http://tempuri.org/IApplierService/LoginResponse")]
         JobMe_Homepage.ApplierServiceReference.Applier Login(string email, string password);
@@ -955,6 +967,14 @@ namespace JobMe_Homepage.ApplierServiceReference {
             return base.Channel.CreateAsync(applier);
         }
         
+        public void Delete(int id) {
+            base.Channel.Delete(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteAsync(int id) {
+            return base.Channel.DeleteAsync(id);
+        }
+        
         public JobMe_Homepage.ApplierServiceReference.Applier[] GetAllAppliers() {
             return base.Channel.GetAllAppliers();
         }
@@ -969,6 +989,14 @@ namespace JobMe_Homepage.ApplierServiceReference {
         
         public System.Threading.Tasks.Task<JobMe_Homepage.ApplierServiceReference.Applier> GetApplierAsync(int id) {
             return base.Channel.GetApplierAsync(id);
+        }
+        
+        public void Update(JobMe_Homepage.ApplierServiceReference.Applier applier) {
+            base.Channel.Update(applier);
+        }
+        
+        public System.Threading.Tasks.Task UpdateAsync(JobMe_Homepage.ApplierServiceReference.Applier applier) {
+            return base.Channel.UpdateAsync(applier);
         }
         
         public JobMe_Homepage.ApplierServiceReference.Applier Login(string email, string password) {

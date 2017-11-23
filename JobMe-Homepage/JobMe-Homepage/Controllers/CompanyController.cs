@@ -36,7 +36,7 @@ namespace JobMe_Homepage.Controllers
 
             if (Password == PasswordControl)
             {
-                client.Create(company);
+                client.CreateCompany(company);
                 // Creates session on creation of user
                 Session["company"] = company;
                 return RedirectToAction("Index");
@@ -102,7 +102,7 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult JobPost(int id)
         {
-            JobPostServiceReference.JobPost jobPost = jobClient.Get(id);
+            JobPostServiceReference.JobPost jobPost = jobClient.GetJobPost(id);
             return View(jobPost);
         }
 

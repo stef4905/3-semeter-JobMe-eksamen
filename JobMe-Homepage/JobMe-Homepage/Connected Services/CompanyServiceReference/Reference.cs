@@ -642,11 +642,41 @@ namespace JobMe_Homepage.CompanyServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="CompanyServiceReference.ICompanyService")]
     public interface ICompanyService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/Create", ReplyAction="http://tempuri.org/ICompanyService/CreateResponse")]
-        void Create(JobMe_Homepage.CompanyServiceReference.Company company);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateCompany", ReplyAction="http://tempuri.org/ICompanyService/CreateCompanyResponse")]
+        void CreateCompany(JobMe_Homepage.CompanyServiceReference.Company company);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/Create", ReplyAction="http://tempuri.org/ICompanyService/CreateResponse")]
-        System.Threading.Tasks.Task CreateAsync(JobMe_Homepage.CompanyServiceReference.Company company);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateCompany", ReplyAction="http://tempuri.org/ICompanyService/CreateCompanyResponse")]
+        System.Threading.Tasks.Task CreateCompanyAsync(JobMe_Homepage.CompanyServiceReference.Company company);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/DeleteCompany", ReplyAction="http://tempuri.org/ICompanyService/DeleteCompanyResponse")]
+        void DeleteCompany(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/DeleteCompany", ReplyAction="http://tempuri.org/ICompanyService/DeleteCompanyResponse")]
+        System.Threading.Tasks.Task DeleteCompanyAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetCompany", ReplyAction="http://tempuri.org/ICompanyService/GetCompanyResponse")]
+        JobMe_Homepage.CompanyServiceReference.Company GetCompany(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetCompany", ReplyAction="http://tempuri.org/ICompanyService/GetCompanyResponse")]
+        System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.Company> GetCompanyAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetAllCompany", ReplyAction="http://tempuri.org/ICompanyService/GetAllCompanyResponse")]
+        JobMe_Homepage.CompanyServiceReference.Company[] GetAllCompany();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetAllCompany", ReplyAction="http://tempuri.org/ICompanyService/GetAllCompanyResponse")]
+        System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.Company[]> GetAllCompanyAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateCompany", ReplyAction="http://tempuri.org/ICompanyService/UpdateCompanyResponse")]
+        void UpdateCompany(JobMe_Homepage.CompanyServiceReference.Company obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateCompany", ReplyAction="http://tempuri.org/ICompanyService/UpdateCompanyResponse")]
+        System.Threading.Tasks.Task UpdateCompanyAsync(JobMe_Homepage.CompanyServiceReference.Company obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/Login", ReplyAction="http://tempuri.org/ICompanyService/LoginResponse")]
+        JobMe_Homepage.CompanyServiceReference.Company Login(string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/Login", ReplyAction="http://tempuri.org/ICompanyService/LoginResponse")]
+        System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.Company> LoginAsync(string email, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateJobPost", ReplyAction="http://tempuri.org/ICompanyService/CreateJobPostResponse")]
         void CreateJobPost(JobMe_Homepage.CompanyServiceReference.JobPost jobPost);
@@ -654,11 +684,47 @@ namespace JobMe_Homepage.CompanyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateJobPost", ReplyAction="http://tempuri.org/ICompanyService/CreateJobPostResponse")]
         System.Threading.Tasks.Task CreateJobPostAsync(JobMe_Homepage.CompanyServiceReference.JobPost jobPost);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetlAllWorkHours", ReplyAction="http://tempuri.org/ICompanyService/GetlAllWorkHoursResponse")]
-        JobMe_Homepage.CompanyServiceReference.WorkHours[] GetlAllWorkHours();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/DeleteJobPost", ReplyAction="http://tempuri.org/ICompanyService/DeleteJobPostResponse")]
+        void DeleteJobPost(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetlAllWorkHours", ReplyAction="http://tempuri.org/ICompanyService/GetlAllWorkHoursResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.WorkHours[]> GetlAllWorkHoursAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/DeleteJobPost", ReplyAction="http://tempuri.org/ICompanyService/DeleteJobPostResponse")]
+        System.Threading.Tasks.Task DeleteJobPostAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetAllJobPost", ReplyAction="http://tempuri.org/ICompanyService/GetAllJobPostResponse")]
+        JobMe_Homepage.CompanyServiceReference.JobPost[] GetAllJobPost();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetAllJobPost", ReplyAction="http://tempuri.org/ICompanyService/GetAllJobPostResponse")]
+        System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.JobPost[]> GetAllJobPostAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateJobPost", ReplyAction="http://tempuri.org/ICompanyService/UpdateJobPostResponse")]
+        void UpdateJobPost(JobMe_Homepage.CompanyServiceReference.JobPost obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateJobPost", ReplyAction="http://tempuri.org/ICompanyService/UpdateJobPostResponse")]
+        System.Threading.Tasks.Task UpdateJobPostAsync(JobMe_Homepage.CompanyServiceReference.JobPost obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetJobPost", ReplyAction="http://tempuri.org/ICompanyService/GetJobPostResponse")]
+        JobMe_Homepage.CompanyServiceReference.JobPost GetJobPost(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetJobPost", ReplyAction="http://tempuri.org/ICompanyService/GetJobPostResponse")]
+        System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.JobPost> GetJobPostAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateJobCategory", ReplyAction="http://tempuri.org/ICompanyService/CreateJobCategoryResponse")]
+        void CreateJobCategory(JobMe_Homepage.CompanyServiceReference.JobCategory obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateJobCategory", ReplyAction="http://tempuri.org/ICompanyService/CreateJobCategoryResponse")]
+        System.Threading.Tasks.Task CreateJobCategoryAsync(JobMe_Homepage.CompanyServiceReference.JobCategory obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/DeleteJobCategory", ReplyAction="http://tempuri.org/ICompanyService/DeleteJobCategoryResponse")]
+        void DeleteJobCategory(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/DeleteJobCategory", ReplyAction="http://tempuri.org/ICompanyService/DeleteJobCategoryResponse")]
+        System.Threading.Tasks.Task DeleteJobCategoryAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetJobCategory", ReplyAction="http://tempuri.org/ICompanyService/GetJobCategoryResponse")]
+        JobMe_Homepage.CompanyServiceReference.JobCategory GetJobCategory(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetJobCategory", ReplyAction="http://tempuri.org/ICompanyService/GetJobCategoryResponse")]
+        System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.JobCategory> GetJobCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetAllJobCategories", ReplyAction="http://tempuri.org/ICompanyService/GetAllJobCategoriesResponse")]
         JobMe_Homepage.CompanyServiceReference.JobCategory[] GetAllJobCategories();
@@ -666,11 +732,41 @@ namespace JobMe_Homepage.CompanyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetAllJobCategories", ReplyAction="http://tempuri.org/ICompanyService/GetAllJobCategoriesResponse")]
         System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.JobCategory[]> GetAllJobCategoriesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/Login", ReplyAction="http://tempuri.org/ICompanyService/LoginResponse")]
-        JobMe_Homepage.CompanyServiceReference.Company Login(string email, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateJobCategory", ReplyAction="http://tempuri.org/ICompanyService/UpdateJobCategoryResponse")]
+        void UpdateJobCategory(JobMe_Homepage.CompanyServiceReference.JobCategory obj);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/Login", ReplyAction="http://tempuri.org/ICompanyService/LoginResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.Company> LoginAsync(string email, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateJobCategory", ReplyAction="http://tempuri.org/ICompanyService/UpdateJobCategoryResponse")]
+        System.Threading.Tasks.Task UpdateJobCategoryAsync(JobMe_Homepage.CompanyServiceReference.JobCategory obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateWorkHours", ReplyAction="http://tempuri.org/ICompanyService/CreateWorkHoursResponse")]
+        void CreateWorkHours(JobMe_Homepage.CompanyServiceReference.WorkHours obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateWorkHours", ReplyAction="http://tempuri.org/ICompanyService/CreateWorkHoursResponse")]
+        System.Threading.Tasks.Task CreateWorkHoursAsync(JobMe_Homepage.CompanyServiceReference.WorkHours obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/DeleteWorkHours", ReplyAction="http://tempuri.org/ICompanyService/DeleteWorkHoursResponse")]
+        void DeleteWorkHours(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/DeleteWorkHours", ReplyAction="http://tempuri.org/ICompanyService/DeleteWorkHoursResponse")]
+        System.Threading.Tasks.Task DeleteWorkHoursAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetWorkHours", ReplyAction="http://tempuri.org/ICompanyService/GetWorkHoursResponse")]
+        JobMe_Homepage.CompanyServiceReference.WorkHours GetWorkHours(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetWorkHours", ReplyAction="http://tempuri.org/ICompanyService/GetWorkHoursResponse")]
+        System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.WorkHours> GetWorkHoursAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetlAllWorkHours", ReplyAction="http://tempuri.org/ICompanyService/GetlAllWorkHoursResponse")]
+        JobMe_Homepage.CompanyServiceReference.WorkHours[] GetlAllWorkHours();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetlAllWorkHours", ReplyAction="http://tempuri.org/ICompanyService/GetlAllWorkHoursResponse")]
+        System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.WorkHours[]> GetlAllWorkHoursAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateWorkHours", ReplyAction="http://tempuri.org/ICompanyService/UpdateWorkHoursResponse")]
+        void UpdateWorkHours(JobMe_Homepage.CompanyServiceReference.WorkHours obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateWorkHours", ReplyAction="http://tempuri.org/ICompanyService/UpdateWorkHoursResponse")]
+        System.Threading.Tasks.Task UpdateWorkHoursAsync(JobMe_Homepage.CompanyServiceReference.WorkHours obj);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -700,12 +796,52 @@ namespace JobMe_Homepage.CompanyServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public void Create(JobMe_Homepage.CompanyServiceReference.Company company) {
-            base.Channel.Create(company);
+        public void CreateCompany(JobMe_Homepage.CompanyServiceReference.Company company) {
+            base.Channel.CreateCompany(company);
         }
         
-        public System.Threading.Tasks.Task CreateAsync(JobMe_Homepage.CompanyServiceReference.Company company) {
-            return base.Channel.CreateAsync(company);
+        public System.Threading.Tasks.Task CreateCompanyAsync(JobMe_Homepage.CompanyServiceReference.Company company) {
+            return base.Channel.CreateCompanyAsync(company);
+        }
+        
+        public void DeleteCompany(int id) {
+            base.Channel.DeleteCompany(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteCompanyAsync(int id) {
+            return base.Channel.DeleteCompanyAsync(id);
+        }
+        
+        public JobMe_Homepage.CompanyServiceReference.Company GetCompany(int id) {
+            return base.Channel.GetCompany(id);
+        }
+        
+        public System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.Company> GetCompanyAsync(int id) {
+            return base.Channel.GetCompanyAsync(id);
+        }
+        
+        public JobMe_Homepage.CompanyServiceReference.Company[] GetAllCompany() {
+            return base.Channel.GetAllCompany();
+        }
+        
+        public System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.Company[]> GetAllCompanyAsync() {
+            return base.Channel.GetAllCompanyAsync();
+        }
+        
+        public void UpdateCompany(JobMe_Homepage.CompanyServiceReference.Company obj) {
+            base.Channel.UpdateCompany(obj);
+        }
+        
+        public System.Threading.Tasks.Task UpdateCompanyAsync(JobMe_Homepage.CompanyServiceReference.Company obj) {
+            return base.Channel.UpdateCompanyAsync(obj);
+        }
+        
+        public JobMe_Homepage.CompanyServiceReference.Company Login(string email, string password) {
+            return base.Channel.Login(email, password);
+        }
+        
+        public System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.Company> LoginAsync(string email, string password) {
+            return base.Channel.LoginAsync(email, password);
         }
         
         public void CreateJobPost(JobMe_Homepage.CompanyServiceReference.JobPost jobPost) {
@@ -716,12 +852,60 @@ namespace JobMe_Homepage.CompanyServiceReference {
             return base.Channel.CreateJobPostAsync(jobPost);
         }
         
-        public JobMe_Homepage.CompanyServiceReference.WorkHours[] GetlAllWorkHours() {
-            return base.Channel.GetlAllWorkHours();
+        public void DeleteJobPost(int id) {
+            base.Channel.DeleteJobPost(id);
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.WorkHours[]> GetlAllWorkHoursAsync() {
-            return base.Channel.GetlAllWorkHoursAsync();
+        public System.Threading.Tasks.Task DeleteJobPostAsync(int id) {
+            return base.Channel.DeleteJobPostAsync(id);
+        }
+        
+        public JobMe_Homepage.CompanyServiceReference.JobPost[] GetAllJobPost() {
+            return base.Channel.GetAllJobPost();
+        }
+        
+        public System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.JobPost[]> GetAllJobPostAsync() {
+            return base.Channel.GetAllJobPostAsync();
+        }
+        
+        public void UpdateJobPost(JobMe_Homepage.CompanyServiceReference.JobPost obj) {
+            base.Channel.UpdateJobPost(obj);
+        }
+        
+        public System.Threading.Tasks.Task UpdateJobPostAsync(JobMe_Homepage.CompanyServiceReference.JobPost obj) {
+            return base.Channel.UpdateJobPostAsync(obj);
+        }
+        
+        public JobMe_Homepage.CompanyServiceReference.JobPost GetJobPost(int id) {
+            return base.Channel.GetJobPost(id);
+        }
+        
+        public System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.JobPost> GetJobPostAsync(int id) {
+            return base.Channel.GetJobPostAsync(id);
+        }
+        
+        public void CreateJobCategory(JobMe_Homepage.CompanyServiceReference.JobCategory obj) {
+            base.Channel.CreateJobCategory(obj);
+        }
+        
+        public System.Threading.Tasks.Task CreateJobCategoryAsync(JobMe_Homepage.CompanyServiceReference.JobCategory obj) {
+            return base.Channel.CreateJobCategoryAsync(obj);
+        }
+        
+        public void DeleteJobCategory(int id) {
+            base.Channel.DeleteJobCategory(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteJobCategoryAsync(int id) {
+            return base.Channel.DeleteJobCategoryAsync(id);
+        }
+        
+        public JobMe_Homepage.CompanyServiceReference.JobCategory GetJobCategory(int id) {
+            return base.Channel.GetJobCategory(id);
+        }
+        
+        public System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.JobCategory> GetJobCategoryAsync(int id) {
+            return base.Channel.GetJobCategoryAsync(id);
         }
         
         public JobMe_Homepage.CompanyServiceReference.JobCategory[] GetAllJobCategories() {
@@ -732,12 +916,52 @@ namespace JobMe_Homepage.CompanyServiceReference {
             return base.Channel.GetAllJobCategoriesAsync();
         }
         
-        public JobMe_Homepage.CompanyServiceReference.Company Login(string email, string password) {
-            return base.Channel.Login(email, password);
+        public void UpdateJobCategory(JobMe_Homepage.CompanyServiceReference.JobCategory obj) {
+            base.Channel.UpdateJobCategory(obj);
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.Company> LoginAsync(string email, string password) {
-            return base.Channel.LoginAsync(email, password);
+        public System.Threading.Tasks.Task UpdateJobCategoryAsync(JobMe_Homepage.CompanyServiceReference.JobCategory obj) {
+            return base.Channel.UpdateJobCategoryAsync(obj);
+        }
+        
+        public void CreateWorkHours(JobMe_Homepage.CompanyServiceReference.WorkHours obj) {
+            base.Channel.CreateWorkHours(obj);
+        }
+        
+        public System.Threading.Tasks.Task CreateWorkHoursAsync(JobMe_Homepage.CompanyServiceReference.WorkHours obj) {
+            return base.Channel.CreateWorkHoursAsync(obj);
+        }
+        
+        public void DeleteWorkHours(int id) {
+            base.Channel.DeleteWorkHours(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteWorkHoursAsync(int id) {
+            return base.Channel.DeleteWorkHoursAsync(id);
+        }
+        
+        public JobMe_Homepage.CompanyServiceReference.WorkHours GetWorkHours(int id) {
+            return base.Channel.GetWorkHours(id);
+        }
+        
+        public System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.WorkHours> GetWorkHoursAsync(int id) {
+            return base.Channel.GetWorkHoursAsync(id);
+        }
+        
+        public JobMe_Homepage.CompanyServiceReference.WorkHours[] GetlAllWorkHours() {
+            return base.Channel.GetlAllWorkHours();
+        }
+        
+        public System.Threading.Tasks.Task<JobMe_Homepage.CompanyServiceReference.WorkHours[]> GetlAllWorkHoursAsync() {
+            return base.Channel.GetlAllWorkHoursAsync();
+        }
+        
+        public void UpdateWorkHours(JobMe_Homepage.CompanyServiceReference.WorkHours obj) {
+            base.Channel.UpdateWorkHours(obj);
+        }
+        
+        public System.Threading.Tasks.Task UpdateWorkHoursAsync(JobMe_Homepage.CompanyServiceReference.WorkHours obj) {
+            return base.Channel.UpdateWorkHoursAsync(obj);
         }
     }
 }
