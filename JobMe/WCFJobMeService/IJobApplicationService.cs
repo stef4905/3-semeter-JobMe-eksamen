@@ -22,6 +22,13 @@ namespace WCFJobMeService
         [OperationContract]
         List<JobApplication> GetAllByApplierId(int applierId);
 
+        [OperationContract]
+        void Delete(int id);
+
+        [OperationContract]
+        void update(JobApplication jobApplication);
+
+
 
     }
 }

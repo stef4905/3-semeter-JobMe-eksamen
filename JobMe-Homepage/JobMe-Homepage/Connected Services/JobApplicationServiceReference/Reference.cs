@@ -127,6 +127,18 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/GetAllByApplierId", ReplyAction="http://tempuri.org/IJobApplicationService/GetAllByApplierIdResponse")]
         System.Threading.Tasks.Task<JobMe_Homepage.JobApplicationServiceReference.JobApplication[]> GetAllByApplierIdAsync(int applierId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/Delete", ReplyAction="http://tempuri.org/IJobApplicationService/DeleteResponse")]
+        void Delete(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/Delete", ReplyAction="http://tempuri.org/IJobApplicationService/DeleteResponse")]
+        System.Threading.Tasks.Task DeleteAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/update", ReplyAction="http://tempuri.org/IJobApplicationService/updateResponse")]
+        void update(JobMe_Homepage.JobApplicationServiceReference.JobApplication jobApplication);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/update", ReplyAction="http://tempuri.org/IJobApplicationService/updateResponse")]
+        System.Threading.Tasks.Task updateAsync(JobMe_Homepage.JobApplicationServiceReference.JobApplication jobApplication);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -178,6 +190,22 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
         
         public System.Threading.Tasks.Task<JobMe_Homepage.JobApplicationServiceReference.JobApplication[]> GetAllByApplierIdAsync(int applierId) {
             return base.Channel.GetAllByApplierIdAsync(applierId);
+        }
+        
+        public void Delete(int id) {
+            base.Channel.Delete(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteAsync(int id) {
+            return base.Channel.DeleteAsync(id);
+        }
+        
+        public void update(JobMe_Homepage.JobApplicationServiceReference.JobApplication jobApplication) {
+            base.Channel.update(jobApplication);
+        }
+        
+        public System.Threading.Tasks.Task updateAsync(JobMe_Homepage.JobApplicationServiceReference.JobApplication jobApplication) {
+            return base.Channel.updateAsync(jobApplication);
         }
     }
 }

@@ -24,6 +24,15 @@ namespace WCFJobMeService
         }
 
         /// <summary>
+        /// Deletes a jobapplication by its id
+        /// </summary>
+        /// <param name="id"></param>
+        public void Delete(int id)
+        {
+            jobAppCtr.Delete(id);
+        }
+
+        /// <summary>
         /// Return a Job application by id
         /// </summary>
         /// <param name="id"></param>
@@ -41,6 +50,15 @@ namespace WCFJobMeService
         public List<JobApplication> GetAllByApplierId(int applierId)
         {
             return jobAppCtr.GetAllByApplierId(applierId);
+        }
+
+        /// <summary>
+        /// Updates a jobAppliacton object
+        /// </summary>
+        /// <param name="jobapplication"></param>
+        public void update(JobApplication jobapplication)
+        {
+            jobAppCtr.Update(jobapplication);
         }
     }
 }

@@ -117,31 +117,35 @@ namespace JobMe_Homepage.Controllers
         public ActionResult JobApplication(int id)
         {
             //Hovedside til jobapplikation og cv of the applier
-            //Applier applier = client.GetApplier(id);
+            Applier applier = Session["applier"] as Applier;
             //JobCV jobCV = jobCVClient.Get(applier.Id);
 
 
-            //VMJobCVAndApplication vmJobCVAndApplication = new VMJobCVAndApplication
-            //{
-            //    Applier = applier,
-            //    jobApplication = jobApplicationClient.Get(applier.Id),
-            //    JobCV = jobCV
-            //};
+            VMApplierAndApplication vmApplierAndApplication = new VMApplierAndApplication
+            {
+                Applier = applier,
+                JobApplicationList = jobApplicationClient.GetAllByApplierId(applier.Id).ToList()
+               
+            };
+
+
+
+
             return View(/*vmJobCVAndApplication*/);
         }
 
-        //public ActionResult _JobApplication(VMJobCVAndApplication vMJobAndApplication)
-        //{
-        //    //Job applikation siden kun ikke lavet endnu i WCF
-        //    return PartialView(vMJobAndApplication);
-        //}
+        public ActionResult _JobApplication()
+        {
+            //Job applikation siden kun ikke lavet endnu i WCF
+            return PartialView();
+        }
 
-        //public ActionResult _JobCV(JobCV jobCV)
-        //{
-        //    //Job CV sien kun
-        //    return View(jobCV);
-        //}
-       #endregion
+        public ActionResult _JobCV(JobCV jobCV)
+        {
+            //Job CV sien kun
+            return View(jobCV);
+        }
+        #endregion
 
 
 
