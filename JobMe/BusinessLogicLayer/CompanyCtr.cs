@@ -11,6 +11,7 @@ namespace BusinessLogicLayer
     public class CompanyCtr : IController<Company>
     {
 
+        //Instance variables
         private DbCompany dbCompany = new DbCompany();
 
         /// <summary>
@@ -41,11 +42,19 @@ namespace BusinessLogicLayer
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns a list of all Company objects in the database
+        /// </summary>
+        /// <returns>List of Company</returns>
         public List<Company> GetAll()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Updates the Company in the database
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(Company obj)
         {
             throw new NotImplementedException();

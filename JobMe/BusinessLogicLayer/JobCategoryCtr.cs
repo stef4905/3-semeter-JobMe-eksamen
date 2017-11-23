@@ -10,19 +10,32 @@ namespace BusinessLogicLayer
 {
     public class JobCategoryCtr : IController<JobCategory>
     {
+        //Instance variables
         DbJobCategory dbJobCategory = new DbJobCategory();
 
-
+        /// <summary>
+        /// Creates a new JobCategory object in the database
+        /// </summary>
+        /// <param name="obj"></param>
         public void Create(JobCategory obj)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Deletes a JobCategory in the database by the given id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns a single JobCategory by the given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>JobCategory</returns>
         public JobCategory Get(int id)
         {
             throw new NotImplementedException();
@@ -37,6 +50,10 @@ namespace BusinessLogicLayer
             return dbJobCategory.GetAll();
         }
 
+        /// <summary>
+        /// Updates the given JobCategory object in the database
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(JobCategory obj)
         {
             throw new NotImplementedException();
