@@ -10,10 +10,8 @@ namespace DataAccessLayer
 {
     public class DbWorkHour : IDataAccess<WorkHours>
     {
-        /// <summary>
-        /// Opens a new connection to our database
-        /// </summary>
-        DbConnection conn = new DbConnection();
+        //Is an instance of DBConnection
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         public bool Create(WorkHours obj)
         {
@@ -33,8 +31,9 @@ namespace DataAccessLayer
         public WorkHours Get(int id)
         {
             WorkHours workHours = new WorkHours();
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM WorkHours WHERE Id = @Id";
@@ -57,8 +56,9 @@ namespace DataAccessLayer
         public List<WorkHours> GetAll()
         {
             List<WorkHours> workHoursList = new List<WorkHours>();
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using(SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM WorkHours";

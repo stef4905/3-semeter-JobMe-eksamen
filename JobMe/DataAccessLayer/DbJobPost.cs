@@ -1,6 +1,7 @@
 ﻿using ModelLayer;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,9 @@ namespace DataAccessLayer
 {
     public class DbJobPost : IDataAccess<JobPost>
     {
-        /// <summary>
-        /// Opens a new connection to our database
-        /// </summary>
-        DbConnection conn = new DbConnection();
+        //Is an instance of DBConnection
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
 
 
         /// <summary>
@@ -24,8 +24,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Create(JobPost obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 try
                 {
                     using (SqlCommand cmd = connection.CreateCommand())
@@ -70,8 +71,9 @@ namespace DataAccessLayer
             DbCompany dbCompany = new DbCompany();
             DbJobCategory dbJobCategory = new DbJobCategory();
             JobPost jobPost = new JobPost();
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM JobPost WHERE Id = @Id";
@@ -102,9 +104,9 @@ namespace DataAccessLayer
         public List<JobPost> GetAll()
         {
             List<JobPost> jobPostList = new List<JobPost>();
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM JobPost";
