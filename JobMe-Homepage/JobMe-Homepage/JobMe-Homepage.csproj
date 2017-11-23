@@ -306,7 +306,6 @@
     <Content Include="Views\Shared\_CreateApplier.cshtml" />
     <Content Include="Views\Shared\_CreateCompany.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
-    <Content Include="Views\Applier\JobCV.cshtml" />
     <Content Include="Views\Applier\FindJobPosts.cshtml" />
     <Content Include="Views\Applier\JobApplication.cshtml" />
     <Content Include="Views\Applier\_JobApplication.cshtml" />
@@ -318,6 +317,7 @@
     <Content Include="Views\Company\JobPost.cshtml" />
     <Content Include="Views\Company\_CurrentCompany.cshtml" />
     <Content Include="Views\Applier\JobPost.cshtml" />
+    <Content Include="Views\Applier\_JobCV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

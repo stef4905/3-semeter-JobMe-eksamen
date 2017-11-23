@@ -122,6 +122,8 @@
 
 #experience-col {
     background-color: #ffffff;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 #profileImage {
@@ -159,7 +161,7 @@
 
 #profileInfoRight {
     margin-top: 20px;
-    margin-left: 20px;
+ 
 }
 
 #CVHeadlinge {
@@ -264,6 +266,25 @@
     color: cornflowerblue;
 }
 
+.btndeleteapplication {
+    margin-left: 63%;
+}
+
+.btneditapplication {
+    margin-left: -5%;
+}
+
+.applicationJobTitle {
+    margin-top: 4%;
+}
+
+.createApplicationBtn {
+    margin-left: -2%;
+    margin-bottom: 2%;
+}
+.textareaApplication{
+    height: 300px!important;
+}
 /*Find JobPosts*/
 .stylish-input-group .input-group-addon {
     background: white !important;

@@ -179,10 +179,14 @@ namespace JobMe_Homepage.Controllers
             return PartialView();
         }
 
-        public ActionResult _JobCV(JobCV jobCV)
+        public ActionResult _JobCV()
         {
-            //Job CV sien kun
-            return View(jobCV);
+            Applier applier = new Applier();
+
+            //Mangler fagterm.
+            applier = Session["applier"] as Applier;
+            return PartialView(applier);
+        
         }
         #endregion
 

@@ -7,9 +7,9 @@
     <p class="text-success" id="successMessage">@TempData["Success"]</p>
     }
     <div class="row" id="profileInfoRight">
-        <div class="col-sm-12">
+        
             <p id="ApplicationHeadline">Personlig Ansøgninger:</p>
-        </div>
+ 
    
 
 
@@ -19,23 +19,24 @@
            
             <form action="/Applier/UpdateApplication" method="post">
                 <div class="form-group">
-                    <label for="jobTitel">Titel:</label>
+                    <label class="applicationJobTitle" for="jobTitel">Titel:</label>
                     <input type="text" name="title" value="@jobApplication.Title" class="form-control" id="jobTitel" />
                 </div>
                 <div class="form-group">
                     <label for="description">Beskrivelse:</label>
-                    <textarea name="description" class="form-control" id="description">@jobApplication.Description</textarea>
+                    <textarea name="description" class="form-control textareaApplication" id="description">@jobApplication.Description</textarea>
                 </div>
                 
                 
                 <input type="hidden" name="id" value="@jobApplication.Id" />
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                  
-                    <button type="submit" class="btn btn-default btn-blue">Gem ansøgning</button>
-               
-                    <a class="btn btn-danger" data-toggle="modal" data-target="#DeleteModal" href="#DeleteModal">Slet</a>
+                    <a class="btn btn-danger btneditapplication" data-toggle="modal" data-target="#DeleteModal" href="#DeleteModal">Slet</a>
+               </div>
+                <div class="col-sm-6">
+                    
+                    <button type="submit" class="btn btn-default btn-blue btndeleteapplication">Gem ansøgning</button>
 
-                  
                 </div>
 
                
@@ -79,14 +80,14 @@
             </div>
             <div class="form-group">
                 <label for="description">Beskrivelse:</label>
-                <textarea name="description" class="form-control" id="description"> </textarea>
+                <textarea name="description" class="form-control textareaApplication" id="description"> </textarea>
             </div>
 
 
             <input type="hidden" name="applierId" value="@Model.Applier.Id" />
             <div class="col-sm-12">
-
-                <button type="submit" class="btn btn-default btn-blue">Opret ny ansøgning</button>
+                
+                <button type="submit" class="btn btn-default btn-blue createApplicationBtn">Opret ny ansøgning</button>
 
 
             </div>
