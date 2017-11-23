@@ -17,11 +17,15 @@ namespace WCFJobMeService
         void Create(JobApplication jobApplication);
 
         [OperationContract]
+        void Delete(int id);
+
+        [OperationContract]
         JobApplication Get(int id);
 
         [OperationContract]
         List<JobApplication> GetAllByApplierId(int applierId);
 
-
+        [OperationContract]
+        void Update(JobApplication obj);
     }
 }

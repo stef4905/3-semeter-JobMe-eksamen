@@ -33,7 +33,7 @@ namespace DataAccessLayer
                     {
                         cmd.CommandText = "INSERT INTO JobApplication (Title, Description, ApplierId) VALUES (@Title, @Description, @ApplierId)";
                         cmd.Parameters.AddWithValue("Title", obj.Title);
-                        cmd.Parameters.AddWithValue("Description", obj.Title);
+                        cmd.Parameters.AddWithValue("Description", obj.Description);
                         cmd.Parameters.AddWithValue("ApplierId", obj.ApplierId);
                         cmd.ExecuteNonQuery();
                         return true;

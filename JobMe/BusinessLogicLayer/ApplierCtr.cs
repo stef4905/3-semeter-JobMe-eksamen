@@ -44,7 +44,7 @@ namespace BusinessLogicLayer
         public Applier Get(int id)
         {
             Applier applier = dbApplier.Get(id);
-            applier.JobCV = jobCVCtr.Get(applier.Id);
+            applier.JobCV = jobCVCtr.Get(applier.JobCV.Id);
             return applier;
         }
 

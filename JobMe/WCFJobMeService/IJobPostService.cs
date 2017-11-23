@@ -12,19 +12,57 @@ namespace WCFJobMeService
     [ServiceContract]
     public interface IJobPostService
     {
-        [OperationContract]
-        List<JobPost> GetAllJobPost();
+     #region WorkHours Service
 
         [OperationContract]
-        void CreateJobPost(JobPost jobPost);
+        void CreateWorkHours(WorkHours obj);
 
         [OperationContract]
-        List<WorkHours> GetlAllWorkHours();
+        void DeleteWorkHours(int id);
+
+        [OperationContract]
+        WorkHours GetWorkHours(int id);
+
+        [OperationContract]
+        List<WorkHours> GetAllWorkHours();
+
+        [OperationContract]
+        void UpdateWorkHours(WorkHours obj);
+        #endregion
+
+     #region JobCategory Service
+        [OperationContract]
+        void CreateJobCategory(JobCategory obj);
+
+        [OperationContract]
+        void DeleteJobCategory(int id);
+
+        [OperationContract]
+        JobCategory GetJobCategory(int id);
 
         [OperationContract]
         List<JobCategory> GetAllJobCategories();
 
         [OperationContract]
-        JobPost Get(int id);
+        void UpdateJobCategory(JobCategory obj);
+        #endregion
+
+     #region JobPost Service
+        [OperationContract]
+        void CreateJobPost(JobPost obj);
+
+        [OperationContract]
+        void DeleteJobPost(int id);
+
+        [OperationContract]
+        JobPost GetJobPost(int id);
+
+        [OperationContract]
+        List<JobPost> GetAllJobPost();
+
+        [OperationContract]
+        void UpdateJobPost(JobPost obj);
+        #endregion
+
     }
 }

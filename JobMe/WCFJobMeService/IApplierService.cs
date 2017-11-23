@@ -19,10 +19,16 @@ namespace WCFJobMeService
         void Create(Applier applier);
 
         [OperationContract]
+        void Delete(int id);
+
+        [OperationContract]
         List<Applier> GetAllAppliers();
 
         [OperationContract]
         Applier GetApplier(int id);
+
+        [OperationContract]
+        void Update(Applier applier);
 
         [OperationContract]
         Applier Login(string email, string password);
