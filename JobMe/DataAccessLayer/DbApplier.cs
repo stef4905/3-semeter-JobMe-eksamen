@@ -129,7 +129,25 @@ namespace DataAccessLayer
                         }
                     }
 
-                    //Executes the JobCategory command for Applier.
+                    Applier applierToReturn = GetJobCategoryOnApplier(applier);
+
+                    return applierToReturn;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns the Applier's JobCategory list. This metod should only be called inside the Get(id) method. Unless other ussage is needed.
+        /// </summary>
+        /// <param name="applier"></param>
+        /// <returns></returns>
+        public Applier GetJobCategoryOnApplier(Applier applier)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
                     cmd.CommandText = "SELECT * FROM ApplierJobCategory WHERE ApplierId = @ApplierId";
                     cmd.Parameters.AddWithValue("ApplierId", applier.Id);
 
@@ -139,7 +157,7 @@ namespace DataAccessLayer
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            
+
                             if (reader.HasRows)
                             {
                                 while (reader.Read())
@@ -155,11 +173,12 @@ namespace DataAccessLayer
                     catch (SqlException e)
                     {
                         throw e;
-                        }
-                        return applier;
                     }
+                    return applier;
                 }
             }
+        }
+        
 
         /// <summary>
         /// Returns a list of all the Appliers
