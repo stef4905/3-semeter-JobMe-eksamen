@@ -157,5 +157,28 @@ namespace DataAccessLayer
                 }
             }
         }
+
+        public bool SendApplication(JobApplication jobApplication, JobPost jobPost)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "INSERT INTO JobApplicationJobPost (JobApplicationId, JobPostId) VALUES (@JobApplicationId, @JobPostId)";
+                        cmd.Parameters.AddWithValue("JobApplicationId", jobApplication.Id);
+                        cmd.Parameters.AddWithValue("JobPostId", jobPost.Id);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException)
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }
