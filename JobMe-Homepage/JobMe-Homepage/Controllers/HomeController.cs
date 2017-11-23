@@ -29,7 +29,7 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult _Logout()
         {
-            Session.Clear();
+            Session.Abandon();
             return RedirectToAction("Index");
         }
     }
