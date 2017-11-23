@@ -1,14 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using ModelLayer;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DataAccessLayer;
+using ModelLayer;
 
-namespace UnitTest.DataAccessLayer
+namespace UnitTestJobMe
 {
     [TestClass]
-    public class DBJobApplicationTest
+    public class UnitTest1
     {
         [TestMethod]
         public void CreateJobApplicationInDB()
@@ -25,3 +23,4 @@ namespace UnitTest.DataAccessLayer
         }
     }
 }
+
