@@ -166,13 +166,21 @@ namespace DataAccessLayer
                     }
                 }
             }
-        
 
+        /// <summary>
+        /// Returns a list of all Appliers
+        /// </summary>
+        /// <returns></returns>
         public List<Applier> GetAll()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Updates the Applier object in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Update(Applier obj)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
