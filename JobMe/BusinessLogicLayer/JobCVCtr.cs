@@ -11,10 +11,8 @@ namespace BusinessLogicLayer
 {
     public class JobCVCtr : IController<JobCV>
     {
-        //Connection to database
-        public static DbConnection DbConnection = new DbConnection();
 
-        public DBJobCV dbJobCV = new DBJobCV(DbConnection);
+        public DBJobCV dbJobCV = new DBJobCV();
         public JobExperienceCtr jobExperienceCtr = new JobExperienceCtr();
         public ApplierEducationCtr applierEducationCtr = new ApplierEducationCtr();
         public JobAppendixCtr jobAppendixCtr = new JobAppendixCtr();

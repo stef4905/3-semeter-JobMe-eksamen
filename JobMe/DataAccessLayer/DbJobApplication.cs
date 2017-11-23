@@ -5,22 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelLayer;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DataAccessLayer
 {
     public class DbJobApplication : IDataAccess<JobApplication>
     {
-        DbConnection conn = new DbConnection();
-/// <summary>
-/// Creates a jobapplication in the database
-/// </summary>
-/// <param name="obj"></param>
-/// <returns></returns>
+
+        //Is an instance of DBConnection
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+
+        /// <summary>
+        /// Creates a jobapplication in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Create(JobApplication obj)
 
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     try
@@ -48,8 +54,9 @@ namespace DataAccessLayer
 
         public JobApplication Get(int id)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM JobApplication WHERE Id = @Id";
@@ -75,8 +82,9 @@ namespace DataAccessLayer
 
         public List<JobApplication> GetAllByApplierId(int ApplierId)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM JobApplication WHERE ApplierId = @ApplierId";

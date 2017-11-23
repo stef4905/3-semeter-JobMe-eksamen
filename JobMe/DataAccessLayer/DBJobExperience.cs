@@ -13,13 +13,7 @@ namespace DataAccessLayer
     {
 
         //Is an instance of DBConnection
-        DbConnection conn = new DbConnection();
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-        public DBJobExperience(DbConnection connection)
-        {
-            conn = connection;
-        }
 
         /// <summary>
         /// Inserts the JobExperince obejct into the database
@@ -28,8 +22,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Create(JobExperience obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     try
@@ -43,7 +38,8 @@ namespace DataAccessLayer
                         cmd.ExecuteNonQuery();
                         return true;
                     }
-                    catch (SqlException) {
+                    catch (SqlException)
+                    {
                         return false;
                     }
                 }
@@ -62,8 +58,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public JobExperience Get(int id)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM JobExperience WHERE Id = @Id";
@@ -136,8 +133,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Update(JobExperience obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     try

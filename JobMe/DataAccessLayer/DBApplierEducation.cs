@@ -21,7 +21,7 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Create(ApplierEducation obj)
         {
-            using (SqlConnection connection = conn.conn)
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
@@ -57,7 +57,7 @@ namespace DataAccessLayer
         /// <returns></returns>
         public ApplierEducation Get(int id)
         {
-            using (SqlConnection connection = conn.conn)
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
@@ -127,7 +127,7 @@ namespace DataAccessLayer
 
         public bool Update(ApplierEducation obj)
         {
-            using (SqlConnection connection = conn.conn)
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())

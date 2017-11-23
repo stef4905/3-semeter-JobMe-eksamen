@@ -10,9 +10,8 @@ namespace BusinessLogicLayer
 {
     public class ApplierEducationCtr : IController<ApplierEducation>
     {
-        public static DbConnection DbConnection = new DbConnection();
 
-        DBApplierEducation dbApplierEducation = new DBApplierEducation(DbConnection);
+        DBApplierEducation dbApplierEducation = new DBApplierEducation();
 
         public void Create(ApplierEducation obj)
         {

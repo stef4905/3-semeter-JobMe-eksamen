@@ -12,13 +12,8 @@ namespace DataAccessLayer
     public class DBJobCV
     {
         //Is an instance of DBConnection
-        public DbConnection conn { get; set; }
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        public DBJobCV(DbConnection connection)
-        {
-            conn = connection;
-        }
 
         /// <summary>
         /// Add the specifik jobcv into the database
@@ -27,8 +22,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public Applier Create(JobCV obj, Applier applier)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     try
@@ -69,9 +65,9 @@ namespace DataAccessLayer
                     cmd.CommandText = "SELECT * FROM JobCV WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("@Id", JobCVId);
                     
-                    DBApplierEducation dbApplierEducation = new DBApplierEducation(conn);
-                    DBJobAppendix dbJobAppendix = new DBJobAppendix(conn);
-                    DBJobExperience dbJobExperience = new DBJobExperience(conn);
+                    DBApplierEducation dbApplierEducation = new DBApplierEducation();
+                    DBJobAppendix dbJobAppendix = new DBJobAppendix();
+                    DBJobExperience dbJobExperience = new DBJobExperience();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
@@ -108,8 +104,9 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Update(JobCV obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     try

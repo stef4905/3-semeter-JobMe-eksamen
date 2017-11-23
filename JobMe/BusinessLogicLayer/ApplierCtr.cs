@@ -10,10 +10,7 @@ namespace BusinessLogicLayer
 {
     public class ApplierCtr : IController<Applier>
     {
-        //Connection to database
-        public static DbConnection DbConnection = new DbConnection();
-
-        public DbApplier dbApplier = new DbApplier(DbConnection);
+        public DbApplier dbApplier = new DbApplier();
         public JobCVCtr jobCVCtr = new JobCVCtr();
 
         public void Create(Applier obj)

@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using ModelLayer;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DataAccessLayer
 {
     public class DbCompany : IDataAccess<Company>
     {
-        /// <summary>
-        /// Opens a new connection to our database
-        /// </summary>
-        DbConnection conn = new DbConnection();
+        //Connection string for instanciating sql connection 
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         /// <summary>
         /// Creates an object and executes it into the database through the database connection.
@@ -22,12 +21,11 @@ namespace DataAccessLayer
         /// <param name="obj"></param>
         public bool Create(Company obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
-
-
                 try
                 {
+                    connection.Open();
                     using (SqlCommand cmd = connection.CreateCommand())
                     {
                         cmd.CommandText = "INSERT INTO Company (Email, Password) VALUES (@Email, @Password)";
@@ -63,8 +61,9 @@ namespace DataAccessLayer
 
             Company company = new Company();
             DBBusinessType dbBusinessType = new DBBusinessType();
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM Company WHERE Id = @Id";
@@ -114,17 +113,15 @@ namespace DataAccessLayer
         /// <returns></returns>
         public Company Login(string email, string password)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 Company company = new Company();
-
-
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM Company WHERE Email = @email AND Password = @password";
                     cmd.Parameters.AddWithValue("email", email);
                     cmd.Parameters.AddWithValue("password", password);
-
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
