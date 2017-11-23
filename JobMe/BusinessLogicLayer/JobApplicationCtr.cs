@@ -10,6 +10,7 @@ namespace BusinessLogicLayer
 {
     public class JobApplicationCtr : IController<JobApplication>
     {
+        //Instance variavbles
         private DbJobApplication dbJobApplication = new DbJobApplication();
 
         /// <summary>
@@ -21,6 +22,10 @@ namespace BusinessLogicLayer
             dbJobApplication.Create(obj);
         }
 
+        /// <summary>
+        /// Deletes a JobApplication by the given id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
