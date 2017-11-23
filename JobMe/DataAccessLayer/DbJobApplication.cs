@@ -46,10 +46,22 @@ namespace DataAccessLayer
             }
 
         }
-
+        /// <summary>
+        /// Deletes a JobApplication in the database from a specific Id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+           using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM JobApplication WHERE Id = @id";
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public JobApplication Get(int id)
@@ -64,7 +76,7 @@ namespace DataAccessLayer
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        JobApplication jobApplication = new JobApplication((int)reader["Id"], (string)reader["Title"], (string)reader["Description"],(int)reader["ApplierId"]);
+                        JobApplication jobApplication = new JobApplication((int)reader["Id"], (string)reader["Title"], (string)reader["Description"], (int)reader["ApplierId"]);
                         return jobApplication;
                     }
                     else
@@ -94,7 +106,7 @@ namespace DataAccessLayer
                     List<JobApplication> jobApplicationList = new List<JobApplication>();
                     while (reader.Read())
                     {
-                        JobApplication jobApplication = new JobApplication((int)reader["Id"],(string)reader["Title"], (string)reader["Description"], (int)reader["ApplierId"]);
+                        JobApplication jobApplication = new JobApplication((int)reader["Id"], (string)reader["Title"], (string)reader["Description"], (int)reader["ApplierId"]);
                         jobApplicationList.Add(jobApplication);
                     }
                     return jobApplicationList;
@@ -104,7 +116,27 @@ namespace DataAccessLayer
 
         public bool Update(JobApplication obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE JobApplication SET Title = @Title, Description = @Description WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("Title", obj.Title);
+                    cmd.Parameters.AddWithValue("Description", obj.Description);
+                    cmd.Parameters.AddWithValue("Id", obj.Id);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException)
+                    {
+                        return false;
+                    }
+                }
+            }
         }
     }
 }
