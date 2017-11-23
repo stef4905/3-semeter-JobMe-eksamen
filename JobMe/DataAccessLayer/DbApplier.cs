@@ -168,7 +168,7 @@ namespace DataAccessLayer
             }
 
         /// <summary>
-        /// Returns a list of all Appliers
+        /// Returns a list of all the Appliers
         /// </summary>
         /// <returns></returns>
         public List<Applier> GetAll()
