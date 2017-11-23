@@ -24,6 +24,15 @@ namespace WCFJobMeService
         }
 
         /// <summary>
+        /// Deletes a specfific Applier by the given id
+        /// </summary>
+        /// <param name="id"></param>
+        public void Delete(int id)
+        {
+            applierCtr.Delete(id);
+        }
+
+        /// <summary>
         /// Returns a list of all Appliers from the database
         /// </summary>
         /// <returns></returns>
@@ -40,6 +49,15 @@ namespace WCFJobMeService
         public Applier GetApplier(int id)
         {
             return applierCtr.Get(id);
+        }
+
+        /// <summary>
+        /// Updates the given Applier
+        /// </summary>
+        /// <param name="applier"></param>
+        public void Update(Applier applier)
+        {
+            applierCtr.Update(applier);
         }
 
         /// <summary>

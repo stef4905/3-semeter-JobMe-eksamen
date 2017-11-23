@@ -24,7 +24,7 @@ namespace WCFJobMeService
         }
 
         /// <summary>
-        /// Deletes a jobapplication by its id
+        /// Deletes a JobApplication by the given id
         /// </summary>
         /// <param name="id"></param>
         public void Delete(int id)
@@ -53,12 +53,12 @@ namespace WCFJobMeService
         }
 
         /// <summary>
-        /// Updates a jobAppliacton object
+        /// Updates the given JobApplication in the database.
         /// </summary>
-        /// <param name="jobapplication"></param>
-        public void update(JobApplication jobapplication)
+        /// <param name="obj"></param>
+        public void Update(JobApplication obj)
         {
-            jobAppCtr.Update(jobapplication);
+            jobAppCtr.Update(obj);
         }
     }
 }

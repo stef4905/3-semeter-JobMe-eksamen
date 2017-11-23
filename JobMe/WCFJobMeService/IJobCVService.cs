@@ -13,6 +13,9 @@ namespace WCFJobMeService
     public interface IJobCVService
     {
         [OperationContract]
+        Applier CreateAndReturnPrimaryKey(JobCV obj, Applier applier);
+
+        [OperationContract]
         void Create(JobCV jobCV);
 
         [OperationContract]

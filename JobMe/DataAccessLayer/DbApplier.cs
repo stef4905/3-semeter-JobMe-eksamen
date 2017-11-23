@@ -62,16 +62,10 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Password", obj.Password);
                     cmd.Parameters.AddWithValue("MaxRadius", 50);
-                    cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
-                    try
-                    {
-                        obj.Id = (int)cmd.ExecuteScalar();
-                        return obj;
-                    }
-                    catch (SqlException)
-                    {
-                        return null;
-                    }
+                    cmd.Parameters.AddWithValue("JobCVId", 1);
+
+                    obj.Id = (int)cmd.ExecuteScalar();
+                    return obj;
                 }
             }
         }
@@ -190,7 +184,7 @@ namespace DataAccessLayer
                 {
                     cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
                         " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
-                        " CurrentJob = @CurrentJob, Birthdate = @Birthdate, JobCVId = @JobCVId" +
+                        " CurrentJob = @CurrentJob, Birthdate = @Birthdate, JobCVId = @JobCVId " +
                         "WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Phone", obj.Phone);
@@ -214,7 +208,8 @@ namespace DataAccessLayer
                         cmd.ExecuteNonQuery();
                         return true;
                     }
-                    catch (SqlException) {
+                    catch (SqlException e) {
+                        throw e;
                         return false;
                     }
                 }

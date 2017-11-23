@@ -15,19 +15,84 @@ namespace WCFJobMeService
         private JobCategoryCtr jobCategoryCtr = new JobCategoryCtr();
         private JobPostCtr jobPostCtr = new JobPostCtr();
 
+
+        #region WorkHours Service
+
         /// <summary>
-        /// Creates an object and executes the Create Method in the JobPostCtr Class
-        /// And puts the object into the database.
+        /// Creates the given WorkHours object in the database.
         /// </summary>
-        /// <param name="jobPost"></param>
-        public void CreateJobPost(JobPost jobPost)
+        /// <param name="obj"></param>
+        public void CreateWorkHours(WorkHours obj)
         {
-            jobPostCtr.Create(jobPost);
+            workHoursCtr.Create(obj);
         }
 
-        public JobPost Get(int id)
+        /// <summary>
+        /// Deletes a specific WorkHours object from the database by the given id.
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteWorkHours(int id)
         {
-            return jobPostCtr.Get(id);
+            workHoursCtr.Delete(id);
+        }
+
+        /// <summary>
+        /// Returns a single WorkHours object from the database by the given id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>WorkHours</returns>
+        public WorkHours GetWorkHours(int id)
+        {
+            return workHoursCtr.Get(id);
+        }
+
+        /// <summary>
+        /// Reutns a list of all WorkHours from the database.
+        /// </summary>
+        /// <returns></returns>
+        public List<WorkHours> GetAllWorkHours()
+        {
+            return workHoursCtr.GetAll();
+        }
+
+        /// <summary>
+        /// Updates the given WorkHours object in the database.
+        /// </summary>
+        /// <param name="obj"></param>
+        public void UpdateWorkHours(WorkHours obj)
+        {
+            workHoursCtr.Update(obj);
+        }
+
+        #endregion
+
+        #region JobCategory Service
+        /// <summary>
+        /// Creates a new JobCategory object in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        public void CreateJobCategory(JobCategory obj)
+        {
+            jobCategoryCtr.Create(obj);
+        }
+
+        /// <summary>
+        /// Deletes a JobCategory in the database by the given id
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteJobCategory(int id)
+        {
+            jobCategoryCtr.Delete(id);
+        }
+
+        /// <summary>
+        /// Returns a single JobCategory by the given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>JobCategory</returns>
+        public JobCategory GetJobCategory(int id)
+        {
+            return jobCategoryCtr.Get(id);
         }
 
         /// <summary>
@@ -41,8 +106,47 @@ namespace WCFJobMeService
         }
 
         /// <summary>
-        /// Gets all objects and from the GetAll Method in the JobPostCtr Class
-        /// And gets all the object from the database.
+        /// Updates the given JobCategory object in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        public void UpdateJobCategory(JobCategory obj)
+        {
+            jobCategoryCtr.Update(obj);
+        }
+        #endregion
+
+        #region JobPost Service
+
+        /// <summary>
+        /// Creates the given JobPost object in the database.
+        /// </summary>
+        /// <param name="obj"></param>
+        public void CreateJobPost(JobPost obj)
+        {
+            jobPostCtr.Create(obj);
+        }
+
+        /// <summary>
+        /// Deletes a specific JobPost in the database by the given id.
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteJobPost(int id)
+        {
+            jobPostCtr.Delete(id);
+        }
+
+        /// <summary>
+        /// Returns a single JobPost object from the database by the given id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public JobPost GetJobPost(int id)
+        {
+            return jobPostCtr.Get(id);
+        }
+
+        /// <summary>
+        /// Returns a list of all JobPost in the database.
         /// </summary>
         /// <returns></returns>
         public List<JobPost> GetAllJobPost()
@@ -51,13 +155,14 @@ namespace WCFJobMeService
         }
 
         /// <summary>
-        /// Gets all objects and from the GetAll Method in the WorkHoursCtr Class
-        /// And gets all the object from the database.
+        /// Updates the given JobPost object in the database.
         /// </summary>
-        /// <returns></returns>
-        public List<WorkHours> GetlAllWorkHours()
+        /// <param name="obj"></param>
+        public void UpdateJobPost(JobPost obj)
         {
-            return workHoursCtr.GetAll();
+            jobPostCtr.Update(obj);
         }
+
+        #endregion
     }
 }

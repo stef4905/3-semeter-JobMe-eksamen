@@ -45,6 +45,7 @@ namespace DataAccessLayer
             using(SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
+                connection.Open();
                 using(SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM BusinessType WHERE Id = @Id";
