@@ -13,6 +13,10 @@ namespace BusinessLogicLayer
         public DbApplier dbApplier = new DbApplier();
         public JobCVCtr jobCVCtr = new JobCVCtr();
 
+        /// <summary>
+        /// Inserts the Applier in the database.
+        /// </summary>
+        /// <param name="obj"></param>
         public void Create(Applier obj)
         {
             try {
@@ -23,11 +27,13 @@ namespace BusinessLogicLayer
             {
                 throw exeption;
             }
-
-
-
          }
 
+
+        /// <summary>
+        /// Deletes a Applier in the database using the given id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -37,7 +43,7 @@ namespace BusinessLogicLayer
         /// Returns the whole applier and Jobcategory list for the specific applier.
         /// </summary>
         /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>Applier object</returns>
         public Applier Get(int id)
         {
             Applier applier = dbApplier.Get(id);
@@ -45,11 +51,19 @@ namespace BusinessLogicLayer
             return applier;
         }
 
+        /// <summary>
+        /// Returns a List of all Appliers in the database.
+        /// </summary>
+        /// <returns>List of Appliers</returns>
         public List<Applier> GetAll()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Updates Applier in the database.
+        /// </summary>
+        /// <param name="obj"></param>
         public void Update(Applier obj)
         {
             dbApplier.Update(obj);
@@ -57,7 +71,7 @@ namespace BusinessLogicLayer
 
 
         /// <summary>
-        /// returns an Appiler with the given param
+        /// returns an Appiler with the given param from the login
         /// </summary>
         /// <param name="email"></param>
         /// <param name="password"></param>
