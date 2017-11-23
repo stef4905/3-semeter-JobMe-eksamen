@@ -20,14 +20,10 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public void Create(Applier obj)
         {
-            try {
                 Applier applier = dbApplier.CreateAndReturnApplier(obj);
-                Applier applierReturned = jobCVCtr.CreateAndReturnPrimaryKey(new JobCV(), applier);
-                Update(applierReturned);
-            } catch (Exception exeption)
-            {
-                throw exeption;
-            }
+                applier.JobCV = new JobCV(0, "Ikke endnu redigeret", 0, "Bio tekst");
+                Applier applierReturned = jobCVCtr.CreateAndReturnPrimaryKey(applier.JobCV, applier);
+                Update(applierReturned);      
          }
 
 
@@ -48,7 +44,7 @@ namespace BusinessLogicLayer
         public Applier Get(int id)
         {
             Applier applier = dbApplier.Get(id);
-           applier.JobCV = jobCVCtr.Get(applier.Id);
+            applier.JobCV = jobCVCtr.Get(applier.Id);
             return applier;
         }
 

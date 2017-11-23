@@ -27,18 +27,11 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    try
-                    {
                         cmd.CommandText = "INSERT INTO JobCV (Title, Bio) output INSERTED.Id VALUES (@Title, @Bio)";
                         cmd.Parameters.AddWithValue("Title", obj.Title);
                         cmd.Parameters.AddWithValue("Bio", obj.Bio);
                         applier.JobCV.Id = (int)cmd.ExecuteScalar();
                         return applier;
-                    }
-                    catch (SqlException)
-                    {
-                        return null;
-                    }
                 }
             }
 
