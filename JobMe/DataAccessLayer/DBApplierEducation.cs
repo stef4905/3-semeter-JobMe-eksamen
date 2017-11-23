@@ -11,14 +11,8 @@ namespace DataAccessLayer
 {
     public class DBApplierEducation : IDataAccess<ApplierEducation>
     {
-        //Is an instance of DBConnection
-        public static DbConnection conn { get; set; }
+        //Connection string for instanciating sql connection 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-        public DBApplierEducation(DbConnection connection)
-        {
-            conn = connection;
-        }
 
         /// <summary>
         /// Inserts the ApplierEducation Object into the database

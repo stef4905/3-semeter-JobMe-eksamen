@@ -12,14 +12,10 @@ namespace DataAccessLayer
 {
     public class DbApplier : IDataAccess<Applier>
     {
-        //Is an instance of DBConnection
-        public DbConnection conn { get; set; }
-        public string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        //Connection string for instanciating sql connection 
+        private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        public DbApplier(DbConnection connection)
-        {
-            conn = connection;
-        }
+
 
 
         /// <summary>
@@ -28,8 +24,9 @@ namespace DataAccessLayer
         /// <param name="obj">Is a Applier object</param>
         public bool Create(Applier obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                         cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
@@ -56,8 +53,9 @@ namespace DataAccessLayer
         /// <param name="obj">Is a Applier object</param>
         public Applier CreateAndReturnApplier(Applier obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) output INSERTED.Id VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
@@ -114,7 +112,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("id", id);
 
 
-                    DBJobCV dbJobCV = new DBJobCV(conn);
+                    DBJobCV dbJobCV = new DBJobCV();
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
@@ -177,8 +175,9 @@ namespace DataAccessLayer
 
         public bool Update(Applier obj)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
@@ -223,17 +222,16 @@ namespace DataAccessLayer
         /// <returns></returns>
         public Applier Login(string email, string password)
         {
-            using (SqlConnection connection = conn.OpenConnection())
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 Applier applier = new Applier();
 
-
+                connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM Applier WHERE Email = @email AND Password = @password";
                     cmd.Parameters.AddWithValue("email", email);
                     cmd.Parameters.AddWithValue("password", password);
-
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
@@ -252,14 +250,11 @@ namespace DataAccessLayer
 
                     }
                     reader.Close();
-
-
                     if (applier.Email == email && applier.Password == password && applier.Description != null)
                     {
                         Applier Login = Get(applier.Id);
                         return Login;
                     }
-
                     else
                     {
                         if (applier.Email == email && applier.Password == password)
@@ -267,14 +262,10 @@ namespace DataAccessLayer
                             return applier;
                         }
                     }
-
                     return null;
-
                 }
             }
         }
-
-
 
     }
 }
