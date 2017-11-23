@@ -114,7 +114,7 @@ namespace JobMe_Homepage.Controllers
 
 
         #region JobApplication
-        public ActionResult JobApplication(int id)
+        public ActionResult JobApplication()
         {
             //Hovedside til jobapplikation og cv of the applier
             Applier applier = Session["applier"] as Applier;
@@ -131,9 +131,48 @@ namespace JobMe_Homepage.Controllers
 
 
 
-            return View(/*vmJobCVAndApplication*/);
+            return View(vmApplierAndApplication);
         }
 
+        [HttpPost]
+        public ActionResult CreateApplication(string title, string description, int applierId)
+        {
+
+            JobApplication jobApplication = new JobApplication
+            {
+                Title = title,
+                Description = description,
+                ApplierId = applierId
+            };
+
+
+            jobApplicationClient.Create(jobApplication);
+            TempData["Success"] = "Successfuld oprettet!";
+            return RedirectToAction("JobApplication");
+        }
+
+        [HttpPost]
+        public ActionResult UpdateApplication(string title, string description, int id)
+        {
+            JobApplication jobApplication = new JobApplication
+            {
+                Title = title,
+                Description = description,
+                Id = id
+            };
+          
+
+            jobApplicationClient.update(jobApplication);
+            TempData["Success"] = "Successfuld opdateret!";
+            return RedirectToAction("JobApplication");
+        }
+        
+        public ActionResult DeleteApplication(int id)
+        {
+            jobApplicationClient.Delete(id);
+            TempData["Success"] = "Successfuld slettet!";
+            return RedirectToAction("JobApplication");
+        }
         public ActionResult _JobApplication()
         {
             //Job applikation siden kun ikke lavet endnu i WCF
@@ -177,13 +216,12 @@ namespace JobMe_Homepage.Controllers
 
             //Mangler fagterm.
             applier = Session["applier"] as Applier;
-
             return PartialView(applier);
         }
 
         public ActionResult JobPost(int id)
         {
-            JobPostServiceReference.JobPost jobPost = jobClient.Get(id);
+            JobPost jobPost = jobClient.Get(id);
             return View(jobPost);
         }
     }
