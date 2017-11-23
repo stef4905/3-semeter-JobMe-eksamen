@@ -11,10 +11,8 @@ namespace DataAccessLayer
 {
     public class DbJobPost : IDataAccess<JobPost>
     {
-        //Is an instance of DBConnection
+        //Instance variables
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-
 
         /// <summary>
         /// Create an JobPost Object and executes it into the databases through the database connection
@@ -52,9 +50,10 @@ namespace DataAccessLayer
             }
         }
 
-
-
-
+        /// <summary>
+        /// Deletes a specific JobPost by the given id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -137,6 +136,12 @@ namespace DataAccessLayer
             return jobPostList;
         }
 
+
+        /// <summary>
+        /// Updates the given JobPost object in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>Bool to ensure update was succesfull</returns>
         public bool Update(JobPost obj)
         {
             throw new NotImplementedException();

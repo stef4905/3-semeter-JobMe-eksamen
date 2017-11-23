@@ -15,8 +15,7 @@ namespace DataAccessLayer
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         /// <summary>
-        /// Creates an object and executes it into the database through the database connection.
-        /// Its protected against SQL Injections with Parameters.
+        /// Creates a new Company in the database by the given Company obejct
         /// </summary>
         /// <param name="obj"></param>
         public bool Create(Company obj)
@@ -45,7 +44,10 @@ namespace DataAccessLayer
             }
         }
 
-
+        /// <summary>
+        /// Deletes a single Company in the database by the given id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -95,11 +97,20 @@ namespace DataAccessLayer
             return company;
         }
 
+        /// <summary>
+        /// Returns a list of all Companies from the database
+        /// </summary>
+        /// <returns>List of all Company</returns>
         public List<Company> GetAll()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Updates the given Company object in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>A Bool to ensure the update</returns>
         public bool Update(Company obj)
         {
             throw new NotImplementedException();

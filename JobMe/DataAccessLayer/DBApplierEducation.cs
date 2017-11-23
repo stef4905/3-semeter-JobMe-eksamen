@@ -15,7 +15,7 @@ namespace DataAccessLayer
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         /// <summary>
-        /// Inserts the ApplierEducation Object into the database
+        /// Creates a new ApplierEducation in the database, by the given ApplierEducation object
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -45,6 +45,10 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Deletes a single ApplierEdiucation in the database, by the given id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -85,7 +89,7 @@ namespace DataAccessLayer
         }
 
         /// <summary>
-        /// Returns a list of all ApplierEducations the Applier has.
+        /// Returns a list of all ApplierEducations in the database.
         /// </summary>
         /// <returns></returns>
         public List<ApplierEducation> GetAll()
@@ -94,7 +98,7 @@ namespace DataAccessLayer
         }
 
         /// <summary>
-        /// Returns a list of all ApplierEducations with the corosponding JobCVID
+        /// Returns a list of all ApplierEducations with the corosponding JobCVID from the Applier
         /// </summary>
         /// <param name="jobCVId"></param>
         /// <returns></returns>
@@ -130,7 +134,7 @@ namespace DataAccessLayer
         }
 
         /// <summary>
-        /// Updates ApplierEducations the Applier has.
+        /// Updates the given ApplierEducations in the database
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>

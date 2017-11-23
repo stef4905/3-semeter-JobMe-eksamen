@@ -12,7 +12,7 @@ namespace DataAccessLayer
     public class DBJobExperience: IDataAccess<JobExperience>
     {
 
-        //Is an instance of DBConnection
+        //Instance variables
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         /// <summary>
@@ -46,6 +46,10 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Deletes the specific JobExperience in the database with the given id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
@@ -85,6 +89,10 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Returns a list of all JobExperience from the database
+        /// </summary>
+        /// <returns>List of all JobExperiences</returns>
         public List<JobExperience> GetAll()
         {
             throw new NotImplementedException();

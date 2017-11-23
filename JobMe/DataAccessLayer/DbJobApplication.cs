@@ -12,12 +12,12 @@ namespace DataAccessLayer
     public class DbJobApplication : IDataAccess<JobApplication>
     {
 
-        //Is an instance of DBConnection
+        //Instance variables
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
 
         /// <summary>
-        /// Creates a jobapplication in the database
+        /// Creates the given JobApplication in the database
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
@@ -64,6 +64,11 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Returns a specific JobApplication by the given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>JobApplication</returns>
         public JobApplication Get(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -87,11 +92,20 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Returns a list of all JobApplciations in the database
+        /// </summary>
+        /// <returns>List of all JobApplication</returns>
         public List<JobApplication> GetAll()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns a list of JobApplication from the database, that has the corosponding ApplierId from the Applier
+        /// </summary>
+        /// <param name="ApplierId"></param>
+        /// <returns></returns>
         public List<JobApplication> GetAllByApplierId(int ApplierId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -114,6 +128,11 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Updates the given JobApplication object in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Update(JobApplication obj)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
