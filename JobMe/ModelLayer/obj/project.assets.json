@@ -216,11 +216,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sofie\\source\\repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj",
+      "projectUniqueName": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj",
       "projectName": "ModelLayer",
-      "projectPath": "C:\\Users\\sofie\\source\\repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj",
+      "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj",
       "packagesPath": "C:\\Users\\sofie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sofie\\source\\repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\obj\\",
+      "outputPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [

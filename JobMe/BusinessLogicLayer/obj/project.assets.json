@@ -336,11 +336,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sofie\\source\\repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+      "projectUniqueName": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
       "projectName": "BusinessLogicLayer",
-      "projectPath": "C:\\Users\\sofie\\source\\repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+      "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
       "packagesPath": "C:\\Users\\sofie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sofie\\source\\repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\obj\\",
+      "outputPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -357,11 +357,11 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\sofie\\source\\repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\sofie\\source\\repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj"
+            "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj"
             },
-            "C:\\Users\\sofie\\source\\repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\sofie\\source\\repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }
