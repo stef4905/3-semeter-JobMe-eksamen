@@ -31,6 +31,8 @@ namespace ModelLayer
         [DataMember]
         public JobCategory jobCategory { get; set; }
 
+       
+
         /// <summary>
         /// Contructor for the JobPost calss
         /// Sets the required parameters for the JobPost Class.

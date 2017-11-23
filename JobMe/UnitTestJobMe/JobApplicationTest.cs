@@ -66,6 +66,28 @@ namespace UnitTestJobMe
         }
 
 
+        [TestMethod]
+        public void SendJobApplicationInDB()
+        {
+            //Arrange
+            DbJobApplication dbJobApplication = new DbJobApplication();
+
+            JobPost jobPost = new JobPost();
+            jobPost.Id = 1;
+
+            JobApplication jobApplication = new JobApplication(6, "eheh", "dsfs", 15);
+
+    
+            //Act
+        
+
+            bool send = dbJobApplication.SendApplication(jobApplication, jobPost);
+
+            //Assert
+            Assert.IsTrue(send);
+        }
+
+
 
 
 
