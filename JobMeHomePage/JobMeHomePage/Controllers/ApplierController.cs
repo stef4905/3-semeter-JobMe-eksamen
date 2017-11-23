@@ -75,7 +75,7 @@ namespace JobMeHomePage.Controllers
 
             VM.JobPostList = jobClient.GetAllJobPost().ToList();
             VM.JobCategoryList = jobClient.GetAllJobCategories().ToList();
-            VM.WorkHoursList = jobClient.GetlAllWorkHours().ToList();
+            VM.WorkHoursList = jobClient.GetAllWorkHours().ToList();
 
             return View(VM);
         }
@@ -106,7 +106,7 @@ namespace JobMeHomePage.Controllers
             }
             VM.JobPostList = JobPostsList.ToList();
             VM.JobCategoryList = jobClient.GetAllJobCategories().ToList();
-            VM.WorkHoursList = jobClient.GetlAllWorkHours().ToList();
+            VM.WorkHoursList = jobClient.GetAllWorkHours().ToList();
             ViewBag.SearchField = "Søgeord:" + search;
             return View(VM);
         }
@@ -115,7 +115,7 @@ namespace JobMeHomePage.Controllers
 
 
         #region JobApplication
-        public ActionResult JobApplication(int id, int jobApplicationId)
+        public ActionResult JobApplication(int id)
         {
             //Hovedside til jobapplikation og cv of the applier
             Applier applier = client.GetApplier(id);

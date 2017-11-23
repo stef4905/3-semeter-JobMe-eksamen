@@ -15,6 +15,128 @@ namespace JobMeHomePage.JobPostServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WorkHours", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class WorkHours : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Type {
+            get {
+                return this.TypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
+                    this.TypeField = value;
+                    this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JobCategory", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class JobCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="JobPost", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
     [System.SerializableAttribute()]
     public partial class JobPost : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -457,128 +579,6 @@ namespace JobMeHomePage.JobPostServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="JobCategory", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
-    [System.SerializableAttribute()]
-    public partial class JobCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TitleField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Title {
-            get {
-                return this.TitleField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
-                    this.TitleField = value;
-                    this.RaisePropertyChanged("Title");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WorkHours", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
-    [System.SerializableAttribute()]
-    public partial class WorkHours : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TypeField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Type {
-            get {
-                return this.TypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TypeField, value) != true)) {
-                    this.TypeField = value;
-                    this.RaisePropertyChanged("Type");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BusinessType", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
     [System.SerializableAttribute()]
     public partial class BusinessType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -642,23 +642,53 @@ namespace JobMeHomePage.JobPostServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="JobPostServiceReference.IJobPostService")]
     public interface IJobPostService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPost", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostResponse")]
-        JobMeHomePage.JobPostServiceReference.JobPost[] GetAllJobPost();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/CreateWorkHours", ReplyAction="http://tempuri.org/IJobPostService/CreateWorkHoursResponse")]
+        void CreateWorkHours(JobMeHomePage.JobPostServiceReference.WorkHours obj);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPost", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostResponse")]
-        System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobPost[]> GetAllJobPostAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/CreateWorkHours", ReplyAction="http://tempuri.org/IJobPostService/CreateWorkHoursResponse")]
+        System.Threading.Tasks.Task CreateWorkHoursAsync(JobMeHomePage.JobPostServiceReference.WorkHours obj);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/CreateJobPost", ReplyAction="http://tempuri.org/IJobPostService/CreateJobPostResponse")]
-        void CreateJobPost(JobMeHomePage.JobPostServiceReference.JobPost jobPost);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/DeleteWorkHours", ReplyAction="http://tempuri.org/IJobPostService/DeleteWorkHoursResponse")]
+        void DeleteWorkHours(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/CreateJobPost", ReplyAction="http://tempuri.org/IJobPostService/CreateJobPostResponse")]
-        System.Threading.Tasks.Task CreateJobPostAsync(JobMeHomePage.JobPostServiceReference.JobPost jobPost);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/DeleteWorkHours", ReplyAction="http://tempuri.org/IJobPostService/DeleteWorkHoursResponse")]
+        System.Threading.Tasks.Task DeleteWorkHoursAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetlAllWorkHours", ReplyAction="http://tempuri.org/IJobPostService/GetlAllWorkHoursResponse")]
-        JobMeHomePage.JobPostServiceReference.WorkHours[] GetlAllWorkHours();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetWorkHours", ReplyAction="http://tempuri.org/IJobPostService/GetWorkHoursResponse")]
+        JobMeHomePage.JobPostServiceReference.WorkHours GetWorkHours(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetlAllWorkHours", ReplyAction="http://tempuri.org/IJobPostService/GetlAllWorkHoursResponse")]
-        System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.WorkHours[]> GetlAllWorkHoursAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetWorkHours", ReplyAction="http://tempuri.org/IJobPostService/GetWorkHoursResponse")]
+        System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.WorkHours> GetWorkHoursAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllWorkHours", ReplyAction="http://tempuri.org/IJobPostService/GetAllWorkHoursResponse")]
+        JobMeHomePage.JobPostServiceReference.WorkHours[] GetAllWorkHours();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllWorkHours", ReplyAction="http://tempuri.org/IJobPostService/GetAllWorkHoursResponse")]
+        System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.WorkHours[]> GetAllWorkHoursAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateWorkHours", ReplyAction="http://tempuri.org/IJobPostService/UpdateWorkHoursResponse")]
+        void UpdateWorkHours(JobMeHomePage.JobPostServiceReference.WorkHours obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateWorkHours", ReplyAction="http://tempuri.org/IJobPostService/UpdateWorkHoursResponse")]
+        System.Threading.Tasks.Task UpdateWorkHoursAsync(JobMeHomePage.JobPostServiceReference.WorkHours obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/CreateJobCategory", ReplyAction="http://tempuri.org/IJobPostService/CreateJobCategoryResponse")]
+        void CreateJobCategory(JobMeHomePage.JobPostServiceReference.JobCategory obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/CreateJobCategory", ReplyAction="http://tempuri.org/IJobPostService/CreateJobCategoryResponse")]
+        System.Threading.Tasks.Task CreateJobCategoryAsync(JobMeHomePage.JobPostServiceReference.JobCategory obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/DeleteJobCategory", ReplyAction="http://tempuri.org/IJobPostService/DeleteJobCategoryResponse")]
+        void DeleteJobCategory(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/DeleteJobCategory", ReplyAction="http://tempuri.org/IJobPostService/DeleteJobCategoryResponse")]
+        System.Threading.Tasks.Task DeleteJobCategoryAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobCategory", ReplyAction="http://tempuri.org/IJobPostService/GetJobCategoryResponse")]
+        JobMeHomePage.JobPostServiceReference.JobCategory GetJobCategory(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobCategory", ReplyAction="http://tempuri.org/IJobPostService/GetJobCategoryResponse")]
+        System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobCategory> GetJobCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobCategories", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobCategoriesResponse")]
         JobMeHomePage.JobPostServiceReference.JobCategory[] GetAllJobCategories();
@@ -666,11 +696,41 @@ namespace JobMeHomePage.JobPostServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobCategories", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobCategoriesResponse")]
         System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobCategory[]> GetAllJobCategoriesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/Get", ReplyAction="http://tempuri.org/IJobPostService/GetResponse")]
-        JobMeHomePage.JobPostServiceReference.JobPost Get(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateJobCategory", ReplyAction="http://tempuri.org/IJobPostService/UpdateJobCategoryResponse")]
+        void UpdateJobCategory(JobMeHomePage.JobPostServiceReference.JobCategory obj);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/Get", ReplyAction="http://tempuri.org/IJobPostService/GetResponse")]
-        System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobPost> GetAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateJobCategory", ReplyAction="http://tempuri.org/IJobPostService/UpdateJobCategoryResponse")]
+        System.Threading.Tasks.Task UpdateJobCategoryAsync(JobMeHomePage.JobPostServiceReference.JobCategory obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/CreateJobPost", ReplyAction="http://tempuri.org/IJobPostService/CreateJobPostResponse")]
+        void CreateJobPost(JobMeHomePage.JobPostServiceReference.JobPost obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/CreateJobPost", ReplyAction="http://tempuri.org/IJobPostService/CreateJobPostResponse")]
+        System.Threading.Tasks.Task CreateJobPostAsync(JobMeHomePage.JobPostServiceReference.JobPost obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/DeleteJobPost", ReplyAction="http://tempuri.org/IJobPostService/DeleteJobPostResponse")]
+        void DeleteJobPost(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/DeleteJobPost", ReplyAction="http://tempuri.org/IJobPostService/DeleteJobPostResponse")]
+        System.Threading.Tasks.Task DeleteJobPostAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPost", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostResponse")]
+        JobMeHomePage.JobPostServiceReference.JobPost GetJobPost(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPost", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostResponse")]
+        System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobPost> GetJobPostAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPost", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostResponse")]
+        JobMeHomePage.JobPostServiceReference.JobPost[] GetAllJobPost();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPost", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostResponse")]
+        System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobPost[]> GetAllJobPostAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateJobPost", ReplyAction="http://tempuri.org/IJobPostService/UpdateJobPostResponse")]
+        void UpdateJobPost(JobMeHomePage.JobPostServiceReference.JobPost obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateJobPost", ReplyAction="http://tempuri.org/IJobPostService/UpdateJobPostResponse")]
+        System.Threading.Tasks.Task UpdateJobPostAsync(JobMeHomePage.JobPostServiceReference.JobPost obj);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -700,28 +760,68 @@ namespace JobMeHomePage.JobPostServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public JobMeHomePage.JobPostServiceReference.JobPost[] GetAllJobPost() {
-            return base.Channel.GetAllJobPost();
+        public void CreateWorkHours(JobMeHomePage.JobPostServiceReference.WorkHours obj) {
+            base.Channel.CreateWorkHours(obj);
         }
         
-        public System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobPost[]> GetAllJobPostAsync() {
-            return base.Channel.GetAllJobPostAsync();
+        public System.Threading.Tasks.Task CreateWorkHoursAsync(JobMeHomePage.JobPostServiceReference.WorkHours obj) {
+            return base.Channel.CreateWorkHoursAsync(obj);
         }
         
-        public void CreateJobPost(JobMeHomePage.JobPostServiceReference.JobPost jobPost) {
-            base.Channel.CreateJobPost(jobPost);
+        public void DeleteWorkHours(int id) {
+            base.Channel.DeleteWorkHours(id);
         }
         
-        public System.Threading.Tasks.Task CreateJobPostAsync(JobMeHomePage.JobPostServiceReference.JobPost jobPost) {
-            return base.Channel.CreateJobPostAsync(jobPost);
+        public System.Threading.Tasks.Task DeleteWorkHoursAsync(int id) {
+            return base.Channel.DeleteWorkHoursAsync(id);
         }
         
-        public JobMeHomePage.JobPostServiceReference.WorkHours[] GetlAllWorkHours() {
-            return base.Channel.GetlAllWorkHours();
+        public JobMeHomePage.JobPostServiceReference.WorkHours GetWorkHours(int id) {
+            return base.Channel.GetWorkHours(id);
         }
         
-        public System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.WorkHours[]> GetlAllWorkHoursAsync() {
-            return base.Channel.GetlAllWorkHoursAsync();
+        public System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.WorkHours> GetWorkHoursAsync(int id) {
+            return base.Channel.GetWorkHoursAsync(id);
+        }
+        
+        public JobMeHomePage.JobPostServiceReference.WorkHours[] GetAllWorkHours() {
+            return base.Channel.GetAllWorkHours();
+        }
+        
+        public System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.WorkHours[]> GetAllWorkHoursAsync() {
+            return base.Channel.GetAllWorkHoursAsync();
+        }
+        
+        public void UpdateWorkHours(JobMeHomePage.JobPostServiceReference.WorkHours obj) {
+            base.Channel.UpdateWorkHours(obj);
+        }
+        
+        public System.Threading.Tasks.Task UpdateWorkHoursAsync(JobMeHomePage.JobPostServiceReference.WorkHours obj) {
+            return base.Channel.UpdateWorkHoursAsync(obj);
+        }
+        
+        public void CreateJobCategory(JobMeHomePage.JobPostServiceReference.JobCategory obj) {
+            base.Channel.CreateJobCategory(obj);
+        }
+        
+        public System.Threading.Tasks.Task CreateJobCategoryAsync(JobMeHomePage.JobPostServiceReference.JobCategory obj) {
+            return base.Channel.CreateJobCategoryAsync(obj);
+        }
+        
+        public void DeleteJobCategory(int id) {
+            base.Channel.DeleteJobCategory(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteJobCategoryAsync(int id) {
+            return base.Channel.DeleteJobCategoryAsync(id);
+        }
+        
+        public JobMeHomePage.JobPostServiceReference.JobCategory GetJobCategory(int id) {
+            return base.Channel.GetJobCategory(id);
+        }
+        
+        public System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobCategory> GetJobCategoryAsync(int id) {
+            return base.Channel.GetJobCategoryAsync(id);
         }
         
         public JobMeHomePage.JobPostServiceReference.JobCategory[] GetAllJobCategories() {
@@ -732,12 +832,52 @@ namespace JobMeHomePage.JobPostServiceReference {
             return base.Channel.GetAllJobCategoriesAsync();
         }
         
-        public JobMeHomePage.JobPostServiceReference.JobPost Get(int id) {
-            return base.Channel.Get(id);
+        public void UpdateJobCategory(JobMeHomePage.JobPostServiceReference.JobCategory obj) {
+            base.Channel.UpdateJobCategory(obj);
         }
         
-        public System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobPost> GetAsync(int id) {
-            return base.Channel.GetAsync(id);
+        public System.Threading.Tasks.Task UpdateJobCategoryAsync(JobMeHomePage.JobPostServiceReference.JobCategory obj) {
+            return base.Channel.UpdateJobCategoryAsync(obj);
+        }
+        
+        public void CreateJobPost(JobMeHomePage.JobPostServiceReference.JobPost obj) {
+            base.Channel.CreateJobPost(obj);
+        }
+        
+        public System.Threading.Tasks.Task CreateJobPostAsync(JobMeHomePage.JobPostServiceReference.JobPost obj) {
+            return base.Channel.CreateJobPostAsync(obj);
+        }
+        
+        public void DeleteJobPost(int id) {
+            base.Channel.DeleteJobPost(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteJobPostAsync(int id) {
+            return base.Channel.DeleteJobPostAsync(id);
+        }
+        
+        public JobMeHomePage.JobPostServiceReference.JobPost GetJobPost(int id) {
+            return base.Channel.GetJobPost(id);
+        }
+        
+        public System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobPost> GetJobPostAsync(int id) {
+            return base.Channel.GetJobPostAsync(id);
+        }
+        
+        public JobMeHomePage.JobPostServiceReference.JobPost[] GetAllJobPost() {
+            return base.Channel.GetAllJobPost();
+        }
+        
+        public System.Threading.Tasks.Task<JobMeHomePage.JobPostServiceReference.JobPost[]> GetAllJobPostAsync() {
+            return base.Channel.GetAllJobPostAsync();
+        }
+        
+        public void UpdateJobPost(JobMeHomePage.JobPostServiceReference.JobPost obj) {
+            base.Channel.UpdateJobPost(obj);
+        }
+        
+        public System.Threading.Tasks.Task UpdateJobPostAsync(JobMeHomePage.JobPostServiceReference.JobPost obj) {
+            return base.Channel.UpdateJobPostAsync(obj);
         }
     }
 }

@@ -116,6 +116,12 @@ namespace JobMeHomePage.JobApplicationServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/Create", ReplyAction="http://tempuri.org/IJobApplicationService/CreateResponse")]
         System.Threading.Tasks.Task CreateAsync(JobMeHomePage.JobApplicationServiceReference.JobApplication jobApplication);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/Delete", ReplyAction="http://tempuri.org/IJobApplicationService/DeleteResponse")]
+        void Delete(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/Delete", ReplyAction="http://tempuri.org/IJobApplicationService/DeleteResponse")]
+        System.Threading.Tasks.Task DeleteAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/Get", ReplyAction="http://tempuri.org/IJobApplicationService/GetResponse")]
         JobMeHomePage.JobApplicationServiceReference.JobApplication Get(int id);
         
@@ -127,6 +133,12 @@ namespace JobMeHomePage.JobApplicationServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/GetAllByApplierId", ReplyAction="http://tempuri.org/IJobApplicationService/GetAllByApplierIdResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<JobMeHomePage.JobApplicationServiceReference.JobApplication>> GetAllByApplierIdAsync(int applierId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/Update", ReplyAction="http://tempuri.org/IJobApplicationService/UpdateResponse")]
+        void Update(JobMeHomePage.JobApplicationServiceReference.JobApplication obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/Update", ReplyAction="http://tempuri.org/IJobApplicationService/UpdateResponse")]
+        System.Threading.Tasks.Task UpdateAsync(JobMeHomePage.JobApplicationServiceReference.JobApplication obj);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -164,6 +176,14 @@ namespace JobMeHomePage.JobApplicationServiceReference {
             return base.Channel.CreateAsync(jobApplication);
         }
         
+        public void Delete(int id) {
+            base.Channel.Delete(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteAsync(int id) {
+            return base.Channel.DeleteAsync(id);
+        }
+        
         public JobMeHomePage.JobApplicationServiceReference.JobApplication Get(int id) {
             return base.Channel.Get(id);
         }
@@ -178,6 +198,14 @@ namespace JobMeHomePage.JobApplicationServiceReference {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMeHomePage.JobApplicationServiceReference.JobApplication>> GetAllByApplierIdAsync(int applierId) {
             return base.Channel.GetAllByApplierIdAsync(applierId);
+        }
+        
+        public void Update(JobMeHomePage.JobApplicationServiceReference.JobApplication obj) {
+            base.Channel.Update(obj);
+        }
+        
+        public System.Threading.Tasks.Task UpdateAsync(JobMeHomePage.JobApplicationServiceReference.JobApplication obj) {
+            return base.Channel.UpdateAsync(obj);
         }
     }
 }

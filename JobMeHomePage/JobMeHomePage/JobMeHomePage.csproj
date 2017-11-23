@@ -208,6 +208,9 @@
     <Content Include="Connected Services\CompanyServiceReference\JobMeHomePage.CompanyServiceReference.Company.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\CompanyServiceReference\JobMeHomePage.CompanyServiceReference.JobPost.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\CompanyServiceReference\ModelLayer.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -89,6 +89,7 @@ C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMeHomePage\JobMeHomePage\obj\D
 C:\Users\wow99\Source\Repos\3-Semester-Projekt\JobMeHomePage\JobMeHomePage\obj\Debug\JobMeHomePage.pdb
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\obj\Debug\JobMeHomePage.csprojResolveAssemblyReference.cache
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\obj\Debug\JobMeHomePage.csproj.CoreCompileInputs.cache
+C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\obj\Debug\JobMeHomePage.csprojResolveAssemblyReference.cache
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\bin\ApplicationInsights.config
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\bin\JobMeHomePage.dll.config
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\bin\JobMeHomePage.dll
@@ -181,4 +182,3 @@ C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\bin\System.Web.WebPages.Razor.xml
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\obj\Debug\JobMeHomePage.dll
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\obj\Debug\JobMeHomePage.pdb
-C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMeHomePage\JobMeHomePage\obj\Debug\JobMeHomePage.csprojResolveAssemblyReference.cache
