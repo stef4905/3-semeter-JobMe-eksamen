@@ -28,7 +28,7 @@ namespace BusinessLogicLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            dbJobApplication.Delete(id);
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public void Update(JobApplication obj)
         {
-            throw new NotImplementedException();
+            dbJobApplication.Update(obj);
         }
     }
 }
