@@ -21,7 +21,6 @@ C:\Users\sofie\source\repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\j
 C:\Users\sofie\source\repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\sofie\source\repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\sofie\source\repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\sofie\source\repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
 C:\Users\sofie\source\repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
 C:\Users\sofie\source\repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.dll
 C:\Users\sofie\source\repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.pdb

@@ -1,5 +1,0 @@
-C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\UnitTest\bin\Debug\netcoreapp1.1\UnitTest.deps.json
-C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\UnitTest\bin\Debug\netcoreapp1.1\UnitTest.runtimeconfig.json
-C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\UnitTest\bin\Debug\netcoreapp1.1\UnitTest.runtimeconfig.dev.json
-C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\UnitTest\obj\Debug\netcoreapp1.1\UnitTest.csprojResolveAssemblyReference.cache
-C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\UnitTest\obj\Debug\netcoreapp1.1\UnitTest.AssemblyInfo.cs
