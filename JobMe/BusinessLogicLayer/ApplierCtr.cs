@@ -10,6 +10,7 @@ namespace BusinessLogicLayer
 {
     public class ApplierCtr : IController<Applier>
     {
+        //Instance Variables
         public DbApplier dbApplier = new DbApplier();
         public JobCVCtr jobCVCtr = new JobCVCtr();
 

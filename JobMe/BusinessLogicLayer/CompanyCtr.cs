@@ -22,14 +22,20 @@ namespace BusinessLogicLayer
             dbCompany.Create(obj);
         }
 
-
-
-
+        /// <summary>
+        /// Deletes the Comapny object in the database
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns a single Company
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Company Get(int id)
         {
             throw new NotImplementedException();
