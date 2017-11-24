@@ -38,8 +38,9 @@ namespace DataAccessLayer
                         cmd.ExecuteNonQuery();
                         return true;
                     }
-                    catch (SqlException)
+                    catch (SqlException e)
                     {
+                        throw e;
                         return false;
                     }
                 }
@@ -59,7 +60,13 @@ namespace DataAccessLayer
                 {
                     cmd.CommandText = "DELETE FROM JobApplication WHERE Id = @id";
                     cmd.Parameters.AddWithValue("id", id);
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    } catch (SqlException e)
+                    {
+                        throw e;
+                    }
                 }
             }
         }
