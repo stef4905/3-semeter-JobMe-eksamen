@@ -1,8 +1,143 @@
-﻿@model JobMe_Homepage.ApplierServiceReference.Applier
+﻿
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutApplier.cshtml";
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_LayoutApplier.cshtml";
 }
 
-<h2>Velkommen  </h2>
+		<!--#region infographics about all jobs and relevant jobs on the applier-->
+			<div class="panel">
+				<div class="panel-body" id="ApplierIndexTopBackground">
+					<div id="textOfCount">
+						Vi har lige nu 12.301 joannoncer hvor 458 paaser på din profil
+					</div>
+					<button class="seeRelativeJobsButton" type="submit">Klik og se</button>
+				</div>
+			</div>
+		<!--#endregion-->
 
+
+		<!-- #region Search function -->
+<div class="panel panel-default">
+	<div class="panel-body">
+		<label id="ApplierIndexTitle">Søg efter job</label>
+		<div class="input-group" id="ApplierInputContainer">
+			<input type="text" class="form-control" placeholder="Søgord: stilling, firmanavn osv" name="search" />
+			<div class="input-group-btn">
+				<button class="btn btn-blue" id="ApplierSearchButton" type="submit">Søg</button>
+			</div>
+		</div>
+<!--#endregion-->
+
+		
+		<!--#region List of jbopost that are relactive to the current applier-->
+			<label  id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Relevante jobs</label>
+			<div id="applierIndexSeperator"></div>
+			
+			<div class="row ">
+				<div class="jobPostMargin">
+					<div class="col-sm-12 bg-white content">
+						<div class="row">
+							<div class="col-xs-3">
+								<img class="img-responsive" src="https://ny.skolefodbold.dk/data/team/1765/medium.jpeg">
+							</div>
+							<div class="col-xs-7">
+								<h4 class="company-Name"><strong>Fodboldspiller</strong></h4><h5><strong>Gandrup Skole</strong></h5><h4><small>Vi vinder i år</small></h4>
+							</div>
+							<div class="col-xs-2 pull-right">
+								<button type="button" class="btn btn-link btn-lg">
+									<span class="glyphicon glyphicon-ok"> </span>
+								</button>
+								<button type="button" class="btn btn-link btn-lg ">
+									<span class="glyphicon glyphicon glyphicon-remove"> </span>
+								</button>
+								<a class="btn btn-blue" href="/applier/JobPost/#">Se mere</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row ">
+				<div class="jobPostMargin">
+					<div class="col-sm-12 bg-white content">
+						<div class="row">
+							<div class="col-xs-3">
+								<img class="img-responsive" src="https://ny.skolefodbold.dk/data/team/1765/medium.jpeg">
+							</div>
+							<div class="col-xs-7">
+								<h4 class="company-Name"><strong>Fodboldspiller</strong></h4><h5><strong>Gandrup Skole</strong></h5><h4><small>Vi vinder i år</small></h4>
+							</div>
+							<div class="col-xs-2 pull-right">
+								<button type="button" class="btn btn-link btn-lg">
+									<span class="glyphicon glyphicon-ok"> </span>
+								</button>
+								<button type="button" class="btn btn-link btn-lg ">
+									<span class="glyphicon glyphicon glyphicon-remove"> </span>
+								</button>
+								<a class="btn btn-blue" href="/applier/JobPost/#">Se mere</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!--#endregion-->
+		
+		<!-- #region last job where a jobApplication has been sent-->
+		<label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Sidst ansøgte job</label>
+		<div id="applierIndexSeperator"></div>
+
+		<div class="row ">
+			<div class="jobPostMargin">
+				<div class="col-sm-12 bg-white content">
+					<div class="row">
+						<div class="col-xs-3">
+							<img class="img-responsive" src="https://ny.skolefodbold.dk/data/team/1765/medium.jpeg">
+						</div>
+						<div class="col-xs-7">
+							<h4 class="company-Name"><strong>Fodboldspiller</strong></h4><h5><strong>Gandrup Skole</strong></h5><h4><small>Vi vinder i år</small></h4>
+						</div>
+						<div class="col-xs-2 pull-right">
+							<button type="button" class="btn btn-link btn-lg">
+								<span class="glyphicon glyphicon-ok"> </span>
+							</button>
+							<button type="button" class="btn btn-link btn-lg ">
+								<span class="glyphicon glyphicon glyphicon-remove"> </span>
+							</button>
+							<a class="btn btn-blue" href="/applier/JobPost/#">Se mere</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row ">
+			<div class="jobPostMargin">
+				<div class="col-sm-12 bg-white content">
+					<div class="row">
+						<div class="col-xs-3">
+							<img class="img-responsive" src="https://ny.skolefodbold.dk/data/team/1765/medium.jpeg">
+						</div>
+						<div class="col-xs-7">
+							<h4 class="company-Name"><strong>Fodboldspiller</strong></h4><h5><strong>Gandrup Skole</strong></h5><h4><small>Vi vinder i år</small></h4>
+						</div>
+						<div class="col-xs-2 pull-right">
+							<button type="button" class="btn btn-link btn-lg">
+								<span class="glyphicon glyphicon-ok"> </span>
+							</button>
+							<button type="button" class="btn btn-link btn-lg ">
+								<span class="glyphicon glyphicon glyphicon-remove"> </span>
+							</button>
+							<a class="btn btn-blue" href="/applier/JobPost/#">Se mere</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- #endregion -->
+
+
+
+	</div>
+</div>
