@@ -11,6 +11,6 @@ namespace JobMe_Homepage.Models
     {
         public JobPostServiceReference.JobPost JobPost { get; set; }
         public List<JobApplication> JobApplicationList { get; set; }
-        public Applier applier { get; set; }
+        public ApplierServiceReference.Applier applier { get; set; }
     }
 }

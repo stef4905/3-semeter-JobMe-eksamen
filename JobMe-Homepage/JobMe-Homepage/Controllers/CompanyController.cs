@@ -1,4 +1,5 @@
-﻿using JobMe_Homepage.CompanyServiceReference;
+﻿using JobMe_Homepage.ApplierServiceReference;
+using JobMe_Homepage.CompanyServiceReference;
 using JobMe_Homepage.Models;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,8 @@ namespace JobMe_Homepage.Controllers
     {
         CompanyServiceClient client = new CompanyServiceClient();
         JobPostServiceReference.JobPostServiceClient jobClient = new JobPostServiceReference.JobPostServiceClient();
-
+        JobApplicationServiceReference.JobApplicationServiceClient jobApplicationService = new JobApplicationServiceReference.JobApplicationServiceClient();
+        ApplierServiceClient applierServiceClient = new ApplierServiceClient();
         // GET: Company
         public ActionResult Index()
         {
@@ -62,7 +64,7 @@ namespace JobMe_Homepage.Controllers
         {
             WorkHours workHours = new WorkHours { Id = WorkHours };
 
-            JobCategory jobCategory = new JobCategory { Id = JobCategory };
+            CompanyServiceReference.JobCategory jobCategory = new CompanyServiceReference.JobCategory { Id = JobCategory };
             
 
 
@@ -124,5 +126,36 @@ namespace JobMe_Homepage.Controllers
             company = Session["company"] as Company;
             return PartialView(company);
         }
+
+        public ActionResult AppliersForJob(int id)
+        {
+            VMJobPostJobApplication vMJobPostJobApplication = new VMJobPostJobApplication
+            {
+               
+                JobApplicationList = jobApplicationService.GetAllJobApplicationToAJobPost(id).ToList(),
+              
+                
+                
+
+            };
+
+
+
+
+            return View(vMJobPostJobApplication);
+        }
+
+        public ActionResult _JobApplication()
+        {
+            JobApplicationServiceReference.JobApplication jobApplication = new JobApplicationServiceReference.JobApplication();
+            return PartialView(jobApplication);
+        }
+
+        public ActionResult _JobCV()
+        {
+            JobCV jobCV = new JobCV();
+            return PartialView(jobCV);
+        }
+        
     }
 }

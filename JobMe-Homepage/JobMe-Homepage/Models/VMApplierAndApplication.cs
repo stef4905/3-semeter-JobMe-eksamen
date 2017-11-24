@@ -9,7 +9,7 @@ namespace JobMe_Homepage.Models
 {
     public class VMApplierAndApplication
     {
-        public Applier Applier { get; set; }
+        public ApplierServiceReference.Applier Applier { get; set; }
 
         public List<JobApplication> JobApplicationList { get; set; }
     }

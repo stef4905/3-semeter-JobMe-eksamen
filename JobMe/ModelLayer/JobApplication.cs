@@ -17,7 +17,7 @@ namespace ModelLayer
         [DataMember]
         public string Description { get; set; }
         [DataMember]
-        public int ApplierId { get; set; }
+        public Applier Applier { get; set; }
 
         /// <summary>
         /// Job Application Model
@@ -26,12 +26,17 @@ namespace ModelLayer
         /// <param name="title"></param>
         /// <param name="description"></param>
         /// <param name="applierId"></param>
-        public JobApplication(int id, string title, string description, int applierId)
+        public JobApplication(int id, string title, string description, Applier applier)
         {
             this.Id = id;
             this.Title = title;
             this.Description = description;
-            this.ApplierId = applierId;
+            this.Applier = applier;
+        }
+
+        public JobApplication()
+        {
+
         }
     }
 }

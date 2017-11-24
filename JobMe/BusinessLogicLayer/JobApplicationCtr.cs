@@ -73,5 +73,10 @@ namespace BusinessLogicLayer
         {
             dbJobApplication.SendApplication(jobApplication, jobPost);
         }
+
+        public List<JobApplication> GetAllJobApplicationToAJobPost(int jobPostId)
+        {
+            return dbJobApplication.GetAllJobApplicationToAJobPost(jobPostId);
+        }
     }
 }

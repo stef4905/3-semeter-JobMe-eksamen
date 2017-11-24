@@ -175,6 +175,7 @@
     </Compile>
     <Compile Include="Models\VMApplierAndApplication.cs" />
     <Compile Include="Models\VMJobPostANDJobApplication.cs" />
+    <Compile Include="Models\VMJobPostJobApplication.cs" />
     <Compile Include="Models\VMJobPostWorkHoursJobCategory.cs" />
     <Compile Include="Models\VMWorkHoursJobCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -368,6 +369,9 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Applier\SendApplication.cshtml" />
+    <Content Include="Views\Company\AppliersForJob.cshtml" />
+    <Content Include="Views\Company\_JobApplication.cshtml" />
+    <Content Include="Views\Company\_JobCV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

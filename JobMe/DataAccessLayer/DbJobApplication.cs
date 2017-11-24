@@ -34,7 +34,7 @@ namespace DataAccessLayer
                         cmd.CommandText = "INSERT INTO JobApplication (Title, Description, ApplierId) VALUES (@Title, @Description, @ApplierId)";
                         cmd.Parameters.AddWithValue("Title", obj.Title);
                         cmd.Parameters.AddWithValue("Description", obj.Description);
-                        cmd.Parameters.AddWithValue("ApplierId", obj.ApplierId);
+                        cmd.Parameters.AddWithValue("ApplierId", obj.Applier.Id);
                         cmd.ExecuteNonQuery();
                         return true;
                     }
@@ -79,9 +79,10 @@ namespace DataAccessLayer
                     cmd.CommandText = "SELECT * FROM JobApplication WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Id", id);
                     SqlDataReader reader = cmd.ExecuteReader();
+                    DbApplier dbApplier = new DbApplier();
                     if (reader.Read())
                     {
-                        JobApplication jobApplication = new JobApplication((int)reader["Id"], (string)reader["Title"], (string)reader["Description"], (int)reader["ApplierId"]);
+                        JobApplication jobApplication = new JobApplication((int)reader["Id"], (string)reader["Title"], (string)reader["Description"], dbApplier.Get((int)reader["ApplierId"]));
                         return jobApplication;
                     }
                     else
@@ -116,11 +117,11 @@ namespace DataAccessLayer
                     cmd.CommandText = "SELECT * FROM JobApplication WHERE ApplierId = @ApplierId";
                     cmd.Parameters.AddWithValue("ApplierId", ApplierId);
                     SqlDataReader reader = cmd.ExecuteReader();
-
+                    DbApplier dbApplier = new DbApplier();
                     List<JobApplication> jobApplicationList = new List<JobApplication>();
                     while (reader.Read())
                     {
-                        JobApplication jobApplication = new JobApplication((int)reader["Id"], (string)reader["Title"], (string)reader["Description"], (int)reader["ApplierId"]);
+                        JobApplication jobApplication = new JobApplication((int)reader["Id"], (string)reader["Title"], (string)reader["Description"], dbApplier.Get((int)reader["ApplierId"]));
                         jobApplicationList.Add(jobApplication);
                     }
                     return jobApplicationList;
@@ -180,5 +181,38 @@ namespace DataAccessLayer
                 }
             }
         }
+
+        public List<JobApplication> GetAllJobApplicationToAJobPost(int jobPostId)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM JobApplicationJobPost WHERE JobPostId = @JobPostId";
+                    cmd.Parameters.AddWithValue("JobPostId", jobPostId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    List<JobApplication> jobApplicationList = new List<JobApplication>();
+                    while (reader.Read())
+                    {
+
+
+                        JobApplication jobApplication = new JobApplication
+                        {
+                             Id = (int)reader["JobApplicationId"]
+                        };
+
+                        jobApplication = Get(jobApplication.Id);
+                        jobApplicationList.Add(jobApplication);
+                    }
+                    return jobApplicationList;
+                }
+            }
+
+        }
     }
+
+
+
 }
