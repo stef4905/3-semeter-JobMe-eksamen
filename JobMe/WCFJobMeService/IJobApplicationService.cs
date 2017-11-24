@@ -27,5 +27,8 @@ namespace WCFJobMeService
 
         [OperationContract]
         void Update(JobApplication obj);
+
+        [OperationContract]
+        void SendApplication(JobApplication jobApplication, JobPost jobPost);
     }
 }

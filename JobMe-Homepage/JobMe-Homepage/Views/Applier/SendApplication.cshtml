@@ -1,0 +1,38 @@
+﻿@model JobMe_Homepage.Models.VMJobPostANDJobApplication
+@{
+    ViewBag.Title = "SendApplication";
+    Layout = "~/Views/Shared/_LayoutApplier.cshtml";
+
+}
+
+<h2>SendApplication</h2>
+
+
+<h2>Ansøgninger:</h2>
+
+<form action="/applier/sendApplication" method="post">
+    <div class="form-group">
+        <label for="WorkHours">vælg ansøgning:</label>
+        <select class="form-control" name="jobApplicationId">
+            @foreach (var jobApplication in Model.JobApplicationList)
+            {
+               
+                <option value="@jobApplication.Id">@jobApplication.Title</option>
+
+
+            }
+
+
+        </select>
+
+        <input type="hidden" name="jobPostId" value="@Model.JobPost.Id" />
+    </div>
+    <h2>CV</h2>
+    @Html.Partial("_JobCV", Session["applier"])
+
+    <input type="submit" class="btn btn-blue" name="send" value="Send application" />
+</form>
+
+   
+        
+  

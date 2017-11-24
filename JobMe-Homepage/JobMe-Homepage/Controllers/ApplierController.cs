@@ -84,7 +84,7 @@ namespace JobMe_Homepage.Controllers
         {
             VMJobPostWorkHoursJobCategory VM = new VMJobPostWorkHoursJobCategory();
             VM.JobPostList = jobClient.GetAllJobPost().ToList();
-            List<JobPost> JobPostsList = new List<JobPost>();
+            List<JobPostServiceReference.JobPost> JobPostsList = new List<JobPostServiceReference.JobPost>();
 
             foreach (var jobPosts in VM.JobPostList.Where(f => f.Title.ToLower().Contains(search.ToLower()) ||
             f.company.CompanyName.ToLower().Contains(search.ToLower())))
@@ -162,7 +162,7 @@ namespace JobMe_Homepage.Controllers
             };
           
 
-            jobApplicationClient.update(jobApplication);
+            jobApplicationClient.Update(jobApplication);
             TempData["Success"] = "Successfuld opdateret!";
             return RedirectToAction("JobApplication");
         }
@@ -225,8 +225,46 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult JobPost(int id)
         {
-            JobPost jobPost = jobClient.GetJobPost(id);
+            JobPostServiceReference.JobPost jobPost = jobClient.GetJobPost(id);
             return View(jobPost);
+        }
+
+
+        public ActionResult SendApplication(int id)
+        {
+            Applier applier = new Applier();
+
+            //Mangler fagterm.
+            applier = Session["applier"] as Applier;
+
+
+            VMJobPostANDJobApplication vMJobPostANDJobApplication = new VMJobPostANDJobApplication
+            {
+                JobPost = jobClient.GetJobPost(id),
+                JobApplicationList = jobApplicationClient.GetAllByApplierId(applier.Id).ToList(),
+                applier = applier
+                
+            };
+
+            return View(vMJobPostANDJobApplication);
+        }
+
+        [HttpPost]
+        public ActionResult SendApplication(int jobApplicationId, int jobPostId)
+        {
+            JobApplication jobApplication = new JobApplication
+            {
+                Id = jobApplicationId
+
+            };
+            JobApplicationServiceReference.JobPost jobPost = new JobApplicationServiceReference.JobPost
+            {
+                Id = jobPostId
+            };
+
+
+            jobApplicationClient.SendApplication(jobApplication, jobPost);
+            return RedirectToAction("Index");
         }
     }
 }

@@ -68,5 +68,10 @@ namespace BusinessLogicLayer
         {
             dbJobApplication.Update(obj);
         }
+
+        public void SendApplication(JobApplication jobApplication, JobPost jobPost)
+        {
+            dbJobApplication.SendApplication(jobApplication, jobPost);
+        }
     }
 }
