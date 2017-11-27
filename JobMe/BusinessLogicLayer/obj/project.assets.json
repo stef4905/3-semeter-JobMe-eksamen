@@ -331,20 +331,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Christian\\.nuget\\packages\\": {}
+    "C:\\Users\\Mathias\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Skole\\3 Semester\\GitHubRepos\\3 Semester Projekt Repo\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
       "projectName": "BusinessLogicLayer",
-      "projectPath": "E:\\Skole\\3 Semester\\GitHubRepos\\3 Semester Projekt Repo\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
-      "packagesPath": "C:\\Users\\Christian\\.nuget\\packages\\",
-      "outputPath": "E:\\Skole\\3 Semester\\GitHubRepos\\3 Semester Projekt Repo\\JobMe\\BusinessLogicLayer\\obj\\",
+      "projectPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+      "packagesPath": "C:\\Users\\Mathias\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Christian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mathias\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -357,11 +357,11 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "E:\\Skole\\3 Semester\\GitHubRepos\\3 Semester Projekt Repo\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "E:\\Skole\\3 Semester\\GitHubRepos\\3 Semester Projekt Repo\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj"
+            "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj"
             },
-            "E:\\Skole\\3 Semester\\GitHubRepos\\3 Semester Projekt Repo\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "E:\\Skole\\3 Semester\\GitHubRepos\\3 Semester Projekt Repo\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }
