@@ -22,7 +22,6 @@ namespace DataAccessLayer
         /// <param name="obj"></param>
         /// <returns></returns>
         public bool Create(JobApplication obj)
-
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -60,6 +59,7 @@ namespace DataAccessLayer
                 {
                     cmd.CommandText = "DELETE FROM JobApplication WHERE Id = @id";
                     cmd.Parameters.AddWithValue("id", id);
+
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -87,6 +87,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("Id", id);
                     SqlDataReader reader = cmd.ExecuteReader();
                     DbApplier dbApplier = new DbApplier();
+
                     if (reader.Read())
                     {
                         JobApplication jobApplication = new JobApplication((int)reader["Id"], (string)reader["Title"], (string)reader["Description"], dbApplier.Get((int)reader["ApplierId"]));
@@ -166,6 +167,13 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Takes a JobApplication and "attaches" it to a specific JobPost
+        /// JobApplicationJobPost is a collection of JobApplications.
+        /// </summary>
+        /// <param name="jobApplication"></param>
+        /// <param name="jobPost"></param>
+        /// <returns></returns>
         public bool SendApplication(JobApplication jobApplication, JobPost jobPost)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -189,6 +197,42 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Updates the accceptApplication boolean in the jobapplicationJobPostDB
+        /// </summary>
+        /// <param name="jobApplication"></param>
+        /// <param name="jobPost"></param>
+        /// <param name="acceptApplication"></param>
+        /// <returns></returns>
+        public bool AcceptDeclineJobApplication(JobApplication jobApplication, JobPost jobPost, bool acceptApplication)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE JobApplicationJobPost SET AcceptApplication = @AcceptApplication WHERE JobApplicationId = @JobApplicationId AND JobPostId = @JobPostId";
+                    cmd.Parameters.AddWithValue("AcceptApplication", acceptApplication);
+                    cmd.Parameters.AddWithValue("JobApplicationId", jobApplication.Id);
+                    cmd.Parameters.AddWithValue("JobPostId", jobPost.Id);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException)
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        /// <summary>
+        /// Returns all JobApplications from a specific JobPost
+        /// </summary>
+        /// <param name="jobPostId"></param>
+        /// <returns></returns>
         public List<JobApplication> GetAllJobApplicationToAJobPost(int jobPostId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -196,20 +240,18 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM JobApplicationJobPost WHERE JobPostId = @JobPostId";
+                    cmd.CommandText = "SELECT * FROM JobApplicationJobPost WHERE JobPostId = @JobPostId AND (AcceptApplication = @AcceptApplication OR AcceptApplication IS NULL)";
                     cmd.Parameters.AddWithValue("JobPostId", jobPostId);
+                    cmd.Parameters.AddWithValue("AcceptApplication", 1);
                     SqlDataReader reader = cmd.ExecuteReader();
-
                     List<JobApplication> jobApplicationList = new List<JobApplication>();
+
                     while (reader.Read())
                     {
-
-
                         JobApplication jobApplication = new JobApplication
                         {
                              Id = (int)reader["JobApplicationId"]
                         };
-
                         jobApplication = Get(jobApplication.Id);
                         jobApplicationList.Add(jobApplication);
                     }
@@ -219,7 +261,4 @@ namespace DataAccessLayer
 
         }
     }
-
-
-
 }

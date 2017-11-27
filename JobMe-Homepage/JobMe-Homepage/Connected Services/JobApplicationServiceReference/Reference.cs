@@ -1593,6 +1593,12 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/GetAllJobApplicationToAJobPost", ReplyAction="http://tempuri.org/IJobApplicationService/GetAllJobApplicationToAJobPostResponse")]
         System.Threading.Tasks.Task<JobMe_Homepage.JobApplicationServiceReference.JobApplication[]> GetAllJobApplicationToAJobPostAsync(int jobPostId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/AcceptDeclineJobApplication", ReplyAction="http://tempuri.org/IJobApplicationService/AcceptDeclineJobApplicationResponse")]
+        void AcceptDeclineJobApplication(JobMe_Homepage.JobApplicationServiceReference.JobApplication jobApplication, JobMe_Homepage.JobApplicationServiceReference.JobPost jobPost, bool acceptApplication);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobApplicationService/AcceptDeclineJobApplication", ReplyAction="http://tempuri.org/IJobApplicationService/AcceptDeclineJobApplicationResponse")]
+        System.Threading.Tasks.Task AcceptDeclineJobApplicationAsync(JobMe_Homepage.JobApplicationServiceReference.JobApplication jobApplication, JobMe_Homepage.JobApplicationServiceReference.JobPost jobPost, bool acceptApplication);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1676,6 +1682,14 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
         
         public System.Threading.Tasks.Task<JobMe_Homepage.JobApplicationServiceReference.JobApplication[]> GetAllJobApplicationToAJobPostAsync(int jobPostId) {
             return base.Channel.GetAllJobApplicationToAJobPostAsync(jobPostId);
+        }
+        
+        public void AcceptDeclineJobApplication(JobMe_Homepage.JobApplicationServiceReference.JobApplication jobApplication, JobMe_Homepage.JobApplicationServiceReference.JobPost jobPost, bool acceptApplication) {
+            base.Channel.AcceptDeclineJobApplication(jobApplication, jobPost, acceptApplication);
+        }
+        
+        public System.Threading.Tasks.Task AcceptDeclineJobApplicationAsync(JobMe_Homepage.JobApplicationServiceReference.JobApplication jobApplication, JobMe_Homepage.JobApplicationServiceReference.JobPost jobPost, bool acceptApplication) {
+            return base.Channel.AcceptDeclineJobApplicationAsync(jobApplication, jobPost, acceptApplication);
         }
     }
 }

@@ -15,6 +15,17 @@ namespace WCFJobMeService
         JobApplicationCtr jobAppCtr = new JobApplicationCtr();
 
         /// <summary>
+        /// Accept er decline Job Application method, makes the Company able to accept or decline applications to their specific jobposts.
+        /// </summary>
+        /// <param name="jobApplication"></param>
+        /// <param name="jobPost"></param>
+        /// <param name="acceptApplication"></param>
+        public void AcceptDeclineJobApplication(JobApplication jobApplication, JobPost jobPost, bool acceptApplication)
+        {
+            jobAppCtr.AcceptDeclineJobApplication(jobApplication, jobPost, acceptApplication);
+        }
+
+        /// <summary>
         /// Create a JobApplication
         /// </summary>
         /// <param name="jobApplication"></param>
@@ -41,6 +52,7 @@ namespace WCFJobMeService
         {
             return jobAppCtr.Get(id);
         }
+
         /// <summary>
         /// Gets an object and executes the "GetAllByApplierId" in the JobApplicationCtr Class
         /// 
@@ -52,11 +64,21 @@ namespace WCFJobMeService
             return jobAppCtr.GetAllByApplierId(applierId);
         }
 
+        /// <summary>
+        /// Returns all JobApplications from a specific JobPost
+        /// </summary>
+        /// <param name="jobPostId"></param>
+        /// <returns></returns>
         public List<JobApplication> GetAllJobApplicationToAJobPost(int jobPostId)
         {
             return jobAppCtr.GetAllJobApplicationToAJobPost(jobPostId);
         }
 
+        /// <summary>
+        /// Takes a JobApplication and "attaches" it to a specific JobPost
+        /// </summary>
+        /// <param name="jobApplication"></param>
+        /// <param name="jobPost"></param>
         public void SendApplication(JobApplication jobApplication, JobPost jobPost)
         {
             jobAppCtr.SendApplication(jobApplication, jobPost);
