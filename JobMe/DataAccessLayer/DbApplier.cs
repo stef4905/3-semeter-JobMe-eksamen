@@ -115,6 +115,7 @@ namespace DataAccessLayer
                         {
                             applier.Id = (int)reader["Id"];
                             applier.Email = (string)reader["Email"];
+                            applier.Phone = (int)reader["Phone"];
                             applier.Address = (string)reader["Address"];
                             applier.Country = (string)reader["Country"];
                             applier.Description = (string)reader["Description"];
