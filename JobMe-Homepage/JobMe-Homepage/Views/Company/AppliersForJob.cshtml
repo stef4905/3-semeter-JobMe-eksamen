@@ -63,12 +63,26 @@
                             </div>
                         </div>
 
+                        <H2>Indkald ansøger at booke et møde</H2>
+                        
+                        
+                        <form action="/Company/AppliersForJob" method="post">
+                            <input type="hidden" name="jobApplicationId" value="@item.Id" />
+                            <input type="hidden" name="jobPostId" value="@Model.jobPost.Id" />
+                       
 
 
-                    </div>
+                            <button type="submit" class="btn-blue btn" name="accepted" value="1">Accepter Ansøgning</button>
+                            <button type="submit" class="btn-danger btn" name="accepted" value="0">Arkiver Ansøgning</button>
+
+                        </form>
+                     
+                </div>
                 }
 
             </div>
+
+           
         </div>
     </div>
 </div>

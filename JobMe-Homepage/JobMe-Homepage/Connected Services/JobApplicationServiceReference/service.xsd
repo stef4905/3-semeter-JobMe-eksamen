@@ -92,4 +92,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AcceptDeclineJobApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ModelLayer" minOccurs="0" name="jobApplication" nillable="true" type="q8:JobApplication" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ModelLayer" minOccurs="0" name="jobPost" nillable="true" type="q9:JobPost" />
+        <xs:element minOccurs="0" name="acceptApplication" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AcceptDeclineJobApplicationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
