@@ -60,3 +60,21 @@ E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ModelLayer\obj\Deb
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ModelLayer\obj\Debug\ModelLayer.dll
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ModelLayer\obj\Debug\ModelLayer.pdb
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\ModelLayer.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.pdb
