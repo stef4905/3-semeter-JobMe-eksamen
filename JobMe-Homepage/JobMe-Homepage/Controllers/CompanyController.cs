@@ -21,11 +21,8 @@ namespace JobMe_Homepage.Controllers
             Company company = new Company();
             // Mangler fagterm på as
             company = Session["company"] as Company;
-            
-           List<JobPostServiceReference.JobPost> job = jobClient.GetAllJobPost().Where(m => m.company.Id == company.Id).ToList();
-           
-              
-           
+            // Returns a list of all JobPost in the database - It sorts the list so it equals the CompanyId your logged in with
+            List<JobPostServiceReference.JobPost> job = jobClient.GetAllJobPost().Where(m => m.company.Id == company.Id).ToList();
             VMCompanyANDJobPost vMCompanyANDJobPost = new VMCompanyANDJobPost
             {
                 Company = company,
@@ -75,13 +72,8 @@ namespace JobMe_Homepage.Controllers
         public ActionResult CreateJobPost(string Title, string Description, DateTime StartDate, DateTime EndDate, string JobTitle, int WorkHours, string Address, Company Company, int JobCategory)
         {
             WorkHours workHours = new WorkHours { Id = WorkHours };
-
             CompanyServiceReference.JobCategory jobCategory = new CompanyServiceReference.JobCategory { Id = JobCategory };
-            
-
-
             Company company =  Session["company"] as Company;
-
             JobPost jobPost = new JobPost
             {
                 Title = Title,
@@ -93,21 +85,14 @@ namespace JobMe_Homepage.Controllers
                 Address = Address,
                 company = company,
                 jobCategory = jobCategory
-
-
             };
             try
             {
                 client.CreateJobPost(jobPost);
                 return RedirectToAction("Index");
             }
-
-
-
-
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -139,16 +124,16 @@ namespace JobMe_Homepage.Controllers
             return PartialView(company);
         }
 
+        /// <summary>
+        /// Returns all JobApplications from a specific JobPost
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult AppliersForJob(int id)
         {
             VMJobPostJobApplication vMJobPostJobApplication = new VMJobPostJobApplication
             {
-               
                 JobApplicationList = jobApplicationService.GetAllJobApplicationToAJobPost(id).ToList(),
-              
-                
-                
-
             };
 
 

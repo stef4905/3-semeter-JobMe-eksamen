@@ -52,11 +52,21 @@ namespace WCFJobMeService
             return jobAppCtr.GetAllByApplierId(applierId);
         }
 
+        /// <summary>
+        /// Returns all JobApplications from a specific JobPost
+        /// </summary>
+        /// <param name="jobPostId"></param>
+        /// <returns></returns>
         public List<JobApplication> GetAllJobApplicationToAJobPost(int jobPostId)
         {
             return jobAppCtr.GetAllJobApplicationToAJobPost(jobPostId);
         }
 
+        /// <summary>
+        /// Takes a JobApplication and "attaches" it to a specific JobPost
+        /// </summary>
+        /// <param name="jobApplication"></param>
+        /// <param name="jobPost"></param>
         public void SendApplication(JobApplication jobApplication, JobPost jobPost)
         {
             jobAppCtr.SendApplication(jobApplication, jobPost);

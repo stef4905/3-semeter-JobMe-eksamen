@@ -166,6 +166,13 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Takes a JobApplication and "attaches" it to a specific JobPost
+        /// JobApplicationJobPost is a collection of JobApplications.
+        /// </summary>
+        /// <param name="jobApplication"></param>
+        /// <param name="jobPost"></param>
+        /// <returns></returns>
         public bool SendApplication(JobApplication jobApplication, JobPost jobPost)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -189,6 +196,12 @@ namespace DataAccessLayer
             }
         }
 
+
+        /// <summary>
+        /// Returns all JobApplications from a specific JobPost
+        /// </summary>
+        /// <param name="jobPostId"></param>
+        /// <returns></returns>
         public List<JobApplication> GetAllJobApplicationToAJobPost(int jobPostId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))

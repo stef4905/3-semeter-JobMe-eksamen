@@ -69,11 +69,21 @@ namespace BusinessLogicLayer
             dbJobApplication.Update(obj);
         }
 
+        /// <summary>
+        /// Takes a specific JobApplication and attaches it to a JobPost
+        /// </summary>
+        /// <param name="jobApplication"></param>
+        /// <param name="jobPost"></param>
         public void SendApplication(JobApplication jobApplication, JobPost jobPost)
         {
             dbJobApplication.SendApplication(jobApplication, jobPost);
         }
 
+        /// <summary>
+        /// Returns all JobApplications from a specific JobPost
+        /// </summary>
+        /// <param name="jobPostId"></param>
+        /// <returns></returns>
         public List<JobApplication> GetAllJobApplicationToAJobPost(int jobPostId)
         {
             return dbJobApplication.GetAllJobApplicationToAJobPost(jobPostId);
