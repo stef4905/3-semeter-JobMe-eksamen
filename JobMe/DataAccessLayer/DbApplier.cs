@@ -29,18 +29,20 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
+                        
+                    try
+                    {
                         cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
                         cmd.Parameters.AddWithValue("Email", obj.Email);
                         cmd.Parameters.AddWithValue("Password", obj.Password);
                         cmd.Parameters.AddWithValue("MaxRadius", 50);
                         cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
-                    try
-                    {
                         cmd.ExecuteNonQuery();
                         return true;
                     }
-                    catch (SqlException)
+                    catch (SqlException e)
                     {
+                        throw e;
                         return false;
                     }
                 }
@@ -201,12 +203,13 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
+                    cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Address = @Address, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
                         " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
                         " CurrentJob = @CurrentJob, Birthdate = @Birthdate, JobCVId = @JobCVId " +
                         "WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Phone", obj.Phone);
+                    cmd.Parameters.AddWithValue("Address", obj.Address);
                     cmd.Parameters.AddWithValue("Country", obj.Country);
                     cmd.Parameters.AddWithValue("Description", obj.Description);
                     cmd.Parameters.AddWithValue("BannerURL", obj.BannerURL);
@@ -228,8 +231,9 @@ namespace DataAccessLayer
                         return true;
                     }
                     catch (SqlException e) {
-                        throw e;
                         return false;
+                        throw e;
+                        
                     }
                 }
             }

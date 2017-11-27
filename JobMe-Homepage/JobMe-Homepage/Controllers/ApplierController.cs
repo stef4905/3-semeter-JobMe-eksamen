@@ -35,7 +35,7 @@ namespace JobMe_Homepage.Controllers
         [HttpPost]
         public ActionResult _CreateApplier(string Email, string Password, string PasswordControl)
         {
-            Applier applier = new Applier();
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
             applier.Password = Password;
             applier.Email = Email;
 
@@ -117,7 +117,7 @@ namespace JobMe_Homepage.Controllers
         public ActionResult JobApplication()
         {
             //Hovedside til jobapplikation og cv of the applier
-            Applier applier = Session["applier"] as Applier;
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
             //JobCV jobCV = jobCVClient.Get(applier.Id);
 
 
@@ -142,7 +142,10 @@ namespace JobMe_Homepage.Controllers
             {
                 Title = title,
                 Description = description,
-                ApplierId = applierId
+                Applier = new JobApplicationServiceReference.Applier
+                {
+                    Id = applierId
+                }
             };
 
 
@@ -181,10 +184,10 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult _JobCV()
         {
-            Applier applier = new Applier();
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
 
             //Mangler fagterm.
-            applier = Session["applier"] as Applier;
+            applier = Session["applier"] as ApplierServiceReference.Applier;
             return PartialView(applier);
         
         }
@@ -196,7 +199,7 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult ApplierProfile(int id)
         {
-            Applier applier = client.GetApplier(id);
+            ApplierServiceReference.Applier applier = client.GetApplier(id);
             return View(applier);
         }
 
@@ -209,17 +212,17 @@ namespace JobMe_Homepage.Controllers
         public ActionResult _Login(string email, string password)
         {
             //sende password ned med Hashing!!!
-            Applier applier = client.Login(email, password);
+            ApplierServiceReference.Applier applier = client.Login(email, password);
             Session["applier"] = applier;
             return RedirectToAction("Index");
         }
 
         public ActionResult _CurrentUser()
         {
-            Applier applier = new Applier();
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
 
             //Mangler fagterm.
-            applier = Session["applier"] as Applier;
+            applier = Session["applier"] as ApplierServiceReference.Applier;
             return PartialView(applier);
         }
 
@@ -232,10 +235,10 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult SendApplication(int id)
         {
-            Applier applier = new Applier();
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
 
             //Mangler fagterm.
-            applier = Session["applier"] as Applier;
+            applier = Session["applier"] as ApplierServiceReference.Applier;
 
 
             VMJobPostANDJobApplication vMJobPostANDJobApplication = new VMJobPostANDJobApplication

@@ -36,20 +36,6 @@ C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\De
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.dll.config
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.dll
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.pdb
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\BusinessLogicLayer.dll
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\ModelLayer.dll
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.dll
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\BusinessLogicLayer.pdb
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\ModelLayer.pdb
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.pdb
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.dll.config
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csprojResolveAssemblyReference.cache
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csproj.CoreCompileInputs.cache
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.dll
-C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.pdb
 C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.dll.config
 C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.dll
 C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.pdb
@@ -75,3 +61,43 @@ C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\WCFJobMeService\bi
 C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csprojResolveAssemblyReference.cache
 C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.dll
 C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.dll.config
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\BusinessLogicLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\ModelLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\ModelLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.dll.config
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csprojResolveAssemblyReference.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csproj.CoreCompileInputs.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.dll.config
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.dll
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\bin\Debug\BusinessLogicLayer.dll
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\bin\Debug\ModelLayer.dll
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.dll
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\bin\Debug\BusinessLogicLayer.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\bin\Debug\ModelLayer.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.dll.config
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csprojResolveAssemblyReference.cache
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csproj.CoreCompileInputs.cache
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.dll
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.pdb
