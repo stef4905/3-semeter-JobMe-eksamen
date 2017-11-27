@@ -1,0 +1,88 @@
+﻿@model JobMe_Homepage.ApplierServiceReference.Applier
+
+@{
+    ViewBag.Title = "UpdateUserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UpdateUserProfile</h2>
+
+<div class="container ApplierProfile-Content">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class=""> <img id="Banner" class="img-responsive" src="@Model.BannerURL"/></div>
+            <div class="panel-body">
+                <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                    <img alt="User Pic" src="@Model.ImageURL" id="profile-image" class="img-circle img-responsive">
+                </div>
+                <div class="col-md-8 col-xs-12 col-sm-4 col-lg-8">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-4 col-lg-12">
+                            <h3>Ændre adgangskode</h3>
+                            <label class="ApplierUpdateText">Nuværende adgangskode</label>
+                            <div class="input-group" id="ApplierInputContainer">
+                                <input type="text" class="form-control" id="usr" value="" name="currentPassword">
+                            </div>
+                            <label class="ApplierUpdateText">Ny adgangskode</label>
+                            <div class="input-group" id="ApplierInputContainer">
+                                <input type="text" class="form-control" id="usr" value="" name="newPassword">
+                            </div>
+                            <label class="ApplierUpdateText">Gentag ny adgangskode</label>
+                            <div class="input-group" id="ApplierInputContainer">
+                                <input type="text" class="form-control" id="usr" value="" name="RepeatNewPassword">
+                            </div>
+
+                            <button type="button" class="btn btn-primary" id="SavePasswordButton">Gem ny adgangskode</button>
+                        </div>
+                        </div>
+
+                    <div id="UserUpdateSeperator"></div>
+
+                    <div class="row">
+                        <div class="col-sm-12"><h3>Ændre profil information</h3></div>
+                        <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                            <label class="ApplierUpdateText">Name:</label>
+                            <div class="input-group" id="ApplierInputContainer">
+                                <input type="text" class="form-control" id="usr" value="@Model.FName" name="NameInput">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                            <label class="ApplierUpdateText">Efternavn:</label>
+                            <div class="input-group" id="ApplierInputContainer">
+                                <input type="text" class="form-control" name="LNameInput" value="@Model.LName" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                                <label class="ApplierUpdateText" for="birthdate">Fødselsdag:</label>
+                            <div class="input-group" id="ApplierInputContainer">
+
+                                @DateTime.Parse(Model.Birthdate.ToShortDateString(), "dd-MM-yyyy")
+                                <input type="date" name="birthdate" class="form-control" value="@DateTime.ParseExact(Model.Birthdate.ToShortDateString(),"yyyy-MM-dd");"/>
+                            </div>
+
+
+
+
+
+                            </div>
+
+                                <p>Fødselsdag <b>@Model.Birthdate.ToShortDateString()</b></p>
+
+                                <p>Nuværrende Job: <b> @Model.CurrentJob</b></p>
+                                <p>Location: <b> @Model.Address</b></p>
+                                <p>  Job kategorier: </p>
+                                <ul>
+                                    @foreach (var category in Model.JobCategoryList)
+                                    {
+                                        <li> <b>@category.Title</b> </li>
+                                    }
+                                </ul>
+
+                                <h3>Beskrivelse:</h3>
+                                <p>@Model.Description</p>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+</div>

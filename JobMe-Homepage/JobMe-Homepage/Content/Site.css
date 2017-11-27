@@ -430,3 +430,23 @@
 	transition: background-color color 0.2s;
 	color: #2C5781;
 }
+
+/*Update Applier Info*/
+
+.ApplierUpdateText {
+    margin-top:2%;
+    font-size: 95%;
+}
+#SavePasswordButton {
+    margin-top: 4%;
+    float: right;
+}
+#UserUpdateSeperator {
+    height: 2px;
+    background-color: black;
+    opacity: 0.2;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+

@@ -32,6 +32,13 @@ namespace JobMe_Homepage.Controllers
 
         }
 
+        public ActionResult UpdateUserProfile()
+        {
+           
+
+            return View(Session["applier"]);
+        }
+
         [HttpPost]
         public ActionResult _CreateApplier(string Email, string Password, string PasswordControl)
         {
