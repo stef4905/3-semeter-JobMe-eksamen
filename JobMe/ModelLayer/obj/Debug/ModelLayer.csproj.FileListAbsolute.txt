@@ -60,3 +60,5 @@ E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ModelLayer\obj\Deb
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ModelLayer\obj\Debug\ModelLayer.dll
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ModelLayer\obj\Debug\ModelLayer.pdb
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.pdb

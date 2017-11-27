@@ -86,3 +86,5 @@ E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\BusinessLogicLayer
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

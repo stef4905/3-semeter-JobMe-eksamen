@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "UpdateUserProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
+   
 }
 
 <h2>UpdateUserProfile</h2>
@@ -55,16 +56,21 @@
                         <div class="col-sm-6">
                                 <label class="ApplierUpdateText" for="birthdate">Fødselsdag:</label>
                             <div class="input-group" id="ApplierInputContainer">
-
-                                @DateTime.Parse(Model.Birthdate.ToShortDateString(), "dd-MM-yyyy")
-                                <input type="date" name="birthdate" class="form-control" value="@DateTime.ParseExact(Model.Birthdate.ToShortDateString(),"yyyy-MM-dd");"/>
+                                <input type="date" name="birthdate" class="form-control" value="@Model.Birthdate.ToShortDateString();"/>
                             </div>
-
-
-
-
-
                             </div>
+                        <div class="col-sm-6">
+                            <label class="ApplierUpdateText">Nuværende job:</label>
+                            <div class="input-group" id="ApplierInputContainer">
+                                <input type="text" class="form-control" name="currentJobInput" value="@Model.CurrentJob" />
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="ApplierUpdateText">Addresse:</label>
+                            <div class="input-group" id="ApplierInputContainer">
+                                <input type="text" class="form-control" name="addressInput" value="@Model.Address" />
+                            </div>
+                        </div>
 
                                 <p>Fødselsdag <b>@Model.Birthdate.ToShortDateString()</b></p>
 

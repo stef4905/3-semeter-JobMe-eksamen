@@ -76,3 +76,5 @@ E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\DataAccessLayer\ob
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

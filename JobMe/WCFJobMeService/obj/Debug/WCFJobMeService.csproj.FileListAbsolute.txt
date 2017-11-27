@@ -101,3 +101,7 @@ E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\ob
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csproj.CoreCompileInputs.cache
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.dll
 E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.pdb
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csprojResolveAssemblyReference.cache
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csproj.CoreCompileInputs.cache
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.pdb
