@@ -33,5 +33,8 @@ namespace WCFJobMeService
 
         [OperationContract]
         List<JobApplication> GetAllJobApplicationToAJobPost(int jobPostId);
+
+        [OperationContract]
+        void AcceptDeclineJobApplication(JobApplication jobApplication, JobPost jobPost, bool acceptApplication);
     }
 }

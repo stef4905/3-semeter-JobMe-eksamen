@@ -121,6 +121,30 @@ namespace UnitTestJobMe
             Assert.IsNotNull(list);
         }
 
+
+        [TestMethod]
+        public void TestAcceptDeclineJobApplicationInDb()
+        {
+            //Arrange
+            DbJobApplication dbJobApplication = new DbJobApplication();
+
+            JobApplication jobApplication = new JobApplication
+            {
+                Id = 6
+            };
+
+            JobPost jobPost = new JobPost();
+            jobPost.Id = 1;
+            
+            
+            //Act
+          bool accepted = dbJobApplication.AcceptDeclineJobApplication(jobApplication, jobPost, true);
+
+
+            //Assert
+            Assert.IsTrue(accepted);
+        }
+
     }
 }
 

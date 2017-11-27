@@ -373,6 +373,7 @@
     <Content Include="Views\Company\AppliersForJob.cshtml" />
     <Content Include="Views\Company\_JobApplication.cshtml" />
     <Content Include="Views\Company\_JobCV.cshtml" />
+    <Content Include="Views\Applier\UpdateUserProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

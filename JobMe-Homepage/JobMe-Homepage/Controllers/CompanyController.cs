@@ -67,7 +67,19 @@ namespace JobMe_Homepage.Controllers
             VM.JobCategoryList = client.GetAllJobCategories().ToList();
             return View(VM);
         }
-
+        /// <summary>
+        /// Create Job Post method, It creates a jobPost from a constructor with the required parameters.
+        /// </summary>
+        /// <param name="Title"></param>
+        /// <param name="Description"></param>
+        /// <param name="StartDate"></param>
+        /// <param name="EndDate"></param>
+        /// <param name="JobTitle"></param>
+        /// <param name="WorkHours"></param>
+        /// <param name="Address"></param>
+        /// <param name="Company"></param>
+        /// <param name="JobCategory"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CreateJobPost(string Title, string Description, DateTime StartDate, DateTime EndDate, string JobTitle, int WorkHours, string Address, Company Company, int JobCategory)
         {
@@ -131,9 +143,15 @@ namespace JobMe_Homepage.Controllers
         /// <returns></returns>
         public ActionResult AppliersForJob(int id)
         {
+
+            JobPost jobPost = new JobPost
+            {
+                Id = id
+            };
             VMJobPostJobApplication vMJobPostJobApplication = new VMJobPostJobApplication
             {
-                JobApplicationList = jobApplicationService.GetAllJobApplicationToAJobPost(id).ToList(),
+               jobPost = jobPost,
+                JobApplicationList = jobApplicationService.GetAllJobApplicationToAJobPost(id).ToList()
             };
 
 
@@ -142,7 +160,37 @@ namespace JobMe_Homepage.Controllers
             return View(vMJobPostJobApplication);
         }
 
-        public ActionResult _JobApplication()
+        /// <summary>
+        /// Appliers for job Method, takes the JobApplication, and JobPostId and a boolean, the boolean is a state that shows if they've been accepted to book a meeting.
+        /// </summary>
+        /// <param name="jobApplicationId"></param>
+        /// <param name="jobPostId"></param>
+        /// <param name="accepted"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult AppliersForJob(int jobApplicationId, int jobPostId, int accepted)
+        {
+            JobApplicationServiceReference.JobApplication jobApplication = new JobApplicationServiceReference.JobApplication
+            {
+                Id = jobApplicationId
+            };
+
+            JobApplicationServiceReference.JobPost jobPost = new JobApplicationServiceReference.JobPost
+            {
+                Id = jobPostId
+            };
+
+            //Appliers for Job method takes an int for AcceptedApplication which is a bit in the database, if the int is 1 we sets the boolean to true.
+            bool accept = false;
+            if (accepted == 1)
+            {
+                accept = true;
+            }
+          
+            jobApplicationService.AcceptDeclineJobApplication(jobApplication, jobPost, accept);
+            return RedirectToAction("");
+        }
+            public ActionResult _JobApplication()
         {
             JobApplicationServiceReference.JobApplication jobApplication = new JobApplicationServiceReference.JobApplication();
             return PartialView(jobApplication);
@@ -154,5 +202,11 @@ namespace JobMe_Homepage.Controllers
             return PartialView(jobCV);
         }
         
+
+        public ActionResult Accept()
+        {
+            
+            return RedirectToAction("ApplierForJob");
+        }
     }
 }

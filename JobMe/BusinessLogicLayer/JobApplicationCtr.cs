@@ -88,5 +88,16 @@ namespace BusinessLogicLayer
         {
             return dbJobApplication.GetAllJobApplicationToAJobPost(jobPostId);
         }
+
+        /// <summary>
+        /// Accept er decline Job Application method, makes the Company able to accept or decline applications to their specific jobposts.
+        /// </summary>
+        /// <param name="jobApplication"></param>
+        /// <param name="jobPost"></param>
+        /// <param name="acceptApplication"></param>
+        public void AcceptDeclineJobApplication(JobApplication jobApplication, JobPost jobPost, bool acceptApplication)
+        {
+            dbJobApplication.AcceptDeclineJobApplication(jobApplication, jobPost, acceptApplication);
+        }
     }
 }
