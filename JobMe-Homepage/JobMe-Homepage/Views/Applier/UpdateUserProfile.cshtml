@@ -42,6 +42,7 @@
                     <div class="row">
                         <div class="col-sm-12"><h3>Ændre profil information</h3></div>
                         <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                            <form action=""
                             <label class="ApplierUpdateText">Name:</label>
                             <div class="input-group" id="ApplierInputContainer">
                                 <input type="text" class="form-control" id="usr" value="@Model.FName" name="NameInput">
@@ -108,13 +109,13 @@
                                      }
                                 </div>
                         </div>
-
                         <div class="col-sm-12">
                             <div class="form-group" id="ApplierInputContainer">
                                 <label for="description">Beskrivelse:</label>
-                                <textarea class="form-control" rows="10">@Model.Description</textarea>
+                                <textarea class="form-control" rows="10" id="textAreaControl">@Model.Description</textarea>
                             </div>
                             </div>
+                        <button type="button" class="btn btn-primary" id="SaveProfileButton">Gem ændringer</button>
                         </div>
 
                       </div>
