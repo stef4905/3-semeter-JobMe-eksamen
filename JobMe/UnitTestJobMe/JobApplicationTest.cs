@@ -51,8 +51,6 @@ namespace UnitTestJobMe
                 Id = 2
             };
 
-
-
             JobApplication jobApplication = new JobApplication(1, "noget nyt", "En Beskrivelse", applier);
             //Act
             bool check = dbJobApplication.Update(jobApplication);

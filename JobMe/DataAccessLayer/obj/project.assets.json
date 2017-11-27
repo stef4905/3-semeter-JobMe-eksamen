@@ -269,20 +269,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sofie\\.nuget\\packages\\": {}
+    "C:\\Users\\KasperV\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
       "projectName": "DataAccessLayer",
-      "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
-      "packagesPath": "C:\\Users\\sofie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\obj\\",
+      "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "packagesPath": "C:\\Users\\KasperV\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\sofie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\KasperV\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -295,17 +295,11 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }
-      }
-    },
-    "dependencies": {
-      "Microsoft.Data.Tools.UnitTest": {
-        "target": "Package",
-        "version": "10.0.60809"
       }
     },
     "frameworks": {
