@@ -33,9 +33,9 @@ namespace JobMe_Homepage.Controllers
 
         }
 
+
         public ActionResult UpdateUserProfile()
         {
-           
 
             return View(Session["applier"]);
         }
