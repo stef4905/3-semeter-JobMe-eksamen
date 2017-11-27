@@ -21,7 +21,19 @@ namespace JobMe_Homepage.Controllers
             Company company = new Company();
             // Mangler fagterm på as
             company = Session["company"] as Company;
-            return View(company);
+            
+           List<JobPostServiceReference.JobPost> job = jobClient.GetAllJobPost().Where(m => m.company.Id == company.Id).ToList();
+           
+              
+           
+            VMCompanyANDJobPost vMCompanyANDJobPost = new VMCompanyANDJobPost
+            {
+                Company = company,
+                JobPost = job
+                
+            };
+
+            return View(vMCompanyANDJobPost);
         }
 
         public ActionResult _CreateCompany()

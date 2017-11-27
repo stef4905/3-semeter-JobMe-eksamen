@@ -3,165 +3,8 @@
     ViewBag.Title = "AppliersForJob";
     Layout = "~/Views/Shared/_LayoutCompany.cshtml";
 }
-
-<style>
-    .panel > .list-group .list-group-item:first-child {
-        /*border-top: 1px solid rgb(204, 204, 204);*/
-    }
-
-    media (max-width: 767px) {
-        .visible-xs
-
-    {
-        display: inline-block !important;
-    }
-
-    .block {
-        display: block !important;
-        width: 100%;
-        height: 1px !important;
-    }
-
-    }
-
-    #back-to-bootsnipp {
-        position: fixed;
-        top: 10px;
-        right: 10px;
-    }
-
-
-    .c-search > .form-control {
-        border-radius: 0px;
-        border-width: 0px;
-        border-bottom-width: 1px;
-        font-size: 1.3em;
-        padding: 12px 12px;
-        height: 44px;
-        outline: none !important;
-    }
-
-        .c-search > .form-control:focus {
-            outline: 0px !important;
-            -webkit-appearance: none;
-            box-shadow: none;
-        }
-
-    .c-search > .input-group-btn .btn {
-        border-radius: 0px;
-        border-width: 0px;
-        border-left-width: 1px;
-        border-bottom-width: 1px;
-        height: 44px;
-    }
-
-
-    .c-list {
-        padding: 0px;
-        min-height: 44px;
-    }
-
-    .title {
-        display: inline-block;
-        font-size: 1.7em;
-        font-weight: bold;
-        padding: 5px 15px;
-    }
-
-    ul.c-controls {
-        list-style: none;
-        margin: 0px;
-        min-height: 44px;
-    }
-
-        ul.c-controls li {
-            margin-top: 8px;
-            float: left;
-        }
-
-            ul.c-controls li a {
-                font-size: 1.7em;
-                padding: 11px 10px 6px;
-            }
-
-                ul.c-controls li a i {
-                    min-width: 24px;
-                    text-align: center;
-                }
-
-                ul.c-controls li a:hover {
-                    background-color: rgba(51, 51, 51, 0.2);
-                }
-
-    .c-toggle {
-        font-size: 1.7em;
-    }
-
-    .name {
-        font-size: 1.7em;
-        font-weight: 700;
-    }
-
-    .c-info {
-        padding: 5px 10px;
-        font-size: 1.25em;
-    }
-
-
-    <style > * {
-        box-sizing: border-box
-    }
-
-    body {
-        font-family: "Lato", sans-serif;
-    }
-
-    /* Style the tab */
-    div.tab {
-        float: left;
-        border: 1px solid #ccc;
-        background-color: #f1f1f1;
-        width: 30%;
-        height: 300px;
-    }
-
-        /* Style the buttons inside the tab */
-        div.tab button {
-            display: block;
-            background-color: inherit;
-            color: black;
-            padding: 22px 16px;
-            width: 100%;
-            border: none;
-            outline: none;
-            text-align: left;
-            cursor: pointer;
-            transition: 0.3s;
-            font-size: 17px;
-        }
-
-            /* Change background color of buttons on hover */
-            div.tab button:hover {
-                background-color: #ddd;
-            }
-
-            /* Create an active/current "tab button" class */
-            div.tab button.active {
-                background-color: #ccc;
-            }
-
-    /* Style the tab content */
-    .tabcontent {
-        float: left;
-        padding: 0px 12px;
-        border: 1px solid #ccc;
-        width: 70%;
-        border-left: none;
-        height: 300px;
-    }
-</style>
-
-<h2>AppliersForJob</h2>
+.
+<h2>Ansøger:</h2>
 <div class="row">
 
     <div class="col-sm-4">
@@ -173,10 +16,10 @@
             {
 
 
-                <li class="list-group-item">
-                    <a href="#@JobApplication.Applier.Id">
+                <li class="list-group-item applierForJob-group">
+                    <a class="JobApplierText" href="#@JobApplication.Applier.Id">
                         <div class="col-xs-12 col-sm-3">
-                            <img src="@JobApplication.Applier.ImageURL" alt="@JobApplication.Applier.FName @JobApplication.Applier.LName" class="img-responsive img-circle" />
+                            <img src="@JobApplication.Applier.ImageURL" alt="@JobApplication.Applier.FName @JobApplication.Applier.LName" class="img-responsive img-circle applier-image-url" />
                         </div>
                         <div class="col-xs-12 col-sm-9">
                             <span class="name">@JobApplication.Applier.FName @JobApplication.Applier.LName</span><br />
@@ -206,22 +49,22 @@
             <div class="tab-content" id="">
 
                 @foreach (var item in Model.JobApplicationList)
-                    {
+                {
                     <div id="@item.Applier.Id" class="tab-pane fade in">
 
                         <div class="tab-content">
                             <div id="Application" class="tab-pane fade in active">
                                 @Html.Partial("_JobApplication", item)
-                              
+
                             </div>
                             <div id="JobCV" class="tab-pane fade">
-                               
+
                                 @Html.Partial("_JobCV", item.Applier.JobCV)
                             </div>
                         </div>
 
 
-                        
+
                     </div>
                 }
 
@@ -244,13 +87,13 @@
         });
     </script>
 
-<script>
-            $(document).ready(function () {
-                $(".nav-tabs a").click(function () {
-                    $(this).tab('show');
-                });
+    <script>
+        $(document).ready(function () {
+            $(".nav-tabs a").click(function () {
+                $(this).tab('show');
             });
-</script>
+        });
+    </script>
 
 
 
