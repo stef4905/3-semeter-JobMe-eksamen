@@ -33,9 +33,9 @@ namespace JobMe_Homepage.Controllers
 
         }
 
+
         public ActionResult UpdateUserProfile()
         {
-           
 
             return View(Session["applier"]);
         }
@@ -140,6 +140,32 @@ namespace JobMe_Homepage.Controllers
 
 
             return View(vmApplierAndApplication);
+        }
+        [HttpPost]
+        public ActionResult _UpdateUserProfile(string fNameInput, string lNameInput, DateTime birthdate, int PhoneInput, string addressInput,
+                                                string countryInput, string currentJobInput, string homepageInput, string descriptionInput, int jobCvId)
+        {
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier
+            {
+                //MISSING jobCaregory and status is not working
+                FName = fNameInput,
+                LName = lNameInput,
+                Birthdate = birthdate,
+                Phone = PhoneInput,
+                Address = addressInput,
+                Country = countryInput,
+                CurrentJob = currentJobInput,
+                HomePage = homepageInput,
+                //Status = statusInput, 
+                Description = descriptionInput,
+                JobCV = new ApplierServiceReference.JobCV
+                {
+                    Id = jobCvId
+                }
+            };
+            client.Update(applier);
+            TempData["Success"] = "Successfuld updateret!";
+            return RedirectToAction("UpdateUserProfile");
         }
 
         [HttpPost]

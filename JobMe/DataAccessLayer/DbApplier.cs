@@ -29,14 +29,14 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                        
+                    cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
+                    cmd.Parameters.AddWithValue("Email", obj.Email);
+                    cmd.Parameters.AddWithValue("Password", obj.Password);
+                    cmd.Parameters.AddWithValue("MaxRadius", 50);
+                    cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
                     try
                     {
-                        cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
-                        cmd.Parameters.AddWithValue("Email", obj.Email);
-                        cmd.Parameters.AddWithValue("Password", obj.Password);
-                        cmd.Parameters.AddWithValue("MaxRadius", 50);
-                        cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
+                        
                         cmd.ExecuteNonQuery();
                         return true;
                     }
@@ -115,6 +115,8 @@ namespace DataAccessLayer
                         {
                             applier.Id = (int)reader["Id"];
                             applier.Email = (string)reader["Email"];
+                            applier.Phone = (int)reader["Phone"];
+                            applier.Address = (string)reader["Address"];
                             applier.Country = (string)reader["Country"];
                             applier.Description = (string)reader["Description"];
                             applier.BannerURL = (string)reader["BannerURL"];

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "UpdateUserProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
+   
 }
 
 <h2>UpdateUserProfile</h2>
@@ -40,48 +41,89 @@
 
                     <div class="row">
                         <div class="col-sm-12"><h3>Ændre profil information</h3></div>
-                        <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
-                            <label class="ApplierUpdateText">Name:</label>
-                            <div class="input-group" id="ApplierInputContainer">
-                                <input type="text" class="form-control" id="usr" value="@Model.FName" name="NameInput">
+                        <form action="/Applier/_UpdateUserProfile" method="post">
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+
+                                <label class="ApplierUpdateText">Name:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" id="usr" value="@Model.FName" name="fNameInput">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
-                            <label class="ApplierUpdateText">Efternavn:</label>
-                            <div class="input-group" id="ApplierInputContainer">
-                                <input type="text" class="form-control" name="LNameInput" value="@Model.LName" />
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                                <label class="ApplierUpdateText">Efternavn:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="lNameInput" value="@Model.LName" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6">
+                            <div class="col-sm-6">
                                 <label class="ApplierUpdateText" for="birthdate">Fødselsdag:</label>
-                            <div class="input-group" id="ApplierInputContainer">
-
-                                @DateTime.Parse(Model.Birthdate.ToShortDateString(), "dd-MM-yyyy")
-                                <input type="date" name="birthdate" class="form-control" value="@DateTime.ParseExact(Model.Birthdate.ToShortDateString(),"yyyy-MM-dd");"/>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="date" name="birthdate" class="form-control" value="@Model.Birthdate.ToShortDateString();" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                                <label class="ApplierUpdateText">Telefon nummer:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="PhoneInput" value="@Model.Phone.ToString()" />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="ApplierUpdateText">Addresse:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="addressInput" value="@Model.Address" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                                <label class="ApplierUpdateText">Land:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="countryInput" value="@Model.Country" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="ApplierUpdateText">Nuværende job:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="currentJobInput" value="@Model.CurrentJob" />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="ApplierUpdateText">Hjemmeside:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="homepageInput" value="@Model.HomePage" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                                <label class="ApplierUpdateText">Jobsøgende</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    
+                                    @Html.RadioButtonFor(model => model.Status, true) Ja
+                                    @Html.RadioButtonFor(model => model.Status, false) Nej
+                                    
+                                </div>
                             </div>
 
-
-
-
-
-                            </div>
-
-                                <p>Fødselsdag <b>@Model.Birthdate.ToShortDateString()</b></p>
-
-                                <p>Nuværrende Job: <b> @Model.CurrentJob</b></p>
-                                <p>Location: <b> @Model.Address</b></p>
-                                <p>  Job kategorier: </p>
-                                <ul>
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                                <label class="ApplierUpdateText">Jeg søger job som er:</label>
+                                <div class="input-group" id="ApplierInputContainer">
                                     @foreach (var category in Model.JobCategoryList)
                                     {
-                                        <li> <b>@category.Title</b> </li>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="" name="categoryInput">@category.Title</label>
+                                        </div>
                                     }
-                                </ul>
-
-                                <h3>Beskrivelse:</h3>
-                                <p>@Model.Description</p>
+                                </div>
                             </div>
+                            <div class="col-sm-12">
+                                <div class="form-group" id="ApplierInputContainer">
+                                    <label for="description">Beskrivelse:</label>
+                                    <textarea class="form-control" rows="10" id="textAreaControl">@Model.Description</textarea>
+                                </div>
+                            </div>
+                            <input type="hidden" name="jobCvId" value="@Model.JobCV.Id" />
+                            <button type="submit" class="btn btn-primary" id="SaveProfileButton">Gem ændringer</button>
+                        </form>
                         </div>
+                      </div>
+                 </div>
             </div>
         </div>
     </div>
