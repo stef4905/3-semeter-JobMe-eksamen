@@ -57,7 +57,7 @@ namespace WCFJobMeService
         /// <param name="applier"></param>
         public void Update(Applier applier)
         {
-            applierCtr.Update(applier);
+           applierCtr.Update(applier);
         }
 
         /// <summary>

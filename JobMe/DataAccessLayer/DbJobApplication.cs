@@ -39,8 +39,8 @@ namespace DataAccessLayer
                     }
                     catch (SqlException e)
                     {
-                        throw e;
                         return false;
+                        throw e;    
                     }
                 }
             }

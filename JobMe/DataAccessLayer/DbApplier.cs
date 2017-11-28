@@ -42,8 +42,8 @@ namespace DataAccessLayer
                     }
                     catch (SqlException e)
                     {
-                        throw e;
                         return false;
+                        throw e;
                     }
                 }
             }
@@ -233,9 +233,7 @@ namespace DataAccessLayer
                         return true;
                     }
                     catch (SqlException e) {
-                        return false;
                         throw e;
-                        
                     }
                 }
             }

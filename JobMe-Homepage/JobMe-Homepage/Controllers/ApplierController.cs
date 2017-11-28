@@ -36,8 +36,9 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult UpdateUserProfile()
         {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
 
-            return View(Session["applier"]);
+            return View(applier);
         }
 
         [HttpPost]
@@ -141,12 +142,17 @@ namespace JobMe_Homepage.Controllers
 
             return View(vmApplierAndApplication);
         }
+
         [HttpPost]
-        public ActionResult _UpdateUserProfile(string fNameInput, string lNameInput, DateTime birthdate, int PhoneInput, string addressInput,
+        public ActionResult _UpdateUserProfile(int applierId, string emailInput,string bannerInput, string imageInput, string fNameInput, string lNameInput, DateTime birthdate, int PhoneInput, string addressInput,
                                                 string countryInput, string currentJobInput, string homepageInput, string descriptionInput, int jobCvId)
         {
             ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier
             {
+                Id = applierId,
+                Email = emailInput,
+                BannerURL = bannerInput,
+                ImageURL = imageInput,
                 //MISSING jobCaregory and status is not working
                 FName = fNameInput,
                 LName = lNameInput,
@@ -156,15 +162,17 @@ namespace JobMe_Homepage.Controllers
                 Country = countryInput,
                 CurrentJob = currentJobInput,
                 HomePage = homepageInput,
-                //Status = statusInput, 
+                Status = true,
                 Description = descriptionInput,
                 JobCV = new ApplierServiceReference.JobCV
                 {
                     Id = jobCvId
                 }
             };
-            client.Update(applier);
+
+            client.Update(applier);   
             TempData["Success"] = "Successfuld updateret!";
+            Session["applier"] = client.GetApplier(applierId);
             return RedirectToAction("UpdateUserProfile");
         }
 

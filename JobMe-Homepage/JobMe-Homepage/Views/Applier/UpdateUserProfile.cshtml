@@ -3,10 +3,8 @@
 @{
     ViewBag.Title = "UpdateUserProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
-   
-}
 
-<h2>UpdateUserProfile</h2>
+}
 
 <div class="container ApplierProfile-Content">
     <div class="row">
@@ -91,15 +89,6 @@
                                     <input type="text" class="form-control" name="homepageInput" value="@Model.HomePage" />
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
-                                <label class="ApplierUpdateText">Jobsøgende</label>
-                                <div class="input-group" id="ApplierInputContainer">
-                                    
-                                    @Html.RadioButtonFor(model => model.Status, true) Ja
-                                    @Html.RadioButtonFor(model => model.Status, false) Nej
-                                    
-                                </div>
-                            </div>
 
                             <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
                                 <label class="ApplierUpdateText">Jeg søger job som er:</label>
@@ -108,16 +97,20 @@
                                     {
                                         <div class="checkbox">
                                             <label><input type="checkbox" value="" name="categoryInput">@category.Title</label>
-                                        </div>
+                                        </div> 
                                     }
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group" id="ApplierInputContainer">
                                     <label for="description">Beskrivelse:</label>
-                                    <textarea class="form-control" rows="10" id="textAreaControl">@Model.Description</textarea>
+                                    <textarea class="form-control" rows="10" id="textAreaControl" name="descriptionInput">@Model.Description</textarea>
                                 </div>
                             </div>
+                            <input type="hidden" name="imageInput" value="@Model.ImageURL" />
+                            <input type="hidden" name="bannerInput" value="@Model.BannerURL" />
+                            <input type="hidden" name="emailInput" value="@Model.Email" />
+                            <input type="hidden" name="applierId" value="@Model.Id" />
                             <input type="hidden" name="jobCvId" value="@Model.JobCV.Id" />
                             <button type="submit" class="btn btn-primary" id="SaveProfileButton">Gem ændringer</button>
                         </form>
@@ -127,4 +120,3 @@
             </div>
         </div>
     </div>
-</div>
