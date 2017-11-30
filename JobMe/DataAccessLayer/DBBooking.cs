@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 namespace DataAccessLayer
 {
 
-    class DBBooking
+    public class DBBooking
     {
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 

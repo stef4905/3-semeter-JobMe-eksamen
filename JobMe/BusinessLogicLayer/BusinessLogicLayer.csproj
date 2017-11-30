@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ApplierCtr.cs" />
     <Compile Include="ApplierEducationCtr.cs" />
+    <Compile Include="BookingCtr.cs" />
     <Compile Include="CompanyCtr.cs" />
     <Compile Include="IController.cs" />
     <Compile Include="JobAppendixCtr.cs" />
@@ -52,7 +53,9 @@
     <Compile Include="JobCVCtr.cs" />
     <Compile Include="JobExperienceCtr.cs" />
     <Compile Include="JobPostCtr.cs" />
+    <Compile Include="MeetingCtr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionCtr.cs" />
     <Compile Include="WorkHoursCtr.cs" />
   </ItemGroup>
   <ItemGroup>
