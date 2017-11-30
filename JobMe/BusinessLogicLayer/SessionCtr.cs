@@ -28,6 +28,11 @@ namespace BusinessLogicLayer
             return DbSession.Get(id);
         }
 
+        public List<Booking> GetAll(int id)
+        {
+            return DbSession.GetAll(id);
+        }
+
         public bool Delete(int id)
         {
             return DbSession.Delete(id);
