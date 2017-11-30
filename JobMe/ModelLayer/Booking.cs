@@ -22,5 +22,21 @@ namespace ModelLayer
         public Session session { get; set; }
         [DataMember]
         public List<Session> sessionList = new List<Session>();
+
+
+        /// <summary>
+        /// Constructor for Booking
+        /// </summary>
+        /// <param name="meetingId"></param>
+        /// <param name="startDateAndTime"></param>
+        /// <param name="endDateAndTime"></param>
+        /// <param name="interviewAmount"></param>
+        public Booking(int meetingId, DateTime startDateAndTime, DateTime endDateAndTime, int interviewAmount)
+        {
+            this.MeetingId = meetingId;
+            this.StartDateAndTime = startDateAndTime;
+            this.EndDateAndTime = endDateAndTime;
+            this.InterviewAmount = interviewAmount;
+        }
     }
 }
