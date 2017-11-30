@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DbApplier.cs" />
     <Compile Include="DBApplierEducation.cs" />
+    <Compile Include="DBBooking.cs" />
     <Compile Include="DBBusinessType.cs" />
     <Compile Include="DbCompany.cs" />
     <Compile Include="DbConnection.cs" />

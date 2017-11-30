@@ -25,5 +25,5 @@ C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.cs
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.csproj.CoreCompileInputs.cache
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.exe
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.pdb
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.csprojResolveAssemblyReference.cache
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+C:\Users\KasperV\source\repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+C:\Users\KasperV\source\repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.csproj.CoreCompileInputs.cache
