@@ -47,12 +47,44 @@ namespace DataAccessLayer
             }
         }
 
+
+        /// <summary>
+        /// Deletes a single Session in the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>bool</returns>
+        public bool Delete(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE * FROM Session WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("Id", id);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
+        }
+
+
+        
+
         /// <summary>
         /// Returns a session from database
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Session get(int id)
+        public Session Get(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -64,17 +96,17 @@ namespace DataAccessLayer
 
                     try
                     {
+                        Session session = new Session();
                         SqlDataReader reader = cmd.ExecuteReader();
                         if (reader.Read())
                         {
-                            Session session = new Session();
                             session.Id = (int)reader["Id"];
                             session.StartTime = (DateTime)reader["StartTime"];
                             session.EndTime = (DateTime)reader["EndTime"];
                             session.ApplierId = (int)reader["ApplierId"];
                             session.BookingId = (int)reader["BookingId"];
-                            return session;
                         }
+                        return session;
                     }
                     catch(SqlException e)
                     {
@@ -113,6 +145,7 @@ namespace DataAccessLayer
                             session.BookingId = (int)reader["BookingId"];
                             sessionList.Add(session);
                         }
+                        return sessionList;
                     }
                     catch(SqlException e)
                     {

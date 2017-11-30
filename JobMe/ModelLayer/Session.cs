@@ -18,6 +18,8 @@ namespace ModelLayer
         public DateTime StartTime { get; set; }
         [DataMember]
         public DateTime EndTime { get; set; }
+        [DataMember]
+        public int BookingId { get; set; }
     
         /// <summary>
         /// Constructor for Session
@@ -25,12 +27,20 @@ namespace ModelLayer
         /// <param name="applierId"></param>
         /// <param name="startTime"></param>
         /// <param name="endTime"></param>
-    public Session(int applierId, DateTime startTime, DateTime endTime)
-    {
-        this.ApplierId = applierId;
-        this.StartTime = startTime;
-        this.EndTime = endTime;
-    }
+        public Session(int applierId, DateTime startTime, DateTime endTime)
+        {
+            this.ApplierId = applierId;
+            this.StartTime = startTime;
+            this.EndTime = endTime;
+        }
+
+        /// <summary>
+        /// Empty constructor
+        /// </summary>
+        public Session()
+        { }
+
+        
 
     }
 }
