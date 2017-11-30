@@ -11,7 +11,7 @@ namespace ModelLayer
     public class Booking
     {
         [DataMember]
-        public int MeetingId { get; set; }
+        public int Id { get; set; }
         [DataMember]
         public DateTime StartDateAndTime { get; set; }
         [DataMember]
@@ -31,9 +31,9 @@ namespace ModelLayer
         /// <param name="startDateAndTime"></param>
         /// <param name="endDateAndTime"></param>
         /// <param name="interviewAmount"></param>
-        public Booking(int meetingId, DateTime startDateAndTime, DateTime endDateAndTime, int interviewAmount)
+        public Booking(int id, DateTime startDateAndTime, DateTime endDateAndTime, int interviewAmount)
         {
-            this.MeetingId = meetingId;
+            this.Id = id;
             this.StartDateAndTime = startDateAndTime;
             this.EndDateAndTime = endDateAndTime;
             this.InterviewAmount = interviewAmount;

@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BusinessLogicLayer;
+using ModelLayer;
 
 namespace UnitTestJobMe
 {
