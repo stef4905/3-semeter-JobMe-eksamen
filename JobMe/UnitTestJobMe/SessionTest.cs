@@ -18,11 +18,12 @@ namespace UnitTestJobMe
             //Arrange
             //Starting by making an instance of the Session and the Session controller, that are required for the test to be executed.
             Session session = new Session();
+            Booking booking = new Booking();
             SessionCtr sessiongCtr = new sessionCtr();
 
             //Act
             //Returns the 'inserted' bool, that comes from calling the Session Controllers create method with the given session object. 
-            bool inserted = sessionCtr.Create(session);
+            bool inserted = sessionCtr.Create(session, booking);
 
             //Assert
             //Is tested by checking wehter the inserted bool is true or false. If it is true i will pass.

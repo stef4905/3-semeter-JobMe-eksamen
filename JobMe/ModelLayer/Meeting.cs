@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ModelLayer
 {
     [DataContract]
-    class Meeting
+    public class Meeting
     {
         [DataMember]
         public int Id { get; set; }
