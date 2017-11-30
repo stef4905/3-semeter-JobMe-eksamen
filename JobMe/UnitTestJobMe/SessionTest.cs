@@ -5,7 +5,7 @@ using BusinessLogicLayer;
 namespace UnitTestJobMe
 {
     [TestClass]
-    public class UnitTest1
+    public class SessionTest
     {
         /// <summary>
         /// Testing the creation of a session in the database. by going through the controller. 
@@ -13,19 +13,19 @@ namespace UnitTestJobMe
         /// Then the bool is tested with the IsTrue, where the test will pass if the bool is returned true.
         /// </summary>
         [TestMethod]
-        public void TestCreateMeeting()
+        public void TestCreateSession()
         {
             //Arrange
-            //Starting by instanciating a new Meeting and Meeting Controller, that are required for the test to execute
-            Meeting meeting = new Meeting();
-            MeetingCtr meetingCtr = new MeetingCtr();
+            //Starting by making an instance of the Session and the Session controller, that are required for the test to be executed.
+            Session session = new Session();
+            SessionCtr sessiongCtr = new sessionCtr();
 
             //Act
-            //Retuns the bool 'inserted' that are given by the Meeting Controllers Create method by the given Meeting object
-            bool inserted = meetingCtr.Create(meeting);
+            //Returns the 'inserted' bool, that comes from calling the Session Controllers create method with the given session object. 
+            bool inserted = sessionCtr.Create(session);
 
             //Assert
-            //Test wehter the bool 'inserted' is true og false. If it is true the test wil pass.
+            //Is tested by checking wehter the inserted bool is true or false. If it is true i will pass.
             Assert.IsTrue(inserted);
         }
     }
