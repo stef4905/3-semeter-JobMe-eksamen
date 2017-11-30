@@ -32,9 +32,9 @@ namespace DataAccessLayer
                         cmd.ExecuteNonQuery();
                         return true;
                     }
-                    catch (SqlException)
+                    catch (SqlException e)
                     {
-                        return false;
+                        throw e;
                     }
                 }
             }
