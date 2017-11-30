@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbAdmin.cs" />
     <Compile Include="DbApplier.cs" />
     <Compile Include="DBApplierEducation.cs" />
     <Compile Include="DBBooking.cs" />
