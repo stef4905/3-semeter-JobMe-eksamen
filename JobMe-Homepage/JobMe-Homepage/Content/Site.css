@@ -361,8 +361,9 @@
 }
 
 #profile-image {
-	height: 100%;
-	max-height: 200px;
+    height: 100%;
+    max-height: 300px;
+    max-width: 300px;
 }
 
 /*Applier Index site*/
@@ -493,4 +494,32 @@ div.tab button {
 
 .applierForJob-group {
     height: 95px;
+}
+/*Update Applier Info*/
+
+#textAreaControl {
+    resize: none;
+}
+.ApplierUpdateText {
+    margin-top: 2%;
+    font-size: 95%;
+}
+
+#SavePasswordButton {
+    margin-top: 4%;
+    margin-right: 7%;
+    float: right;
+}
+#SaveProfileButton {
+    margin-top: 4%;
+    margin-right: 7%;
+    float: right;
+}
+
+#UserUpdateSeperator {
+    height: 2px;
+    background-color: black;
+    opacity: 0.2;
+    margin-top: 4%;
+    margin-bottom: 4%;
 }

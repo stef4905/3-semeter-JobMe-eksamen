@@ -45,7 +45,18 @@
                         }
                     </p>
                     <p class="text-left">
-                        <a href="#" class="btn btn-block btn-sm btn-blue">Redigere Profil</a>
+
+                        @if (Model.Status)
+                        {
+                            <a href="/Applier/UpdateUserProfile" class="btn btn-block btn-sm btn-blue">Redigere Profil</a>
+                        }
+
+                        else
+                        {
+                            <a href="#" class="btn btn-block btn-sm btn-blue">Redigere Profil</a>
+                        }
+
+                        
                     </p>
                     <p class="text-left">
                         <a href="/applier/JobApplication" class="btn btn-block btn-sm btn-blue">Se CV</a>

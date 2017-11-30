@@ -11,37 +11,71 @@ namespace ConsoleHost
     class Program
     {
         static void Main(string[] args)
+
+            // Ændre fra Using til at lukke forbindelsen selv.
         {
-            using (ServiceHost host = new ServiceHost(typeof(ApplierService)))
+            ServiceHost Companyhost = new ServiceHost(typeof(CompanyService));
+            ServiceHost Applierhost = new ServiceHost(typeof(ApplierService));
+            ServiceHost JobPosthost = new ServiceHost(typeof(JobPostService));
+            foreach (var hostedEndpoint in Companyhost.BaseAddresses)
             {
-                foreach (var hostedEndpoint in host.BaseAddresses)
-                {
-                    Console.WriteLine(hostedEndpoint.AbsoluteUri);
-                    Console.WriteLine(hostedEndpoint.LocalPath);
-                }
-                host.Open();
-                printInfo(host);
+                Console.WriteLine(hostedEndpoint.AbsoluteUri);
+                Console.WriteLine(hostedEndpoint.LocalPath);
             }
-            using (ServiceHost host = new ServiceHost(typeof(CompanyService)))
+            Companyhost.Open();
+            printInfo(Companyhost);
+
+            foreach (var hostedEndpoint in Applierhost.BaseAddresses)
             {
-                foreach (var hostedEndpoint in host.BaseAddresses)
-                {
-                    Console.WriteLine(hostedEndpoint.AbsoluteUri);
-                    Console.WriteLine(hostedEndpoint.LocalPath);
-                }
-                host.Open();
-                printInfo(host);
+                Console.WriteLine(hostedEndpoint.AbsoluteUri);
+                Console.WriteLine(hostedEndpoint.LocalPath);
             }
-            using (ServiceHost host = new ServiceHost(typeof(JobPostService)))
+            Applierhost.Open();
+            printInfo(Applierhost);
+
+            foreach (var hostedEndpoint in JobPosthost.BaseAddresses)
             {
-                foreach (var hostedEndpoint in host.BaseAddresses)
-                {
-                    Console.WriteLine(hostedEndpoint.AbsoluteUri);
-                    Console.WriteLine(hostedEndpoint.LocalPath);
-                }
-                host.Open();
-                printInfo(host);
+                Console.WriteLine(hostedEndpoint.AbsoluteUri);
+                Console.WriteLine(hostedEndpoint.LocalPath);
             }
+            JobPosthost.Open();
+            printInfo(JobPosthost);
+
+
+
+
+            //using (ServiceHost host = new ServiceHost(typeof(CompanyService)))
+            //{
+            //    foreach (var hostedEndpoint in host.BaseAddresses)
+            //    {
+            //        Console.WriteLine(hostedEndpoint.AbsoluteUri);
+            //        Console.WriteLine(hostedEndpoint.LocalPath);
+            //    }
+            //    host.Open();
+            //    printInfo(host);
+            //}
+
+            //using (ServiceHost host = new ServiceHost(typeof(ApplierService)))
+            //{
+            //    foreach (var hostedEndpoint in host.BaseAddresses)
+            //    {
+            //        Console.WriteLine(hostedEndpoint.AbsoluteUri);
+            //        Console.WriteLine(hostedEndpoint.LocalPath);
+            //    }
+            //    host.Open();
+            //    printInfo(host);
+            //}
+
+            //using (ServiceHost host = new ServiceHost(typeof(JobPostService)))
+            //{
+            //    foreach (var hostedEndpoint in host.BaseAddresses)
+            //    {
+            //        Console.WriteLine(hostedEndpoint.AbsoluteUri);
+            //        Console.WriteLine(hostedEndpoint.LocalPath);
+            //    }
+            //    host.Open();
+            //    printInfo(host);
+            //}
             Console.ReadLine();
         }
 

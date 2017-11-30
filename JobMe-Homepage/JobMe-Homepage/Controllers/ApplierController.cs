@@ -3,6 +3,7 @@ using JobMe_Homepage.JobApplicationServiceReference;
 using JobMe_Homepage.JobPostServiceReference;
 using JobMe_Homepage.Models;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -30,6 +31,14 @@ namespace JobMe_Homepage.Controllers
         {
             return PartialView();
 
+        }
+
+
+        public ActionResult UpdateUserProfile()
+        {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+
+            return View(applier);
         }
 
         [HttpPost]
@@ -132,6 +141,39 @@ namespace JobMe_Homepage.Controllers
 
 
             return View(vmApplierAndApplication);
+        }
+
+        [HttpPost]
+        public ActionResult _UpdateUserProfile(int applierId, string emailInput,string bannerInput, string imageInput, string fNameInput, string lNameInput, DateTime birthdate, int PhoneInput, string addressInput,
+                                                string countryInput, string currentJobInput, string homepageInput, string descriptionInput, int jobCvId)
+        {
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier
+            {
+                Id = applierId,
+                Email = emailInput,
+                BannerURL = bannerInput,
+                ImageURL = imageInput,
+                //MISSING jobCaregory and status is not working
+                FName = fNameInput,
+                LName = lNameInput,
+                Birthdate = birthdate,
+                Phone = PhoneInput,
+                Address = addressInput,
+                Country = countryInput,
+                CurrentJob = currentJobInput,
+                HomePage = homepageInput,
+                Status = true,
+                Description = descriptionInput,
+                JobCV = new ApplierServiceReference.JobCV
+                {
+                    Id = jobCvId
+                }
+            };
+
+            client.Update(applier);   
+            TempData["Success"] = "Successfuld updateret!";
+            Session["applier"] = client.GetApplier(applierId);
+            return RedirectToAction("UpdateUserProfile");
         }
 
         [HttpPost]

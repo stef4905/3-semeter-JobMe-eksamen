@@ -100,3 +100,20 @@ C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ConsoleHost\obj\Debu
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ConsoleHost\obj\Debug\ConsoleHost.csproj.CoreCompileInputs.cache
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ConsoleHost\obj\Debug\ConsoleHost.exe
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ConsoleHost\obj\Debug\ConsoleHost.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\ConsoleHost.exe.config
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\ConsoleHost.exe
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\ConsoleHost.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\WCFJobMeService.dll
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\BusinessLogicLayer.dll
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\ModelLayer.dll
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\DataAccessLayer.dll
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\WCFJobMeService.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\WCFJobMeService.dll.config
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\BusinessLogicLayer.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\ModelLayer.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\DataAccessLayer.pdb
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\bin\Debug\DataAccessLayer.dll.config
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\obj\Debug\ConsoleHost.csprojResolveAssemblyReference.cache
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\obj\Debug\ConsoleHost.csproj.CoreCompileInputs.cache
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\obj\Debug\ConsoleHost.exe
+E:\Skole\3 Semester\GitHubRepos\3 Semester Projekt Repo\JobMe\ConsoleHost\obj\Debug\ConsoleHost.pdb
