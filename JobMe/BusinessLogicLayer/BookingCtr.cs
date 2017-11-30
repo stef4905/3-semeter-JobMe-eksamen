@@ -11,6 +11,7 @@ namespace BusinessLogicLayer
     public class BookingCtr
     {
         DBBooking DbBooking = new DBBooking();
+        SessionCtr SessionCtr = new SessionCtr();
 
         /// <summary>
         /// Creates a new booking in the database
@@ -27,9 +28,11 @@ namespace BusinessLogicLayer
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Booking get(int id)
+        public Booking Get(int id)
         {
-            return DbBooking.get(id);
+            Booking booking = DbBooking.get(id);
+            booking.sessionList = SessionCtr.GetAll(booking.Id);
+            return booking;
         }
 
         /// <summary>
