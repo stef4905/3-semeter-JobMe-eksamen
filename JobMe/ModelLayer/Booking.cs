@@ -31,9 +31,8 @@ namespace ModelLayer
         /// <param name="startDateAndTime"></param>
         /// <param name="endDateAndTime"></param>
         /// <param name="interviewAmount"></param>
-        public Booking(int id, DateTime startDateAndTime, DateTime endDateAndTime, int interviewAmount)
+        public Booking(DateTime startDateAndTime, DateTime endDateAndTime, int interviewAmount)
         {
-            this.Id = id;
             this.StartDateAndTime = startDateAndTime;
             this.EndDateAndTime = endDateAndTime;
             this.InterviewAmount = interviewAmount;

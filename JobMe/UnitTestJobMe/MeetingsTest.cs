@@ -18,7 +18,7 @@ namespace UnitTestJobMe
         {
             //Arrange
             //Starting by instanciating a new Meeting and Meeting Controller, that are required for the test to execute
-            Meeting meeting = new Meeting();
+            Meeting meeting = new Meeting(1, 1);
             MeetingCtr meetingCtr = new MeetingCtr();
 
             //Act

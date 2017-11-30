@@ -18,7 +18,10 @@ namespace UnitTestJobMe
         {
             //Arrange
             //Starting by instanciating Booking and Booking controller, that are required for the test to be executed.
-            Booking booking = new Booking();
+            DateTime startDateAndTime = new DateTime(2017, 11, 30, 12, 0, 0);
+            DateTime endDateAndtime = new DateTime(2017, 11, 30, 16, 0, 0);
+            int numbersOfInterviews = 4;
+            Booking booking = new Booking(startDateAndTime, endDateAndtime, numbersOfInterviews);
             BookingCtr bookingCtr = new BookingCtr();
 
             //Act

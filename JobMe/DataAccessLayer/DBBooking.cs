@@ -28,7 +28,7 @@ namespace DataAccessLayer
                         cmd.Parameters.AddWithValue("StartDateAndTime", booking.StartDateAndTime);
                         cmd.Parameters.AddWithValue("EndDateAndTime", booking.EndDateAndTime);
                         cmd.Parameters.AddWithValue("InterviewAmount", booking.InterviewAmount);
-                        cmd.Parameters.AddWithValue("MeetingId", booking.MeetingId);
+                        cmd.Parameters.AddWithValue("MeetingId", booking.Id);
                         cmd.ExecuteNonQuery();
                         return true;
                     }
