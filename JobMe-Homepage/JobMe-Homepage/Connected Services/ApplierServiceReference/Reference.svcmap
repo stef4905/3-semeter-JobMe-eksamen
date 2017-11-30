@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8723/Design_Time_Addresses/WCFJobMeService/ApplierService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="https://localhost:8711/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="71e41cbd-bbee-4f00-901b-37c65a99f3f4" SourceId="1" SourceUrl="http://localhost:8723/Design_Time_Addresses/WCFJobMeService/ApplierService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="16814de9-901b-4557-a103-83aeee1df7dc" SourceId="1" SourceUrl="http://localhost:8723/Design_Time_Addresses/WCFJobMeService/ApplierService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="d1ef42c2-7145-4db2-8f99-01443ad82aa6" SourceId="1" SourceUrl="http://localhost:8723/Design_Time_Addresses/WCFJobMeService/ApplierService/mex" />
-    <MetadataFile FileName="ModelLayer.xsd" MetadataType="Schema" ID="4359861e-a6b7-4bdb-ac5c-d7c415766670" SourceId="1" SourceUrl="http://localhost:8723/Design_Time_Addresses/WCFJobMeService/ApplierService/mex" />
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="ec1f316b-f5e3-46dd-b084-a3192a1ca768" SourceId="1" SourceUrl="https://localhost:8711/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="67808555-e821-4518-951c-b110659a720c" SourceId="1" SourceUrl="https://localhost:8711/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="e4e68868-eafe-4914-9cc8-74edbdecef5a" SourceId="1" SourceUrl="https://localhost:8711/mex" />
+    <MetadataFile FileName="ModelLayer1.xsd" MetadataType="Schema" ID="1ed7d3c5-4711-4a9a-b4df-219d8dbbf861" SourceId="1" SourceUrl="https://localhost:8711/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

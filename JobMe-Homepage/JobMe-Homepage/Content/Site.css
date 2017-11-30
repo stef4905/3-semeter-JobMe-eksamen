@@ -361,8 +361,9 @@
 }
 
 #profile-image {
-	height: 100%;
-	max-height: 200px;
+    height: 100%;
+    max-height: 300px;
+    max-width: 300px;
 }
 
 /*Applier Index site*/
@@ -496,6 +497,9 @@ div.tab button {
 }
 /*Update Applier Info*/
 
+#textAreaControl {
+    resize: none;
+}
 .ApplierUpdateText {
     margin-top: 2%;
     font-size: 95%;
@@ -503,6 +507,12 @@ div.tab button {
 
 #SavePasswordButton {
     margin-top: 4%;
+    margin-right: 7%;
+    float: right;
+}
+#SaveProfileButton {
+    margin-top: 4%;
+    margin-right: 7%;
     float: right;
 }
 
