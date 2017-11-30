@@ -10,6 +10,11 @@ namespace ModelLayer
     [DataContract]
     class Meeting
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
+        public int JobPostId { get; set; }
+        [DataMember]
+        public List<Booking> booking = new List<Booking>();
     }
 }

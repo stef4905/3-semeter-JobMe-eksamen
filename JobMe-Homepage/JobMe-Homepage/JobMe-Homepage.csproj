@@ -187,9 +187,19 @@
     <Content Include="Connected Services\ApplierServiceReference\JobMe_Homepage.ApplierServiceReference.Applier.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\ApplierServiceReference\ModelLayer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ApplierServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ApplierServiceReference\service1.wsdl" />
+    <None Include="Connected Services\ApplierServiceReference\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ApplierServiceReference\service21.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\CompanyServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\CompanyServiceReference\configuration.svcinfo" />
@@ -205,18 +215,38 @@
     <Content Include="Connected Services\CompanyServiceReference\JobMe_Homepage.CompanyServiceReference.JobPost.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\CompanyServiceReference\ModelLayer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\CompanyServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\CompanyServiceReference\service1.wsdl" />
+    <None Include="Connected Services\CompanyServiceReference\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CompanyServiceReference\service21.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\JobApplicationServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\JobApplicationServiceReference\configuration.svcinfo" />
     <Content Include="Connected Services\JobApplicationServiceReference\JobMe_Homepage.JobApplicationServiceReference.JobApplication.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\JobApplicationServiceReference\ModelLayer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\JobApplicationServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\JobApplicationServiceReference\service1.wsdl" />
+    <None Include="Connected Services\JobApplicationServiceReference\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JobApplicationServiceReference\service21.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\JobPostServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\JobPostServiceReference\configuration.svcinfo" />
@@ -229,6 +259,9 @@
     <Content Include="Connected Services\JobPostServiceReference\JobMe_Homepage.JobPostServiceReference.WorkHours.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\JobPostServiceReference\ModelLayer1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\JobPostServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -245,46 +278,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Connected Services\ApplierServiceReference\ModelLayer.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ApplierServiceReference\service.wsdl" />
-    <None Include="Connected Services\ApplierServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ApplierServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\CompanyServiceReference\ModelLayer.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\CompanyServiceReference\service.wsdl" />
-    <None Include="Connected Services\CompanyServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\CompanyServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\JobApplicationServiceReference\ModelLayer.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\JobApplicationServiceReference\service.wsdl" />
-    <None Include="Connected Services\JobApplicationServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\JobApplicationServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\JobPostServiceReference\ModelLayer.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\JobPostServiceReference\service.wsdl" />
-    <None Include="Connected Services\JobPostServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\JobPostServiceReference\service1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -303,6 +296,13 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Connected Services\JobPostServiceReference\service1.wsdl" />
+    <None Include="Connected Services\JobPostServiceReference\service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JobPostServiceReference\service21.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />

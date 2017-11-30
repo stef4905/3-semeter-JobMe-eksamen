@@ -1,5 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CompanyService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CompanyService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_ICompanyService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
@@ -219,201 +245,208 @@
       <wsdl:output wsaw:Action="http://tempuri.org/ICompanyService/UpdateWorkHoursResponse" message="tns:ICompanyService_UpdateWorkHours_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_ICompanyService" type="tns:ICompanyService">
-    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+  <wsdl:binding name="WSHttpBinding_ICompanyService" type="tns:ICompanyService">
+    <wsp:PolicyReference URI="#WSHttpBinding_ICompanyService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CreateCompany">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/CreateCompany" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/CreateCompany" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DeleteCompany">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/DeleteCompany" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/DeleteCompany" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetCompany">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/GetCompany" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/GetCompany" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllCompany">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/GetAllCompany" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/GetAllCompany" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateCompany">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/UpdateCompany" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/UpdateCompany" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Login">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/Login" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/Login" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="CreateJobPost">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/CreateJobPost" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/CreateJobPost" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DeleteJobPost">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/DeleteJobPost" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/DeleteJobPost" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllJobPost">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/GetAllJobPost" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/GetAllJobPost" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateJobPost">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/UpdateJobPost" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/UpdateJobPost" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetJobPost">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/GetJobPost" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/GetJobPost" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="CreateJobCategory">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/CreateJobCategory" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/CreateJobCategory" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DeleteJobCategory">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/DeleteJobCategory" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/DeleteJobCategory" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetJobCategory">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/GetJobCategory" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/GetJobCategory" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllJobCategories">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/GetAllJobCategories" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/GetAllJobCategories" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateJobCategory">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/UpdateJobCategory" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/UpdateJobCategory" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="CreateWorkHours">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/CreateWorkHours" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/CreateWorkHours" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DeleteWorkHours">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/DeleteWorkHours" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/DeleteWorkHours" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetWorkHours">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/GetWorkHours" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/GetWorkHours" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetlAllWorkHours">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/GetlAllWorkHours" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/GetlAllWorkHours" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateWorkHours">
-      <soap:operation soapAction="http://tempuri.org/ICompanyService/UpdateWorkHours" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/ICompanyService/UpdateWorkHours" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="CompanyService">
-    <wsdl:port name="BasicHttpBinding_ICompanyService" binding="tns:BasicHttpBinding_ICompanyService">
-      <soap:address location="http://localhost:8723/Design_Time_Addresses/WCFJobMeService/Service1/" />
+    <wsdl:port name="WSHttpBinding_ICompanyService" binding="tns:WSHttpBinding_ICompanyService">
+      <soap12:address location="https://localhost:8710/CompanyService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://localhost:8710/CompanyService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
