@@ -21,7 +21,7 @@ namespace UnitTestJobMe
             DateTime startDateAndTime = new DateTime(2017, 11, 30, 12, 0, 0);
             DateTime endDateAndtime = new DateTime(2017, 11, 30, 16, 0, 0);
             int numbersOfInterviews = 4;
-            Booking booking = new Booking(startDateAndTime, endDateAndtime, numbersOfInterviews);
+            Booking booking = new Booking(startDateAndTime, endDateAndtime, numbersOfInterviews, 6);
             BookingCtr bookingCtr = new BookingCtr();
 
             //Act

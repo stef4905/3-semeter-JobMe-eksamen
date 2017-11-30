@@ -22,6 +22,8 @@ namespace ModelLayer
         public Session session { get; set; }
         [DataMember]
         public List<Session> sessionList = new List<Session>();
+        [DataMember]
+        public int MeetingId { get; set; }
 
 
         /// <summary>
@@ -31,11 +33,12 @@ namespace ModelLayer
         /// <param name="startDateAndTime"></param>
         /// <param name="endDateAndTime"></param>
         /// <param name="interviewAmount"></param>
-        public Booking(DateTime startDateAndTime, DateTime endDateAndTime, int interviewAmount)
+        public Booking(DateTime startDateAndTime, DateTime endDateAndTime, int interviewAmount, int meetingId)
         {
             this.StartDateAndTime = startDateAndTime;
             this.EndDateAndTime = endDateAndTime;
             this.InterviewAmount = interviewAmount;
+            this.MeetingId = meetingId;
         }
     }
 }
