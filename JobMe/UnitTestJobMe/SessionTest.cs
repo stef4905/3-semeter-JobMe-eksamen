@@ -18,9 +18,15 @@ namespace UnitTestJobMe
         {
             //Arrange
             //Starting by making an instance of the Session and the Session controller, that are required for the test to be executed.
-            Session session = new Session();
-            Booking booking = new Booking();
-            SessionCtr sessiongCtr = new sessionCtr();
+            DateTime startDateAndTime1 = new DateTime(2017, 11, 30, 12, 0, 0);
+            DateTime endDateAndtime1 = new DateTime(2017, 11, 30, 12, 30, 0);
+            Session session = new Session(2, startDateAndTime1, endDateAndtime1);
+            DateTime startDateAndTime = new DateTime(2017, 11, 30, 12, 0, 0);
+            DateTime endDateAndtime = new DateTime(2017, 11, 30, 16, 0, 0);
+            int numbersOfInterviews = 4;
+            Booking booking = new Booking(startDateAndTime, endDateAndtime, numbersOfInterviews, 6);
+            booking.Id = 6;
+            SessionCtr sessionCtr = new SessionCtr();
 
             //Act
             //Returns the 'inserted' bool, that comes from calling the Session Controllers create method with the given session object. 

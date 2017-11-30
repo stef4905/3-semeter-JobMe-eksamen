@@ -15,25 +15,25 @@ namespace DataAccessLayer
         //Connection string for instanciating sql connection 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-        public bool Create(Meeting meeting)
+        public Meeting Create(Meeting meeting)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Meeting (JobPostId, CompanyId) VALUES (@JobPostId, @CompanyId)";
-                    cmd.Parameters.AddWithValue("JobPostId", meeting.Id);
+                    cmd.CommandText = "INSERT INTO Meeting (JobPostId, CompanyId) output INSERTED.Id VALUES (@JobPostId, @CompanyId)";
+                    cmd.Parameters.AddWithValue("JobPostId", meeting.JobPostId);
                     cmd.Parameters.AddWithValue("CompanyId", meeting.CompanyId);
                     try
                     {
 
                         cmd.ExecuteNonQuery();
-                        return true;
+                        meeting.Id = (int)cmd.ExecuteScalar();
+                        return meeting;
                     }
                     catch (SqlException e)
                     {
-                        return false;
                         throw e;
                     }
                 }

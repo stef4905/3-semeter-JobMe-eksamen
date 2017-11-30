@@ -17,7 +17,7 @@ namespace BusinessLogicLayer
         /// </summary>
         /// <param name="meeting"></param>
         /// <returns>bool</returns>
-        public bool Create(Meeting meeting)
+        public Meeting Create(Meeting meeting)
         {
             return DbMeeting.Create(meeting);
         }

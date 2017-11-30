@@ -22,12 +22,12 @@ namespace UnitTestJobMe
             MeetingCtr meetingCtr = new MeetingCtr();
 
             //Act
-            //Retuns the bool 'inserted' that are given by the Meeting Controllers Create method by the given Meeting object
-            bool inserted = meetingCtr.Create(meeting);
+            //Retuns the Metting 'inserted' that are given by the Meeting Controllers Create method by the given Meeting object
+            Meeting inserted = meetingCtr.Create(meeting);
 
             //Assert
-            //Test wehter the bool 'inserted' is true og false. If it is true the test wil pass.
-            Assert.IsTrue(inserted);
+            //Test wehter the 'inserted' is true og false. If it is true the test wil pass.
+            Assert.IsTrue(inserted.Id != 0);
         }
     }
 }
