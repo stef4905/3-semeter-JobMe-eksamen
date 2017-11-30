@@ -30,7 +30,7 @@ namespace BusinessLogicLayer
         /// <returns></returns>
         public Booking Get(int id)
         {
-            Booking booking = DbBooking.get(id);
+            Booking booking = DbBooking.Get(id);
             booking.sessionList = SessionCtr.GetAll(booking.Id);
             return booking;
         }

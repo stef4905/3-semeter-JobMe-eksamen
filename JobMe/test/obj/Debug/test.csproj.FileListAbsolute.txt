@@ -27,16 +27,4 @@ C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.ex
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.pdb
 C:\Users\KasperV\source\repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.csprojResolveAssemblyReference.cache
 C:\Users\KasperV\source\repos\3-semeter-JobMe-eksamen\JobMe\test\obj\Debug\test.csproj.CoreCompileInputs.cache
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\bin\Debug\test.exe.config
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\bin\Debug\test.exe
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\bin\Debug\test.pdb
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\bin\Debug\BusinessLogicLayer.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\bin\Debug\DataAccessLayer.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\bin\Debug\ModelLayer.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\bin\Debug\BusinessLogicLayer.pdb
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\bin\Debug\DataAccessLayer.pdb
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\bin\Debug\DataAccessLayer.dll.config
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\bin\Debug\ModelLayer.pdb
 C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\obj\Debug\test.csprojResolveAssemblyReference.cache
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\obj\Debug\test.exe
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\test\obj\Debug\test.pdb

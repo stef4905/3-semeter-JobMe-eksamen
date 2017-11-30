@@ -28,7 +28,7 @@ namespace BusinessLogicLayer
             return DbSession.Get(id);
         }
 
-        public List<Booking> GetAll(int id)
+        public List<Session> GetAll(int id)
         {
             return DbSession.GetAll(id);
         }

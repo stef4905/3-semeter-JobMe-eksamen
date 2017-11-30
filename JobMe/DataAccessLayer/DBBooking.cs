@@ -58,7 +58,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Booking get(int id)
+        public Booking Get(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -71,17 +71,17 @@ namespace DataAccessLayer
                     try
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
-
+                        Booking booking = new Booking();
                         if (reader.Read())
                         {
-                            Booking booking = new Booking();
+                            
                             booking.Id = (int)reader["Id"];
                             booking.StartDateAndTime = (DateTime)reader["StartDateAndTime"];
                             booking.EndDateAndTime = (DateTime)reader["EndDateAndTime"];
                             booking.InterviewAmount = (int)reader["InterviewAmount"];
                             booking.MeetingId = (int)reader["MeetingId"];
-                            return booking;
                         }
+                        return booking;
                     }
                     catch(SqlException e)
                     {
