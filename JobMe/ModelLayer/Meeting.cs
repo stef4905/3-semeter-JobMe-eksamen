@@ -29,5 +29,13 @@ namespace ModelLayer
             this.JobPostId = jobPostId;
             this.CompanyId = companyId;
         }
+
+        /// <summary>
+        /// Empty constructor
+        /// </summary>
+        public Meeting()
+        {
+
+        }
     }
 }

@@ -22,5 +22,25 @@ namespace BusinessLogicLayer
         {
             return DbSession.Create(session, booking);
         }
+
+        public Booking Get(int id)
+        {
+            return DbSession.Get(id);
+        }
+
+        public List<Session> GetAll(int id)
+        {
+            return DbSession.GetAll(id);
+        }
+
+        public bool Delete(int id)
+        {
+            return DbSession.Delete(id);
+        }
+
+        public bool Update(Booking booking)
+        {
+            return DbSession.Update(booking);
+        }
     }
 }

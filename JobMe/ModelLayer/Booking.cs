@@ -19,8 +19,6 @@ namespace ModelLayer
         [DataMember]
         public int InterviewAmount { get; set; }
         [DataMember]
-        public Session session { get; set; }
-        [DataMember]
         public List<Session> sessionList = new List<Session>();
         [DataMember]
         public int MeetingId { get; set; }
@@ -40,5 +38,11 @@ namespace ModelLayer
             this.InterviewAmount = interviewAmount;
             this.MeetingId = meetingId;
         }
+
+        /// <summary>
+        /// Empty constructor
+        /// </summary>
+        public Booking()
+        { }
     }
 }
