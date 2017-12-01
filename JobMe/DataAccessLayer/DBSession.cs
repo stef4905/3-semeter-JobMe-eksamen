@@ -28,10 +28,9 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Session (StartTime, EndTime, ApplierId, BookingId) VALUES(@StartTime, @EndTime, @ApplierId, @BookingId)";
+                    cmd.CommandText = "INSERT INTO Session (StartTime, EndTime, BookingId) VALUES(@StartTime, @EndTime, @BookingId)";
                     cmd.Parameters.AddWithValue("StartTime", session.StartTime);
                     cmd.Parameters.AddWithValue("EndTime", session.EndTime);
-                    cmd.Parameters.AddWithValue("ApplierId", 0);
                     cmd.Parameters.AddWithValue("BookingId", booking.Id);
 
                     try
