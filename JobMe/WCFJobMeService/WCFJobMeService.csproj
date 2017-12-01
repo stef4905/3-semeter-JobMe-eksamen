@@ -59,8 +59,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminService.cs" />
     <Compile Include="ApplierService.cs" />
     <Compile Include="CompanyService.cs" />
+    <Compile Include="IAdminService.cs" />
     <Compile Include="IApplierService.cs" />
     <Compile Include="ICompanyService.cs" />
     <Compile Include="IJobApplicationService.cs" />

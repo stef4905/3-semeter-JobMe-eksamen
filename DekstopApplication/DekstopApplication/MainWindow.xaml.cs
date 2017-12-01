@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DekstopApplication.AdminServiceReference;
 
 namespace DekstopApplication
 {
@@ -43,21 +44,28 @@ namespace DekstopApplication
                 this.DragMove();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CMS cms = new CMS();
-            cms.Show();
-            this.Close();
+            string username = UsernameInput.Text;
+            string password = PasswordInpunt.Password.ToString();
+            AdminServiceClient client = new AdminServiceClient();
+
+            //Brug et if statement for at tjekke at username og password ikke er null eller ikke indeholder noget 
+            if(username != null && password != null)
+            {
+                //Anvende client med login metoden og return brugeren. 
+                Admin admin = client.Login(username, password);
+
+
+                //If statement om det der bliver returned er null eller ej. Hvis den ikke er null kan du efterfølgennde sender den videre i koden herunder.
+                if (admin != null)
+                {
+                    CMS cms = new CMS();
+                    cms.Show();
+                    this.Close();
+                }
+            }
         }
     }
 }
