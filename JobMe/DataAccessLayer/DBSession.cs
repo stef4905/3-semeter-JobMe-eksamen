@@ -141,7 +141,16 @@ namespace DataAccessLayer
                             session.Id = (int)reader["Id"];
                             session.StartTime = (DateTime)reader["StartTime"];
                             session.EndTime = (DateTime)reader["EndTime"];
-                            session.ApplierId = (int)reader["ApplierId"];
+
+                            if (reader["ApplierId"] == DBNull.Value)
+                            {
+                                session.ApplierId = 0;
+                            }
+                            else
+                            {
+                                session.ApplierId = (int)reader["ApplierId"];
+                            }
+
                             session.BookingId = (int)reader["BookingId"];
                             sessionList.Add(session);
                         }
