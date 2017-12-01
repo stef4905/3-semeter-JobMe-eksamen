@@ -121,7 +121,17 @@ namespace DataAccessLayer
                     cmd.CommandText = "UPDATE Meeting SET JobPostId = @JobPostId, CompanyId = @CompanyId WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("JobPostId", meeting.JobPostId);
                     cmd.Parameters.AddWithValue("CompanyId", meeting.CompanyId);
-                    cmd.Parameters.AddWithValue("Id", meeting.Id);
+                    //Checking that the id has been set and isen´t equal to zero. If it is, 
+                    //then it would be changed to NULL, wich the SQL understands
+                    if (meeting.Id != 0)
+                    {
+                        cmd.Parameters.AddWithValue("Id", meeting.Id);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("Id", null);
+                    }
+
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -130,6 +140,7 @@ namespace DataAccessLayer
                     catch (SqlException e)
                     {
                         throw e;
+                        return false;
                     }
                 }
             }

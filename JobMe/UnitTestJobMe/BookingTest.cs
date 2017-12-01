@@ -32,5 +32,23 @@ namespace UnitTestJobMe
             //Tests wheter or not the 'inserted' bool it true or not. If it is true the test will pass.
             Assert.IsTrue(inserted);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [TestMethod]
+        public void TestGet()
+        {
+            //Arrange
+            Booking booking = new Booking();
+            booking.Id = 6;
+            BookingCtr bookingCtr = new BookingCtr();
+
+            //Act
+            Booking returnedBooking = bookingCtr.Get(booking.Id);
+
+            //Assert
+            Assert.AreEqual(booking.Id, returnedBooking.Id);
+        }
     }
 }

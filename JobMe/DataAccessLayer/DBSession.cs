@@ -28,9 +28,10 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Session (StartTime, EndTime, BookingId) VALUES(@StartTime, @EndTime, @BookingId)";
+                    cmd.CommandText = "INSERT INTO Session (StartTime, EndTime, ApplierId, BookingId) VALUES(@StartTime, @EndTime, @ApplierId, @BookingId)";
                     cmd.Parameters.AddWithValue("StartTime", session.StartTime);
                     cmd.Parameters.AddWithValue("EndTime", session.EndTime);
+                    cmd.Parameters.AddWithValue("ApplierId", 0);
                     cmd.Parameters.AddWithValue("BookingId", booking.Id);
 
                     try
@@ -141,7 +142,16 @@ namespace DataAccessLayer
                             session.Id = (int)reader["Id"];
                             session.StartTime = (DateTime)reader["StartTime"];
                             session.EndTime = (DateTime)reader["EndTime"];
-                            session.ApplierId = (int)reader["ApplierId"];
+
+                            if (reader["ApplierId"] == DBNull.Value)
+                            {
+                                session.ApplierId = 0;
+                            }
+                            else
+                            {
+                                session.ApplierId = (int)reader["ApplierId"];
+                            }
+
                             session.BookingId = (int)reader["BookingId"];
                             sessionList.Add(session);
                         }
