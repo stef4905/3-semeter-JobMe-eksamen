@@ -29,5 +29,46 @@ namespace UnitTestJobMe
             //Test wehter the 'inserted' is true og false. If it is true the test wil pass.
             Assert.IsTrue(inserted.Id != 0);
         }
+
+        /// <summary>
+        /// Testing the get method on Meeting in the database. Is tested by creating a new meeting object with the id 6.
+        /// This is then used in the meeting controllers get method that uses the id to find the corosponding row in the database.
+        /// We then check the meeting we first created with it's id and the found meetings id.
+        /// </summary>
+        [TestMethod]
+        public void TestGet()
+        {
+            //Arrange
+            Meeting meeting = new Meeting();
+            meeting.Id = 6;
+            MeetingCtr meetingCtr = new MeetingCtr();
+
+            //Act
+            Meeting returnedMeeting = meetingCtr.Get(meeting.Id);
+
+            //Assert
+            Assert.AreEqual(meeting.Id, returnedMeeting.Id);
+        }
+
+
+        /// <summary>
+        /// Testing the update method on Meeting in the database. Is tested by making a new meeting object and pass into a update method. 
+        /// If the method is succesful it will return a true boolean, this boolean can be used to check if the method was succesfully updating the object
+        /// </summary>
+        [TestMethod]
+        public void TestUpdate()
+        {
+            //Arrange
+            Meeting meeting = new Meeting(1, 1);
+            meeting.Id = 6;
+            MeetingCtr meetingCtr = new MeetingCtr();
+
+            //Act
+            bool check = meetingCtr.Update(meeting);
+
+            //Assert
+            Assert.IsTrue(check);
+        }
+
     }
 }

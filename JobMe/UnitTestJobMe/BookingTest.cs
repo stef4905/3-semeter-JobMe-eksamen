@@ -32,5 +32,50 @@ namespace UnitTestJobMe
             //Tests wheter or not the 'inserted' bool it true or not. If it is true the test will pass.
             Assert.IsTrue(inserted);
         }
+
+        /// <summary>
+        /// Testing the get method on meeting. Starting ny instanciating a new booking object with the given id 6.
+        /// then the Booking controller has been created where the get method is located. 
+        /// We then call the get method that returns a booking, where wi then compare the two object's Id to see if they are the same.
+        /// </summary>
+        [TestMethod]
+        public void TestGet()
+        {
+            //Arrange
+            Booking booking = new Booking();
+            booking.Id = 6;
+            BookingCtr bookingCtr = new BookingCtr();
+
+            //Act
+            Booking returnedBooking = bookingCtr.Get(booking.Id);
+
+            //Assert
+            Assert.AreEqual(booking.Id, returnedBooking.Id);
+        }
+
+        /// <summary>
+        /// Testing the update method for a Booking.
+        /// We start by making a new Booking object and giving it the needed information.
+        /// We then make a new booking controller that contains the method we need to test.
+        /// The method is tested and returns a bool (true or false) where we check if the bool is true, where the test passes.
+        /// </summary>
+        [TestMethod]
+        public void TestBookingUpdate()
+        {
+            //Arrange
+            Booking booking = new Booking();
+            booking.StartDateAndTime = new DateTime(2017, 12, 01, 12, 0, 0);
+            booking.EndDateAndTime = new DateTime(2017, 12, 01, 16, 0, 0);
+            booking.InterviewAmount = 6;
+            booking.MeetingId = 6;
+            booking.Id = 10;
+            BookingCtr bookingCtr = new BookingCtr();
+
+            //Act 
+            bool updated = bookingCtr.Update(booking);
+
+            //Assert
+            Assert.IsTrue(updated);
+        }
     }
 }
