@@ -329,10 +329,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
+      "projectUniqueName": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v3\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
       "projectName": "WCFJobMeService",
-      "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
-      "outputPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\obj\\",
+      "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v3\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
+      "outputPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v3\\JobMe\\WCFJobMeService\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "net461"
@@ -340,11 +340,11 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+            "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v3\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v3\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
             },
-            "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v3\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v3\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }

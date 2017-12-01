@@ -523,3 +523,14 @@ div.tab button {
     margin-top: 4%;
     margin-bottom: 4%;
 }
+
+/**/
+
+#addNewBookingMeeting {
+	float: right;
+	margin-right: 4%;
+}
+
+#marginTopMeeting {
+	margin-top: 4%;
+}
