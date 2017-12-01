@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DbAdmin.cs" />
     <Compile Include="DbApplier.cs" />
     <Compile Include="DBApplierEducation.cs" />
+    <Compile Include="DBBooking.cs" />
     <Compile Include="DBBusinessType.cs" />
     <Compile Include="DbCompany.cs" />
     <Compile Include="DbConnection.cs" />
@@ -52,6 +54,8 @@
     <Compile Include="DbJobApplication.cs" />
     <Compile Include="DbJobCategory.cs" />
     <Compile Include="DbJobPost.cs" />
+    <Compile Include="DBMeeting.cs" />
+    <Compile Include="DBSession.cs" />
     <Compile Include="DbWorkHour.cs" />
     <Compile Include="IDataAccess.cs" />
     <Compile Include="DBJobExperience.cs" />

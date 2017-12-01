@@ -3,6 +3,7 @@ using JobMe_Homepage.JobApplicationServiceReference;
 using JobMe_Homepage.JobPostServiceReference;
 using JobMe_Homepage.Models;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -32,10 +33,18 @@ namespace JobMe_Homepage.Controllers
 
         }
 
+
+        public ActionResult UpdateUserProfile()
+        {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+
+            return View(applier);
+        }
+
         [HttpPost]
         public ActionResult _CreateApplier(string Email, string Password, string PasswordControl)
         {
-            Applier applier = new Applier();
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
             applier.Password = Password;
             applier.Email = Email;
 
@@ -74,7 +83,7 @@ namespace JobMe_Homepage.Controllers
 
             VM.JobPostList = jobClient.GetAllJobPost().ToList();
             VM.JobCategoryList = jobClient.GetAllJobCategories().ToList();
-            VM.WorkHoursList = jobClient.GetlAllWorkHours().ToList();
+            VM.WorkHoursList = jobClient.GetAllWorkHours().ToList();
 
             return View(VM);
         }
@@ -84,7 +93,7 @@ namespace JobMe_Homepage.Controllers
         {
             VMJobPostWorkHoursJobCategory VM = new VMJobPostWorkHoursJobCategory();
             VM.JobPostList = jobClient.GetAllJobPost().ToList();
-            List<JobPost> JobPostsList = new List<JobPost>();
+            List<JobPostServiceReference.JobPost> JobPostsList = new List<JobPostServiceReference.JobPost>();
 
             foreach (var jobPosts in VM.JobPostList.Where(f => f.Title.ToLower().Contains(search.ToLower()) ||
             f.company.CompanyName.ToLower().Contains(search.ToLower())))
@@ -105,7 +114,7 @@ namespace JobMe_Homepage.Controllers
             }
             VM.JobPostList = JobPostsList.ToList();
             VM.JobCategoryList = jobClient.GetAllJobCategories().ToList();
-            VM.WorkHoursList = jobClient.GetlAllWorkHours().ToList();
+            VM.WorkHoursList = jobClient.GetAllWorkHours().ToList();
             ViewBag.SearchField = "Søgeord:" + search;
             return View(VM);
         }
@@ -117,7 +126,7 @@ namespace JobMe_Homepage.Controllers
         public ActionResult JobApplication()
         {
             //Hovedside til jobapplikation og cv of the applier
-            Applier applier = Session["applier"] as Applier;
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
             //JobCV jobCV = jobCVClient.Get(applier.Id);
 
 
@@ -135,6 +144,39 @@ namespace JobMe_Homepage.Controllers
         }
 
         [HttpPost]
+        public ActionResult _UpdateUserProfile(int applierId, string emailInput,string bannerInput, string imageInput, string fNameInput, string lNameInput, DateTime birthdate, int PhoneInput, string addressInput,
+                                                string countryInput, string currentJobInput, string homepageInput, string descriptionInput, int jobCvId)
+        {
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier
+            {
+                Id = applierId,
+                Email = emailInput,
+                BannerURL = bannerInput,
+                ImageURL = imageInput,
+                //MISSING jobCaregory and status is not working
+                FName = fNameInput,
+                LName = lNameInput,
+                Birthdate = birthdate,
+                Phone = PhoneInput,
+                Address = addressInput,
+                Country = countryInput,
+                CurrentJob = currentJobInput,
+                HomePage = homepageInput,
+                Status = true,
+                Description = descriptionInput,
+                JobCV = new ApplierServiceReference.JobCV
+                {
+                    Id = jobCvId
+                }
+            };
+
+            client.Update(applier);   
+            TempData["Success"] = "Successfuld updateret!";
+            Session["applier"] = client.GetApplier(applierId);
+            return RedirectToAction("UpdateUserProfile");
+        }
+
+        [HttpPost]
         public ActionResult CreateApplication(string title, string description, int applierId)
         {
 
@@ -142,7 +184,10 @@ namespace JobMe_Homepage.Controllers
             {
                 Title = title,
                 Description = description,
-                ApplierId = applierId
+                Applier = new JobApplicationServiceReference.Applier
+                {
+                    Id = applierId
+                }
             };
 
 
@@ -162,7 +207,7 @@ namespace JobMe_Homepage.Controllers
             };
           
 
-            jobApplicationClient.update(jobApplication);
+            jobApplicationClient.Update(jobApplication);
             TempData["Success"] = "Successfuld opdateret!";
             return RedirectToAction("JobApplication");
         }
@@ -181,10 +226,10 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult _JobCV()
         {
-            Applier applier = new Applier();
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
 
             //Mangler fagterm.
-            applier = Session["applier"] as Applier;
+            applier = Session["applier"] as ApplierServiceReference.Applier;
             return PartialView(applier);
         
         }
@@ -196,7 +241,7 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult ApplierProfile(int id)
         {
-            Applier applier = client.GetApplier(id);
+            ApplierServiceReference.Applier applier = client.GetApplier(id);
             return View(applier);
         }
 
@@ -209,24 +254,62 @@ namespace JobMe_Homepage.Controllers
         public ActionResult _Login(string email, string password)
         {
             //sende password ned med Hashing!!!
-            Applier applier = client.Login(email, password);
+            ApplierServiceReference.Applier applier = client.Login(email, password);
             Session["applier"] = applier;
             return RedirectToAction("Index");
         }
 
         public ActionResult _CurrentUser()
         {
-            Applier applier = new Applier();
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
 
             //Mangler fagterm.
-            applier = Session["applier"] as Applier;
+            applier = Session["applier"] as ApplierServiceReference.Applier;
             return PartialView(applier);
         }
 
         public ActionResult JobPost(int id)
         {
-            JobPost jobPost = jobClient.Get(id);
+            JobPostServiceReference.JobPost jobPost = jobClient.GetJobPost(id);
             return View(jobPost);
+        }
+
+
+        public ActionResult SendApplication(int id)
+        {
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
+
+            //Mangler fagterm.
+            applier = Session["applier"] as ApplierServiceReference.Applier;
+
+
+            VMJobPostANDJobApplication vMJobPostANDJobApplication = new VMJobPostANDJobApplication
+            {
+                JobPost = jobClient.GetJobPost(id),
+                JobApplicationList = jobApplicationClient.GetAllByApplierId(applier.Id).ToList(),
+                applier = applier
+                
+            };
+
+            return View(vMJobPostANDJobApplication);
+        }
+
+        [HttpPost]
+        public ActionResult SendApplication(int jobApplicationId, int jobPostId)
+        {
+            JobApplication jobApplication = new JobApplication
+            {
+                Id = jobApplicationId
+
+            };
+            JobApplicationServiceReference.JobPost jobPost = new JobApplicationServiceReference.JobPost
+            {
+                Id = jobPostId
+            };
+
+
+            jobApplicationClient.SendApplication(jobApplication, jobPost);
+            return RedirectToAction("Index");
         }
     }
 }

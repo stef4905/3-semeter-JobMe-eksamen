@@ -11,30 +11,30 @@
 <form action="/Company/CreateJobPost" method="post">
     <div class="form-group">
         <label for="titel">Titel:</label>
-        <input type="text" name="Title" class="form-control" id="titel" />
+        <input type="text" name="Title" class="form-control" id="titel" required />
     </div>
     <div class="form-group">
         <label for="jobTitel">Job titel:</label>
-        <input type="text" name="JobTitle" class="form-control" id="jobTitel" />
+        <input type="text" name="JobTitle" class="form-control" id="jobTitel" required />
     </div>
     <div class="form-group">
         <label for="description">Job beskrivelse:</label>
-        <textarea name="Description" class="form-control" id="description" placeholder="Lav en kort beskrivelse af jobet..."></textarea>
+        <textarea name="Description" class="form-control" id="description" placeholder="Lav en kort beskrivelse af jobet..." required></textarea>
     </div>
 
     <div class="row">
         <div class="col-sm-6">
             <label for="startDate">Start Dato:</label>
-            <input type="date" name="StartDate" class="form-control" id="startDate" />
+            <input type="date" name="StartDate" class="form-control" id="startDate" required/>
         </div>
         <div class="col-sm-6">
             <label for="endDate">Slut Dato:</label>
-            <input type="date" name="EndDate" class="form-control" id="endDate" />
+            <input type="date" name="EndDate" class="form-control" id="endDate" required/>
         </div>
     </div>
     <div class="form-group">
         <label for="Address">Adresse</label>
-        <input type="text" name="Address" class="form-control" id="address" />
+        <input type="text" name="Address" class="form-control" id="address" required/>
     </div>
     <div class="form-group">
         <label for="WorkHours">Arbejdstid:</label>

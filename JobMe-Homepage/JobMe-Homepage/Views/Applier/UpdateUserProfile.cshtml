@@ -1,0 +1,134 @@
+﻿@model JobMe_Homepage.ApplierServiceReference.Applier
+
+@{
+    ViewBag.Title = "UpdateUserProfile";
+    Layout = "~/Views/Shared/_LayoutApplier.cshtml";
+
+}
+
+<div class="container ApplierProfile-Content">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class=""> <img id="Banner" class="img-responsive" src="@Model.BannerURL" /></div>
+            <div class="panel-body">
+                <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                    <img alt="User Pic" src="@Model.ImageURL" id="profile-image" class="img-circle img-responsive">
+                </div>
+                <div class="col-md-8 col-xs-12 col-sm-4 col-lg-8">
+                    <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-4 col-lg-12">
+                            <h3>Ændre adgangskode</h3>
+                            <label class="ApplierUpdateText">Nuværende adgangskode</label>
+                            <div class="input-group" id="ApplierInputContainer">
+                                <input type="text" class="form-control" id="usr" value="" name="currentPassword">
+                            </div>
+                            <label class="ApplierUpdateText">Ny adgangskode</label>
+                            <div class="input-group" id="ApplierInputContainer">
+                                <input type="text" class="form-control" id="usr" value="" name="newPassword">
+                            </div>
+                            <label class="ApplierUpdateText">Gentag ny adgangskode</label>
+                            <div class="input-group" id="ApplierInputContainer">
+                                <input type="text" class="form-control" id="usr" value="" name="RepeatNewPassword">
+                            </div>
+
+                            <button type="button" class="btn btn-primary" id="SavePasswordButton">Gem ny adgangskode</button>
+                        </div>
+                    </div>
+
+                    <div id="UserUpdateSeperator"></div>
+
+                    <div class="row">
+                        <div class="col-sm-12"><h3>Ændre profil information</h3></div>
+                        <form action="/Applier/_UpdateUserProfile" method="post">
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+
+                                <label class="ApplierUpdateText">Name:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" id="usr" value="@Model.FName" name="fNameInput">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                                <label class="ApplierUpdateText">Efternavn:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="lNameInput" value="@Model.LName" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="ApplierUpdateText" for="birthdate">Fødselsdag:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    @{
+                                        string birthdayString = "";
+                                        if (@Model.Birthdate == new DateTime(1800, 01, 01))
+                                        {
+                                            birthdayString = "2012-01-01";
+                                        }
+                                        else
+                                        {
+                                            birthdayString = Model.Birthdate.ToString("yyyy/MM/dd");
+                                        }
+                                        
+                                    }
+                                    <input type="date" name="birthdate" class="form-control" value="@birthdayString.ToString()" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                                <label class="ApplierUpdateText">Telefon nummer:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="PhoneInput" value="@Model.Phone.ToString()" />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="ApplierUpdateText">Addresse:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="addressInput" value="@Model.Address" />
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                                <label class="ApplierUpdateText">Land:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="countryInput" value="@Model.Country" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="ApplierUpdateText">Nuværende job:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="currentJobInput" value="@Model.CurrentJob" />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="ApplierUpdateText">Hjemmeside:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="homepageInput" value="@Model.HomePage" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                                <label class="ApplierUpdateText">Jeg søger job som er:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    @foreach (var category in Model.JobCategoryList)
+                                    {
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="" name="categoryInput">@category.Title</label>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group" id="ApplierInputContainer">
+                                    <label for="description">Beskrivelse:</label>
+                                    <textarea class="form-control" rows="10" id="textAreaControl" name="descriptionInput">@Model.Description</textarea>
+                                </div>
+                            </div>
+                            <input type="hidden" name="imageInput" value="@Model.ImageURL" />
+                            <input type="hidden" name="bannerInput" value="@Model.BannerURL" />
+                            <input type="hidden" name="emailInput" value="@Model.Email" />
+                            <input type="hidden" name="applierId" value="@Model.Id" />
+                            <input type="hidden" name="jobCvId" value="@Model.JobCV.Id" />
+                            <button type="submit" class="btn btn-primary" id="SaveProfileButton">Gem ændringer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

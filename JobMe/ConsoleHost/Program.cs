@@ -11,37 +11,65 @@ namespace ConsoleHost
     class Program
     {
         static void Main(string[] args)
+
+        // Ændre fra Using til at lukke forbindelsen selv.
         {
-            using (ServiceHost host = new ServiceHost(typeof(ApplierService)))
+            ServiceHost Companyhost = new ServiceHost(typeof(CompanyService));
+            ServiceHost Applierhost = new ServiceHost(typeof(ApplierService));
+            ServiceHost JobPosthost = new ServiceHost(typeof(JobPostService));
+            ServiceHost JobCVhost = new ServiceHost(typeof(JobCVService));
+            ServiceHost JobApplicationhost = new ServiceHost(typeof(JobApplicationService));
+            ServiceHost Adminhost = new ServiceHost(typeof(AdminService));
+
+
+            foreach (var hostedEndpoint in Companyhost.BaseAddresses)
             {
-                foreach (var hostedEndpoint in host.BaseAddresses)
-                {
-                    Console.WriteLine(hostedEndpoint.AbsoluteUri);
-                    Console.WriteLine(hostedEndpoint.LocalPath);
-                }
-                host.Open();
-                printInfo(host);
+                Console.WriteLine(hostedEndpoint.AbsoluteUri);
+                Console.WriteLine(hostedEndpoint.LocalPath);
             }
-            using (ServiceHost host = new ServiceHost(typeof(CompanyService)))
+            Companyhost.Open();
+            printInfo(Companyhost);
+
+            foreach (var hostedEndpoint in Applierhost.BaseAddresses)
             {
-                foreach (var hostedEndpoint in host.BaseAddresses)
-                {
-                    Console.WriteLine(hostedEndpoint.AbsoluteUri);
-                    Console.WriteLine(hostedEndpoint.LocalPath);
-                }
-                host.Open();
-                printInfo(host);
+                Console.WriteLine(hostedEndpoint.AbsoluteUri);
+                Console.WriteLine(hostedEndpoint.LocalPath);
             }
-            using (ServiceHost host = new ServiceHost(typeof(JobPostService)))
+            Applierhost.Open();
+            printInfo(Applierhost);
+
+            foreach (var hostedEndpoint in JobPosthost.BaseAddresses)
             {
-                foreach (var hostedEndpoint in host.BaseAddresses)
-                {
-                    Console.WriteLine(hostedEndpoint.AbsoluteUri);
-                    Console.WriteLine(hostedEndpoint.LocalPath);
-                }
-                host.Open();
-                printInfo(host);
+                Console.WriteLine(hostedEndpoint.AbsoluteUri);
+                Console.WriteLine(hostedEndpoint.LocalPath);
             }
+            JobPosthost.Open();
+            printInfo(JobPosthost);
+
+            foreach (var hostedEndpoint in JobCVhost.BaseAddresses)
+            {
+                Console.WriteLine(hostedEndpoint.AbsoluteUri);
+                Console.WriteLine(hostedEndpoint.LocalPath);
+            }
+            JobCVhost.Open();
+            printInfo(JobCVhost);
+
+            foreach (var hostedEndpoint in JobApplicationhost.BaseAddresses)
+            {
+                Console.WriteLine(hostedEndpoint.AbsoluteUri);
+                Console.WriteLine(hostedEndpoint.LocalPath);
+            }
+            JobApplicationhost.Open();
+            printInfo(JobApplicationhost);
+            
+
+            foreach(var hostEndPoint in Adminhost.BaseAddresses)
+            {
+                Console.WriteLine(hostEndPoint.AbsoluteUri);
+                Console.WriteLine(hostEndPoint.LocalPath);
+            }
+            Adminhost.Open();
+            printInfo(Adminhost);
             Console.ReadLine();
         }
 
@@ -50,8 +78,8 @@ namespace ConsoleHost
             Console.WriteLine(host.State);
             //Do readline here--> if you exit the using block, the connection is closed
             Console.WriteLine("Listening");
-            
+
         }
-        
+
     }
 }

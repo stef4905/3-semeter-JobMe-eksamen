@@ -21,6 +21,7 @@ namespace BusinessLogicLayer
         public void Create(Applier obj)
         {
                 Applier applier = dbApplier.CreateAndReturnApplier(obj);
+                applier.Birthdate = DateTime.Now;
                 applier.JobCV = new JobCV(0, "Ikke endnu redigeret", 0, "Bio tekst");
                 Applier applierReturned = jobCVCtr.CreateAndReturnPrimaryKey(applier.JobCV, applier);
                 Update(applierReturned);      

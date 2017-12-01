@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer;
 using ModelLayer;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLayer
 {
-    public class JobPostCtr : IController<JobPost>
+    public class JobPostCtr
     {
 
         //Instance Variables

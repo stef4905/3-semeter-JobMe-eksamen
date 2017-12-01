@@ -29,19 +29,21 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                        cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
-                        cmd.Parameters.AddWithValue("Email", obj.Email);
-                        cmd.Parameters.AddWithValue("Password", obj.Password);
-                        cmd.Parameters.AddWithValue("MaxRadius", 50);
-                        cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
+                    cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
+                    cmd.Parameters.AddWithValue("Email", obj.Email);
+                    cmd.Parameters.AddWithValue("Password", obj.Password);
+                    cmd.Parameters.AddWithValue("MaxRadius", 50);
+                    cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
                     try
                     {
+                        
                         cmd.ExecuteNonQuery();
                         return true;
                     }
-                    catch (SqlException)
+                    catch (SqlException e)
                     {
                         return false;
+                        throw e;
                     }
                 }
             }
@@ -113,6 +115,8 @@ namespace DataAccessLayer
                         {
                             applier.Id = (int)reader["Id"];
                             applier.Email = (string)reader["Email"];
+                            applier.Phone = (int)reader["Phone"];
+                            applier.Address = (string)reader["Address"];
                             applier.Country = (string)reader["Country"];
                             applier.Description = (string)reader["Description"];
                             applier.BannerURL = (string)reader["BannerURL"];
@@ -124,12 +128,37 @@ namespace DataAccessLayer
                             applier.Age = (int)reader["Age"];
                             applier.Status = (bool)reader["Status"];
                             applier.CurrentJob = (string)reader["CurrentJob"];
-                            applier.Birthdate = (DateTime)reader["Birthdate"];
+                            
+                            if (reader["Birthdate"] == DBNull.Value)
+                            {
+                                applier.Birthdate = new DateTime();
+                            }
+                            else {
+                                applier.Birthdate =(DateTime)reader["Birthdate"];
+                            }
                             applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
                         }
                     }
 
-                    //Executes the JobCategory command for Applier.
+                    Applier applierToReturn = GetJobCategoryOnApplier(applier);
+
+                    return applierToReturn;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns the Applier's JobCategory list. This metod should only be called inside the Get(id) method. Unless other ussage is needed.
+        /// </summary>
+        /// <param name="applier"></param>
+        /// <returns></returns>
+        public Applier GetJobCategoryOnApplier(Applier applier)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
                     cmd.CommandText = "SELECT * FROM ApplierJobCategory WHERE ApplierId = @ApplierId";
                     cmd.Parameters.AddWithValue("ApplierId", applier.Id);
 
@@ -139,7 +168,7 @@ namespace DataAccessLayer
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            
+
                             if (reader.HasRows)
                             {
                                 while (reader.Read())
@@ -155,11 +184,12 @@ namespace DataAccessLayer
                     catch (SqlException e)
                     {
                         throw e;
-                        }
-                        return applier;
                     }
+                    return applier;
                 }
             }
+        }
+        
 
         /// <summary>
         /// Returns a list of all the Appliers
@@ -182,23 +212,24 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
+                    cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Address = @Address, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
                         " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
                         " CurrentJob = @CurrentJob, Birthdate = @Birthdate, JobCVId = @JobCVId " +
                         "WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Phone", obj.Phone);
-                    cmd.Parameters.AddWithValue("Country", obj.Country);
-                    cmd.Parameters.AddWithValue("Description", obj.Description);
-                    cmd.Parameters.AddWithValue("BannerURL", obj.BannerURL);
-                    cmd.Parameters.AddWithValue("ImageURL", obj.ImageURL);
+                    cmd.Parameters.AddWithValue("Address", obj.Address ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Country", obj.Country ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Description", obj.Description ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("BannerURL", obj.BannerURL ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("ImageURL", obj.ImageURL ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("MaxRadius", obj.MaxRadius);
-                    cmd.Parameters.AddWithValue("HomePage", obj.HomePage);
-                    cmd.Parameters.AddWithValue("FName", obj.FName);
-                    cmd.Parameters.AddWithValue("LName", obj.LName);
-                    cmd.Parameters.AddWithValue("Age", obj.Age);
-                    cmd.Parameters.AddWithValue("Status", obj.Status);
-                    cmd.Parameters.AddWithValue("CurrentJob", obj.CurrentJob);
+                    cmd.Parameters.AddWithValue("HomePage", obj.HomePage ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Age", obj.Age );
+                    cmd.Parameters.AddWithValue("Status", obj.Status );
+                    cmd.Parameters.AddWithValue("CurrentJob", obj.CurrentJob ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("Birthdate", obj.Birthdate);
                     cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
                     cmd.Parameters.AddWithValue("Id", obj.Id);
@@ -210,7 +241,6 @@ namespace DataAccessLayer
                     }
                     catch (SqlException e) {
                         throw e;
-                        return false;
                     }
                 }
             }

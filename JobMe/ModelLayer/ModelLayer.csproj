@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="Applier.cs" />
     <Compile Include="ApplierEducation.cs" />
+    <Compile Include="Booking.cs" />
     <Compile Include="BusinessType.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="CVCategory.cs" />
@@ -54,7 +56,9 @@
     <Compile Include="JobCV.cs" />
     <Compile Include="JobExperience.cs" />
     <Compile Include="JobPost.cs" />
+    <Compile Include="Meeting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="WorkHours.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,41 @@
-﻿@model JobMe_Homepage.CompanyServiceReference.Company
+﻿@model JobMe_Homepage.Models.VMCompanyANDJobPost
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutCompany.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@Model.Company.CompanyName</h2>
+
+<div class="row">
+    <div class="col-sm-6 bg-white">
+        <h2>Dine aktuelle jobannoncer:</h2>
+        <div class="row">
+            <div class="col-sm-6">
+                <b>Job title:</b>
+            </div>
+            <div class="col-sm-3">
+                <b> Link til jobpost:</b>
+            </div>
+            <div class="col-sm-3">
+                <b> Link til ansøgere:</b>
+            </div>
+        </div>
+
+        @foreach (var JobPost in Model.JobPost)
+        {
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <b>@JobPost.Title</b>
+                </div>
+                <div class="col-sm-3">
+                    <a href="company/JobPost/@JobPost.Id">Link til jobPost</a>
+                </div>
+                <div class="col-sm-3">
+                    <a href="company/AppliersForJob/@JobPost.Id">Ansøgerer</a>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

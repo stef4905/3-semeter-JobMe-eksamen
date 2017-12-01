@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DataAccessLayer;
 using ModelLayer;
+using System.Collections.Generic;
 
 namespace UnitTestJobMe
 {
@@ -13,7 +14,12 @@ namespace UnitTestJobMe
         {
             //Arrange
             DbJobApplication dbJobApplication = new DbJobApplication();
-            JobApplication jobApplication = new JobApplication(1, "Title", "Description", 15);
+            Applier applier = new Applier
+            {
+                Id = 15
+            };
+
+            JobApplication jobApplication = new JobApplication(1, "Title", "Description", applier);
 
             //Act
             bool inserted = dbJobApplication.Create(jobApplication);
@@ -29,10 +35,10 @@ namespace UnitTestJobMe
 
 
             //Act
-           JobApplication jobApplication = dbJobApplication.Get(1);
+           JobApplication jobApplication = dbJobApplication.Get(6);
 
             //Assert
-            Assert.AreEqual(jobApplication.Id, 1);
+            Assert.AreEqual(jobApplication.Id, 6);
         }
 
         [TestMethod]
@@ -40,8 +46,12 @@ namespace UnitTestJobMe
         {
             //Arrange
             DbJobApplication dbJobApplication = new DbJobApplication();
+            Applier applier = new Applier
+            {
+                Id = 2
+            };
 
-            JobApplication jobApplication = new JobApplication(1, "noget nyt", "En Beskrivelse", 2);
+            JobApplication jobApplication = new JobApplication(1, "noget nyt", "En Beskrivelse", applier);
             //Act
             bool check = dbJobApplication.Update(jobApplication);
 
@@ -71,11 +81,14 @@ namespace UnitTestJobMe
         {
             //Arrange
             DbJobApplication dbJobApplication = new DbJobApplication();
-
+            Applier applier = new Applier
+            {
+                Id = 15
+            };
             JobPost jobPost = new JobPost();
             jobPost.Id = 1;
 
-            JobApplication jobApplication = new JobApplication(6, "eheh", "dsfs", 15);
+            JobApplication jobApplication = new JobApplication(6, "eheh", "dsfs", applier);
 
     
             //Act
@@ -88,8 +101,49 @@ namespace UnitTestJobMe
         }
 
 
+        [TestMethod]
+        public void TestGetAllJobApplicationToAJobPostInDB()
+        {
+            //Arrange
+            DbJobApplication dbJobApplication = new DbJobApplication();
+
+            JobPost jobPost = new JobPost();
+            jobPost.Id = 3;
+
+            List<JobApplication> list = new List<JobApplication>();
 
 
+            //Act
+            list = dbJobApplication.GetAllJobApplicationToAJobPost(jobPost.Id);
+
+
+            //Assert
+            Assert.IsNotNull(list);
+        }
+
+
+        [TestMethod]
+        public void TestAcceptDeclineJobApplicationInDb()
+        {
+            //Arrange
+            DbJobApplication dbJobApplication = new DbJobApplication();
+
+            JobApplication jobApplication = new JobApplication
+            {
+                Id = 6
+            };
+
+            JobPost jobPost = new JobPost();
+            jobPost.Id = 1;
+            
+            
+            //Act
+          bool accepted = dbJobApplication.AcceptDeclineJobApplication(jobApplication, jobPost, true);
+
+
+            //Assert
+            Assert.IsTrue(accepted);
+        }
 
     }
 }
