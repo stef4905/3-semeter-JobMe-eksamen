@@ -460,20 +460,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Christian\\.nuget\\packages\\": {}
+    "C:\\Users\\Mathias\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Skole\\GitHub Repo\\3 Semester Projekt 1\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
+      "projectUniqueName": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
       "projectName": "ConsoleHost",
-      "projectPath": "E:\\Skole\\GitHub Repo\\3 Semester Projekt 1\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
-      "packagesPath": "C:\\Users\\Christian\\.nuget\\packages\\",
-      "outputPath": "E:\\Skole\\GitHub Repo\\3 Semester Projekt 1\\JobMe\\ConsoleHost\\obj\\",
+      "projectPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
+      "packagesPath": "C:\\Users\\Mathias\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ConsoleHost\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Christian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Mathias\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -486,8 +486,8 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "E:\\Skole\\GitHub Repo\\3 Semester Projekt 1\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj": {
-              "projectPath": "E:\\Skole\\GitHub Repo\\3 Semester Projekt 1\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj"
+            "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj": {
+              "projectPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj"
             }
           }
         }

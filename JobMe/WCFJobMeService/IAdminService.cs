@@ -28,6 +28,6 @@ namespace WCFJobMeService
         void Update(Admin admin);
 
         [OperationContract]
-        Admin Login(string email, string password);
+        Admin Login(string username, string password);
     }
 }
