@@ -19,6 +19,7 @@ namespace ConsoleHost
             ServiceHost JobPosthost = new ServiceHost(typeof(JobPostService));
             ServiceHost JobCVhost = new ServiceHost(typeof(JobCVService));
             ServiceHost JobApplicationhost = new ServiceHost(typeof(JobApplicationService));
+            ServiceHost Adminhost = new ServiceHost(typeof(AdminService));
 
 
             foreach (var hostedEndpoint in Companyhost.BaseAddresses)
@@ -60,6 +61,15 @@ namespace ConsoleHost
             }
             JobApplicationhost.Open();
             printInfo(JobApplicationhost);
+            
+
+            foreach(var hostEndPoint in Adminhost.BaseAddresses)
+            {
+                Console.WriteLine(hostEndPoint.AbsoluteUri);
+                Console.WriteLine(hostEndPoint.LocalPath);
+            }
+            Adminhost.Open();
+            printInfo(Adminhost);
             Console.ReadLine();
         }
 

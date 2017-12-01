@@ -131,3 +131,4 @@ C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Debug
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.dll
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.pdb
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
