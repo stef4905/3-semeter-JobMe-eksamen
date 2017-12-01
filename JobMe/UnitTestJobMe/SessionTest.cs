@@ -43,7 +43,7 @@ namespace UnitTestJobMe
         {
             //Arrange
             Session session = new Session();
-            session.Id = 6;
+            session.Id = 1;
             SessionCtr sessionCtr = new SessionCtr();
 
             //Act
@@ -64,7 +64,7 @@ namespace UnitTestJobMe
             List<Session> sessionTestList = sessionCtr.GetAll(session.Id);
 
             //Assert
-            Assert.IsNull(sessionTestList != null);
+            Assert.IsNotNull(sessionTestList);
         }
 
         [TestMethod]
