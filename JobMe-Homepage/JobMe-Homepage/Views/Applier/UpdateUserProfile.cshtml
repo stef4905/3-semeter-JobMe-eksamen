@@ -9,7 +9,7 @@
 <div class="container ApplierProfile-Content">
     <div class="row">
         <div class="panel panel-default">
-            <div class=""> <img id="Banner" class="img-responsive" src="@Model.BannerURL"/></div>
+            <div class=""> <img id="Banner" class="img-responsive" src="@Model.BannerURL" /></div>
             <div class="panel-body">
                 <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
                     <img alt="User Pic" src="@Model.ImageURL" id="profile-image" class="img-circle img-responsive">
@@ -33,7 +33,7 @@
 
                             <button type="button" class="btn btn-primary" id="SavePasswordButton">Gem ny adgangskode</button>
                         </div>
-                        </div>
+                    </div>
 
                     <div id="UserUpdateSeperator"></div>
 
@@ -56,7 +56,19 @@
                             <div class="col-sm-6">
                                 <label class="ApplierUpdateText" for="birthdate">Fødselsdag:</label>
                                 <div class="input-group" id="ApplierInputContainer">
-                                    <input type="date" name="birthdate" class="form-control" value="@Model.Birthdate.ToShortDateString();" />
+                                    @{
+                                        string birthdayString = "";
+                                        if (@Model.Birthdate == new DateTime(1800, 01, 01))
+                                        {
+                                            birthdayString = "2012-01-01";
+                                        }
+                                        else
+                                        {
+                                            birthdayString = Model.Birthdate.ToString("yyyy/MM/dd");
+                                        }
+                                        
+                                    }
+                                    <input type="date" name="birthdate" class="form-control" value="@birthdayString.ToString()" />
                                 </div>
                             </div>
                             <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
@@ -97,7 +109,7 @@
                                     {
                                         <div class="checkbox">
                                             <label><input type="checkbox" value="" name="categoryInput">@category.Title</label>
-                                        </div> 
+                                        </div>
                                     }
                                 </div>
                             </div>
@@ -114,9 +126,9 @@
                             <input type="hidden" name="jobCvId" value="@Model.JobCV.Id" />
                             <button type="submit" class="btn btn-primary" id="SaveProfileButton">Gem ændringer</button>
                         </form>
-                        </div>
-                      </div>
-                 </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>

@@ -128,7 +128,14 @@ namespace DataAccessLayer
                             applier.Age = (int)reader["Age"];
                             applier.Status = (bool)reader["Status"];
                             applier.CurrentJob = (string)reader["CurrentJob"];
-                            applier.Birthdate = (DateTime)reader["Birthdate"];
+                            
+                            if (reader["Birthdate"] == DBNull.Value)
+                            {
+                                applier.Birthdate = new DateTime();
+                            }
+                            else {
+                                applier.Birthdate =(DateTime)reader["Birthdate"];
+                            }
                             applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
                         }
                     }
