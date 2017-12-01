@@ -98,7 +98,6 @@ E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\DataAccessLayer\obj\Debug\DataAcce
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.dll
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
@@ -120,25 +119,6 @@ C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\ModelLayer.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\ModelLayer.pdb
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.dll
-C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.dll
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
@@ -160,3 +140,23 @@ C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\bin\Debug\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v2\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

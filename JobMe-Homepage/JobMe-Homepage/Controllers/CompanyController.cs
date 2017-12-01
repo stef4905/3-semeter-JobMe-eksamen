@@ -209,5 +209,17 @@ namespace JobMe_Homepage.Controllers
             
             return RedirectToAction("ApplierForJob");
         }
+
+
+        #region Meeting
+
+        public ActionResult Meeting()
+        {
+            return View();
+        }
+
+
+        #endregion
+
     }
 }
