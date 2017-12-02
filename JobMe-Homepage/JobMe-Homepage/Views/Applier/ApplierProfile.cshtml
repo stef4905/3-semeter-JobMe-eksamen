@@ -4,10 +4,10 @@
     Layout = "~/Views/Shared/_LayoutApplier.cshtml";
 }
 
-<h2>ApplierProfile</h2>
+
 
 <!-- #region Applier Profile region! -->
-<div class="container ApplierProfile-Content">
+<div class="ApplierProfile-Content">
     <div class="row">
         <div class="panel panel-default">
             <div class=""> <img id="Banner" class="img-responsive" src="@Model.BannerURL"/></div>
@@ -36,7 +36,9 @@
 
                 </div>
                 <div class="col-md-2 col-xs-12 col-sm-4 col-lg-2">
-                    <button class="btn btn-blue">Send besked</button>
+                    
+                    <a class="btn btn-blue" href="/Applier/UpdateUserProfile">Redigere profil</a>
+                
                 </div>
             </div>
         </div>

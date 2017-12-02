@@ -145,11 +145,17 @@
     <script>
        
   
-        $("form").on('submit', function () {
+        window.onload = function () {
             $('#succesModal').show();
-        })
+
+            $('#succesModal').click(function (event) {
+              $('#succesModal').hide();
+            });
+
         
+        }
     </script>
+
 
 }
 

@@ -3,7 +3,28 @@
 	ViewBag.Title = "Index";
 	Layout = "~/Views/Shared/_LayoutApplier.cshtml";
 }
+@if (TempData["Success"] != null)
+{
+                  <!-- Modal -->
+    <div class="modal fade in" id="succesModal" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-body">
+
+                    <p class="text-success" id="successMessage">@TempData["Success"]</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+}
 		<!--#region infographics about all jobs and relevant jobs on the applier-->
 			<div class="panel">
 				<div class="panel-body" id="ApplierIndexTopBackground">
@@ -141,3 +162,25 @@
 
 	</div>
 </div>
+
+
+@section scripts {
+
+   
+
+    <script>
+
+
+        window.onload = function () {
+            $('#succesModal').show();
+
+            $('#succesModal').click(function (event) {
+              $('#succesModal').hide();
+            });
+
+
+        }
+    </script>
+
+
+}

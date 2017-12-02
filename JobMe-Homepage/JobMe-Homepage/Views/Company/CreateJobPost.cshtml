@@ -25,11 +25,11 @@
     <div class="row">
         <div class="col-sm-6">
             <label for="startDate">Start Dato:</label>
-            <input type="date" name="StartDate" class="form-control" id="startDate" required/>
+            <input type="date" name="StartDate" class="form-control" id="startDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" required/>
         </div>
         <div class="col-sm-6">
             <label for="endDate">Slut Dato:</label>
-            <input type="date" name="EndDate" class="form-control" id="endDate" required/>
+            <input type="date" name="EndDate" class="form-control" id="endDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" required/>
         </div>
     </div>
     <div class="form-group">
@@ -55,7 +55,36 @@
         </select>
     </div>
   
-    <button type="submit" class="btn btn-default btn-blue pull-right">Submit</button>
+    <button type="submit" class="btn btn-blue pull-right">Opret</button>
 
 
 </form>
+
+
+@section scripts {
+
+
+<script>
+
+    $(document).ready(function () {
+        $('#startDate').change(function () {
+         
+            var date = new Date(this.value);
+          
+           
+
+            //var d1 = Date.parse('Mon, 18 Nov 2013 12:00:00 GMT');
+            //alert(d1.toString('dd/MM/yyyy HH:mm:ss'));
+            
+
+            var b = document.getElementById("endDate")
+
+          
+            b.setAttribute("min", date.toISOString().substring(0, 10));
+       
+        });
+    });
+   
+
+</script>
+}

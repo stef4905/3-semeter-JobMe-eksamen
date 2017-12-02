@@ -11,6 +11,10 @@
     <link href="~/Content/simplePagination.css" rel="stylesheet" />
 </head>
 <body>
+
+
+
+
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -60,14 +64,14 @@
             </div>
 
         </div>
-
-        <div class="modal fade" id="loginModal" role="dialog">
+      
+        <div class="modal fade in" id="loginModal" role="dialog">
             <div class="modal-dialog">
 
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>Opret Profil</h4>
+                    <button type="button" id="close" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Login</h4>
                     <div class="modal-body">
 
                         @Html.Partial("_Login", "Company")
@@ -80,10 +84,12 @@
         </div>
 
 
+        <div id="content" class="container-fluid">
+
+            @RenderBody()
+        </div>
 
 
-
-        @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
@@ -103,6 +109,24 @@
                 $(this).tab('show');
             });
         });
+    </script>
+
+    <script>
+
+        $(document).ready(function() {
+    var success = @((TempData["Fail"] != null).ToString().ToLower());
+
+    if (success == true) {
+        $('#loginModal').show();
+
+        document.getElementById('close').onclick = function () {
+
+            $('#loginModal').hide();
+        };
+
+
+        }
+});
     </script>
 
 </body>

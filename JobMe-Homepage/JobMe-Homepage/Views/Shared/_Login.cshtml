@@ -6,6 +6,12 @@
     <div id="LoginApplier" class="tab-pane fade in active">
         <form action="/Applier/_Login" method="post">
 
+            @if (TempData["Fail"] != null)
+            {
+                <p class="text-danger">Email eller kodeord er forkert</p>
+            }
+
+
             <div class="form-group">
                 <label for="email">Email addresse:</label>
                 <input type="email" name="Email" class="form-control" id="email" required>

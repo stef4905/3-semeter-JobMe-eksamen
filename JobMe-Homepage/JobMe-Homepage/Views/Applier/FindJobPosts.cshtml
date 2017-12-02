@@ -98,10 +98,10 @@
 <div class="row ">
 
 
-    @foreach (var JobPost in Model.JobPostList)
+    @foreach (var JobPost in Model.JobPostList.Where(m => m.StartDate >= DateTime.Now))
     {
 
-        <div class="col-sm-12 bg-white jobPost content">
+        <div class="col-sm-12 bg-white jobPost content panel panel-default">
             <div class="row">
 
                 <div class="col-xs-3">

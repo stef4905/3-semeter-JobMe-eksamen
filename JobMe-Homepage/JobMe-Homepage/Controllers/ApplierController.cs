@@ -255,8 +255,16 @@ namespace JobMe_Homepage.Controllers
         {
             //sende password ned med Hashing!!!
             ApplierServiceReference.Applier applier = client.Login(email, password);
+
+            if (applier != null)
+            {
+
             Session["applier"] = applier;
             return RedirectToAction("Index");
+            }
+            TempData["Fail"] = "Fail";
+            return RedirectToAction("Index", "Home");
+
         }
 
         public ActionResult _CurrentUser()
@@ -278,7 +286,7 @@ namespace JobMe_Homepage.Controllers
         public ActionResult SendApplication(int id)
         {
             ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
-
+            TempData["Success"] = "Din ansøgning er blevet sendt";
             //Mangler fagterm.
             applier = Session["applier"] as ApplierServiceReference.Applier;
 
