@@ -64,7 +64,7 @@
             </div>
 
         </div>
-      
+
         <div class="modal fade in" id="loginModal" role="dialog">
             <div class="modal-dialog">
 
@@ -128,6 +128,60 @@
         }
 });
     </script>
+
+    <script>
+
+            $(document).ready(function () {
+                      $(document).ready(function() {
+                    var success = @((TempData["FailCompany"] != null).ToString().ToLower());
+
+                    if (success == true) {
+                        var v = document.getElementById("LoginApplier")
+                        v.setAttribute("class", "tab-pane fade");
+                        var b = document.getElementById("LoginCompany");
+                        b.setAttribute("class", "tab-pane fade in active");
+
+                        $("#failtext").html("Email eller kodeord er forkert");
+                        var f = document.getElementById("job")
+                        f.setAttribute("class", "");
+                        var g = document.getElementById("company");
+                        g.setAttribute("class", "active");
+
+
+
+                         $('#loginModal').show();
+
+                         document.getElementById('close').onclick = function () {
+
+                              $('#loginModal').hide();
+                            };
+
+
+                  }
+                });
+        });
+
+
+            //if (fail == true) {
+            //    $("#failtext").html("Write Your Text");
+
+            //    var f = document.getElementById("job")
+            //    f.setAttribute("class", "");
+            //    var g = document.getElementById("company");
+            //    g.setAttribute("class", "active");
+            //    $('#loginModal').show();
+
+
+
+
+            //    document.getElementById('close').onclick = function () {
+
+            //        $('#loginModal').hide();
+            //    };
+            //}
+            //    });
+    </script>
+
 
 </body>
 </html>

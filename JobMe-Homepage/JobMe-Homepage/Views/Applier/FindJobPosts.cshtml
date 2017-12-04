@@ -98,7 +98,7 @@
 <div class="row ">
 
 
-    @foreach (var JobPost in Model.JobPostList.Where(m => m.StartDate >= DateTime.Now))
+    @foreach (var JobPost in Model.JobPostList.Where(m => m.EndDate >= DateTime.Now &&  m.StartDate <= DateTime.Now))
     {
 
         <div class="col-sm-12 bg-white jobPost content panel panel-default">

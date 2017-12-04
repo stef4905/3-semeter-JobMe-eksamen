@@ -1,6 +1,6 @@
-﻿<ul class="nav nav-tabs">
-    <li class="active"><a href="#LoginApplier">Jobsøgende Login</a></li>
-    <li><a href="#LoginCompany">Virksomhed Login</a></li>
+﻿<ul class="nav nav-tabs" id="login">
+    <li class="active" id="job"><a href="#LoginApplier">Jobsøgende Login</a></li>
+    <li class="" id="company"><a href="#LoginCompany">Virksomhed Login</a></li>
 </ul>
 <div class="tab-content">
     <div id="LoginApplier" class="tab-pane fade in active">
@@ -29,6 +29,9 @@
     </div>
     <div id="LoginCompany" class="tab-pane fade">
         <form action="/Company/_Login" method="post">
+         
+            <p class="text-danger" id="failtext"></p>
+        
 
             <div class="form-group">
                 <label for="email">Email addresse:</label>
@@ -46,3 +49,5 @@
         </form>
     </div>
 </div>
+
+
