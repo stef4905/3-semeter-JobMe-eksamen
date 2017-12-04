@@ -12,8 +12,7 @@ namespace ModelLayer
     {
         [DataMember]
         public int Id { get; set; }
-        [DataMember]
-        public int JobPostId { get; set; }
+      
         [DataMember]
         public List<Booking> booking = new List<Booking>();
         [DataMember]
@@ -24,9 +23,9 @@ namespace ModelLayer
         /// </summary>
         /// <param name="jobPostId"></param>
         /// <param name="companyId"></param>
-        public Meeting(int jobPostId, int companyId)
+        public Meeting(int companyId)
         {
-            this.JobPostId = jobPostId;
+           
             this.CompanyId = companyId;
         }
 

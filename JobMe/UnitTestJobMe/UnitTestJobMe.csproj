@@ -50,6 +50,7 @@
     <Compile Include="MeetingsTest.cs" />
     <Compile Include="SessionTest.cs" />
     <Compile Include="BookingTest.cs" />
+    <Compile Include="JobPostTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.csproj">

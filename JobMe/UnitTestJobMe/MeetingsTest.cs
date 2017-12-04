@@ -18,7 +18,7 @@ namespace UnitTestJobMe
         {
             //Arrange
             //Starting by instanciating a new Meeting and Meeting Controller, that are required for the test to execute
-            Meeting meeting = new Meeting(1, 1);
+            Meeting meeting = new Meeting(1);
             MeetingCtr meetingCtr = new MeetingCtr();
 
             //Act
@@ -59,7 +59,7 @@ namespace UnitTestJobMe
         public void TestUpdate()
         {
             //Arrange
-            Meeting meeting = new Meeting(1, 1);
+            Meeting meeting = new Meeting(1);
             meeting.Id = 6;
             MeetingCtr meetingCtr = new MeetingCtr();
 
@@ -69,6 +69,8 @@ namespace UnitTestJobMe
             //Assert
             Assert.IsTrue(check);
         }
+
+
 
     }
 }

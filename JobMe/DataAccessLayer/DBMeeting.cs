@@ -28,8 +28,8 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Meeting (JobPostId, CompanyId) output INSERTED.Id VALUES (@JobPostId, @CompanyId)";
-                    cmd.Parameters.AddWithValue("JobPostId", meeting.JobPostId);
+                    cmd.CommandText = "INSERT INTO Meeting (CompanyId) output INSERTED.Id VALUES (@CompanyId)";
+                    
                     cmd.Parameters.AddWithValue("CompanyId", meeting.CompanyId);
                     try
                     {
@@ -65,7 +65,7 @@ namespace DataAccessLayer
                         if (reader.Read())
                         {
                             meeting.Id = (int)reader["Id"];
-                            meeting.JobPostId = (int)reader["JobPostId"];
+                            
                             //List of all booking are getted through the controller
                             meeting.CompanyId = (int)reader["CompanyId"];                              
                         }
@@ -118,8 +118,7 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE Meeting SET JobPostId = @JobPostId, CompanyId = @CompanyId WHERE Id = @Id";
-                    cmd.Parameters.AddWithValue("JobPostId", meeting.JobPostId);
+                    cmd.CommandText = "UPDATE Meeting SET CompanyId = @CompanyId WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("CompanyId", meeting.CompanyId);
                     //Checking that the id has been set and isen´t equal to zero. If it is, 
                     //then it would be changed to NULL, wich the SQL understands
@@ -144,6 +143,7 @@ namespace DataAccessLayer
                 }
             }
         }
+      
 
 
     }
