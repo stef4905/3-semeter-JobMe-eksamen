@@ -1,6 +1,7 @@
 ﻿using JobMe_Homepage.ApplierServiceReference;
 using JobMe_Homepage.JobApplicationServiceReference;
 using JobMe_Homepage.JobPostServiceReference;
+using JobMe_Homepage.BookingService;
 using JobMe_Homepage.Models;
 using System;
 using System.Collections.Concurrent;
@@ -18,13 +19,31 @@ namespace JobMe_Homepage.Controllers
         JobPostServiceClient jobClient = new JobPostServiceClient();
 
         JobApplicationServiceClient jobApplicationClient = new JobApplicationServiceClient();
-
+        BookingServiceClient bookingServiceClient = new BookingServiceClient();
 
         // GET: Applier
         public ActionResult Index()
         {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
 
-            return View();
+
+            List<JobPostServiceReference.JobPost> jobPostList = new List<JobPostServiceReference.JobPost>();
+
+            List<JobApplication> jobApplicationList = jobApplicationClient.GetAllByApplierId(applier.Id).ToList();
+            
+
+            foreach (var jobapplication in jobApplicationList)
+            {
+                List<JobPostServiceReference.JobPost> jobPostList2 = jobClient.GetAllJobPostToAJobApplication(jobapplication.Id).ToList();
+
+
+                jobPostList.AddRange(jobPostList2);
+               
+            }
+
+
+
+            return View(jobPostList);
         }
 
         public ActionResult _CreateApplier()
@@ -318,6 +337,34 @@ namespace JobMe_Homepage.Controllers
 
             jobApplicationClient.SendApplication(jobApplication, jobPost);
             return RedirectToAction("Index");
+        }
+
+
+
+
+        public ActionResult Booking(int id)
+        {
+            
+         JobPostServiceReference.JobPost jobPost = jobClient.GetJobPost(id);
+           List<BookingService.Booking> bookingList =  bookingServiceClient.GetAllBooking(jobPost.Meeting.Id).ToList();
+            List<BookingService.Session> sessionList = new List<BookingService.Session>();
+            foreach (var session in bookingList)
+            {
+                sessionList.AddRange(session.sessionList);
+                
+            }
+
+            VMBookingSession vMBookingSession = new VMBookingSession
+            {
+                bookingList = bookingList,
+                sessionList = sessionList
+
+
+        };
+
+
+            
+            return View(vMBookingSession);
         }
     }
 }

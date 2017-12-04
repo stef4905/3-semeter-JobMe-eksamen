@@ -12,7 +12,7 @@ namespace JobMe_Homepage.Models
     {
         
         public List<JobApplication> JobApplicationList { get; set; }
-        public CompanyServiceReference.JobPost jobPost { get; set; }
+        public JobPostServiceReference.JobPost jobPost { get; set; }
 
     }
 }

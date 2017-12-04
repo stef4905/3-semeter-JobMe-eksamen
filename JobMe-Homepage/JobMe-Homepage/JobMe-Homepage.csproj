@@ -179,6 +179,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\VMApplierAndApplication.cs" />
+    <Compile Include="Models\VMBookingSession.cs" />
     <Compile Include="Models\VMCompanyANDJobPost.cs" />
     <Compile Include="Models\VMJobPostANDJobApplication.cs" />
     <Compile Include="Models\VMJobPostJobApplication.cs" />
@@ -235,15 +236,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Connected Services\CompanyServiceReference\JobMe_Homepage.CompanyServiceReference.Company.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CompanyServiceReference\JobMe_Homepage.CompanyServiceReference.JobCategory.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CompanyServiceReference\JobMe_Homepage.CompanyServiceReference.WorkHours.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\CompanyServiceReference\JobMe_Homepage.CompanyServiceReference.JobPost.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\CompanyServiceReference\ModelLayer1.xsd">
@@ -408,6 +400,7 @@
     <Content Include="Views\Company\_JobCV.cshtml" />
     <Content Include="Views\Applier\UpdateUserProfile.cshtml" />
     <Content Include="Views\Company\Meeting.cshtml" />
+    <Content Include="Views\Applier\Booking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

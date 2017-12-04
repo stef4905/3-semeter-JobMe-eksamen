@@ -165,7 +165,7 @@ namespace JobMe_Homepage.Controllers
         public ActionResult AppliersForJob(int id)
         {
 
-            JobPost jobPost = new JobPost
+            JobPostServiceReference.JobPost jobPost = new JobPostServiceReference.JobPost
             {
                 Id = id
             };

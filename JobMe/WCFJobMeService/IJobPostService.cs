@@ -63,6 +63,9 @@ namespace WCFJobMeService
 
         [OperationContract]
         void UpdateJobPost(JobPost obj);
+
+        [OperationContract]
+        List<JobPost> GetAllJobPostToAJobApplication(int jobApplicationId);
         #endregion
 
     }

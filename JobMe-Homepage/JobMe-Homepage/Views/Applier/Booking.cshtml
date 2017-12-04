@@ -1,0 +1,58 @@
+﻿@model JobMe_Homepage.Models.VMBookingSession
+@{
+    ViewBag.Title = "Booking";
+    Layout = "~/Views/Shared/_LayoutApplier.cshtml";
+}
+
+<h2>Booking</h2>
+
+@foreach (var Booking in Model.bookingList)
+{
+
+
+    <p>@Booking.Id</p>
+}
+
+<!-- #region content -->
+
+<div class="row" id="marginTopMeeting">
+    <div class="col-sm-12">
+        <div class="col-sm-10">
+            <div class="BookingTitleMeeting">Mandag d. 04/12-2017</div>
+        </div>
+        <div class="col-sm-2">
+            <button type="button" id="deleteBookingMeeting" name="deleteBooking" class="btn btn-blue">Slet booking</button>
+        </div>
+        <div class="bookingTitleSeperator"></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tidsrum</th>
+                    <th>Person</th>
+                    <th style="width: 20%;">Andet</th>
+                </tr>
+            </thead>
+
+
+            @foreach (var session in Model.sessionList)
+            {
+
+        
+            <tbody>
+                <tr>
+                    <td>@session.StartTime - @session.EndTime</td>
+                    <td>Mathias Nikolajsen</td>
+                    <td>
+                        <button type="button" name="removePerson" class="btn btn-blue">Frigør person</button>
+                        <button type="button" name="deleteSession" class="btn btn-blue">Slet møde</button>
+                    </td>
+                </tr>
+               
+           
+            </tbody>    }
+        </table>
+    </div>
+</div>
+        
+
+<!-- #endregion -->

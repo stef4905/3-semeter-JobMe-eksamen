@@ -164,6 +164,11 @@ namespace WCFJobMeService
             jobPostCtr.Update(obj);
         }
 
+        public List<JobPost> GetAllJobPostToAJobApplication(int jobApplicationId)
+        {
+           return jobPostCtr.GetAllJobPostToAJobApplication(jobApplicationId);
+        }
+
         #endregion
     }
 }
