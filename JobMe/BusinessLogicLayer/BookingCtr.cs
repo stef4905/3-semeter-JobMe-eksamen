@@ -20,7 +20,40 @@ namespace BusinessLogicLayer
         /// <returns>bool</returns>
         public bool Create(Booking booking)
         {
-            return DbBooking.Create(booking);
+            try
+            {
+                DateTime LastEndTime = booking.StartDateAndTime;
+                Booking bookingReturned = DbBooking.Create(booking);
+                TimeSpan diff = booking.EndDateAndTime - bookingReturned.StartDateAndTime;
+                TimeSpan availableTime = new TimeSpan(diff.Ticks / bookingReturned.InterviewAmount);
+
+
+                //Calculating the endtime
+                Double ii = Convert.ToDouble(bookingReturned.InterviewAmount);
+                TimeSpan totalEndTime = new TimeSpan(0, Convert.ToInt16(availableTime.Minutes * ii), 0);
+                DateTime endTime = bookingReturned.EndDateAndTime - totalEndTime + availableTime;
+
+                for (int i = 1; i <= bookingReturned.InterviewAmount; i++)
+                {
+
+                    Session session = new Session();
+                    session.StartTime = LastEndTime;
+                    session.EndTime = endTime;
+                    SessionCtr.Create(session, bookingReturned);
+
+
+                    //Set the starttime on the original booking to ensure new time is sat for next session
+                    //bookingReturned.StartDateAndTime = session.StartTime.Add(availableTime);
+                    LastEndTime = endTime;
+                    endTime = endTime + availableTime;
+                    
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         /// <summary>

@@ -18,8 +18,8 @@ namespace DataAccessLayer
         /// Inserts the booking object into the database
         /// </summary>
         /// <param name="booking"></param>
-        /// <returns></returns>
-        public bool Create(Booking booking)
+        /// <returns>Booking</returns>
+        public Booking Create(Booking booking)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -28,13 +28,13 @@ namespace DataAccessLayer
                 {
                     try
                     {
-                        cmd.CommandText = "INSERT INTO Booking(StartDateAndTime, EndDateAndTime, InterviewAmount, MeetingId) VALUES (@StartDateAndTime, @EndDateAndTime, @InterviewAmount, @MeetingId)";
+                        cmd.CommandText = "INSERT INTO Booking(StartDateAndTime, EndDateAndTime, InterviewAmount, MeetingId) output INSERTED.Id  VALUES (@StartDateAndTime, @EndDateAndTime, @InterviewAmount, @MeetingId)";
                         cmd.Parameters.AddWithValue("StartDateAndTime", booking.StartDateAndTime);
                         cmd.Parameters.AddWithValue("EndDateAndTime", booking.EndDateAndTime);
                         cmd.Parameters.AddWithValue("InterviewAmount", booking.InterviewAmount);
                         cmd.Parameters.AddWithValue("MeetingId", booking.MeetingId);
-                        cmd.ExecuteNonQuery();
-                        return true;
+                        booking.Id = (int)cmd.ExecuteScalar();
+                        return booking;
                     }
                     catch (SqlException e)
                     {
