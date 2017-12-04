@@ -68,8 +68,8 @@ namespace JobMe_Homepage.Controllers
         public ActionResult CreateJobPost()
         {
             VMWorkHoursJobCategory VM = new VMWorkHoursJobCategory();
-            VM.WorkHoursList = client.GetlAllWorkHours().ToList();
-            VM.JobCategoryList = client.GetAllJobCategories().ToList();
+            VM.WorkHoursList = jobClient.GetAllWorkHours().ToList();
+            VM.JobCategoryList = jobClient.GetAllJobCategories().ToList();
             TempData["Success"] = "Successfuld lavet!";
             return View(VM);
         }
