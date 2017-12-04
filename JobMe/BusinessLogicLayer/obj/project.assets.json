@@ -331,20 +331,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sofie\\.nuget\\packages\\": {}
+    "C:\\Users\\KasperV\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+      "projectUniqueName": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
       "projectName": "BusinessLogicLayer",
-      "projectPath": "C:\\Users\\Sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
-      "packagesPath": "C:\\Users\\Sofie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\BusinessLogicLayer\\obj\\",
+      "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+      "packagesPath": "C:\\Users\\KasperV\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\BusinessLogicLayer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Sofie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\KasperV\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -357,11 +357,11 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\Sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\Sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj"
+            "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj"
             },
-            "C:\\Users\\Sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\Sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }
