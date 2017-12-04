@@ -18,22 +18,25 @@
 </div>
 <div class="row" id="marginTopMeeting">
 	<div class="col-sm-8">
+	<form method="post" action="CreateBooking">
 		<input type="date" class="form-control" id="datePickerMeeting" name="meetingDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" required/>
 		<input class="form-control" id="timePickerMeeting" type="time" name="startTime" required />
 		<input class="form-control" id="timePickerMeeting" type="time" name="endTime" required />
 		<!--<input class="form-control" id="amountIfInterviewsMeeting" type="number" required />-->
-		<select class="form-control" id="amountIfInterviewsMeeting" id="sel1">
+		<select name="amountOfInterview" class="form-control" id="amountIfInterviewsMeeting">
 			@{
 				int numberOfInterviewInOneDay = 20;
 				for (int i = 1; i <= numberOfInterviewInOneDay; i++)
 				{
-					<option>@i</option>
+					<option value="@i">@i</option>
 				}
 			}
 		</select>
 	</div>
 	<div class="col-sm-4">
-		<button type="button" id="addNewBookingMeeting" class="btn btn-blue" >Tilføj ny booking</button>
+		<button type="submit" id="addNewBookingMeeting" class="btn btn-blue" >Tilføj ny booking</button>
+		</form>
+
 	</div>
 </div>
 <div class="seperatorMeeting"></div>

@@ -1,5 +1,5 @@
 ﻿
-using JobMe_Homepage.CompanyServiceReference;
+using JobMe_Homepage.JobPostServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
