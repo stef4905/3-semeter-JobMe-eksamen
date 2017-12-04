@@ -77,5 +77,22 @@ namespace UnitTestJobMe
             //Assert
             Assert.IsTrue(updated);
         }
+
+
+
+        [TestMethod]
+        public void TestGetByMeetingId()
+        {
+            //Arrange
+           
+            int meetingId = 6;
+            BookingCtr bookingCtr = new BookingCtr();
+
+            //Act
+            Booking returnedBooking = bookingCtr.GetBookingByMeetingId(meetingId);
+
+            //Assert
+            Assert.AreEqual(meetingId, returnedBooking.MeetingId);
+        }
     }
 }

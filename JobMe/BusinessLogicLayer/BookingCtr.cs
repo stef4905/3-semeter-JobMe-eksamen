@@ -53,5 +53,15 @@ namespace BusinessLogicLayer
         {
             return DbBooking.Update(booking);
         }
+        /// <summary>
+        /// Gets a booking in the database by meetigId
+        /// </summary>
+        /// <param name="meetingid"></param>
+        /// <returns></returns>
+        public Booking GetBookingByMeetingId(int meetingid)
+        {
+            return DbBooking.GetBookingByMeetingId(meetingid);
+        }
+
     }
 }

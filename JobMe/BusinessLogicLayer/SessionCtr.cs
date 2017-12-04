@@ -48,9 +48,9 @@ namespace BusinessLogicLayer
         /// </summary>
         /// <param name="id"></param>
         /// <returns>bool</returns>
-        public bool Delete(int id)
+        public bool Delete(Session session)
         {
-            return DbSession.Delete(id);
+            return DbSession.Delete(session);
         }
 
         /// <summary>

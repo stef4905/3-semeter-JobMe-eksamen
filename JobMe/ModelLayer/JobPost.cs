@@ -31,7 +31,9 @@ namespace ModelLayer
         [DataMember]
         public JobCategory jobCategory { get; set; }
 
-       
+        [DataMember]
+        public Meeting Meeting { get; set; }
+
 
         /// <summary>
         /// Contructor for the JobPost calss

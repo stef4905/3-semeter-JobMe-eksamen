@@ -61,9 +61,11 @@
   <ItemGroup>
     <Compile Include="AdminService.cs" />
     <Compile Include="ApplierService.cs" />
+    <Compile Include="BookingService.cs" />
     <Compile Include="CompanyService.cs" />
     <Compile Include="IAdminService.cs" />
     <Compile Include="IApplierService.cs" />
+    <Compile Include="IBookingService.cs" />
     <Compile Include="ICompanyService.cs" />
     <Compile Include="IJobApplicationService.cs" />
     <Compile Include="IJobCVService.cs" />
