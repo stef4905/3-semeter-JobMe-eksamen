@@ -33,60 +33,60 @@ namespace WCFJobMeService
 
                 #endregion
 
-        #region JobPost Service
-        [OperationContract]
-        void CreateJobPost(JobPost jobPost);
+//        #region JobPost Service
+//        [OperationContract]
+//        void CreateJobPost(JobPost jobPost);
 
-        [OperationContract]
-        void DeleteJobPost(int id);
+//        [OperationContract]
+//        void DeleteJobPost(int id);
 
-        [OperationContract]
-        List<JobPost> GetAllJobPost();
+//        [OperationContract]
+//        List<JobPost> GetAllJobPost();
 
-        [OperationContract]
-        void UpdateJobPost(JobPost obj);
+//        [OperationContract]
+//        void UpdateJobPost(JobPost obj);
 
-        [OperationContract]
-        JobPost GetJobPost(int id);
-        #endregion
+//        [OperationContract]
+//        JobPost GetJobPost(int id);
+//        #endregion
 
-        #region JobCategory Service
-        [OperationContract]
-        void CreateJobCategory(JobCategory obj);
+//        #region JobCategory Service
+//        [OperationContract]
+//        void CreateJobCategory(JobCategory obj);
 
-        [OperationContract]
-        void DeleteJobCategory(int id);
+//        [OperationContract]
+//        void DeleteJobCategory(int id);
 
-        [OperationContract]
-        JobCategory GetJobCategory(int id);
+//        [OperationContract]
+//        JobCategory GetJobCategory(int id);
 
-        [OperationContract]
-        List<JobCategory> GetAllJobCategories();
+//        [OperationContract]
+//        List<JobCategory> GetAllJobCategories();
 
-        [OperationContract]
-        void UpdateJobCategory(JobCategory obj);
-        #endregion
+//        [OperationContract]
+//        void UpdateJobCategory(JobCategory obj);
+//        #endregion
 
-        #region WorkHours Service
+//        #region WorkHours Service
 
-        [OperationContract]
-        void CreateWorkHours(WorkHours obj);
+//        [OperationContract]
+//        void CreateWorkHours(WorkHours obj);
 
-        [OperationContract]
-        void DeleteWorkHours(int id);
-
-
-        [OperationContract]
-        WorkHours GetWorkHours(int id);
+//        [OperationContract]
+//        void DeleteWorkHours(int id);
 
 
-        [OperationContract]
-        List<WorkHours> GetlAllWorkHours();
+//        [OperationContract]
+//        WorkHours GetWorkHours(int id);
 
-        [OperationContract]
-        void UpdateWorkHours(WorkHours obj);
 
-#endregion
+//        [OperationContract]
+//        List<WorkHours> GetlAllWorkHours();
+
+//        [OperationContract]
+//        void UpdateWorkHours(WorkHours obj);
+
+//#endregion
     }
 
 }
