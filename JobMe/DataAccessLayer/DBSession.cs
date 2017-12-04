@@ -53,7 +53,7 @@ namespace DataAccessLayer
         /// </summary>
         /// <param name="id"></param>
         /// <returns>bool</returns>
-        public bool Delete(int id)
+        public bool Delete(Session session)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -61,7 +61,7 @@ namespace DataAccessLayer
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "DELETE * FROM Session WHERE Id = @Id";
-                    cmd.Parameters.AddWithValue("Id", id);
+                    cmd.Parameters.AddWithValue("Id", session.Id);
 
                     try
                     {
