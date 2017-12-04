@@ -1,5 +1,6 @@
 ﻿using JobMe_Homepage.ApplierServiceReference;
 using JobMe_Homepage.CompanyServiceReference;
+using JobMe_Homepage.BookingService;
 using JobMe_Homepage.Models;
 using System;
 using System.Collections.Concurrent;
@@ -16,6 +17,9 @@ namespace JobMe_Homepage.Controllers
         JobPostServiceReference.JobPostServiceClient jobClient = new JobPostServiceReference.JobPostServiceClient();
         JobApplicationServiceReference.JobApplicationServiceClient jobApplicationService = new JobApplicationServiceReference.JobApplicationServiceClient();
         ApplierServiceClient applierServiceClient = new ApplierServiceClient();
+        BookingServiceClient BookingServiceCLient = new BookingServiceClient();
+
+
         // GET: Company
         public ActionResult Index()
         {
@@ -28,7 +32,7 @@ namespace JobMe_Homepage.Controllers
             {
                 Company = company,
                 JobPost = job
-                
+
             };
 
             return View(vMCompanyANDJobPost);
@@ -85,10 +89,11 @@ namespace JobMe_Homepage.Controllers
         [HttpPost]
         public ActionResult CreateJobPost(string Title, string Description, DateTime StartDate, DateTime EndDate, string JobTitle, int WorkHours, string Address, Company Company, int JobCategory)
         {
-            WorkHours workHours = new WorkHours { Id = WorkHours };
-            CompanyServiceReference.JobCategory jobCategory = new CompanyServiceReference.JobCategory { Id = JobCategory };
-            Company company =  Session["company"] as Company;
-            JobPost jobPost = new JobPost
+
+            JobPostServiceReference.WorkHours workHours = new JobPostServiceReference.WorkHours { Id = WorkHours };
+            JobPostServiceReference.JobCategory jobCategory = new JobPostServiceReference.JobCategory { Id = JobCategory };
+            JobPostServiceReference.Company company = Session["company"] as JobPostServiceReference.Company;
+            JobPostServiceReference.JobPost jobPost = new JobPostServiceReference.JobPost
             {
                 Title = Title,
                 Description = Description,
@@ -99,10 +104,11 @@ namespace JobMe_Homepage.Controllers
                 Address = Address,
                 company = company,
                 jobCategory = jobCategory
+                
             };
             try
             {
-                client.CreateJobPost(jobPost);
+                jobClient.CreateJobPost(jobPost);
                 return RedirectToAction("Index");
             }
             catch (Exception)
@@ -125,7 +131,7 @@ namespace JobMe_Homepage.Controllers
             Company company = client.Login(email, password);
 
             // Creates sessions for company login
-           
+
 
 
 
@@ -133,14 +139,14 @@ namespace JobMe_Homepage.Controllers
             {
 
                 Session["company"] = company;
-               return RedirectToAction("Index");
-               
+                return RedirectToAction("Index");
+
             }
             TempData["FailCompany"] = "Fail";
             return RedirectToAction("Index", "Home");
 
 
-          
+
         }
 
         public ActionResult _CurrentCompany()
@@ -165,7 +171,7 @@ namespace JobMe_Homepage.Controllers
             };
             VMJobPostJobApplication vMJobPostJobApplication = new VMJobPostJobApplication
             {
-               jobPost = jobPost,
+                jobPost = jobPost,
                 JobApplicationList = jobApplicationService.GetAllJobApplicationToAJobPost(id).ToList()
             };
 
@@ -201,11 +207,11 @@ namespace JobMe_Homepage.Controllers
             {
                 accept = true;
             }
-          
+
             jobApplicationService.AcceptDeclineJobApplication(jobApplication, jobPost, accept);
             return RedirectToAction("");
         }
-            public ActionResult _JobApplication()
+        public ActionResult _JobApplication()
         {
             JobApplicationServiceReference.JobApplication jobApplication = new JobApplicationServiceReference.JobApplication();
             return PartialView(jobApplication);
@@ -216,11 +222,11 @@ namespace JobMe_Homepage.Controllers
             JobCV jobCV = new JobCV();
             return PartialView(jobCV);
         }
-        
+
 
         public ActionResult Accept()
         {
-            
+
             return RedirectToAction("ApplierForJob");
         }
 
@@ -237,6 +243,30 @@ namespace JobMe_Homepage.Controllers
             return View();
         }
 
+
+        [HttpPost]
+        public ActionResult CreateBooking(string meetingDate, string startTime, string endTime, int amountOfInterview, Meeting meeting)
+        {
+            //Create a new booking object and set the needed variables
+            Booking booking = new Booking();
+
+            booking.StartDateAndTime = Convert.ToDateTime(meetingDate +" " + startTime +":00.000");
+            booking.EndDateAndTime = Convert.ToDateTime(meetingDate + " " + endTime + ":00.000");
+            //booking.MeetingId = meeting.Id;
+            booking.MeetingId = 6;
+            booking.InterviewAmount = amountOfInterview;
+
+            //Call the client´s create method that retusrns a bool
+            bool returned = BookingServiceCLient.CreateBooking(booking);
+
+            if (returned == true)
+            {
+                return RedirectToAction("Meeting");
+            }
+            else {
+                return null;
+            }
+        }
 
         #endregion
 
