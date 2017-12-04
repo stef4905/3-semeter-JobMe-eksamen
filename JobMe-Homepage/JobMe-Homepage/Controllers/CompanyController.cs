@@ -261,6 +261,7 @@ namespace JobMe_Homepage.Controllers
 
             if (returned == true)
             {
+                //GET THE BOOKING FOMR THE DATABASE!!!!! NOT MADE YET
                 return RedirectToAction("Meeting");
             }
             else {
