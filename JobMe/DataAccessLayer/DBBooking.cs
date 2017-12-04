@@ -159,5 +159,44 @@ namespace DataAccessLayer
                 }
             }
         }
+
+
+        /// <summary>
+        /// Returns a booking from database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Booking GetBookingByMeetingId(int meetingid)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Booking WHERE MeetingId = @MeetingId";
+                    cmd.Parameters.AddWithValue("MeetingId", meetingid);
+
+                    try
+                    {
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        Booking booking = new Booking();
+                        if (reader.Read())
+                        {
+
+                            booking.Id = (int)reader["Id"];
+                            booking.StartDateAndTime = (DateTime)reader["StartDateAndTime"];
+                            booking.EndDateAndTime = (DateTime)reader["EndDateAndTime"];
+                            booking.InterviewAmount = (int)reader["InterviewAmount"];
+                            booking.MeetingId = (int)reader["MeetingId"];
+                        }
+                        return booking;
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
+        }
     }
 }

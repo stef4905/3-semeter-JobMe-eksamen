@@ -66,6 +66,7 @@ namespace JobMe_Homepage.Controllers
             VMWorkHoursJobCategory VM = new VMWorkHoursJobCategory();
             VM.WorkHoursList = client.GetlAllWorkHours().ToList();
             VM.JobCategoryList = client.GetAllJobCategories().ToList();
+            TempData["Success"] = "Successfuld lavet!";
             return View(VM);
         }
         /// <summary>
@@ -124,9 +125,22 @@ namespace JobMe_Homepage.Controllers
             Company company = client.Login(email, password);
 
             // Creates sessions for company login
-            Session["company"] = company;
+           
 
-            return RedirectToAction("Index");
+
+
+            if (company != null)
+            {
+
+                Session["company"] = company;
+               return RedirectToAction("Index");
+               
+            }
+            TempData["FailCompany"] = "Fail";
+            return RedirectToAction("Index", "Home");
+
+
+          
         }
 
         public ActionResult _CurrentCompany()
@@ -209,6 +223,11 @@ namespace JobMe_Homepage.Controllers
             
             return RedirectToAction("ApplierForJob");
         }
+
+
+
+
+
 
 
         #region Meeting

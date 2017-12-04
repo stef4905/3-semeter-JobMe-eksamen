@@ -21,6 +21,16 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public void Create(JobPost obj)
         {
+            DBMeeting dBMeeting = new DBMeeting();
+            Meeting meeting = new Meeting
+            {
+                Id = obj.company.Id
+
+            };
+            dBMeeting.Create(meeting);
+
+            obj.Meeting = meeting;
+
             dbJobPost.Create(obj);
         }
 
@@ -59,6 +69,16 @@ namespace BusinessLogicLayer
         public void Update(JobPost obj)
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Gets a list of jobspost by the jobappliactionId
+        /// </summary>
+        /// <param name="jobApplicationId"></param>
+        /// <returns></returns>
+        public List<JobPost> GetAllJobPostToAJobApplication(int jobApplicationId)
+        {
+            return dbJobPost.GetAllJobPostToAJobApplication(jobApplicationId);
         }
     }
 }

@@ -30,7 +30,7 @@ namespace DataAccessLayer
                 {
                     using (SqlCommand cmd = connection.CreateCommand())
                     {
-                        cmd.CommandText = "INSERT INTO JobPost (Title, Description, StartDate, EndDate, JobTitle, WorkHoursId, Address, CompanyId, JobCategoryId) VALUES (@Title, @Description, @StartDate, @EndDate, @JobTitle, @WorkHoursId, @Address, @CompanyId, @JobCategoryId)";
+                        cmd.CommandText = "INSERT INTO JobPost (Title, Description, StartDate, EndDate, JobTitle, WorkHoursId, Address, CompanyId, JobCategoryId, MeetingId) VALUES (@Title, @Description, @StartDate, @EndDate, @JobTitle, @WorkHoursId, @Address, @CompanyId, @JobCategoryId, @MeetingId)";
                         cmd.Parameters.AddWithValue("Title", obj.Title);
                         cmd.Parameters.AddWithValue("Description", obj.Description);
                         cmd.Parameters.AddWithValue("StartDate", obj.StartDate);
@@ -40,6 +40,7 @@ namespace DataAccessLayer
                         cmd.Parameters.AddWithValue("Address", obj.Address);
                         cmd.Parameters.AddWithValue("CompanyId", obj.company.Id);
                         cmd.Parameters.AddWithValue("JobCategoryId", obj.jobCategory.Id);
+                        cmd.Parameters.AddWithValue("MeetingId", obj.Meeting.Id);
                         cmd.ExecuteNonQuery();
                         return true;
                     }
@@ -71,6 +72,7 @@ namespace DataAccessLayer
             DbCompany dbCompany = new DbCompany();
             DbJobCategory dbJobCategory = new DbJobCategory();
             JobPost jobPost = new JobPost();
+            DBMeeting dBMeeting = new DBMeeting();
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
@@ -91,6 +93,7 @@ namespace DataAccessLayer
                         jobPost.Address = (string)reader["Address"];
                         jobPost.company = dbCompany.Get((int)reader["CompanyId"]);
                         jobPost.jobCategory = dbJobCategory.Get((int)reader["JobCategoryId"]);
+                        jobPost.Meeting = dBMeeting.Get((int)reader["MeetingId"]);
                     };
                     return jobPost;
                 }
@@ -147,5 +150,40 @@ namespace DataAccessLayer
         {
             throw new NotImplementedException();
         }
+
+
+        /// <summary>
+        /// Returns all jobpost from a specific jobapplication
+        /// </summary>
+        /// <param name="JobApplicationId"></param>
+        /// <returns></returns>
+        public List<JobPost> GetAllJobPostToAJobApplication(int jobApplicationId)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM JobApplicationJobPost WHERE JobApplicationId = @jobApplicationId AND AcceptApplication = @AcceptApplication";
+                    cmd.Parameters.AddWithValue("jobApplicationId", jobApplicationId);
+                    cmd.Parameters.AddWithValue("AcceptApplication", 1);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    List<JobPost> jobPostList = new List<JobPost>();
+
+                    while (reader.Read())
+                    {
+                        JobPost jobPost = new JobPost
+                        {
+                            Id = (int)reader["JobPostId"]
+                        };
+                        jobPost = Get(jobPost.Id);
+                        jobPostList.Add(jobPost);
+                    }
+                    return jobPostList;
+                }
+            }
+
+        }
     }
 }
+
