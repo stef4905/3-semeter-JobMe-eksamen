@@ -293,12 +293,23 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult DeleteBooking(int id, int meetingId)
         {
-
             bool deleted = BookingServiceClient.DeleteBooking(id);
-
             return RedirectToAction("Meeting/" + meetingId);
+        }
 
+        public ActionResult RemovePersonOnMeeting(int id, int meetingId)
+        {
+            Session session = BookingServiceClient.GetSession(id);
+            session.ApplierId = 0;
+            bool updated = BookingServiceClient.UpdateSession(session);
+            return RedirectToAction("Meeting/" + meetingId);
+        }
 
+        public ActionResult DeleteMeeting(int id, int meetingId)
+        {
+            Session session = BookingServiceClient.GetSession(id);
+            bool deleted = BookingServiceClient.DeleteSession(session);
+            return RedirectToAction("Meeting/" + meetingId);
         }
 
         #endregion

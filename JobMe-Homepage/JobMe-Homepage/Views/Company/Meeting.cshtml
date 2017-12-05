@@ -92,8 +92,9 @@
                                         <td>Fri</td>
                                     }
                                     <td>
-                                        <button type="button" name="removePerson" class="btn btn-blue">Frigør person</button>
-                                        <button type="button" name="deleteSession" class="btn btn-blue">Slet møde</button>
+                                        
+                                        <a href="/Company/RemovePersonOnMeeting/?id=@session.Id&meetingId=@Model.Meeting.Id" class="btn btn-blue">Frigør person</a>
+                                        <a href="/Company/DeleteMeeting/?id=@session.Id&meetingId=@Model.Meeting.Id" class="btn btn-blue">Slet møde</a>
                                     </td>
                                 </tr>
 

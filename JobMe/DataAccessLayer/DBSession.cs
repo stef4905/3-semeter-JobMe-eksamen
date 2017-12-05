@@ -60,7 +60,7 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "DELETE * FROM Session WHERE Id = @Id";
+                    cmd.CommandText = "DELETE FROM Session WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Id", session.Id);
 
                     try
