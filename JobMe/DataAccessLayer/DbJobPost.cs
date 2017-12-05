@@ -146,6 +146,7 @@ namespace DataAccessLayer
         public List<JobPost> GetAll()
         {
             List<JobPost> jobPostList = new List<JobPost>();
+            DBMeeting dbMeeting = new DBMeeting();
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
@@ -170,7 +171,8 @@ namespace DataAccessLayer
                             workHours = dbWorkHour.Get((int)reader["WorkHoursId"]),
                             Address = (string)reader["Address"],
                             company = dbCompany.Get((int)reader["CompanyId"]),
-                            jobCategory = dbJobCategory.Get((int)reader["JobCategoryId"])
+                            jobCategory = dbJobCategory.Get((int)reader["JobCategoryId"]),
+                            Meeting = dbMeeting.Get((int)reader["MeetingId"])
                         };
                         jobPostList.Add(jobPost);
                     }
