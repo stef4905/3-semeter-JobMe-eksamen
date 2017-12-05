@@ -2,57 +2,126 @@
 @{
     ViewBag.Title = "Booking";
     Layout = "~/Views/Shared/_LayoutApplier.cshtml";
+
+  
+        bool dis = false;
+    
 }
 
 <h2>Booking</h2>
 
-@foreach (var Booking in Model.bookingList)
-{
-
-
-    <p>@Booking.Id</p>
-}
-
-<!-- #region content -->
-
 <div class="row" id="marginTopMeeting">
     <div class="col-sm-12">
-        <div class="col-sm-10">
-            <div class="BookingTitleMeeting">Mandag d. 04/12-2017</div>
-        </div>
-        <div class="col-sm-2">
-            <button type="button" id="deleteBookingMeeting" name="deleteBooking" class="btn btn-blue">Slet booking</button>
-        </div>
-        <div class="bookingTitleSeperator"></div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Tidsrum</th>
-                    <th>Person</th>
-                    <th style="width: 20%;">Andet</th>
-                </tr>
-            </thead>
-
-
-            @foreach (var session in Model.sessionList)
+        @foreach (var session in Model.SessionList)
             {
 
-        
-            <tbody>
-                <tr>
-                    <td>@session.StartTime - @session.EndTime</td>
-                    <td>Mathias Nikolajsen</td>
-                    <td>
-                        <button type="button" name="removePerson" class="btn btn-blue">Frigør person</button>
-                        <button type="button" name="deleteSession" class="btn btn-blue">Slet møde</button>
-                    </td>
-                </tr>
-               
-           
-            </tbody>    }
-        </table>
-    </div>
-</div>
+                if (session.ApplierId == Model.Applier.Id)
+                {
+                <h2>Du har et møde @session.StartTime - @session.EndTime</h2>
+                <button type="button" id="deleteBookingMeeting" name="deleteBooking" class="btn btn-blue">Slet booking</button>
+
+            }
+
+            if (session.ApplierId == Model.Applier.Id)
+            {
+                dis = true;
+            }
+
+
+        }
+
+            @foreach (var Booking in Model.BookingList)
+            {
+
+                
+                <div class="col-sm-10">
+
+                    <div class="BookingTitleMeeting">@Booking.StartDateAndTime.ToShortDateString()</div>
+                </div>
+                <div class="col-sm-2">
+                   
+                </div>
+                <div class="bookingTitleSeperator"></div>
+
+                <div class="row">
+                    <div class="col-sm-4">Tidsrum</div>
+                    <div class="col-sm-4">Ledig/Optaget</div>
+                    <div class="col-sm-4">Tidsrum</div>
+
+                    
+                </div>
+
+            }
+
+            <!-- #region content -->
+
+    
+
+
+
+            @foreach (var session in Model.SessionList)
+            {
+
+
+                string label;
+                if (session.ApplierId != 0)
+                {
+                    label = "label-danger";
+                }
+                else
+                {
+                    label = "label-success";
+                }
+
+                <div class="@label row bookings">
+                    
+                        <div class="col-sm-4">@session.StartTime.ToShortTimeString() - @session.EndTime.ToShortTimeString()</div>
+                        @if (session.ApplierId != 0)
+                        {
+                            <div class="col-sm-4">
+                                Optaget</div>
+
+                                <div class="col-sm-4">
+                                    <button type="button" name="removePerson" class="btn btn-blue">Optaget</button>
+
+                                    </div>
+                        }
+                        else if (dis)
+                        {
+                            <div class="col-sm-4">
+                                Ledig
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" name="removePerson" class="btn btn-blue">du har allerede booket</button>
+
+                                    </div>
+                        }
+                        else
+                        {
+                            <div class="col-sm-4">
+                                Ledig</div>
+
+                                <div class="col-sm-4">
+                                    <a class="btn btn-blue" href="/Applier/BookMeeting/@session.Id">Book</a>
+
+
+                                    </div>
+                        }
+
+                        </div>
+
+
+
+                           
+            }
+
         
 
-<!-- #endregion -->
+    </div>
+
+
+
+    </div>
+           
+
+    <!-- #endregion -->

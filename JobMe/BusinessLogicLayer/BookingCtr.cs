@@ -74,7 +74,13 @@ namespace BusinessLogicLayer
         /// <returns></returns>
         public List<Booking> GetAll(int id)
         {
-            return DbBooking.GetAll(id);
+            List<Booking> bookingList = DbBooking.GetAll(id);
+            foreach (var booking in bookingList)
+            {
+                booking.sessionList =  SessionCtr.GetAll(booking.Id);
+            }
+
+            return bookingList;
         }
 
         /// <summary>

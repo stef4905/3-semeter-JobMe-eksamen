@@ -119,6 +119,7 @@ namespace WCFJobMeService
         /// </summary>
         /// <param name="session"></param>
         /// <returns></returns>
+       [OperationContract]
         bool UpdateSession(Session session);
         #endregion
 
