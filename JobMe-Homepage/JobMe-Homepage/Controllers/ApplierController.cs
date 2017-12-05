@@ -369,7 +369,7 @@ namespace JobMe_Homepage.Controllers
             return View(vMBookingSession);
         }
 
-        public ActionResult BookMeeting(int id)
+        public ActionResult BookMeeting(int id, int JobPostId)
         {
 
 
@@ -380,18 +380,18 @@ namespace JobMe_Homepage.Controllers
             
             bookingServiceClient.UpdateSession(session);
             TempData["Success"] = "Mødet Booket d." + session.StartTime + "" + session.EndTime.ToShortTimeString();
-            return RedirectToAction("Index");
+            return RedirectToAction("Booking/" + JobPostId);
         }
 
 
-        public ActionResult DeleteBooking(int id)
+        public ActionResult DeleteBooking(int id, int JobPostId)
         {
-              BookingService.Session session = bookingServiceClient.GetSession(id);
+            BookingService.Session session = bookingServiceClient.GetSession(id);
             session.ApplierId = 0;
 
             bookingServiceClient.UpdateSession(session);
             TempData["Success"] = "Mødet er blevet slettet";
-            return RedirectToAction("Index");
+            return RedirectToAction("Booking/" + JobPostId);
         }
 
     }
