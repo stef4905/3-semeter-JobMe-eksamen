@@ -38,7 +38,7 @@ namespace JobMe_Homepage.BookingService {
         private System.DateTime StartDateAndTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.BookingService.Session[] sessionListField;
+        private System.Collections.Generic.List<JobMe_Homepage.BookingService.Session> sessionListField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -116,7 +116,7 @@ namespace JobMe_Homepage.BookingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.BookingService.Session[] sessionList {
+        public System.Collections.Generic.List<JobMe_Homepage.BookingService.Session> sessionList {
             get {
                 return this.sessionListField;
             }
@@ -263,7 +263,7 @@ namespace JobMe_Homepage.BookingService {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.BookingService.Booking[] bookingField;
+        private System.Collections.Generic.List<JobMe_Homepage.BookingService.Booking> bookingField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -302,7 +302,7 @@ namespace JobMe_Homepage.BookingService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.BookingService.Booking[] booking {
+        public System.Collections.Generic.List<JobMe_Homepage.BookingService.Booking> booking {
             get {
                 return this.bookingField;
             }
@@ -341,10 +341,10 @@ namespace JobMe_Homepage.BookingService {
         System.Threading.Tasks.Task<JobMe_Homepage.BookingService.Booking> GetBookingAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllBooking", ReplyAction="http://tempuri.org/IBookingService/GetAllBookingResponse")]
-        JobMe_Homepage.BookingService.Booking[] GetAllBooking(int meetingId);
+        System.Collections.Generic.List<JobMe_Homepage.BookingService.Booking> GetAllBooking(int meetingId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllBooking", ReplyAction="http://tempuri.org/IBookingService/GetAllBookingResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.BookingService.Booking[]> GetAllBookingAsync(int meetingId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.BookingService.Booking>> GetAllBookingAsync(int meetingId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/UpdateBooking", ReplyAction="http://tempuri.org/IBookingService/UpdateBookingResponse")]
         bool UpdateBooking(JobMe_Homepage.BookingService.Booking booking);
@@ -389,10 +389,10 @@ namespace JobMe_Homepage.BookingService {
         System.Threading.Tasks.Task<JobMe_Homepage.BookingService.Session> GetSessionAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllSession", ReplyAction="http://tempuri.org/IBookingService/GetAllSessionResponse")]
-        JobMe_Homepage.BookingService.Session[] GetAllSession(int id);
+        System.Collections.Generic.List<JobMe_Homepage.BookingService.Session> GetAllSession(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/GetAllSession", ReplyAction="http://tempuri.org/IBookingService/GetAllSessionResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.BookingService.Session[]> GetAllSessionAsync(int id);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.BookingService.Session>> GetAllSessionAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/DeleteSession", ReplyAction="http://tempuri.org/IBookingService/DeleteSessionResponse")]
         bool DeleteSession(JobMe_Homepage.BookingService.Session session);
@@ -444,11 +444,11 @@ namespace JobMe_Homepage.BookingService {
             return base.Channel.GetBookingAsync(id);
         }
         
-        public JobMe_Homepage.BookingService.Booking[] GetAllBooking(int meetingId) {
+        public System.Collections.Generic.List<JobMe_Homepage.BookingService.Booking> GetAllBooking(int meetingId) {
             return base.Channel.GetAllBooking(meetingId);
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.BookingService.Booking[]> GetAllBookingAsync(int meetingId) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.BookingService.Booking>> GetAllBookingAsync(int meetingId) {
             return base.Channel.GetAllBookingAsync(meetingId);
         }
         
@@ -508,11 +508,11 @@ namespace JobMe_Homepage.BookingService {
             return base.Channel.GetSessionAsync(id);
         }
         
-        public JobMe_Homepage.BookingService.Session[] GetAllSession(int id) {
+        public System.Collections.Generic.List<JobMe_Homepage.BookingService.Session> GetAllSession(int id) {
             return base.Channel.GetAllSession(id);
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.BookingService.Session[]> GetAllSessionAsync(int id) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.BookingService.Session>> GetAllSessionAsync(int id) {
             return base.Channel.GetAllSessionAsync(id);
         }
         

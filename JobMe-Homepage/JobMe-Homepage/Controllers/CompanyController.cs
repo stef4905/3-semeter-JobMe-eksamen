@@ -17,7 +17,7 @@ namespace JobMe_Homepage.Controllers
         JobPostServiceReference.JobPostServiceClient jobClient = new JobPostServiceReference.JobPostServiceClient();
         JobApplicationServiceReference.JobApplicationServiceClient jobApplicationService = new JobApplicationServiceReference.JobApplicationServiceClient();
         ApplierServiceClient applierServiceClient = new ApplierServiceClient();
-        BookingServiceClient BookingServiceCLient = new BookingServiceClient();
+        BookingServiceClient BookingServiceClient = new BookingServiceClient();
 
 
         // GET: Company
@@ -244,9 +244,25 @@ namespace JobMe_Homepage.Controllers
 
         #region Meeting
 
-        public ActionResult Meeting()
+        public ActionResult Meeting(int id)
         {
-            return View();
+            JobPostServiceReference.JobPost JobPost = jobClient.GetJobPost(id);
+            Company company = new Company();
+            company = Session["company"] as Company;
+
+
+            Meeting meeting = BookingServiceClient.GetMeeting(JobPost.Meeting.Id);
+
+            List<BookingService.Booking> bookingList = BookingServiceClient.GetAllBooking(meeting.Id);
+
+            VMMeeting vMMeeting = new VMMeeting
+            {
+
+                Meeting = meeting,
+                BookingList = bookingList
+
+            };
+            return View(vMMeeting);
         }
 
 
@@ -263,7 +279,7 @@ namespace JobMe_Homepage.Controllers
             booking.InterviewAmount = amountOfInterview;
 
             //Call the client´s create method that retusrns a bool
-            bool returned = BookingServiceCLient.CreateBooking(booking);
+            bool returned = BookingServiceClient.CreateBooking(booking);
 
             if (returned == true)
             {
