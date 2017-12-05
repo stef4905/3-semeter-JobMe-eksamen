@@ -561,17 +561,10 @@ div.tab button {
 	margin-top: 4%;
 }
 
-#datePickerMeeting {
-	float: left; 
-	width: 23%;
-	line-height: 10px;
-}
 
-#timePickerMeeting {
-	float: left;
-	margin-left: 2%;
-	line-height: 10px;
-	width: 13%;
+.timePickerMeeting {
+    float: left;
+    width: 8%;
 }
 
 #amountIfInterviewsMeeting {
@@ -612,6 +605,13 @@ div.tab button {
 
 }
 
+#inputMeeting {
+    float: left;
+    width: 23%;
+    line-height: 10px;
+    margin-left: 1%;
+}
+
 
 /*Bookings*/
 .bookings {
@@ -629,5 +629,10 @@ div.tab button {
     background-color: #a3ff73!important;
 }
 .btn-deleteBooking {
+    margin-bottom: 2%;
+}
+
+.inputLabel {
+    float: left;
     margin-bottom: 2%;
 }

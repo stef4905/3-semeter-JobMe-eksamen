@@ -26,21 +26,40 @@
             <form method="post" action="/Company/CreateBooking">
                 <div class="col-sm-8">
                     <input type="hidden" value="@Model.Meeting.Id" name="meetingId" />
-                    <input type="date" class="form-control" id="datePickerMeeting" name="meetingDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" required />
-                    <input class="form-control" id="timePickerMeeting" type="time" name="startTime" required />
-                    <input class="form-control" id="timePickerMeeting" type="time" name="endTime" required />
-                    <!--<input class="form-control" id="amountIfInterviewsMeeting" type="number" required />-->
-                    <select name="amountOfInterview" class="form-control" id="amountIfInterviewsMeeting">
-                        @{
-                            int numberOfInterviewInOneDay = 20;
-                            for (int i = 1; i <= numberOfInterviewInOneDay; i++)
-                            {
-                                <option value="@i">@i</option>
-                            }
-                        }
-                    </select>
+                    
+                    <div id="inputMeeting">
+                        <label class="inputLabel">Dato</label>
+                        <input type="date" class="form-control"  name="meetingDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" required />
+                    </div>
 
-                </div>
+
+                    <div id="inputMeeting" class="timePickerMeeting">
+                        <label class="inputLabel">Starttid</label>         
+                        <input class="form-control"  type="time" name="startTime" required />
+                    </div>
+
+                    <div id="inputMeeting" class="timePickerMeeting">
+                        <label class="inputLabel">Sluttid</label>
+                        <input class="form-control" type="time" name="endTime" required />
+                    </div>
+
+                    <div id="inputMeeting">
+                        <label class="inputLabel">Antal møder</label>
+                        <select name="amountOfInterview" class="form-control">
+                            @{
+                                int numberOfInterviewInOneDay = 20;
+                                for (int i = 1; i <= numberOfInterviewInOneDay; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                        
+                           
+
+                    </div>
                 <div class="col-sm-4">
                     <button type="submit" id="addNewBookingMeeting" class="btn btn-blue">Tilføj ny booking</button>
                 </div>
