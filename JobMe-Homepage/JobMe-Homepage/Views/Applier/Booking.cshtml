@@ -3,125 +3,154 @@
     ViewBag.Title = "Booking";
     Layout = "~/Views/Shared/_LayoutApplier.cshtml";
 
-  
-        bool dis = false;
-    
+
+    bool dis = false;
+
 }
+<div class="bg-white booking">
+    <h1>Job hos @Model.JobPost.company.CompanyName - @Model.JobPost.JobTitle</h1>
+    <h3><b>Adresse:</b> @Model.JobPost.Address</h3>
+    <p><b>Beskrivelse:</b>@Model.JobPost.Description</p>
+    <p><b>Vilkår:</b>@Model.JobPost.workHours.Type</p>
 
-<h2>Booking</h2>
-
-<div class="row" id="marginTopMeeting">
-    <div class="col-sm-12">
-        @foreach (var session in Model.SessionList)
-            {
-
-                if (session.ApplierId == Model.Applier.Id)
-                {
-                <h2>Du har et møde @session.StartTime - @session.EndTime</h2>
-                <button type="button" id="deleteBookingMeeting" name="deleteBooking" class="btn btn-blue">Slet booking</button>
-
-            }
-
-            if (session.ApplierId == Model.Applier.Id)
-            {
-                dis = true;
-            }
-
-
-        }
-
+    <div class="row" id="marginTopMeeting">
+        <div class="col-sm-12">
             @foreach (var Booking in Model.BookingList)
             {
-
-                
-                <div class="col-sm-10">
-
-                    <div class="BookingTitleMeeting">@Booking.StartDateAndTime.ToShortDateString()</div>
-                </div>
-                <div class="col-sm-2">
-                   
-                </div>
-                <div class="bookingTitleSeperator"></div>
-
-                <div class="row">
-                    <div class="col-sm-4">Tidsrum</div>
-                    <div class="col-sm-4">Ledig/Optaget</div>
-                    <div class="col-sm-4">Tidsrum</div>
-
-                    
-                </div>
-
-            }
-
-            <!-- #region content -->
-
-    
-
-
-
-            @foreach (var session in Model.SessionList)
-            {
-
-
-                string label;
-                if (session.ApplierId != 0)
+                foreach (var session in Booking.sessionList)
                 {
-                    label = "label-danger";
-                }
-                else
-                {
-                    label = "label-success";
-                }
 
-                <div class="@label row bookings">
-                    
-                        <div class="col-sm-4">@session.StartTime.ToShortTimeString() - @session.EndTime.ToShortTimeString()</div>
-                        @if (session.ApplierId != 0)
-                        {
-                            <div class="col-sm-4">
-                                Optaget</div>
+                    if (session.ApplierId == Model.Applier.Id)
+                    {
+                        <h2><b>Du har et møde @session.StartTime - @session.EndTime</b></h2>
 
-                                <div class="col-sm-4">
-                                    <button type="button" name="removePerson" class="btn btn-blue">Optaget</button>
+                        <a class="btn btn-danger btn-deleteBooking" data-toggle="modal" data-target="#@session.Id" href="#">Slet Booking</a>
+                          <!-- Modal -->
+                        <div class="modal fade" id="@session.Id" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4>Er du sikker på du vil slette mødet? andre får mulighed for at vælge tiden</h4>
+                                    <div class="modal-body">
+
+                                        <a class="btn btn-danger btn-deleteBooking" href="/Applier/DeleteBooking/@session.Id">Slet Booking</a>
 
                                     </div>
-                        }
-                        else if (dis)
-                        {
-                            <div class="col-sm-4">
-                                Ledig
+
                                 </div>
-                                <div class="col-sm-4">
-                                    <button type="button" name="removePerson" class="btn btn-blue">du har allerede booket</button>
 
-                                    </div>
-                        }
-                        else
-                        {
-                            <div class="col-sm-4">
-                                Ledig</div>
-
-                                <div class="col-sm-4">
-                                    <a class="btn btn-blue" href="/Applier/BookMeeting/@session.Id">Book</a>
-
-
-                                    </div>
-                        }
-
+                            </div>
                         </div>
 
+                    }
+
+                    if (session.ApplierId == Model.Applier.Id)
+                    {
+                        dis = true;
+                    }
 
 
-                           
+                }
             }
+          
 
-        
+            <div class="">
+                @foreach (var Booking in Model.BookingList)
+                {
+
+
+
+                    <div class="BookingTitleMeeting"> <b>Bookings Dato:</b>@Booking.StartDateAndTime.DayOfWeek d.@Booking.StartDateAndTime.ToShortDateString() </div>
+
+
+
+
+                    <div class="row bookings">
+                        <div class="col-sm-4 cell">Tidsrum</div>
+                        <div class="col-sm-4 cell">Ledig/Optaget</div>
+                        <div class="col-sm-4 cell">Tidsrum</div>
+
+
+                    </div>
+
+
+
+                <!-- #region content -->
+
+
+
+
+
+                foreach (var session in Booking.sessionList)
+                {
+
+
+                    string label;
+                    if (session.ApplierId != 0)
+                    {
+                        label = "label-danger";
+                    }
+                    else
+                    {
+                        label = "label-success";
+                    }
+
+                <div class="@label row bookings">
+
+                    <div class="col-sm-4 cell">@session.StartTime.ToShortTimeString() - @session.EndTime.ToShortTimeString()</div>
+                    @if (session.ApplierId != 0)
+                    {
+                        <div class="col-sm-4 cell">
+                            Optaget
+                        </div>
+
+                        <div class="col-sm-4 cell">
+                            <button type="button" name="removePerson" class="btn btn-blue">Optaget</button>
+
+                        </div>
+                    }
+                    else if (dis)
+                    {
+                        <div class="col-sm-4 cell">
+                            Ledig
+                        </div>
+                        <div class="col-sm-4 cell">
+                            <button type="button" name="removePerson" class="btn btn-blue">du har allerede booket</button>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-sm-4 cell">
+                            Ledig
+                        </div>
+
+                        <div class="col-sm-4 cell">
+                            <a class="btn btn-blue" href="/Applier/BookMeeting/@session.Id">Book</a>
+
+
+                        </div>
+                    }
+
+                </div>
+
+
+
+
+                }}
+
+            </div>
+
+
+
+        </div>
+
+
 
     </div>
 
+</div>
 
-
-    </div>
-           
-
-    <!-- #endregion -->
+<!-- #endregion -->

@@ -615,9 +615,19 @@ div.tab button {
 
 /*Bookings*/
 .bookings {
-   
+    border-top: solid 1px;
+    padding: 1%;
+}
 
-    margin-bottom: 1%;
+.booking {
+    padding: 2%;
+    border-radius: 2%;
+    
+}
 
-
+.label-success {
+    background-color: #a3ff73!important;
+}
+.btn-deleteBooking {
+    margin-bottom: 2%;
 }

@@ -10,6 +10,7 @@ namespace JobMe_Homepage.Models
     {
         public List<Booking> BookingList { get; set; }
         public List<Session> SessionList { get; set; }
+        public JobPostServiceReference.JobPost JobPost { get; set; }
 
         public ApplierServiceReference.Applier Applier { get; set; }
 

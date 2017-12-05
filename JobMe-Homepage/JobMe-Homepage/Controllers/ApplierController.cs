@@ -347,19 +347,20 @@ namespace JobMe_Homepage.Controllers
             
          JobPostServiceReference.JobPost jobPost = jobClient.GetJobPost(id);
            List<BookingService.Booking> bookingList =  bookingServiceClient.GetAllBooking(jobPost.Meeting.Id).ToList();
-            List<BookingService.Session> sessionList = new List<BookingService.Session>();
-            foreach (var session in bookingList)
-            {
-                sessionList.AddRange(session.sessionList);
+            //List<BookingService.Session> sessionList = new List<BookingService.Session>();
+            //foreach (var session in bookingList)
+            //{
+            //    sessionList.AddRange(session.sessionList);
                 
-            }
+            //}
 
             VMBookingSession vMBookingSession = new VMBookingSession
             {
                 BookingList = bookingList,
-                SessionList = sessionList,
-                Applier = Session["Applier"] as ApplierServiceReference.Applier
-
+              
+                Applier = Session["Applier"] as ApplierServiceReference.Applier,
+                JobPost = jobPost
+                
 
             };
 
@@ -371,13 +372,26 @@ namespace JobMe_Homepage.Controllers
         public ActionResult BookMeeting(int id)
         {
 
+
             ApplierServiceReference.Applier applier = Session["Applier"] as ApplierServiceReference.Applier;
             BookingService.Session session = bookingServiceClient.GetSession(id);
             session.ApplierId = applier.Id;
-        
-            bookingServiceClient.UpdateSession(session);
 
-            return View();
+            
+            bookingServiceClient.UpdateSession(session);
+            TempData["Success"] = "Mødet Booket d." + session.StartTime + "" + session.EndTime.ToShortTimeString();
+            return RedirectToAction("Index");
+        }
+
+
+        public ActionResult DeleteBooking(int id)
+        {
+              BookingService.Session session = bookingServiceClient.GetSession(id);
+            session.ApplierId = 0;
+
+            bookingServiceClient.UpdateSession(session);
+            TempData["Success"] = "Mødet er blevet slettet";
+            return RedirectToAction("Index");
         }
     }
 }

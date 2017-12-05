@@ -190,7 +190,13 @@ namespace DataAccessLayer
                     {
                         cmd.Parameters.AddWithValue("StartTime", session.StartTime);
                         cmd.Parameters.AddWithValue("EndTime", session.EndTime);
+                        if (session.ApplierId == 0)
+                        {
+                            cmd.Parameters.AddWithValue("ApplierId", DBNull.Value);
+                        }
+                        else { 
                         cmd.Parameters.AddWithValue("ApplierId", session.ApplierId);
+                        }
                         cmd.Parameters.AddWithValue("BookingId", session.BookingId);
                         cmd.Parameters.AddWithValue("Id", session.Id);
                         cmd.ExecuteNonQuery();
