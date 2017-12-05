@@ -8,8 +8,10 @@ namespace JobMe_Homepage.Models
 {
     public class VMBookingSession
     {
-        public List<Booking> bookingList { get; set; }
-        public List<Session> sessionList { get; set; }
+        public List<Booking> BookingList { get; set; }
+        public List<Session> SessionList { get; set; }
+
+        public ApplierServiceReference.Applier Applier { get; set; }
 
 
     }

@@ -356,15 +356,28 @@ namespace JobMe_Homepage.Controllers
 
             VMBookingSession vMBookingSession = new VMBookingSession
             {
-                bookingList = bookingList,
-                sessionList = sessionList
+                BookingList = bookingList,
+                SessionList = sessionList,
+                Applier = Session["Applier"] as ApplierServiceReference.Applier
 
 
-        };
+            };
 
 
             
             return View(vMBookingSession);
+        }
+
+        public ActionResult BookMeeting(int id)
+        {
+
+            ApplierServiceReference.Applier applier = Session["Applier"] as ApplierServiceReference.Applier;
+            BookingService.Session session = bookingServiceClient.GetSession(id);
+            session.ApplierId = applier.Id;
+        
+            bookingServiceClient.UpdateSession(session);
+
+            return View();
         }
     }
 }

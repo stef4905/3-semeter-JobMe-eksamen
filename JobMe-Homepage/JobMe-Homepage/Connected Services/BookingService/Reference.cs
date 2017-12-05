@@ -399,6 +399,12 @@ namespace JobMe_Homepage.BookingService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/DeleteSession", ReplyAction="http://tempuri.org/IBookingService/DeleteSessionResponse")]
         System.Threading.Tasks.Task<bool> DeleteSessionAsync(JobMe_Homepage.BookingService.Session session);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/UpdateSession", ReplyAction="http://tempuri.org/IBookingService/UpdateSessionResponse")]
+        bool UpdateSession(JobMe_Homepage.BookingService.Session session);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/UpdateSession", ReplyAction="http://tempuri.org/IBookingService/UpdateSessionResponse")]
+        System.Threading.Tasks.Task<bool> UpdateSessionAsync(JobMe_Homepage.BookingService.Session session);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -522,6 +528,14 @@ namespace JobMe_Homepage.BookingService {
         
         public System.Threading.Tasks.Task<bool> DeleteSessionAsync(JobMe_Homepage.BookingService.Session session) {
             return base.Channel.DeleteSessionAsync(session);
+        }
+        
+        public bool UpdateSession(JobMe_Homepage.BookingService.Session session) {
+            return base.Channel.UpdateSession(session);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateSessionAsync(JobMe_Homepage.BookingService.Session session) {
+            return base.Channel.UpdateSessionAsync(session);
         }
     }
 }

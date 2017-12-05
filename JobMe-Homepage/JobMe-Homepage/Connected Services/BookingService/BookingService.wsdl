@@ -105,6 +105,12 @@
   <wsdl:message name="IBookingService_DeleteSession_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteSessionResponse" />
   </wsdl:message>
+  <wsdl:message name="IBookingService_UpdateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSession" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_UpdateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSessionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBookingService">
     <wsdl:operation name="CreateBooking">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/CreateBooking" message="tns:IBookingService_CreateBooking_InputMessage" />
@@ -153,6 +159,10 @@
     <wsdl:operation name="DeleteSession">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/DeleteSession" message="tns:IBookingService_DeleteSession_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/DeleteSessionResponse" message="tns:IBookingService_DeleteSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/UpdateSession" message="tns:IBookingService_UpdateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/UpdateSessionResponse" message="tns:IBookingService_UpdateSession_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IBookingService" type="tns:IBookingService">
@@ -259,6 +269,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteSession">
       <soap12:operation soapAction="http://tempuri.org/IBookingService/DeleteSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSession">
+      <soap12:operation soapAction="http://tempuri.org/IBookingService/UpdateSession" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
