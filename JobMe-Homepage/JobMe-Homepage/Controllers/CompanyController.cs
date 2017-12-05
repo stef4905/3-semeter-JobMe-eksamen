@@ -92,7 +92,13 @@ namespace JobMe_Homepage.Controllers
 
             JobPostServiceReference.WorkHours workHours = new JobPostServiceReference.WorkHours { Id = WorkHours };
             JobPostServiceReference.JobCategory jobCategory = new JobPostServiceReference.JobCategory { Id = JobCategory };
-            JobPostServiceReference.Company company = Session["company"] as JobPostServiceReference.Company;
+            CompanyServiceReference.Company company = Session["company"] as CompanyServiceReference.Company;
+
+            JobPostServiceReference.Company com = new JobPostServiceReference.Company
+            {
+                Id = company.Id
+            };
+            
             JobPostServiceReference.JobPost jobPost = new JobPostServiceReference.JobPost
             {
                 Title = Title,
@@ -102,7 +108,7 @@ namespace JobMe_Homepage.Controllers
                 JobTitle = JobTitle,
                 workHours = workHours,
                 Address = Address,
-                company = company,
+                company = com,
                 jobCategory = jobCategory
                 
             };

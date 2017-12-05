@@ -429,7 +429,7 @@ namespace JobMe_Homepage.BookingService {
         }
         
         public bool CreateBooking(JobMe_Homepage.BookingService.Booking booking) {
-           return base.Channel.CreateBooking(booking);
+            return base.Channel.CreateBooking(booking);
         }
         
         public System.Threading.Tasks.Task<bool> CreateBookingAsync(JobMe_Homepage.BookingService.Booking booking) {

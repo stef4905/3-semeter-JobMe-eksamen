@@ -24,7 +24,7 @@ namespace BusinessLogicLayer
             DBMeeting dBMeeting = new DBMeeting();
             Meeting meeting = new Meeting
             {
-                Id = obj.company.Id
+                CompanyId = obj.company.Id
 
             };
             dBMeeting.Create(meeting);
