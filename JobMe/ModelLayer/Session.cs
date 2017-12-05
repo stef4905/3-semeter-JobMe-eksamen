@@ -20,6 +20,8 @@ namespace ModelLayer
         public DateTime EndTime { get; set; }
         [DataMember]
         public int BookingId { get; set; }
+        [DataMember]
+        public Applier Applier { get; set; }
     
         /// <summary>
         /// Constructor for Session

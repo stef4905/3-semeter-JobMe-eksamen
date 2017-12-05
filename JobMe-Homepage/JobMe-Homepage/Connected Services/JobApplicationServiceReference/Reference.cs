@@ -1715,6 +1715,9 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JobMe_Homepage.JobApplicationServiceReference.Applier ApplierField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ApplierIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1736,6 +1739,19 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public JobMe_Homepage.JobApplicationServiceReference.Applier Applier {
+            get {
+                return this.ApplierField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApplierField, value) != true)) {
+                    this.ApplierField = value;
+                    this.RaisePropertyChanged("Applier");
+                }
             }
         }
         

@@ -169,6 +169,16 @@ namespace WCFJobMeService
            return jobPostCtr.GetAllJobPostToAJobApplication(jobApplicationId);
         }
 
+        /// <summary>
+        /// Returns a single jobpost by the given meetingId
+        /// </summary>
+        /// <param name="meetingId"></param>
+        /// <returns>JobPost</returns>
+        public JobPost GetJobPostByMeetingId(int meetingId)
+        {
+            return jobPostCtr.GetJobPostByMeetingId(meetingId);
+        }
+
         #endregion
     }
 }

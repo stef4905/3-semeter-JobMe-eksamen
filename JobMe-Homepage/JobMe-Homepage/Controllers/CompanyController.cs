@@ -225,7 +225,7 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult _JobCV()
         {
-            JobCV jobCV = new JobCV();
+            JobApplicationServiceReference.JobCV jobCV = new JobApplicationServiceReference.JobCV();
             return PartialView(jobCV);
         }
 
@@ -246,7 +246,7 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult Meeting(int id)
         {
-            JobPostServiceReference.JobPost JobPost = jobClient.GetJobPost(id);
+            JobPostServiceReference.JobPost JobPost = jobClient.GetJobPostByMeetingId(id);
             Company company = new Company();
             company = Session["company"] as Company;
 
@@ -254,6 +254,7 @@ namespace JobMe_Homepage.Controllers
             Meeting meeting = BookingServiceClient.GetMeeting(JobPost.Meeting.Id);
 
             List<BookingService.Booking> bookingList = BookingServiceClient.GetAllBooking(meeting.Id);
+
 
             VMMeeting vMMeeting = new VMMeeting
             {
@@ -267,15 +268,14 @@ namespace JobMe_Homepage.Controllers
 
 
         [HttpPost]
-        public ActionResult CreateBooking(string meetingDate, string startTime, string endTime, int amountOfInterview, Meeting meeting)
+        public ActionResult CreateBooking(string meetingDate, string startTime, string endTime, int amountOfInterview, int meetingId)
         {
             //Create a new booking object and set the needed variables
             Booking booking = new Booking();
 
             booking.StartDateAndTime = Convert.ToDateTime(meetingDate +" " + startTime +":00.000");
             booking.EndDateAndTime = Convert.ToDateTime(meetingDate + " " + endTime + ":00.000");
-            //booking.MeetingId = meeting.Id;
-            booking.MeetingId = 6;
+            booking.MeetingId = meetingId;
             booking.InterviewAmount = amountOfInterview;
 
             //Call the client´s create method that retusrns a bool
@@ -284,11 +284,21 @@ namespace JobMe_Homepage.Controllers
             if (returned == true)
             {
                 //GET THE BOOKING FOMR THE DATABASE!!!!! NOT MADE YET
-                return RedirectToAction("Meeting");
+                return RedirectToAction("Meeting/"+meetingId);
             }
             else {
                 return null;
             }
+        }
+
+        public ActionResult DeleteBooking(int id, int meetingId)
+        {
+
+            bool deleted = BookingServiceClient.DeleteBooking(id);
+
+            return RedirectToAction("Meeting/" + meetingId);
+
+
         }
 
         #endregion

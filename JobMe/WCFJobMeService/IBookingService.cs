@@ -44,6 +44,15 @@ namespace WCFJobMeService
         /// <returns>bool to see if the create method was a success or not</returns>
         [OperationContract]
         bool UpdateBooking(Booking booking);
+
+        /// <summary>
+        /// Deletes a single booking object in the database
+        /// </summary>
+        /// <param name="bookingId"></param>
+        /// <returns></returns>
+        [OperationContract]
+        bool DeleteBooking(int bookingId);
+
         #endregion
 
         #region Meeting Service

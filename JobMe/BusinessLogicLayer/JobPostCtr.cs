@@ -80,5 +80,15 @@ namespace BusinessLogicLayer
         {
             return dbJobPost.GetAllJobPostToAJobApplication(jobApplicationId);
         }
+
+        /// <summary>
+        /// Returns a single jobpost object from the database by the give meetingId
+        /// </summary>
+        /// <param name="meetingId"></param>
+        /// <returns></returns>
+        public JobPost GetJobPostByMeetingId(int meetingId)
+        {
+            return dbJobPost.GetJogPostByMeetingId(meetingId);
+        }
     }
 }

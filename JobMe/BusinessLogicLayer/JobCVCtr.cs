@@ -54,7 +54,15 @@ namespace BusinessLogicLayer
         /// <returns></returns>
         public JobCV Get(int applierId)
         {
-            JobCV jobCV = dbJobCV.Get(applierId);
+            JobCV jobCV = new JobCV();
+            if (applierId == 0)
+            {
+                //Return a empty JobCV
+            }
+            else
+            {
+                jobCV = dbJobCV.Get(applierId);
+            }
             return jobCV;
         }
 

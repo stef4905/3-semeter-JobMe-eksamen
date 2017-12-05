@@ -1,6 +1,7 @@
 ﻿
 using JobMe_Homepage.BookingService;
 using JobMe_Homepage.JobApplicationServiceReference;
+using JobMe_Homepage.ApplierServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;

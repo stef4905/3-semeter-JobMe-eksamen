@@ -162,6 +162,7 @@
   <xs:element name="ArrayOfSession" nillable="true" type="tns:ArrayOfSession" />
   <xs:complexType name="Session">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Applier" nillable="true" type="tns:Applier" />
       <xs:element minOccurs="0" name="ApplierId" type="xs:int" />
       <xs:element minOccurs="0" name="BookingId" type="xs:int" />
       <xs:element minOccurs="0" name="EndTime" type="xs:dateTime" />
