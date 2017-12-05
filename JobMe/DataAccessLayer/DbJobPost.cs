@@ -53,6 +53,45 @@ namespace DataAccessLayer
         }
 
         /// <summary>
+        /// Returns a single jobpost object from the database by the given meetingId
+        /// </summary>
+        /// <param name="meetingId"></param>
+        /// <returns></returns>
+        public JobPost GetJogPostByMeetingId(int meetingId)
+        {
+            DbWorkHour dbWorkHour = new DbWorkHour();
+            DbCompany dbCompany = new DbCompany();
+            DbJobCategory dbJobCategory = new DbJobCategory();
+            JobPost jobPost = new JobPost();
+            DBMeeting dBMeeting = new DBMeeting();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM JobPost WHERE MeetingId = @MeetingId";
+                    cmd.Parameters.AddWithValue("MeetingId", meetingId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        jobPost.Id = (int)reader["Id"];
+                        jobPost.Title = (string)reader["Title"];
+                        jobPost.Description = (string)reader["Description"];
+                        jobPost.StartDate = (DateTime)reader["StartDate"];
+                        jobPost.EndDate = (DateTime)reader["EndDate"];
+                        jobPost.JobTitle = (string)reader["JobTitle"];
+                        jobPost.workHours = dbWorkHour.Get((int)reader["WorkHoursId"]);
+                        jobPost.Address = (string)reader["Address"];
+                        jobPost.company = dbCompany.Get((int)reader["CompanyId"]);
+                        jobPost.jobCategory = dbJobCategory.Get((int)reader["JobCategoryId"]);
+                        jobPost.Meeting = dBMeeting.Get((int)reader["MeetingId"]);
+                    };
+                    return jobPost;
+                }
+            }
+        }
+
+        /// <summary>
         /// Deletes a specific JobPost by the given id
         /// </summary>
         /// <param name="id"></param>

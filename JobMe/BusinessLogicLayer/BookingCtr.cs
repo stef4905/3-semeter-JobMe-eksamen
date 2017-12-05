@@ -57,6 +57,23 @@ namespace BusinessLogicLayer
         }
 
         /// <summary>
+        /// Deletes a single booking object in the database
+        /// </summary>
+        /// <param name="bookingId"></param>
+        /// <returns>bool</returns>
+        public bool Delete(int bookingId)
+        {
+            Booking booking = DbBooking.Get(bookingId);
+            //Delete all session on the booking
+            foreach (var session in booking.sessionList)
+            {
+                bool deleted = SessionCtr.Delete(session);
+            }
+            //Delete the booking
+            return DbBooking.Delete(bookingId);
+        }
+
+        /// <summary>
         /// Returns a booking from database
         /// </summary>
         /// <param name="id"></param>

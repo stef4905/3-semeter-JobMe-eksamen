@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\JobMe"
+    "\\JobMe",
+    "\\JobMe-Homepage"
   ],
-  "SelectedNode": "\\JobMe\\JobMe.sln",
+  "SelectedNode": "\\JobMe-Homepage\\JobMe-Homepage.sln",
   "PreviewInSolutionExplorer": false
 }

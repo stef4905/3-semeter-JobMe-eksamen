@@ -1,94 +1,111 @@
-﻿
+﻿@model JobMe_Homepage.Models.VMMeeting
+
 @{
-	ViewBag.Title = "Meeting";
-	Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+    ViewBag.Title = "Meeting";
+    Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+}
+
+@{ 
+    var culture = new System.Globalization.CultureInfo("da-DK");
 }
 
 <!--#region Top with buttons and add-->
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Møde håndtering</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                Lorem ipsum dolor sit amet, wisi et aliquet et porttitor sed nec, diam est volutpat, sem qui lectus tempor, at sed lectus nam, porta turpis elit ut nunc laborum. Pede quam, vivamus mauris pellentesque turpis lobortis lacus commodo, condimentum mauris ante a ut. Neque tempor ac vehicula scelerisque ante, in vel scelerisque non auctor suspendisse. Sociis sed urna risus suspendisse nam a, ridiculus lacus amet ultricies sed enim sint. Ac placerat laoreet lobortis viverra in, praesent sodales morbi venenatis. Ac nunc, egestas id elementum at. Ante convallis vehicula.
+            </div>
+        </div>
+        <div class="row" id="marginTopMeeting">
+            <form method="post" action="/Company/CreateBooking">
+                <div class="col-sm-8">
+                    <input type="hidden" value="@Model.Meeting.Id" name="meetingId" />
+                    <input type="date" class="form-control" id="datePickerMeeting" name="meetingDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" required />
+                    <input class="form-control" id="timePickerMeeting" type="time" name="startTime" required />
+                    <input class="form-control" id="timePickerMeeting" type="time" name="endTime" required />
+                    <!--<input class="form-control" id="amountIfInterviewsMeeting" type="number" required />-->
+                    <select name="amountOfInterview" class="form-control" id="amountIfInterviewsMeeting">
+                        @{
+                            int numberOfInterviewInOneDay = 20;
+                            for (int i = 1; i <= numberOfInterviewInOneDay; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        }
+                    </select>
 
-<div class="row">
-	<div class="col-sm-12">
-		<h2>Møde håndtering</h2>
-	</div>
-</div>
-<div class="row">
-	<div class="col-sm-12">
-		Lorem ipsum dolor sit amet, wisi et aliquet et porttitor sed nec, diam est volutpat, sem qui lectus tempor, at sed lectus nam, porta turpis elit ut nunc laborum. Pede quam, vivamus mauris pellentesque turpis lobortis lacus commodo, condimentum mauris ante a ut. Neque tempor ac vehicula scelerisque ante, in vel scelerisque non auctor suspendisse. Sociis sed urna risus suspendisse nam a, ridiculus lacus amet ultricies sed enim sint. Ac placerat laoreet lobortis viverra in, praesent sodales morbi venenatis. Ac nunc, egestas id elementum at. Ante convallis vehicula.
-	</div>
-</div>
-<div class="row" id="marginTopMeeting">
-	<div class="col-sm-8">
-	<form method="post" action="CreateBooking">
-		<input type="date" class="form-control" id="datePickerMeeting" name="meetingDate" min="@DateTime.Now.ToString("yyyy-MM-dd")" required/>
-		<input class="form-control" id="timePickerMeeting" type="time" name="startTime" required />
-		<input class="form-control" id="timePickerMeeting" type="time" name="endTime" required />
-		<!--<input class="form-control" id="amountIfInterviewsMeeting" type="number" required />-->
-		<select name="amountOfInterview" class="form-control" id="amountIfInterviewsMeeting">
-			@{
-				int numberOfInterviewInOneDay = 20;
-				for (int i = 1; i <= numberOfInterviewInOneDay; i++)
-				{
-					<option value="@i">@i</option>
-				}
-			}
-		</select>
-	</div>
-	<div class="col-sm-4">
-		<button type="submit" id="addNewBookingMeeting" class="btn btn-blue" >Tilføj ny booking</button>
-		</form>
+                </div>
+                <div class="col-sm-4">
+                    <button type="submit" id="addNewBookingMeeting" class="btn btn-blue">Tilføj ny booking</button>
+                </div>
+            </form>
+        </div>
+        <div class="seperatorMeeting"></div>
+        <!-- #endregion -->
+        <!-- #region content -->
 
-	</div>
-</div>
-<div class="seperatorMeeting"></div>
-<!-- #endregion -->
 
-<!-- #region content -->
 
-<div class="row" id="marginTopMeeting">
-	<div class="col-sm-12">
-		<div class="col-sm-10">
-			<div class="BookingTitleMeeting">Mandag d. 04/12-2017</div>
-		</div>
-		<div class="col-sm-2">
-			<button type="button" id="deleteBookingMeeting" name="deleteBooking" class="btn btn-blue">Slet booking</button>
-		</div>
-		<div class="bookingTitleSeperator"></div>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Tidsrum</th>
-					<th>Person</th>
-					<th style="width: 20%;">Andet</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>12:00-12:30</td>
-					<td>Mathias Nikolajsen</td>
-					<td>
-						<button type="button" name="removePerson" class="btn btn-blue">Frigør person</button>
-						<button type="button" name="deleteSession" class="btn btn-blue">Slet møde</button>
-					</td>
-				</tr>
-				<tr>
-					<td>12:30-13:00</td>
-					<td>Bent Larsen</td>
-					<td>
-						<button type="button" name="removePerson" class="btn btn-blue">Frigør person</button>
-						<button type="button" name="deleteSession" class="btn btn-blue">Slet møde</button>
-					</td>
-				</tr>
-				<tr>
-					<td>13:00-13:30</td>
-					<td>Christian M. Trab</td>
-					<td>
-						<button type="button" name="removePerson" class="btn btn-blue">Frigør person</button>
-						<button type="button" name="deleteSession" class="btn btn-blue">Slet møde</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+        @foreach (var booking in Model.BookingList)
+        {
+            <div class="row" id="marginTopMeeting">
+                <div class="col-sm-12">
+                    <div class="col-sm-10">
+                        <div class="bookingTitleMeeting">
+                            @culture.DateTimeFormat.GetDayName(booking.StartDateAndTime.DayOfWeek) - @booking.StartDateAndTime.Date.ToShortDateString()
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        @*<form method="post" action="DeleteBooking">
+                                <button type="submit" id="deleteBookingMeeting" name="deleteBooking" class="btn btn-blue">Slet booking</button>
+                            </form>*@
+
+                        <a href="/Company/DeleteBooking/?id=@booking.Id&meetingId=@Model.Meeting.Id" class="btn btn-blue" id="deleteBookingMeeting">Slet booking</a>
+
+                    </div>
+                    <div class="bookingTitleSeperator"></div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Tidsrum</th>
+                                <th>Person</th>
+                                <th style="width: 20%;">Andet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var session in booking.sessionList)
+                            {
+                                <tr>
+                                    <td>@session.StartTime.ToShortTimeString() - @session.EndTime.ToShortTimeString()</td>
+                                    @if (session.Applier.Id != 0)
+                                    {
+                                        <td>@session.Applier.FName @session.Applier.LName</td>
+                                    }
+                                    else
+                                    {
+                                        <td>Fri</td>
+                                    }
+                                    <td>
+                                        <button type="button" name="removePerson" class="btn btn-blue">Frigør person</button>
+                                        <button type="button" name="deleteSession" class="btn btn-blue">Slet møde</button>
+                                    </td>
+                                </tr>
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>
 </div>
 
 

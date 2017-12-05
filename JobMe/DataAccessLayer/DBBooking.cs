@@ -48,9 +48,26 @@ namespace DataAccessLayer
         /// Delete a Booking !NOT DONE!
         /// </summary>
         /// <param name="id"></param>
-        public void Delete(int id)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "DELETE FROM Booking WHERE Id = @Id";
+                        cmd.Parameters.AddWithValue("Id", id);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch(SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
 
         /// <summary>

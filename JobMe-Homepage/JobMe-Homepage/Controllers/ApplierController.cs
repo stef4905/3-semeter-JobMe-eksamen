@@ -393,5 +393,6 @@ namespace JobMe_Homepage.Controllers
             TempData["Success"] = "Mødet er blevet slettet";
             return RedirectToAction("Index");
         }
+
     }
 }

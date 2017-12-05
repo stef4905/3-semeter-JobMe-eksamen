@@ -66,6 +66,9 @@ namespace WCFJobMeService
 
         [OperationContract]
         List<JobPost> GetAllJobPostToAJobApplication(int jobApplicationId);
+
+        [OperationContract]
+        JobPost GetJobPostByMeetingId(int meetingId);
         #endregion
 
     }
