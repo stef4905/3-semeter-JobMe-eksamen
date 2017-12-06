@@ -48,6 +48,7 @@ namespace DekstopApplication
         }
 
 
+        //Login to a Admin profile and redirect to the CMS.
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameInput.Text;
@@ -68,6 +69,11 @@ namespace DekstopApplication
                     CMS cms = new CMS();
                     cms.Show();
                     this.Close();
+                }
+                else
+                {
+                    //Display a Message that tells you, your inputs a invalid.
+                    MessageBox.Show("Brugernavn eller adgangskode er forkert prøv igen");
                 }
             }
         }
