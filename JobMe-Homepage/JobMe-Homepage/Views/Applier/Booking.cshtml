@@ -7,6 +7,28 @@
     bool dis = false;
 
 }
+@if (TempData["Success"] != null)
+{
+                  <!-- Modal -->
+    <div class="modal fade in" id="succesModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-body">
+
+                    <p class="text-success" id="successMessage">@TempData["Success"]</p>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+}
 <div class="bg-white booking">
     <h1>Job hos @Model.JobPost.company.CompanyName - @Model.JobPost.JobTitle</h1>
     <h3><b>Adresse:</b> @Model.JobPost.Address</h3>
@@ -35,7 +57,7 @@
                                     <h4>Er du sikker på du vil slette mødet? andre får mulighed for at vælge tiden</h4>
                                     <div class="modal-body">
 
-                                        <a class="btn btn-danger btn-deleteBooking" href="/Applier/DeleteBooking/@session.Id">Slet Booking</a>
+                                        <a class="btn btn-danger btn-deleteBooking" href="/Applier/DeleteBooking/?id=@session.Id&JobPostId=@Model.JobPost.Id">Slet Booking</a>
 
                                     </div>
 
@@ -128,7 +150,7 @@
                         </div>
 
                         <div class="col-sm-4 cell">
-                            <a class="btn btn-blue" href="/Applier/BookMeeting/@session.Id">Book</a>
+                            <a class="btn btn-blue" href="/Applier/BookMeeting/?id=@session.Id&JobPostId=@Model.JobPost.Id">Book</a>
 
 
                         </div>
@@ -154,3 +176,25 @@
 </div>
 
 <!-- #endregion -->
+
+
+@section scripts {
+
+
+
+    <script>
+
+
+        window.onload = function () {
+            $('#succesModal').show();
+
+            $('#succesModal').click(function (event) {
+                $('#succesModal').hide();
+            });
+
+
+        }
+    </script>
+
+
+}

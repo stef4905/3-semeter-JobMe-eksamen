@@ -45,7 +45,7 @@ namespace DataAccessLayer
         }
 
         /// <summary>
-        /// Delete a Booking !NOT DONE!
+        /// Delete a Booking 
         /// </summary>
         /// <param name="id"></param>
         public bool Delete(int id)
