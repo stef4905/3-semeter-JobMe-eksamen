@@ -55,9 +55,16 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult UpdateUserProfile()
         {
-            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
 
-            return View(applier);
+            VMApplierANDJobCategory vmApplierANDJobCategory = new VMApplierANDJobCategory
+            {
+                Applier = Session["applier"] as ApplierServiceReference.Applier,
+                JobCategoryList = jobClient.GetAllJobCategories().ToList()
+            };
+
+
+
+            return View(vmApplierANDJobCategory);
         }
 
         [HttpPost]
@@ -163,8 +170,8 @@ namespace JobMe_Homepage.Controllers
         }
 
         [HttpPost]
-        public ActionResult _UpdateUserProfile(int applierId, string emailInput,string bannerInput, string imageInput, string fNameInput, string lNameInput, DateTime birthdate, int PhoneInput, string addressInput,
-                                                string countryInput, string currentJobInput, string homepageInput, string descriptionInput, int jobCvId)
+        public ActionResult _UpdateUserProfile(int applierId, string emailInput, string bannerInput, string imageInput, string fNameInput, string lNameInput, DateTime birthdate, int PhoneInput, string addressInput,
+                                                string countryInput, string currentJobInput, string homepageInput, string descriptionInput, int jobCvId, List<int> Categories)
         {
             ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier
             {
@@ -187,8 +194,19 @@ namespace JobMe_Homepage.Controllers
                 {
                     Id = jobCvId
                 }
+
+
             };
 
+            foreach (var item in Categories)
+            {
+                
+               // applier.JobCategoryList.ToList().Add(item);
+            }
+      
+
+
+          
             client.Update(applier);   
             TempData["Success"] = "Successfuld updateret!";
             Session["applier"] = client.GetApplier(applierId);
