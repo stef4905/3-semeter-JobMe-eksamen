@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DekstopApplication.AdminServiceReference;
 using System.Net;
+using System.Data.SqlClient;
 
 namespace DekstopApplication
 {
@@ -26,6 +27,7 @@ namespace DekstopApplication
 
         public MainWindow()
         {
+            ServicePointManager.ServerCertificateValidationCallback = (obj, certificate, chain, errors) => true;
             InitializeComponent();
         }
 
@@ -51,6 +53,7 @@ namespace DekstopApplication
             string username = UsernameInput.Text;
             string password = PasswordInpunt.Password.ToString();
             AdminServiceClient client = new AdminServiceClient();
+            
 
             //Brug et if statement for at tjekke at username og password ikke er null eller ikke indeholder noget 
             if(username != null && password != null)
