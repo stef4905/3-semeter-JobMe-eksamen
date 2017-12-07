@@ -16,18 +16,20 @@ using System.Windows.Shapes;
 namespace DekstopApplication.Views
 {
     /// <summary>
-    /// Interaction logic for ApplierCreate.xaml
+    /// Interaction logic for Admin.xaml
     /// </summary>
-    public partial class ApplierCreate : UserControl
+    public partial class Admin : UserControl
     {
-        public ApplierCreate()
+        AdminCreate adminCreateView = new AdminCreate();
+        public Admin()
         {
             InitializeComponent();
         }
 
-        protected void BackButton_Click(object sender, RoutedEventArgs e)
+        private void CreateApplierButton_Click(object sender, RoutedEventArgs e)
         {
-            ((Panel)this.Parent).Children.Remove(this);
+            GuiPanelAdminCreate.Children.Clear();
+            GuiPanelAdminCreate.Children.Add(adminCreateView);
         }
     }
 }

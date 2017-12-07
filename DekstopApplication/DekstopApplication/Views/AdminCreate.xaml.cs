@@ -16,18 +16,23 @@ using System.Windows.Shapes;
 namespace DekstopApplication.Views
 {
     /// <summary>
-    /// Interaction logic for ApplierCreate.xaml
+    /// Interaction logic for AdminCreate.xaml
     /// </summary>
-    public partial class ApplierCreate : UserControl
+    public partial class AdminCreate : UserControl
     {
-        public ApplierCreate()
+        public AdminCreate()
         {
             InitializeComponent();
         }
 
-        protected void BackButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             ((Panel)this.Parent).Children.Remove(this);
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
