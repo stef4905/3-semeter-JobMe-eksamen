@@ -65,6 +65,7 @@ namespace DekstopApplication
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             GuiPanel.Children.Clear();
+            ApplierView.GuiPanelApplierCreate.Children.Clear();
             GuiPanel.Children.Add(ApplierView);
         }
 

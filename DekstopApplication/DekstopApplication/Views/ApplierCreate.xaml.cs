@@ -16,25 +16,18 @@ using System.Windows.Shapes;
 namespace DekstopApplication.Views
 {
     /// <summary>
-    /// Interaction logic for Appliers.xaml
+    /// Interaction logic for ApplierCreate.xaml
     /// </summary>
-    public partial class Appliers : UserControl
+    public partial class ApplierCreate : UserControl
     {
-        ApplierCreate applierCreateView = new ApplierCreate();
-        public Appliers()
+        public ApplierCreate()
         {
             InitializeComponent();
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void CreateApplierButton_Click(object sender, RoutedEventArgs e)
-        {
-            GuiPanelApplierCreate.Children.Clear();
-            GuiPanelApplierCreate.Children.Add(applierCreateView);
+            ((Panel)this.Parent).Children.Remove(this);
         }
     }
 }
