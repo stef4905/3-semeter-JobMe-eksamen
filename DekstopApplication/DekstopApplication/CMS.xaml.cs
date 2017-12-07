@@ -22,6 +22,7 @@ namespace DekstopApplication
     {
         Companies CompaniesView = new Companies();
         Dashboard DashboardView = new Dashboard();
+        Appliers ApplierView = new Appliers();
 
         public CMS()
         {
@@ -64,6 +65,7 @@ namespace DekstopApplication
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             GuiPanel.Children.Clear();
+            GuiPanel.Children.Add(ApplierView);
         }
 
         /// <summary>
