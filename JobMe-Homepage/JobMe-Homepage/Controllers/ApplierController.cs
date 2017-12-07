@@ -395,9 +395,16 @@ namespace JobMe_Homepage.Controllers
             BookingService.Session session = bookingServiceClient.GetSession(id);
             session.ApplierId = applier.Id;
 
-            
-            bookingServiceClient.UpdateSession(session);
-            TempData["Success"] = "Mødet Booket d." + session.StartTime + "" + session.EndTime.ToShortTimeString();
+
+            bool returnedStatus = bookingServiceClient.UpdateSession(session);
+            if (returnedStatus == true)
+            {
+                TempData["Success"] = "Mødet Booket d." + session.StartTime + "" + session.EndTime.ToShortTimeString();
+            }
+            else
+            {
+                TempData["Failed"] = "Tiden d. " + session.StartTime + "" + session.EndTime.ToShortTimeString() + " er desværre allerede optaget, vælg venlist en anden tid";
+            }
             return RedirectToAction("Booking/" + JobPostId);
         }
 
@@ -407,7 +414,7 @@ namespace JobMe_Homepage.Controllers
             BookingService.Session session = bookingServiceClient.GetSession(id);
             session.ApplierId = 0;
 
-            bookingServiceClient.UpdateSession(session);
+            bookingServiceClient.RemoveApplierFromSession(session);
             TempData["Success"] = "Mødet er blevet slettet";
             return RedirectToAction("Booking/" + JobPostId);
         }

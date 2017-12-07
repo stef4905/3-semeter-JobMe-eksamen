@@ -194,3 +194,21 @@ C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\ModelLayer\bin\Debug\
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\ModelLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\ModelLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\ModelLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\ModelLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\ModelLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\obj\Debug\ModelLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\obj\Debug\ModelLayer.pdb
