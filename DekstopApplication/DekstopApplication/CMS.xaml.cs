@@ -23,7 +23,8 @@ namespace DekstopApplication
         Companies CompaniesView = new Companies();
         Dashboard DashboardView = new Dashboard();
         Appliers ApplierView = new Appliers();
-        Admin AdminView = new Admin();
+        //Admin AdminView = new Admin();
+        JobPost jobPostView = new JobPost();
 
         public CMS()
         {
@@ -61,6 +62,7 @@ namespace DekstopApplication
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             GuiPanel.Children.Clear();
+            GuiPanel.Children.Add(jobPostView);
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
