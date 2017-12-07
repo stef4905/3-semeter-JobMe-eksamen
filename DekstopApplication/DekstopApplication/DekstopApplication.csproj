@@ -67,6 +67,9 @@
     <Compile Include="Views\AdminCreate.xaml.cs">
       <DependentUpon>AdminCreate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AdminUpdate.xaml.cs">
+      <DependentUpon>AdminUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ApplierCreate.xaml.cs">
       <DependentUpon>ApplierCreate.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AdminCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AdminUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

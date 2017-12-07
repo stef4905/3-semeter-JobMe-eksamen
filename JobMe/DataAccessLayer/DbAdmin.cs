@@ -95,9 +95,39 @@ namespace DataAccessLayer
             }
         }
 
+
+        /// <summary>
+        /// Get a list of all admins in the database
+        /// </summary>
+        /// <returns></returns>
         public List<Admin> GetAll()
         {
-            throw new NotImplementedException();
+            List<Admin> adminList = new List<Admin>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Admin";
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Admin admin = new Admin
+                        {
+                            Id = (int)reader["Id"],
+                            Username = (string)reader["Username"],
+                            Password = (string)reader["Password"],
+                            FName = (string)reader["FName"],
+                            LName = (string)reader["LName"],
+                            Email = (string)reader["Email"]
+
+                        };
+                        adminList.Add(admin);
+                    }
+                }
+            }
+            return adminList;
         }
 
         /// <summary>

@@ -23,7 +23,16 @@ namespace DekstopApplication.AdminServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
@@ -42,6 +51,32 @@ namespace DekstopApplication.AdminServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FName {
+            get {
+                return this.FNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FNameField, value) != true)) {
+                    this.FNameField = value;
+                    this.RaisePropertyChanged("FName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -50,6 +85,19 @@ namespace DekstopApplication.AdminServiceReference {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LName {
+            get {
+                return this.LNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LNameField, value) != true)) {
+                    this.LNameField = value;
+                    this.RaisePropertyChanged("LName");
                 }
             }
         }
