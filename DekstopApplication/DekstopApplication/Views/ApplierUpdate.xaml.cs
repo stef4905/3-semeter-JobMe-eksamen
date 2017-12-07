@@ -79,18 +79,22 @@ namespace DekstopApplication.Views
         {
             public string TheText { get; set; }
             public int TheValue { get; set; }
-            public bool check { get; set; }
+            public bool Check { get; set; }
         }
         public void CreateCheckBoxList()
         {
-            
+            JobPostServiceReference.JobPostServiceClient jobClient = new JobPostServiceReference.JobPostServiceClient();
 
-            //TheList = new ObservableCollection<BoolStringClass>();
-            //TheList.Add(new BoolStringClass { TheText = "EAST", TheValue = 1 });
-            //TheList.Add(new BoolStringClass { TheText = "WEST", TheValue = 2 });
-            //TheList.Add(new BoolStringClass { TheText = "NORTH", TheValue = 3 });
-            //TheList.Add(new BoolStringClass { TheText = "SOUTH", TheValue = 4 });
-            //this.DataContext = this;
+            List<JobPostServiceReference.JobCategory> CategoriesList = jobClient.GetAllJobCategories();
+
+            Categories = new ObservableCollection<BoolStringClass>();
+            foreach (var Category in CategoriesList)
+            {
+                Categories.Add(new BoolStringClass { TheText = Category.Title, TheValue = Category.Id });
+            }
+
+
+            this.DataContext = this;
         }
 
 

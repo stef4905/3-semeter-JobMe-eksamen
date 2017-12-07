@@ -1,5 +1,4 @@
-﻿using DekstopApplication.AdminServiceReference;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,38 +16,23 @@ using System.Windows.Shapes;
 namespace DekstopApplication.Views
 {
     /// <summary>
-    /// Interaction logic for Admin.xaml
+    /// Interaction logic for AdminCreate.xaml
     /// </summary>
-    public partial class Admin : UserControl
+    public partial class AdminCreate : UserControl
     {
-        AdminServiceClient adminClient = new AdminServiceClient();
-        AdminCreate adminCreateView = new AdminCreate();
-        AdminUpdate adminUpdateView = new AdminUpdate();
-        public Admin()
+        public AdminCreate()
         {
             InitializeComponent();
         }
 
-        private void CreateApplierButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            GuiPanelAdminCreate.Children.Clear();
-            GuiPanelAdminCreate.Children.Add(adminCreateView);
+            ((Panel)this.Parent).Children.Remove(this);
         }
 
-        private void UpdateAdminButton_Click(object sender, RoutedEventArgs e)
-        {
-            GuiPanelAdminCreate.Children.Clear();
-            GuiPanelAdminCreate.Children.Add(adminUpdateView);
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-
-            AdminServiceReference.Admin admin = new AdminServiceReference.Admin();
-            List<Admin> adminList1 = adminList.Items.Clear();
-            var adminList = adminClient.GetAdmin(4);
-            AdminList.ItemsSource = adminList1;
         }
     }
 }
