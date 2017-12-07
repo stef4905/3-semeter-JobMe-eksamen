@@ -65,5 +65,18 @@ namespace DekstopApplication
         {
             GuiPanel.Children.Clear();
         }
+
+        /// <summary>
+        /// Log out and redirect to the LogIn screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

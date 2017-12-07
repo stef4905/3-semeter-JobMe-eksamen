@@ -125,10 +125,10 @@ namespace DekstopApplication.AdminServiceReference {
         System.Threading.Tasks.Task UpdateAsync(DekstopApplication.AdminServiceReference.Admin admin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/Login", ReplyAction="http://tempuri.org/IAdminService/LoginResponse")]
-        DekstopApplication.AdminServiceReference.Admin Login(string email, string password);
+        DekstopApplication.AdminServiceReference.Admin Login(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/Login", ReplyAction="http://tempuri.org/IAdminService/LoginResponse")]
-        System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin> LoginAsync(string email, string password);
+        System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin> LoginAsync(string username, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -198,12 +198,12 @@ namespace DekstopApplication.AdminServiceReference {
             return base.Channel.UpdateAsync(admin);
         }
         
-        public DekstopApplication.AdminServiceReference.Admin Login(string email, string password) {
-            return base.Channel.Login(email, password);
+        public DekstopApplication.AdminServiceReference.Admin Login(string username, string password) {
+            return base.Channel.Login(username, password);
         }
         
-        public System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin> LoginAsync(string email, string password) {
-            return base.Channel.LoginAsync(email, password);
+        public System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin> LoginAsync(string username, string password) {
+            return base.Channel.LoginAsync(username, password);
         }
     }
 }
