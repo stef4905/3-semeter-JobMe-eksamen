@@ -23,6 +23,7 @@ namespace DekstopApplication
         Companies CompaniesView = new Companies();
         Dashboard DashboardView = new Dashboard();
         Appliers ApplierView = new Appliers();
+        Admin AdminView = new Admin();
 
         public CMS()
         {
@@ -80,6 +81,13 @@ namespace DekstopApplication
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void AdminPanel_Click(object sender, RoutedEventArgs e)
+        {
+            GuiPanel.Children.Clear();
+            AdminView.GuiPanelAdminCreate.Children.Clear();
+            GuiPanel.Children.Add(AdminView);
         }
     }
 }
