@@ -37,10 +37,10 @@ namespace UnitTestJobMe
             Admin admin = new Admin();
 
             //Act
-            admin = dbAdmin.Login("Admin", "123");
+            admin = dbAdmin.Login("TheOne", "Neo123");
 
             //Assert
-            Assert.AreEqual(admin.Username, "Admin");
+            Assert.AreEqual(admin.Username, "TheOne");
         }
 
         /// <summary>
@@ -86,17 +86,22 @@ namespace UnitTestJobMe
             Assert.IsTrue(updated);
         }
 
+        [TestMethod]
         public void AdminDeleteDBTest()
         {
             //Arrange
             AdminCtr adminCtr = new AdminCtr();
-
+            Admin admin = new Admin
+            {
+                Id = 3
+            };
+            
             //Act
-            adminCtr.Delete(1);
-            Admin deleted = adminCtr.Delete(1);
+            adminCtr.Delete(admin.Id);
+            adminCtr.Get(admin.Id);
 
             //Assert
-            Assert.IsNull(deleted);
+            Assert.IsNull(admin.Username);
         }
         
     }
