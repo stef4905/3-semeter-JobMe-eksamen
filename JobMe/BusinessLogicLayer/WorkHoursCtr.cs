@@ -17,7 +17,7 @@ namespace BusinessLogicLayer
         /// Creates the given WorkHours object in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(WorkHours obj)
+        public bool Create(WorkHours obj)
         {
             throw new NotImplementedException();
         }

@@ -18,9 +18,9 @@ namespace BusinessLogicLayer
         /// Sends an object through the DataAccessLayer, and executes Create Method
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(Company obj)
+        public bool Create(Company obj)
         {
-            dbCompany.Create(obj);
+            return dbCompany.Create(obj);
         }
 
         /// <summary>

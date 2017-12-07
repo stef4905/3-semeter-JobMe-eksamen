@@ -18,7 +18,7 @@ namespace BusinessLogicLayer
         /// Inserts the Applier in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(Applier obj)
+        public bool Create(Applier obj)
         {
                 Applier applier = dbApplier.CreateAndReturnApplier(obj);
                 applier.Birthdate = DateTime.Now;

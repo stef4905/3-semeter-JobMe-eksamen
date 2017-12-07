@@ -33,7 +33,7 @@ namespace BusinessLogicLayer
         /// Creates a ned jobCV with no independence on an Applier in the database. This wil not be added to any Applier.
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(JobCV obj)
+        public bool Create(JobCV obj)
         {
             throw new NotImplementedException();
         }

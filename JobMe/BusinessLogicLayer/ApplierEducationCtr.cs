@@ -17,9 +17,9 @@ namespace BusinessLogicLayer
         /// Creates a new ApplierEducation object in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(ApplierEducation obj)
+        public bool Create(ApplierEducation obj)
         {
-            dbApplierEducation.Create(obj);
+            return dbApplierEducation.Create(obj);
         }
 
         /// <summary>

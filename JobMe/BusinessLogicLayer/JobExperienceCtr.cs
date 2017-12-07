@@ -17,9 +17,9 @@ namespace BusinessLogicLayer
         /// Creates a new JobExperience in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(JobExperience obj)
+        public bool Create(JobExperience obj)
         {
-            dbJobExperience.Create(obj);
+            return dbJobExperience.Create(obj);
         }
 
         /// <summary>

@@ -17,7 +17,7 @@ namespace BusinessLogicLayer
         /// Creates a new JobCategory object in the database
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(JobCategory obj)
+        public bool Create(JobCategory obj)
         {
             throw new NotImplementedException();
         }
