@@ -29,6 +29,8 @@ namespace ModelLayer
         [DataMember]
         public Company company { get; set; }
         [DataMember]
+        public string CompanyName { get; set; }
+        [DataMember]
         public JobCategory jobCategory { get; set; }
 
         [DataMember]
@@ -59,6 +61,7 @@ namespace ModelLayer
            this.workHours = workHours;
            this.Address = address;
            this.company = company;
+           this.CompanyName = company.CompanyName;
            this.jobCategory = jobCategory;
         }
         public JobPost()

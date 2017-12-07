@@ -122,6 +122,9 @@ namespace DataAccessLayer
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
+                        //Gets the company on the jobPost
+                        Company companyReturned = dbCompany.Get((int)reader["CompanyId"]);
+
                         jobPost.Id = (int)reader["Id"];
                         jobPost.Title = (string)reader["Title"];
                         jobPost.Description = (string)reader["Description"];
@@ -130,7 +133,8 @@ namespace DataAccessLayer
                         jobPost.JobTitle = (string)reader["JobTitle"];
                         jobPost.workHours = dbWorkHour.Get((int)reader["WorkHoursId"]);
                         jobPost.Address = (string)reader["Address"];
-                        jobPost.company = dbCompany.Get((int)reader["CompanyId"]);
+                        jobPost.company = companyReturned;
+                        jobPost.CompanyName = companyReturned.CompanyName;
                         jobPost.jobCategory = dbJobCategory.Get((int)reader["JobCategoryId"]);
                         jobPost.Meeting = dBMeeting.Get((int)reader["MeetingId"]);
                     };
@@ -160,6 +164,10 @@ namespace DataAccessLayer
                         DbWorkHour dbWorkHour = new DbWorkHour();
                         DbCompany dbCompany = new DbCompany();
                         DbJobCategory dbJobCategory = new DbJobCategory();
+
+                        //Gets the company on the jobPost
+                        Company companyReturned = dbCompany.Get((int)reader["CompanyId"]);
+
                         JobPost jobPost = new JobPost
                         {
                             Id = (int)reader["Id"],
@@ -170,7 +178,8 @@ namespace DataAccessLayer
                             JobTitle = (string)reader["JobTitle"],
                             workHours = dbWorkHour.Get((int)reader["WorkHoursId"]),
                             Address = (string)reader["Address"],
-                            company = dbCompany.Get((int)reader["CompanyId"]),
+                            company = companyReturned,
+                            CompanyName = companyReturned.CompanyName,
                             jobCategory = dbJobCategory.Get((int)reader["JobCategoryId"]),
                             Meeting = dbMeeting.Get((int)reader["MeetingId"])
                         };
