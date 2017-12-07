@@ -88,7 +88,15 @@ namespace DataAccessLayer
 
         public bool Update(Admin obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE Admin";
+                    return true;
+                }
+            }
         }
 
 

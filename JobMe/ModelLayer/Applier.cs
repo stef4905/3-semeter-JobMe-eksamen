@@ -62,7 +62,9 @@ namespace ModelLayer
             this.MaxRadius = maxRadius;
         }
 
-        //Secondary empty constructor.
+        /// <summary>
+        /// Empty constructor
+        /// </summary>
         public Applier()
         {
 

@@ -64,9 +64,9 @@ namespace BusinessLogicLayer
         /// Updates the given JobApplication in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(JobApplication obj)
+        public bool Update(JobApplication obj)
         {
-            dbJobApplication.Update(obj);
+            return dbJobApplication.Update(obj);
         }
 
         /// <summary>

@@ -54,7 +54,7 @@ namespace BusinessLogicLayer
         /// Updates the given WorkHours object in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(WorkHours obj)
+        public bool Update(WorkHours obj)
         {
             throw new NotImplementedException();
         }

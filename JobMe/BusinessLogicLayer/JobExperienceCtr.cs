@@ -64,9 +64,9 @@ namespace BusinessLogicLayer
         /// Updates the given JobExperience object in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(JobExperience obj)
+        public bool Update(JobExperience obj)
         {
-            dbJobExperience.Update(obj);
+            return dbJobExperience.Update(obj);
         }
     }
 }

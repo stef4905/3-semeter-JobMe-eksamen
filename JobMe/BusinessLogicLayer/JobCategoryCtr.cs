@@ -54,7 +54,7 @@ namespace BusinessLogicLayer
         /// Updates the given JobCategory object in the database
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(JobCategory obj)
+        public bool Update(JobCategory obj)
         {
             throw new NotImplementedException();
         }

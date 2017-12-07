@@ -43,6 +43,9 @@ namespace UnitTestJobMe
             Assert.AreEqual(admin.Username, "Admin");
         }
 
+        /// <summary>
+        /// Test on create admin
+        /// </summary>
         [TestMethod]
         public void AdminCreateDBTest()
         {
@@ -55,6 +58,21 @@ namespace UnitTestJobMe
 
             //Assert
             Assert.IsTrue(inserted);
+        }
+
+        [TestMethod]
+        public void AdminUpdateDBTest()
+        {
+
+            //Arrange
+            AdminCtr adminCtr = new AdminCtr();
+            Admin admin = new Admin("TheOne", "Neo123", "Chris", "Tucker", "InThe@Matrix.dk");
+
+            //Act
+            
+
+            //Assert
+
         }
         
     }
