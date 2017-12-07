@@ -1305,6 +1305,12 @@ namespace JobMe_Homepage.BookingService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/UpdateSession", ReplyAction="http://tempuri.org/IBookingService/UpdateSessionResponse")]
         System.Threading.Tasks.Task<bool> UpdateSessionAsync(JobMe_Homepage.BookingService.Session session);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/RemoveApplierFromSession", ReplyAction="http://tempuri.org/IBookingService/RemoveApplierFromSessionResponse")]
+        bool RemoveApplierFromSession(JobMe_Homepage.BookingService.Session session);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookingService/RemoveApplierFromSession", ReplyAction="http://tempuri.org/IBookingService/RemoveApplierFromSessionResponse")]
+        System.Threading.Tasks.Task<bool> RemoveApplierFromSessionAsync(JobMe_Homepage.BookingService.Session session);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1444,6 +1450,14 @@ namespace JobMe_Homepage.BookingService {
         
         public System.Threading.Tasks.Task<bool> UpdateSessionAsync(JobMe_Homepage.BookingService.Session session) {
             return base.Channel.UpdateSessionAsync(session);
+        }
+        
+        public bool RemoveApplierFromSession(JobMe_Homepage.BookingService.Session session) {
+            return base.Channel.RemoveApplierFromSession(session);
+        }
+        
+        public System.Threading.Tasks.Task<bool> RemoveApplierFromSessionAsync(JobMe_Homepage.BookingService.Session session) {
+            return base.Channel.RemoveApplierFromSessionAsync(session);
         }
     }
 }
