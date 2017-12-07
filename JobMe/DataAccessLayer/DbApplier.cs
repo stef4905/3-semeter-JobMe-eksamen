@@ -36,7 +36,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
                     try
                     {
-                        
+
                         cmd.ExecuteNonQuery();
                         return true;
                     }
@@ -71,6 +71,7 @@ namespace DataAccessLayer
                 }
             }
         }
+
 
         /// <summary>
         /// Is a method that Deletes a Applier from the database by the id.
@@ -129,13 +130,14 @@ namespace DataAccessLayer
                             applier.Age = (int)reader["Age"];
                             applier.Status = (bool)reader["Status"];
                             applier.CurrentJob = (string)reader["CurrentJob"];
-                            
+
                             if (reader["Birthdate"] == DBNull.Value)
                             {
                                 applier.Birthdate = new DateTime();
                             }
-                            else {
-                                applier.Birthdate =(DateTime)reader["Birthdate"];
+                            else
+                            {
+                                applier.Birthdate = (DateTime)reader["Birthdate"];
                             }
                             applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
                         }
@@ -190,7 +192,7 @@ namespace DataAccessLayer
                 }
             }
         }
-        
+
 
         /// <summary>
         /// Returns a list of all the Appliers
@@ -215,7 +217,7 @@ namespace DataAccessLayer
                 {
                     cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Address = @Address, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
                         " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
-                        " CurrentJob = @CurrentJob, Birthdate = @Birthdate, JobCVId = @JobCVId " +
+                        " CurrentJob = @CurrentJob, Birthdate = @Birthdate " +
                         "WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Phone", obj.Phone);
@@ -228,11 +230,10 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("HomePage", obj.HomePage ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("Age", obj.Age );
-                    cmd.Parameters.AddWithValue("Status", obj.Status );
+                    cmd.Parameters.AddWithValue("Age", obj.Age);
+                    cmd.Parameters.AddWithValue("Status", obj.Status);
                     cmd.Parameters.AddWithValue("CurrentJob", obj.CurrentJob ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("Birthdate", obj.Birthdate);
-                    cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
                     cmd.Parameters.AddWithValue("Id", obj.Id);
 
                     try
@@ -240,14 +241,15 @@ namespace DataAccessLayer
                         cmd.ExecuteNonQuery();
                         return true;
                     }
-                    catch (SqlException e) {
+                    catch (SqlException e)
+                    {
                         throw e;
                     }
                 }
             }
         }
 
-    
+
         /// <summary>
         /// Finds an applier in the database with the given param, and return the applier
         /// </summary>
@@ -300,6 +302,56 @@ namespace DataAccessLayer
                 }
             }
         }
+
+
+        /// <summary>
+        /// Inserter a ApplierJobCategory into the database with the params JobCategory and ApplierId
+        /// </summary>
+        /// <param name="jobCategoryId"></param>
+        /// <param name="applierId"></param>
+        public void CreateApplierJobCategories(int jobCategoryId, int applierId)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "INSERT INTO ApplierJobCategory (JobCategoryId, ApplierId) VALUES (@JobCategoryId, @ApplierId)";
+                    cmd.Parameters.AddWithValue("JobCategoryId", jobCategoryId);
+                    cmd.Parameters.AddWithValue("ApplierId", applierId);
+
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+
+                        throw e;
+                    }
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Deletes the connection between Applier and JobCategory in the database by the ApplierId
+        /// </summary>
+        /// <param name="applierId"></param>
+        public void DeleteApplierJobCategories(int applierId)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM ApplierJobCategory WHERE ApplierId = @ApplierId";
+                    cmd.Parameters.AddWithValue("ApplierId", applierId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
 
     }
 }
