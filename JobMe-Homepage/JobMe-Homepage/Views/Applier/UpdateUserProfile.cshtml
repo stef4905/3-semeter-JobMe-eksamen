@@ -106,10 +106,13 @@
                                 <label class="ApplierUpdateText">Jeg søger job som er:</label>
                                 <div class="input-group" id="ApplierInputContainer">
                                     <div class="checkbox">
+
+                                  
+
                                         @foreach (var category in Model.JobCategoryList)
                                         {
                               
-                                            <label><input type="checkbox" value="@category.Id" name="Categories">@category.Title</label>
+                                            <label><input type="checkbox" value="@category.Id" name="Categories" checked>@category.Title</label>
                                            
                                         }
                                     </div>
