@@ -34,10 +34,10 @@ namespace BusinessLogicLayer
                 return false;
                 throw;
             }
-              
 
-            
-         }
+
+
+        }
 
 
         /// <summary>
@@ -57,8 +57,9 @@ namespace BusinessLogicLayer
         public Applier Get(int id)
         {
             Applier applier = dbApplier.Get(id);
-            if(applier.JobCV != null) { 
-            applier.JobCV = jobCVCtr.Get(applier.JobCV.Id);
+            if (applier.JobCV != null)
+            {
+                applier.JobCV = jobCVCtr.Get(applier.JobCV.Id);
             }
             return applier;
         }
@@ -78,9 +79,33 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public bool Update(Applier obj)
         {
-           return dbApplier.Update(obj);
+            try
+            {
+                dbApplier.Update(obj);
+                UpdateApplierJobCategories(obj);
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
 
+        public void UpdateApplierJobCategories(Applier obj)
+        {
+
+            dbApplier.DeleteApplierJobCategories(obj.Id);
+
+
+
+            foreach (var item in obj.JobCategoryList)
+            {
+                dbApplier.CreateApplierJobCategories(item.Id, obj.Id);
+            }
+
+
+        }
 
         /// <summary>
         /// returns an Appiler with the given param from the login

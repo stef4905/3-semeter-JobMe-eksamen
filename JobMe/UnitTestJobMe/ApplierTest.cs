@@ -32,14 +32,28 @@ namespace UnitTest.DataAccessLayer
             Assert.IsNotNull(check);
         }
 
+
+        /// <summary>
+        /// Testing the update method for a Applier.
+        /// We start by making the Applier controller that contains the method we need to test.
+        /// Then we are  making a new Applier object and giving it the needed information.
+        /// The method is tested and returns a bool (true or false) where we check if the bool is true, where the test passes.
+        /// </summary>
         [TestMethod]
         public void ApplierUpdateDBTest()
         {
             //Arrange
-            DbApplier dbApplier = new DbApplier();
+            ApplierCtr applierCtr = new ApplierCtr();
+            JobCategory jobCategory = new JobCategory
+            {
+                Id = 1
+            };
+            List<JobCategory> jobCategoryList = new List<JobCategory>();
+            jobCategoryList.Add(jobCategory);
+
             Applier applier = new Applier
             {
-                Id = 6,
+                Id = 1094,
                 Password = "123456",
                 Email = "hej@nej.dk",
                 Address = "hejvej 1",
@@ -55,11 +69,11 @@ namespace UnitTest.DataAccessLayer
                 Status = true,
                 CurrentJob = "HejSigende",
                 Birthdate = new DateTime(1989, 09, 11),
-                 
+                JobCategoryList = jobCategoryList
             };
 
             //Act
-            bool check = dbApplier.Update(applier);
+            bool check = applierCtr.Update(applier);
 
             //Assert
             Assert.IsTrue(check);
@@ -94,15 +108,15 @@ namespace UnitTest.DataAccessLayer
         {
             //Arrange
             ApplierCtr applierCtr = new ApplierCtr();
-            Applier applier = new Applier();
+      
 
             //Act
-            applierCtr.Delete(1064);
-            Applier deleted = applierCtr.Get(1064);
+            applierCtr.Delete(1097);
+            Applier deleted = applierCtr.Get(1097);
 
-            applier = applierCtr.Get(1064);
+         
             //Assert
-            Assert.IsNotNull(deleted);
+            Assert.IsNull(deleted.Email);
 
      
         }
