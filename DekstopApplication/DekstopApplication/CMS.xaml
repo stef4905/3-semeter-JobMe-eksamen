@@ -21,7 +21,9 @@
         <Button Content="Joboplsag" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click_2"/>
         <Button Content="Ansøgere" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click_3"/>
         <StackPanel Name="GuiPanel" HorizontalAlignment="Left" Height="953" Margin="261,67,0,0" VerticalAlignment="Top" Width="1410"/>
-        <Button Content="Log ud" HorizontalAlignment="Left" Margin="10,965,0,0" VerticalAlignment="Top" Width="121" Height="45" Click="Button_Click_4"/>
+        <Button Content="Log ud" HorizontalAlignment="Left" Background="#011223" Margin="10,965,0,0" VerticalAlignment="Top" Width="237" Height="45" Click="Button_Click_4" Foreground="White" FontSize="18" />
+        <Image HorizontalAlignment="Left" Height="100" Margin="150,914,0,0" VerticalAlignment="Top" Width="100" Source="https://imgur.com/jTou6OH"/>
+
 
 
     </Grid>
