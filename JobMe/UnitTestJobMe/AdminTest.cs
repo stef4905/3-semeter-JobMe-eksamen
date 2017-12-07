@@ -85,6 +85,19 @@ namespace UnitTestJobMe
             //Assert
             Assert.IsTrue(updated);
         }
+
+        public void AdminDeleteDBTest()
+        {
+            //Arrange
+            AdminCtr adminCtr = new AdminCtr();
+
+            //Act
+            adminCtr.Delete(1);
+            Admin deleted = adminCtr.Delete(1);
+
+            //Assert
+            Assert.IsNull(deleted);
+        }
         
     }
 }

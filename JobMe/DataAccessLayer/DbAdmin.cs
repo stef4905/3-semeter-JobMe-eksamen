@@ -47,7 +47,11 @@ namespace DataAccessLayer
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand)
+            }
         }
 
         /// <summary>
