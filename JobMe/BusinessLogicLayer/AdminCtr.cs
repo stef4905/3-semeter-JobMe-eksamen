@@ -43,9 +43,14 @@ namespace BusinessLogicLayer
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Update an admin in DB
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Update(Admin obj)
         {
-            throw new NotImplementedException();
+            return dbAdmin.Update(obj);
         }
 
         /// <summary>

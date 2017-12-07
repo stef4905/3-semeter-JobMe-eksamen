@@ -86,6 +86,11 @@ namespace DataAccessLayer
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Update a admin in DB
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Update(Admin obj)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -93,8 +98,23 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE Admin";
-                    return true;
+                    cmd.CommandText = "UPDATE Admin SET Username = @Username, Password = @Password, FName = @FName, LName = @LName, Email = @Email WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("Username", obj.Username);
+                    cmd.Parameters.AddWithValue("Password", obj.Password);
+                    cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Email", obj.Email ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Id", obj.Id);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch(SqlException e)
+                    {
+                        throw e;
+                    }
+                    
                 }
             }
         }
