@@ -14,9 +14,13 @@ namespace WCFJobMeService
     {
         AdminCtr adminCtr = new AdminCtr();
 
+        /// <summary>
+        /// Create admin
+        /// </summary>
+        /// <param name="admin"></param>
         public void Create(Admin admin)
         {
-            throw new NotImplementedException();
+            adminCtr.Create(admin);
         }
 
         public void Delete(int id)
@@ -50,9 +54,13 @@ namespace WCFJobMeService
             return adminCtr.Login(username, password);
         }
 
+        /// <summary>
+        /// Update admin
+        /// </summary>
+        /// <param name="admin"></param>
         public void Update(Admin admin)
         {
-            throw new NotImplementedException();
+            adminCtr.Update(admin);
         }
     }
 }
