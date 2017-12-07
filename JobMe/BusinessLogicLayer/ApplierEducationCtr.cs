@@ -64,9 +64,9 @@ namespace BusinessLogicLayer
         /// Updates the ApplierEducation object in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(ApplierEducation obj)
+        public bool Update(ApplierEducation obj)
         {
-            dbApplierEducation.Update(obj);
+            return dbApplierEducation.Update(obj);
         }
     }
 }

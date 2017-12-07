@@ -12,6 +12,11 @@ namespace BusinessLogicLayer
     {
         DbAdmin dbAdmin = new DbAdmin();
 
+        /// <summary>
+        /// Create a admin login
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Create(Admin obj)
         {
             return dbAdmin.Create(obj);
@@ -38,7 +43,7 @@ namespace BusinessLogicLayer
             throw new NotImplementedException();
         }
 
-        public void Update(Admin obj)
+        public bool Update(Admin obj)
         {
             throw new NotImplementedException();
         }

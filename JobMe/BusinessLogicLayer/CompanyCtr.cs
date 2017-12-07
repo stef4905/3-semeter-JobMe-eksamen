@@ -55,7 +55,7 @@ namespace BusinessLogicLayer
         /// Updates the Company in the database
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(Company obj)
+        public bool Update(Company obj)
         {
             throw new NotImplementedException();
         }
