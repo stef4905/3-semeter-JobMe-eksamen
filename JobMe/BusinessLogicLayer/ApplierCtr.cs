@@ -20,11 +20,23 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public bool Create(Applier obj)
         {
+            try
+            {
                 Applier applier = dbApplier.CreateAndReturnApplier(obj);
                 applier.Birthdate = DateTime.Now;
                 applier.JobCV = new JobCV(0, "Ikke endnu redigeret", 0, "Bio tekst");
                 Applier applierReturned = jobCVCtr.CreateAndReturnPrimaryKey(applier.JobCV, applier);
-                Update(applierReturned);      
+                Update(applierReturned);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+              
+
+            
          }
 
 
