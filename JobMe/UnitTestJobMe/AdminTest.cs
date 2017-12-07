@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ModelLayer;
 using DataAccessLayer;
+using BusinessLogicLayer;
 
 namespace UnitTestJobMe
 {
@@ -29,7 +30,6 @@ namespace UnitTestJobMe
         }
 
         [TestMethod]
-
         public void AdminLogintest()
         {
             //Arrange
@@ -41,8 +41,21 @@ namespace UnitTestJobMe
 
             //Assert
             Assert.AreEqual(admin.Username, "Admin");
-
-
         }
+
+        [TestMethod]
+        public void AdminCreateDBTest()
+        {
+            //Arrange
+            AdminCtr adminCtr = new AdminCtr();
+            Admin admin = new Admin("Boss", "123", "Finn", "Larsen", "FinnLarsen@email.dk");
+
+            //Act
+            bool inserted = adminCtr.Create(admin);
+
+            //Assert
+            Assert.IsTrue(inserted);
+        }
+        
     }
 }

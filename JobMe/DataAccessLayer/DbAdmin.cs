@@ -14,9 +14,35 @@ namespace DataAccessLayer
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
+        /// <summary>
+        /// Create an admin login
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Create(Admin obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "INSERT INTO Admin (Username, Password, FName, LName, Email) VALUES (@Username, @Password, @FName, @LName, @Email)";
+                    cmd.Parameters.AddWithValue("Username", obj.Username);
+                    cmd.Parameters.AddWithValue("Password", obj.Password);
+                    cmd.Parameters.AddWithValue("FName", obj.FName);
+                    cmd.Parameters.AddWithValue("LName", obj.LName);
+                    cmd.Parameters.AddWithValue("Email", obj.Email);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch(SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
 
         public void Delete(int id)

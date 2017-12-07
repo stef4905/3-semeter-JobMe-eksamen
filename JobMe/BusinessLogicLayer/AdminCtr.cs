@@ -12,9 +12,9 @@ namespace BusinessLogicLayer
     {
         DbAdmin dbAdmin = new DbAdmin();
 
-        public void Create(Admin obj)
+        public bool Create(Admin obj)
         {
-            throw new NotImplementedException();
+            return dbAdmin.Create(obj);
         }
 
         public void Delete(int id)
