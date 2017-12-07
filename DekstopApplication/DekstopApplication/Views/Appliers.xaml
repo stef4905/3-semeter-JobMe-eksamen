@@ -7,6 +7,8 @@
              mc:Ignorable="d" 
             d:DesignHeight="953" d:DesignWidth="1410">
     <Grid>
-            
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1134,288,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <StackPanel Name="GuiPanelApplier" HorizontalAlignment="Left" Height="228" Margin="255,288,0,0" VerticalAlignment="Top" Width="380"/>
     </Grid>
+
 </UserControl>

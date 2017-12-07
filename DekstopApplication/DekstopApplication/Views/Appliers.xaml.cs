@@ -20,9 +20,16 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class Appliers : UserControl
     {
+        Companies companies = new Companies();
         public Appliers()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GuiPanelApplier.Children.Clear();
+            GuiPanelApplier.Children.Add(companies);
         }
     }
 }
