@@ -23,9 +23,10 @@ namespace WCFJobMeService
             adminCtr.Create(admin);
         }
 
+        //Delets a Admin
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            adminCtr.Delete(id);
         }
 
         /// <summary>

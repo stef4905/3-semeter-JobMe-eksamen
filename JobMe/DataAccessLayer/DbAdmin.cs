@@ -45,12 +45,22 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Is a method that deletes a Admin from the database by the id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                using (SqlCommand)
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Admin WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("Id", id);
+                    cmd.ExecuteNonQuery();
+
+                }
             }
         }
 

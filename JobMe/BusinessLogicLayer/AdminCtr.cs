@@ -22,9 +22,13 @@ namespace BusinessLogicLayer
             return dbAdmin.Create(obj);
         }
 
+        /// <summary>
+        /// Deletes a specific Admin by id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            dbAdmin.Delete(id);
         }
 
         /// <summary>
