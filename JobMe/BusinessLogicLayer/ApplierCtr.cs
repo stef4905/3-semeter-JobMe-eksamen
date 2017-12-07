@@ -81,13 +81,14 @@ namespace BusinessLogicLayer
         {
             try
             {
+               
                 dbApplier.Update(obj);
                 UpdateApplierJobCategories(obj);
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
+                Console.WriteLine(e);
                 return false;
             }
         }

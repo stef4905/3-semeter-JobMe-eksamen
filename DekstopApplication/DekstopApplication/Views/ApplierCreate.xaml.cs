@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DekstopApplication.ApplierServiceReference;
+using System.Text.RegularExpressions;
 
 namespace DekstopApplication.Views
 {
@@ -20,6 +22,8 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class ApplierCreate : UserControl
     {
+
+        ApplierServiceClient applierClient = new ApplierServiceClient();
         public ApplierCreate()
         {
             InitializeComponent();
@@ -28,6 +32,34 @@ namespace DekstopApplication.Views
         protected void BackButton_Click(object sender, RoutedEventArgs e)
         {
             ((Panel)this.Parent).Children.Remove(this);
+        }
+
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
+        {
+            string Email = EmailInput.Text;
+            string Password = PasswordInput.Password.ToString();
+            string PasswordCheck = PasswordCheckInput.ToString();
+            Applier applier = new Applier
+            {
+                Email = Email,
+                Password = Password
+            };
+            if (!Regex.IsMatch(Email, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
+            {
+                 FailCheckLabel.Content = "Skriv en valid email";
+            }
+            else if(Password != PasswordCheck)
+            {
+                FailCheckLabel.Content = "Kode ordet stemmer ikke overens";
+            }
+
+            else
+            {
+                applierClient.Create(applier);
+            }
+
+
+            
         }
     }
 }
