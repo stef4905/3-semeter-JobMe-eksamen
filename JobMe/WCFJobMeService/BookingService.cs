@@ -97,6 +97,11 @@ namespace WCFJobMeService
         {
             return SessionCtr.Update(session);
         }
+
+        public bool RemoveApplierFromSession(Session session)
+        {
+            return SessionCtr.RemoveApplierFromSession(session);
+        }
         #endregion
     }
 }

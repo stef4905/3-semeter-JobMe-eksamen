@@ -70,5 +70,15 @@ namespace BusinessLogicLayer
         {
             return DbSession.Update(session);
         }
+
+        /// <summary>
+        /// Removes the current Applier on the given session object.
+        /// </summary>
+        /// <param name="session"></param>
+        /// <returns>bool</returns>
+        public bool RemoveApplierFromSession(Session session)
+        {
+            return DbSession.RemoveApplierFromSession(session);
+        }
     }
 }

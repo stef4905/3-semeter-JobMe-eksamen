@@ -130,6 +130,9 @@ namespace WCFJobMeService
         /// <returns></returns>
        [OperationContract]
         bool UpdateSession(Session session);
+
+        [OperationContract]
+        bool RemoveApplierFromSession(Session session);
         #endregion
 
 

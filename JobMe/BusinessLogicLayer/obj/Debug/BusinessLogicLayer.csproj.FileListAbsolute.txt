@@ -236,3 +236,4 @@ C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\BusinessLogicLayer\bi
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache

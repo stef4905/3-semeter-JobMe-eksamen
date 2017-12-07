@@ -214,3 +214,5 @@ C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\DataAccessLayer\bin\D
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\DataAccessLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\DataAccessLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen5\JobMe\DataAccessLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache

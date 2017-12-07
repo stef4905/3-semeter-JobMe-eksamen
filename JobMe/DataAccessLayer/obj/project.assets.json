@@ -269,20 +269,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sofie\\.nuget\\packages\\": {}
+    "C:\\Users\\Christian\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "projectUniqueName": "E:\\Skole\\GitHub Repo\\3 Semester Projekt 3\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
       "projectName": "DataAccessLayer",
-      "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
-      "packagesPath": "C:\\Users\\sofie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\DataAccessLayer\\obj\\",
+      "projectPath": "E:\\Skole\\GitHub Repo\\3 Semester Projekt 3\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "packagesPath": "C:\\Users\\Christian\\.nuget\\packages\\",
+      "outputPath": "E:\\Skole\\GitHub Repo\\3 Semester Projekt 3\\JobMe\\DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\sofie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Christian\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -295,8 +295,8 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen5\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "E:\\Skole\\GitHub Repo\\3 Semester Projekt 3\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "E:\\Skole\\GitHub Repo\\3 Semester Projekt 3\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }
