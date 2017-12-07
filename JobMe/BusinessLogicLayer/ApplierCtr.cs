@@ -46,7 +46,7 @@ namespace BusinessLogicLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            dbApplier.Delete(id);
         }
 
         /// <summary>
@@ -76,9 +76,9 @@ namespace BusinessLogicLayer
         /// Updates Applier in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(Applier obj)
+        public bool Update(Applier obj)
         {
-            dbApplier.Update(obj);
+           return dbApplier.Update(obj);
         }
 
 

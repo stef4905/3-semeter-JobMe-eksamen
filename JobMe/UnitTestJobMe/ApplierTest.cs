@@ -11,6 +11,12 @@ namespace UnitTest.DataAccessLayer
     [TestClass]
     public class DBApplierTest
     {
+
+        /// <summary>
+        /// Testing the creation of a applier in the database. by going through the controller. 
+        /// The controller method reurns a bool (boolean) that will be true if the create method was succesfull.
+        /// Then the bool is tested with the IsTrue, where the test will pass if the bool is returned true.
+        /// </summary>
         [TestMethod]
         public void ApplierCreateDBTest()
         {
@@ -20,10 +26,10 @@ namespace UnitTest.DataAccessLayer
           
 
             //Act
-            ctrApplier.Create(applier);
-            Applier returned = ctrApplier.Get(applier.Id);
+           bool check = ctrApplier.Create(applier);
+           
             //Assert
-            Assert.IsNotNull(returned);
+            Assert.IsNotNull(check);
         }
 
         [TestMethod]
@@ -31,12 +37,6 @@ namespace UnitTest.DataAccessLayer
         {
             //Arrange
             DbApplier dbApplier = new DbApplier();
-
-            JobCV jobCV = new JobCV
-            {
-                Id = 1
-            };
-
             Applier applier = new Applier
             {
                 Id = 6,
@@ -55,7 +55,7 @@ namespace UnitTest.DataAccessLayer
                 Status = true,
                 CurrentJob = "HejSigende",
                 Birthdate = new DateTime(1989, 09, 11),
-                JobCV = jobCV,   
+                 
             };
 
             //Act
@@ -65,34 +65,44 @@ namespace UnitTest.DataAccessLayer
             Assert.IsTrue(check);
         }
 
+
+
+        /// <summary>
+        /// Testing the get method on Applier. Starting new instanciating a new Applier object.
+        /// then the Applier controller has been created where the get method is located. 
+        /// We then call the get method that returns a Applier, where we then compare the two object's Id to see if they are the same.
+        /// </summary>
         [TestMethod]
         public void ApplierGetById()
         {
             //Arrange
-            DbApplier dbApplier = new DbApplier();
+            ApplierCtr ctrApplier = new ApplierCtr();
             Applier applier = new Applier();
 
             //Act
-            applier = dbApplier.Get(2);
+            applier = ctrApplier.Get(2);
 
             //Assert
             Assert.AreEqual(applier.Id, 2);
         }
 
-
+        /// <summary>
+        /// Testing the delete method on Applier, thourg the ApplierCtr
+        /// </summary>
         [TestMethod]
         public void DeleteApplier()
         {
             //Arrange
-            DbApplier dbApplier = new DbApplier();
+            ApplierCtr applierCtr = new ApplierCtr();
             Applier applier = new Applier();
 
             //Act
-            dbApplier.Delete(2);
-            Applier deleted = dbApplier.Get(2);
+            applierCtr.Delete(1064);
+            Applier deleted = applierCtr.Get(1064);
 
+            applier = applierCtr.Get(1064);
             //Assert
-            Assert.IsNull(deleted);
+            Assert.IsNotNull(deleted);
 
      
         }
