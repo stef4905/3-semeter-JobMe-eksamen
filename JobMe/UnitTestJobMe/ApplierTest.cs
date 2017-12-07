@@ -4,6 +4,7 @@ using System.Text;
 using ModelLayer;
 using DataAccessLayer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using BusinessLogicLayer;
 
 namespace UnitTest.DataAccessLayer
 {
@@ -14,15 +15,15 @@ namespace UnitTest.DataAccessLayer
         public void ApplierCreateDBTest()
         {
             //Arrange
-            DbApplier dbApplier = new DbApplier();
+            ApplierCtr ctrApplier = new ApplierCtr();
             Applier applier = new Applier("Sofie", "123", 20);
-            applier.JobCV = new JobCV(1, "hej", 2, "ja");
+          
 
             //Act
-            bool inserted = dbApplier.Create(applier);
-
+            ctrApplier.Create(applier);
+            Applier returned = ctrApplier.Get(applier.Id);
             //Assert
-            Assert.IsTrue(inserted);
+            Assert.IsNotNull(returned);
         }
 
         [TestMethod]
@@ -76,6 +77,24 @@ namespace UnitTest.DataAccessLayer
 
             //Assert
             Assert.AreEqual(applier.Id, 2);
+        }
+
+
+        [TestMethod]
+        public void DeleteApplier()
+        {
+            //Arrange
+            DbApplier dbApplier = new DbApplier();
+            Applier applier = new Applier();
+
+            //Act
+            dbApplier.Delete(2);
+            Applier deleted = dbApplier.Get(2);
+
+            //Assert
+            Assert.IsNull(deleted);
+
+     
         }
 
 

@@ -78,15 +78,16 @@ namespace DataAccessLayer
         /// <param name="id">Is the Id of the Applier</param>
         public void Delete(int id)
         {
-            //using (SqlConnection connection = conn.OpenConnection())
-            //{
-            //    using (SqlCommand cmd = connection.CreateCommand())
-            //    {
-            //        cmd.CommandText = "DELETE FROM Applier WHERE Id = @id";
-            //        cmd.Parameters.AddWithValue("id", id);
-            //        cmd.ExecuteNonQuery();
-            //    }
-            //}
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Applier WHERE Id = @id";
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
