@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DekstopApplication.ApplierServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,8 @@ namespace DekstopApplication.Views
     public partial class Appliers : UserControl
     {
         ApplierCreate applierCreateView = new ApplierCreate();
+        ApplierServiceClient applierClient = new ApplierServiceClient();
+
         public Appliers()
         {
             InitializeComponent();
@@ -35,6 +38,16 @@ namespace DekstopApplication.Views
         {
             GuiPanelApplierCreate.Children.Clear();
             GuiPanelApplierCreate.Children.Add(applierCreateView);
+        }
+
+        private void UpdateApplierButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            Applier applier = applierClient.GetApplier(5);
+            ApplierUpdate applierUpdateView = new ApplierUpdate(applier);
+            GuiPanelApplierUpdate.Children.Clear();
+            GuiPanelApplierUpdate.Children.Add(applierUpdateView);
+
         }
     }
 }

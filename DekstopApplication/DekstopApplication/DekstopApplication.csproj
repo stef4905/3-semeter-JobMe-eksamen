@@ -61,11 +61,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ApplierServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Views\ApplierCreate.xaml.cs">
       <DependentUpon>ApplierCreate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Appliers.xaml.cs">
       <DependentUpon>Appliers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ApplierUpdate.xaml.cs">
+      <DependentUpon>ApplierUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Companies.xaml.cs">
       <DependentUpon>Companies.xaml</DependentUpon>
@@ -97,6 +105,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Appliers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ApplierUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,6 +152,19 @@
     <None Include="Connected Services\AdminServiceReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ApplierServiceReference\ApplierService.wsdl" />
+    <None Include="Connected Services\ApplierServiceReference\DekstopApplication.ApplierServiceReference.Applier.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ApplierServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ApplierServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ApplierServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -155,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AdminServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\ApplierServiceReference\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\AdminServiceReference\item.disco" />
@@ -167,6 +193,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\AdminServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ApplierServiceReference\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ApplierServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ApplierServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ApplierServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
