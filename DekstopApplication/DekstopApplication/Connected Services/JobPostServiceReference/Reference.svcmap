@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="17bb4258-efc5-4f0d-9b3e-fd54796f9ef3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://localhost:8712/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="c3bb9581-4a97-440b-8b94-c800522aa348" SourceId="1" SourceUrl="https://localhost:8712/?xsd=xsd0" />
+    <MetadataFile FileName="JobPostService.wsdl" MetadataType="Wsdl" ID="61176af2-9f8f-481b-9c83-34af159c2f12" SourceId="1" SourceUrl="https://localhost:8712/?wsdl" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="993671aa-6cf0-4928-9494-a42ce72cd92e" SourceId="1" SourceUrl="https://localhost:8712/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="cf121b44-f6b7-4d1d-a6bf-1aa2b804f4fb" SourceId="1" SourceUrl="https://localhost:8712/?disco" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="7717c575-d126-42a6-abd3-17fd37786792" SourceId="1" SourceUrl="https://localhost:8712/?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

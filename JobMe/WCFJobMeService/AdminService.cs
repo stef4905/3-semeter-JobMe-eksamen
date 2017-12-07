@@ -23,7 +23,10 @@ namespace WCFJobMeService
             adminCtr.Create(admin);
         }
 
-        //Delets a Admin
+        /// <summary>
+        /// Deletes a Admin
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             adminCtr.Delete(id);
