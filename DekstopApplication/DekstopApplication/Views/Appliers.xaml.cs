@@ -23,10 +23,20 @@ namespace DekstopApplication.Views
     {
         ApplierCreate applierCreateView = new ApplierCreate();
         ApplierServiceClient applierClient = new ApplierServiceClient();
-
+        public List<Applier> applierList = new List<Applier>();
         public Appliers()
         {
             InitializeComponent();
+            applierList = applierClient.GetAllAppliers();
+            ApplierTable.ItemsSource = applierList;
+        }
+
+        public class ApplierItems
+        {
+            public string Email { get; set; }
+            public string Fornavn { get; set; }
+            public string Efternavn { get; set; }
+            public string Telefon { get; set; }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
