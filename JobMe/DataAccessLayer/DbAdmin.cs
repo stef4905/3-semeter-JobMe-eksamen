@@ -29,9 +29,9 @@ namespace DataAccessLayer
                     cmd.CommandText = "INSERT INTO Admin (Username, Password, FName, LName, Email) VALUES (@Username, @Password, @FName, @LName, @Email)";
                     cmd.Parameters.AddWithValue("Username", obj.Username);
                     cmd.Parameters.AddWithValue("Password", obj.Password);
-                    cmd.Parameters.AddWithValue("FName", obj.FName);
-                    cmd.Parameters.AddWithValue("LName", obj.LName);
-                    cmd.Parameters.AddWithValue("Email", obj.Email);
+                    cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Email", obj.Email ?? (object)DBNull.Value);
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -113,16 +113,37 @@ namespace DataAccessLayer
 
                     while (reader.Read())
                     {
-                        Admin admin = new Admin
+                        Admin admin = new Admin();
+                        admin.Id = (int)reader["Id"];
+                        admin.Username = (string)reader["Username"];
+                        admin.Password = (string)reader["Password"];
+                        if(reader["FName"] == DBNull.Value)
                         {
-                            Id = (int)reader["Id"],
-                            Username = (string)reader["Username"],
-                            Password = (string)reader["Password"],
-                            FName = (string)reader["FName"],
-                            LName = (string)reader["LName"],
-                            Email = (string)reader["Email"]
+                            admin.FName = null;
+                        }
+                        else
+                        {
+                            admin.FName = (string)reader["FName"];
+                        }
 
-                        };
+                        if (reader["LName"] == DBNull.Value)
+                        {
+                            admin.LName = null;
+                        }
+                        else
+                        {
+                            admin.LName = (string)reader["LName"];
+                        }
+
+                        if (reader["Email"] == DBNull.Value)
+                        {
+                            admin.Email = null;
+                        }
+                        else
+                        {
+                            admin.Email = (string)reader["Email"];
+                        }
+
                         adminList.Add(admin);
                     }
                 }

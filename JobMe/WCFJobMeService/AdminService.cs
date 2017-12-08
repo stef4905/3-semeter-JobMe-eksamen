@@ -42,9 +42,13 @@ namespace WCFJobMeService
             return adminCtr.Get(id);
         }
 
+        /// <summary>
+        /// Gets all Admin objects.
+        /// </summary>
+        /// <returns></returns>
         public List<Admin> GetAllAdmin()
         {
-            throw new NotImplementedException();
+            return adminCtr.GetAll();
         }
 
         /// <summary>

@@ -40,7 +40,7 @@ namespace BusinessLogicLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            dbJobPost.Delete(id);
         }
 
         /// <summary>
