@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DekstopApplication.Views"
              mc:Ignorable="d" 
              d:DesignHeight="953" d:DesignWidth="1410">
-    <Grid Background="#FFC2C2C3" Width="1410" Height="953">
+    <Grid x:Name="GuiPanelUpdate" Background="#FFC2C2C3" Width="1410" Height="953">
         <Label Content="Opdatere admin" HorizontalAlignment="Left" Margin="35,41,0,0" VerticalAlignment="Top" FontSize="32"/>
         <Label Content="Nuværende kode:" HorizontalAlignment="Left" Margin="35,99,0,0" VerticalAlignment="Top" FontSize="22"/>
         <Label Content="Ny Kodeord:" HorizontalAlignment="Left" Margin="35,180,0,0" VerticalAlignment="Top" FontSize="22"/>

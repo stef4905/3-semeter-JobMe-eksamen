@@ -24,11 +24,12 @@ namespace DekstopApplication.Views
         AdminServiceClient adminClient = new AdminServiceClient();
         AdminCreate adminCreateView = new AdminCreate();
         
+        
         public List<AdminServiceReference.Admin> adminList = new List<AdminServiceReference.Admin>();
         public Admin()
         {
-            InitializeComponent();
             adminList = adminClient.GetAllAdmin();
+            InitializeComponent();
             AdminTable.ItemsSource = adminList;
         }
 
@@ -41,7 +42,7 @@ namespace DekstopApplication.Views
             public string Email { get; set; }
         }
 
-        private void CreateApplierButton_Click(object sender, RoutedEventArgs e)
+        private void CreateAdminButton_Click(object sender, RoutedEventArgs e)
         {
             GuiPanelAdmin.Children.Clear();
             GuiPanelAdmin.Children.Add(adminCreateView);
@@ -78,11 +79,21 @@ namespace DekstopApplication.Views
 
         private void DeleteAdminButton_Click(object sender, RoutedEventArgs e)
         {
-            int index = AdminTable.SelectedIndex;
-            adminClient.Delete(adminList[index].Id);
-            adminList.Remove(adminList[index]);
-            AdminTable.ClearValue(ListView.ItemsSourceProperty);
-            AdminTable.ItemsSource = adminList;
+
+            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette", "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                int index = AdminTable.SelectedIndex;
+                adminClient.Delete(adminList[index].Id);
+                adminList.Remove(adminList[index]);
+                AdminTable.ClearValue(ListView.ItemsSourceProperty);
+                AdminTable.ItemsSource = adminList;
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                // No code here
+            }
+
         }
     }
 }

@@ -41,7 +41,7 @@ namespace DekstopApplication.Views
 
         private void CreateAdminButton_Click(object sender, RoutedEventArgs e)
         {
-            string Username = UsernameInput.Text;
+            string Username = UsernameInput.Text.ToLower();
             string Password = PasswordInput.Password.ToString();
             string PasswordRepeat = PasswordRepeatInput.Password.ToString();
 
@@ -58,11 +58,25 @@ namespace DekstopApplication.Views
             else
             {
                 Admin adminView = new Admin();
-                adminClient.Create(admin);
                 
+
+                adminClient.Create(admin);
+
+
                 GuiPanelCreateAdmin.Children.Clear();
-                //((Panel)this.Parent).Children.Remove(this);
                 GuiPanelCreateAdmin.Children.Add(adminView);
+                
+                
+                //BindingExpression binding = adminView.AdminTable.GetBindingExpression(ListView.)
+
+
+                //adminView.adminList = adminClient.GetAllAdmin();
+                //adminView.AdminTable.ItemsSource = adminList;
+                //((Panel)this.Parent).Children.Remove(this);
+
+
+
+
             }
         }
     }

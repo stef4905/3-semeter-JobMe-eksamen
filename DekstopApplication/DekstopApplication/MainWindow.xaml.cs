@@ -57,10 +57,10 @@ namespace DekstopApplication
             
 
             //Brug et if statement for at tjekke at username og password ikke er null eller ikke indeholder noget 
-            if(username != null && password != null)
+            if(username.ToUpper() != null && password != null)
             {
                 //Anvende client med login metoden og return brugeren. 
-                Admin admin = client.Login(username, password);
+                Admin admin = client.Login(username.ToLower(), password);
 
 
                 //If statement om det der bliver returned er null eller ej. Hvis den ikke er null kan du efterfølgennde sender den videre i koden herunder.

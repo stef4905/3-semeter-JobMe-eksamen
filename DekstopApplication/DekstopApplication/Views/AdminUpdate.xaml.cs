@@ -24,6 +24,7 @@ namespace DekstopApplication.Views
     {
         AdminServiceReference.Admin adminNew = new AdminServiceReference.Admin();
         AdminServiceClient adminClient = new AdminServiceClient();
+        Admin adminView = new Admin();
 
         public AdminUpdate(AdminServiceReference.Admin admin)
         {
@@ -93,6 +94,10 @@ namespace DekstopApplication.Views
                     admin.Email = EmailInput.Text;
 
                     adminClient.Update(admin);
+
+                    //GuiPanelUpdate.Children.Clear();
+                    
+                    //GuiPanelUpdate.Children.Add(adminView);
                     ((Panel)this.Parent).Children.Remove(this);
                 }
             }
