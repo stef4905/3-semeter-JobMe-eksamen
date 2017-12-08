@@ -49,5 +49,21 @@ namespace DekstopApplication.Views
             GuiPanelApplierUpdate.Children.Add(applierUpdateView);
 
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette", "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                applierClient.Delete(1048);
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                // No code here
+            }
+            
+
+        }
     }
 }

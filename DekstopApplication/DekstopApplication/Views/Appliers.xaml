@@ -13,7 +13,7 @@
         <Button Content="Søg" HorizontalAlignment="Left" Margin="515,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White"/>
         <Button x:Name="CreateApplierButton" Content="Opret ansøger" HorizontalAlignment="Left" Margin="1220,65,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="CreateApplierButton_Click"/>
         <Button x:Name="UpdateApplierButton" Content="Opdatere ansøgere" HorizontalAlignment="Left" Margin="1220,124,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" BorderBrush="#FF2C5781" Background="#FF2C5781" Foreground="White" Click="UpdateApplierButton_Click" />
-        <Button Content="Slet ansøger" HorizontalAlignment="Left" Margin="1220,895,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White"/>
+        <Button Content="Slet ansøger" HorizontalAlignment="Left" Margin="1220,895,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White" Click="Button_Click"/>
         <StackPanel Name="GuiPanelApplierCreate" HorizontalAlignment="Left" Height="953" VerticalAlignment="Top" Width="1410"/>
         <StackPanel Name="GuiPanelApplierUpdate" HorizontalAlignment="Left" Height="953" VerticalAlignment="Top" Width="1410"/>
     </Grid>
