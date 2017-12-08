@@ -138,5 +138,21 @@ namespace UnitTest.DataAccessLayer
 
 
         }
+
+        [TestMethod]
+        public void ApplierGetAllTest()
+        {
+            //Arrange
+            ApplierCtr adminCtr = new ApplierCtr();
+            Applier applier = new Applier();
+            List<Applier> applierList = new List<Applier>();
+
+            //act
+            applierList = adminCtr.GetAll();
+
+            //Assert
+            Assert.IsNotNull(applierList);
+
+        }
     }
 }

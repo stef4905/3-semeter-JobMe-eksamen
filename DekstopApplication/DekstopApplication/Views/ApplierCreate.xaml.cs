@@ -38,7 +38,7 @@ namespace DekstopApplication.Views
         {
             string Email = EmailInput.Text;
             string Password = PasswordInput.Password.ToString();
-            string PasswordCheck = PasswordCheckInput.ToString();
+            string PasswordCheck = PasswordCheckInput.Password.ToString();
             Applier applier = new Applier
             {
                 Email = Email,
@@ -56,6 +56,12 @@ namespace DekstopApplication.Views
             else
             {
                 applierClient.Create(applier);
+
+                
+
+                ((Panel)this.Parent).Children.Remove(this);
+
+
             }
 
 

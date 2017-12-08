@@ -70,7 +70,7 @@ namespace BusinessLogicLayer
         /// <returns>List of Appliers</returns>
         public List<Applier> GetAll()
         {
-            throw new NotImplementedException();
+            return dbApplier.GetAll();
         }
 
         /// <summary>
