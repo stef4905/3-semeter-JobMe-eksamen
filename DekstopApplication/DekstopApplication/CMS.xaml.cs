@@ -88,7 +88,7 @@ namespace DekstopApplication
         private void AdminPanel_Click(object sender, RoutedEventArgs e)
         {
             GuiPanel.Children.Clear();
-            AdminView.GuiPanelAdminCreate.Children.Clear();
+            AdminView.GuiPanelAdmin.Children.Clear();
             GuiPanel.Children.Add(AdminView);
         }
     }

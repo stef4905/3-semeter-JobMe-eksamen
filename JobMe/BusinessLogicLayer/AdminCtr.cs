@@ -42,9 +42,13 @@ namespace BusinessLogicLayer
             return admin;
         }
 
+        /// <summary>
+        /// Returns All Admins
+        /// </summary>
+        /// <returns></returns>
         public List<Admin> GetAll()
         {
-            throw new NotImplementedException();
+            return dbAdmin.GetAll();
         }
 
         /// <summary>
