@@ -26,12 +26,36 @@ namespace DekstopApplication.Views
         public JobPost()
         {
             InitializeComponent();
-            JobPostTabel.ItemsSource = jobPostClient.GetAllJobPost();
+            jobPostList = jobPostClient.GetAllJobPost();
+            JobPostTabel.ItemsSource = jobPostList;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SearchJobPostButton(object sender, RoutedEventArgs e)
         {
+            List<JobPostServiceReference.JobPost> jobPostSearchList = new List<JobPostServiceReference.JobPost>();
+            foreach (var jobPost in jobPostList)
+            {
+                int id;
+                bool result = Int32.TryParse(JobPostSearchBox.Text, out id);
 
+                if (jobPost.JobTitle.ToLower().Contains(JobPostSearchBox.Text.ToLower()) || jobPost.CompanyName.ToLower().Contains(JobPostSearchBox.Text.ToLower()))
+                {
+                    jobPostSearchList.Add(jobPost);
+                }
+                
+                else if (result)
+                {
+                    if (jobPost.Id == id)
+                    {
+                        jobPostSearchList.Add(jobPost);
+                    }
+                }
+            }
+            if (jobPostSearchList.Count != 0)
+            {
+                JobPostTabel.ClearValue(ListView.ItemsSourceProperty);
+                JobPostTabel.ItemsSource = jobPostSearchList;
+            }
         }
 
         public class JobPostItems
@@ -45,7 +69,19 @@ namespace DekstopApplication.Views
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             var index = JobPostTabel.SelectedIndex;
-            jobPostClient.DeleteJobPost(index);
+            jobPostClient.DeleteJobPost(jobPostList[index].Id);
+            jobPostList.Remove(jobPostList[index]);
+            JobPostTabel.ClearValue(ListView.ItemsSourceProperty);
+            JobPostTabel.ItemsSource = jobPostList;
+
         }
+
+        private void ShowAllJobPost(object sender, RoutedEventArgs e)
+        {
+            JobPostTabel.ClearValue(ListView.ItemsSourceProperty);
+            JobPostTabel.ItemsSource = jobPostList;
+            JobPostSearchBox.Text = "";
+        }
+
     }
 }
