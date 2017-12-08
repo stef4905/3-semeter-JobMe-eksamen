@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <TextBox x:Name="JobPostSearchBox" Margin="10,10,50,906" TextWrapping="Wrap" Text="Søg: id, firmanavn og jobtitel" MinHeight="10" FontSize="22"/>
         <Button Content="Søg" HorizontalAlignment="Left" Margin="515,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="SearchJobPostButton" Grid.ColumnSpan="2"/>
-        <Button Content="Slet JobPost" HorizontalAlignment="Left" Margin="660,895,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White" Click="Button_Click_1" Grid.Column="1"/>
+        <Button Content="Slet JobPost" HorizontalAlignment="Left" Margin="660,895,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White" Click="DeleteJobPost" Grid.Column="1"/>
         <ListView Name="JobPostTabel" HorizontalAlignment="Left" Height="891" Margin="10,52,0,0" VerticalAlignment="Top" Width="1205" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
@@ -26,6 +26,8 @@
             </ListView.View>
         </ListView>
         <Button Content="Vis Alle" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="ShowAllJobPost" Grid.Column="1"/>
+        <Button Content="Se/Rediger" HorizontalAlignment="Left" Margin="684,52,0,0" VerticalAlignment="Top" Width="136" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="ShowJobPostOnNewView" Grid.Column="1"/>
+        <StackPanel Name="ShowJobPostOnView" HorizontalAlignment="Left" Height="953" VerticalAlignment="Top" Width="1410" Grid.ColumnSpan="2"/>
 
     </Grid>
 </UserControl>

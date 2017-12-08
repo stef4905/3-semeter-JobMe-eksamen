@@ -66,14 +66,13 @@ namespace DekstopApplication.Views
             public string AfslutningsDato { get; set; }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void DeleteJobPost(object sender, RoutedEventArgs e)
         {
             var index = JobPostTabel.SelectedIndex;
             jobPostClient.DeleteJobPost(jobPostList[index].Id);
             jobPostList.Remove(jobPostList[index]);
             JobPostTabel.ClearValue(ListView.ItemsSourceProperty);
             JobPostTabel.ItemsSource = jobPostList;
-
         }
 
         private void ShowAllJobPost(object sender, RoutedEventArgs e)
@@ -83,5 +82,11 @@ namespace DekstopApplication.Views
             JobPostSearchBox.Text = "";
         }
 
+        private void ShowJobPostOnNewView(object sender, RoutedEventArgs e)
+        {
+            ShowJobPostOnView.Children.Clear();
+            ReadEditJobPost readEditJobPost = new ReadEditJobPost(jobPostList[JobPostTabel.SelectedIndex]);
+            ShowJobPostOnView.Children.Add(readEditJobPost);
+        }
     }
 }
