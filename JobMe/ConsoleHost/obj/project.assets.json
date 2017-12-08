@@ -465,11 +465,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mathias\\source\\repos\\3-semeter-JobMe-eksamen2\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
+      "projectUniqueName": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
       "projectName": "ConsoleHost",
-      "projectPath": "C:\\Users\\Mathias\\source\\repos\\3-semeter-JobMe-eksamen2\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
+      "projectPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
       "packagesPath": "C:\\Users\\Mathias\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mathias\\source\\repos\\3-semeter-JobMe-eksamen2\\JobMe\\ConsoleHost\\obj\\",
+      "outputPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ConsoleHost\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -486,8 +486,8 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\Mathias\\source\\repos\\3-semeter-JobMe-eksamen2\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj": {
-              "projectPath": "C:\\Users\\Mathias\\source\\repos\\3-semeter-JobMe-eksamen2\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj"
+            "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj": {
+              "projectPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj"
             }
           }
         }

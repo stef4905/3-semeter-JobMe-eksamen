@@ -200,3 +200,4 @@ E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\obj\Debug\ModelLayer.
 E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\obj\Debug\ModelLayer.csproj.CoreCompileInputs.cache
 E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\obj\Debug\ModelLayer.dll
 E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\ModelLayer\obj\Debug\ModelLayer.pdb
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Debug\ModelLayer.csprojResolveAssemblyReference.cache
