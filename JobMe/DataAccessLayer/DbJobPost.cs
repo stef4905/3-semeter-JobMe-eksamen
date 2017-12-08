@@ -207,7 +207,32 @@ namespace DataAccessLayer
         /// <returns>Bool to ensure update was succesfull</returns>
         public bool Update(JobPost obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE JobPost SET Title = @Title, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, JobTitle = @JobTitle, WorkHoursId = @WorkHoursId, Address = @Address, JobCategoryId = @JobCategoryId WHERE Id = @Id";
+                    try
+                    {
+                        cmd.Parameters.AddWithValue("Title", obj.Title);
+                        cmd.Parameters.AddWithValue("Description", obj.Description);
+                        cmd.Parameters.AddWithValue("StartDate", obj.StartDate);
+                        cmd.Parameters.AddWithValue("EndDate", obj.EndDate);
+                        cmd.Parameters.AddWithValue("JobTitle", obj.JobTitle);
+                        cmd.Parameters.AddWithValue("WorkHoursId", obj.workHours.Id);
+                        cmd.Parameters.AddWithValue("Address", obj.Address);
+                        cmd.Parameters.AddWithValue("JobCategoryId", obj.jobCategory.Id);
+                        cmd.Parameters.AddWithValue("Id", obj.Id);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
 
 

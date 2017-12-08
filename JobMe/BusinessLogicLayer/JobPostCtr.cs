@@ -68,7 +68,7 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public void Update(JobPost obj)
         {
-            throw new NotImplementedException();
+            dbJobPost.Update(obj);
         }
 
         /// <summary>
