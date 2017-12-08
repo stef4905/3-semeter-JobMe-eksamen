@@ -396,20 +396,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mathias\\.nuget\\packages\\": {}
+    "C:\\Users\\Christian\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
+      "projectUniqueName": "E:\\Skole\\GitHub Repo\\3 Semester Projekt\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
       "projectName": "WCFJobMeService",
-      "projectPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
-      "packagesPath": "C:\\Users\\Mathias\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\obj\\",
+      "projectPath": "E:\\Skole\\GitHub Repo\\3 Semester Projekt\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
+      "packagesPath": "C:\\Users\\Christian\\.nuget\\packages\\",
+      "outputPath": "E:\\Skole\\GitHub Repo\\3 Semester Projekt\\JobMe\\WCFJobMeService\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Mathias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Christian\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -422,11 +422,11 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-              "projectPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+            "E:\\Skole\\GitHub Repo\\3 Semester Projekt\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+              "projectPath": "E:\\Skole\\GitHub Repo\\3 Semester Projekt\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
             },
-            "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\Mathias\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "E:\\Skole\\GitHub Repo\\3 Semester Projekt\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "E:\\Skole\\GitHub Repo\\3 Semester Projekt\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }
