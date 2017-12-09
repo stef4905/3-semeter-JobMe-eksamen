@@ -12,27 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DekstopApplication.Views.WebInfo;
 
-namespace DekstopApplication.Views
+namespace DekstopApplication.Views.WebInfo.JobInfoJobCategory
 {
     /// <summary>
-    /// Interaction logic for WebInfoView.xaml
+    /// Interaction logic for UpdateJobCategoryView.xaml
     /// </summary>
-    public partial class WebInfoView : UserControl
+    public partial class UpdateJobCategoryView : UserControl
     {
-
-        private WebInfoJobCategory WebinfoJobCategory = new WebInfoJobCategory();
-
-        public WebInfoView()
+        public UpdateJobCategoryView()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Updates the current selected job category in the database and then the list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateJobCategory(object sender, RoutedEventArgs e)
         {
-            WebInfoPanel.Children.Clear();
-            WebInfoPanel.Children.Add(WebinfoJobCategory);
+
         }
     }
 }

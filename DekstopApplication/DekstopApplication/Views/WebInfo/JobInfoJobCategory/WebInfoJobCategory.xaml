@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="DekstopApplication.Views.WebInfo.WebInfoJobCategory"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DekstopApplication.Views.WebInfo"
+             mc:Ignorable="d" 
+             d:DesignHeight="886" d:DesignWidth="1400">
+	<Grid>
+		<ListView Name="JobCategoryTable" HorizontalAlignment="Left" Height="796" Margin="42,39,0,0" VerticalAlignment="Top" Width="212">
+			<ListView.View>
+				<GridView>
+					<GridViewColumn Header="Id" Width="50px" DisplayMemberBinding="{Binding Id}"/>
+					<GridViewColumn Header="Katagori" Width="50px" DisplayMemberBinding="{Binding Title}"/>
+				</GridView>
+			</ListView.View>
+		</ListView>
+		<Button Content="Tilføj ny" HorizontalAlignment="Left" Margin="276,40,0,0" VerticalAlignment="Top" Width="134" Height="38" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="AddNewJobCategoryView"/>
+		<Button Content="Opdater" HorizontalAlignment="Left" Margin="276,82,0,0" VerticalAlignment="Top" Width="134" Height="38" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="UpdateJobCategory"/>
+		<Button Content="Slet kataogri" HorizontalAlignment="Left" Margin="276,787,0,0" VerticalAlignment="Top" Width="134" Height="48" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White" Click="DeleteJobCategory"/>
+		<StackPanel Name="JobCategoryAddAndUpdatePanel" HorizontalAlignment="Left" Height="180" Margin="452,39,0,0" VerticalAlignment="Top" Width="900"/>
+	</Grid>
+</UserControl>

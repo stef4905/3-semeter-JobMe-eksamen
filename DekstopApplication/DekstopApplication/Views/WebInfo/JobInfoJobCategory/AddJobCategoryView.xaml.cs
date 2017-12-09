@@ -12,27 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DekstopApplication.Views.WebInfo;
 
-namespace DekstopApplication.Views
+namespace DekstopApplication.Views.WebInfo.JobInfoJobCategory
 {
     /// <summary>
-    /// Interaction logic for WebInfoView.xaml
+    /// Interaction logic for AddJobCategoryView.xaml
     /// </summary>
-    public partial class WebInfoView : UserControl
+    public partial class AddJobCategoryView : UserControl
     {
-
-        private WebInfoJobCategory WebinfoJobCategory = new WebInfoJobCategory();
-
-        public WebInfoView()
+        public AddJobCategoryView()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddNewJobCategory(object sender, RoutedEventArgs e)
         {
-            WebInfoPanel.Children.Clear();
-            WebInfoPanel.Children.Add(WebinfoJobCategory);
+
         }
     }
 }

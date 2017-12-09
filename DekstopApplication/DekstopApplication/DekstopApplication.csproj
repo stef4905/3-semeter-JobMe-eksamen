@@ -104,6 +104,15 @@
     <Compile Include="Views\WebInfoView.xaml.cs">
       <DependentUpon>WebInfoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WebInfo\JobInfoJobCategory\AddJobCategoryView.xaml.cs">
+      <DependentUpon>AddJobCategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WebInfo\JobInfoJobCategory\UpdateJobCategoryView.xaml.cs">
+      <DependentUpon>UpdateJobCategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WebInfo\JobInfoJobCategory\WebInfoJobCategory.xaml.cs">
+      <DependentUpon>WebInfoJobCategory.xaml</DependentUpon>
+    </Compile>
     <Page Include="CMS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -164,6 +173,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WebInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WebInfo\JobInfoJobCategory\AddJobCategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WebInfo\JobInfoJobCategory\UpdateJobCategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WebInfo\JobInfoJobCategory\WebInfoJobCategory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
