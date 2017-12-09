@@ -17,38 +17,67 @@ using System.Windows.Shapes;
 namespace DekstopApplication.Views
 {
     /// <summary>
-    /// Interaction logic for Admin.xaml
+    /// Interaction logic for AdminCreate.xaml
     /// </summary>
-    public partial class Admin : UserControl
+    public partial class AdminCreate : UserControl
     {
+        
+
         AdminServiceClient adminClient = new AdminServiceClient();
-        AdminCreate adminCreateView = new AdminCreate();
-        AdminUpdate adminUpdateView = new AdminUpdate();
-        public Admin()
+        public AdminCreate()
         {
             InitializeComponent();
         }
 
-        private void CreateApplierButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            GuiPanelAdminCreate.Children.Clear();
-            GuiPanelAdminCreate.Children.Add(adminCreateView);
+            
         }
 
-        private void UpdateAdminButton_Click(object sender, RoutedEventArgs e)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            GuiPanelAdminCreate.Children.Clear();
-            GuiPanelAdminCreate.Children.Add(adminUpdateView);
+
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void CreateAdminButton_Click(object sender, RoutedEventArgs e)
         {
+            string Username = UsernameInput.Text.ToLower();
+            string Password = PasswordInput.Password.ToString();
+            string PasswordRepeat = PasswordRepeatInput.Password.ToString();
+
+            AdminServiceReference.Admin admin = new AdminServiceReference.Admin
+            {
+                Username = Username,
+                Password = Password
+            };
+
+            if(Password != PasswordRepeat)
+            {
+                FailCheckLabel.Content = "Kodeordet stemmer ikke overens";
+            }
+            else
+            {
+                Admin adminView = new Admin();
+                
+
+                adminClient.Create(admin);
 
 
-            //AdminServiceReference.Admin admin = new AdminServiceReference.Admin();
-            //List<Admin> adminList1 = adminList.Items.Clear();
-            //var adminList = adminClient.GetAdmin(4);
-            //AdminList.ItemsSource = adminList1;
+                GuiPanelCreateAdmin.Children.Clear();
+                GuiPanelCreateAdmin.Children.Add(adminView);
+                
+                
+                //BindingExpression binding = adminView.AdminTable.GetBindingExpression(ListView.)
+
+
+                //adminView.adminList = adminClient.GetAllAdmin();
+                //adminView.AdminTable.ItemsSource = adminList;
+                //((Panel)this.Parent).Children.Remove(this);
+
+
+
+
+            }
         }
     }
 }

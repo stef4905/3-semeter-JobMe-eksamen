@@ -282,7 +282,130 @@ namespace DataAccessLayer
         /// <returns></returns>
         public List<Applier> GetAll()
         {
-            throw new NotImplementedException();
+            List<Applier> applierList = new List<Applier>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                Applier applier = new Applier();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Applier";
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    DBJobCV dBJobCV = new DBJobCV();
+                    while (reader.Read())
+                    {
+                        applier.Id = (int)reader["Id"];
+                        applier.Email = (string)reader["Email"];
+                        if (reader["Phone"] == DBNull.Value)
+                        {
+                            applier.Phone = 0;
+                        }
+                        else
+                        {
+                            applier.Phone = (int)reader["Phone"];
+                        }
+                        if (reader["Address"] == DBNull.Value)
+                        {
+                            applier.Address = null;
+                        }
+                        else
+                        {
+                            applier.Address = (string)reader["Address"];
+                        }
+
+                        if (reader["Country"] == DBNull.Value)
+                        {
+                            applier.Country = null;
+                        }
+                        else
+                        {
+                            applier.Country = (string)reader["Country"];
+                        }
+
+                        if (reader["Description"] == DBNull.Value)
+                        {
+                            applier.Description = null;
+                        }
+                        else
+                        {
+                            applier.Description = (string)reader["Description"];
+                        }
+                        if (reader["BannerURL"] == DBNull.Value)
+                        {
+                            applier.BannerURL = null;
+                        }
+                        else
+                        {
+                            applier.BannerURL = (string)reader["BannerURL"];
+                        }
+
+                        if (reader["ImageURL"] != DBNull.Value)
+                        {
+                            applier.ImageURL = (string)reader["ImageURL"];
+                        }
+
+
+
+                        if (reader["MaxRadius"] != DBNull.Value)
+                        {
+                            applier.MaxRadius = (int)reader["MaxRadius"];
+                        }
+
+
+                        if (reader["HomePage"] != DBNull.Value)
+                        {
+                            applier.HomePage = (string)reader["HomePage"];
+                        }
+
+
+                        if (reader["FName"] != DBNull.Value)
+                        {
+                            applier.FName = (string)reader["FName"];
+                        }
+
+
+                        if (reader["LName"] != DBNull.Value)
+                        {
+                            applier.LName = (string)reader["LName"];
+                        }
+
+
+                        if (reader["Age"] != DBNull.Value)
+                        {
+                            applier.Age = (int)reader["Age"];
+                        }
+
+
+                        if (reader["Status"] != DBNull.Value)
+                        {
+                            applier.Status = (bool)reader["Status"];
+                        }
+
+                        if (reader["CurrentJob"] != DBNull.Value)
+                        {
+                            applier.CurrentJob = (string)reader["CurrentJob"];
+                        }
+
+                        if (reader["Birthdate"] == DBNull.Value)
+                        {
+                            applier.Birthdate = new DateTime();
+                        }
+                        else
+                        {
+                            applier.Birthdate = (DateTime)reader["Birthdate"];
+                        }
+
+                        if (reader["JobCVId"] != DBNull.Value)
+                        {
+                            applier.JobCV = dBJobCV.Get((int)reader["JobCVId"]);
+                        }
+                        applierList.Add(applier);
+
+                    }
+                }
+            }
+            return applierList;
         }
 
         /// <summary>

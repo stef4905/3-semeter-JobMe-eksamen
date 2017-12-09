@@ -155,10 +155,10 @@ namespace DekstopApplication.AdminServiceReference {
         System.Threading.Tasks.Task DeleteAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/GetAllAdmin", ReplyAction="http://tempuri.org/IAdminService/GetAllAdminResponse")]
-        DekstopApplication.AdminServiceReference.Admin[] GetAllAdmin();
+        System.Collections.Generic.List<DekstopApplication.AdminServiceReference.Admin> GetAllAdmin();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/GetAllAdmin", ReplyAction="http://tempuri.org/IAdminService/GetAllAdminResponse")]
-        System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin[]> GetAllAdminAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DekstopApplication.AdminServiceReference.Admin>> GetAllAdminAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/GetAdmin", ReplyAction="http://tempuri.org/IAdminService/GetAdminResponse")]
         DekstopApplication.AdminServiceReference.Admin GetAdmin(int id);
@@ -222,11 +222,11 @@ namespace DekstopApplication.AdminServiceReference {
             return base.Channel.DeleteAsync(id);
         }
         
-        public DekstopApplication.AdminServiceReference.Admin[] GetAllAdmin() {
+        public System.Collections.Generic.List<DekstopApplication.AdminServiceReference.Admin> GetAllAdmin() {
             return base.Channel.GetAllAdmin();
         }
         
-        public System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin[]> GetAllAdminAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DekstopApplication.AdminServiceReference.Admin>> GetAllAdminAsync() {
             return base.Channel.GetAllAdminAsync();
         }
         

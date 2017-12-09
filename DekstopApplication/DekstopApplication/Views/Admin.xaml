@@ -7,26 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="953" d:DesignWidth="1410" Width="1410" Height="953">
 
-    <Grid>
-        <ListView x:Name="AdminList" Margin="35,99,204,10" Grid.Column="6" SelectionChanged="ListView_SelectionChanged">
+    <Grid Name="GuiGridAdmin">
+        <ListView x:Name="AdminTable" Margin="35,99,204,10" Grid.Column="6" SelectionChanged="ListView_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id" Width="50px"/>
-                    <GridViewColumn Header="Brugernavn" Width="170px"/>
-                    <GridViewColumn Header="Kodeord"  Width="170px"/>
-                    <GridViewColumn Header="Fornavn"  Width="200px"/>
-                    <GridViewColumn Header="Efternavn"  Width="270px"/>
-                    <GridViewColumn Header="E-mail"  Width="306px"/>
+                    <GridViewColumn Header="Id" Width="50px" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Brugernavn" Width="170px" DisplayMemberBinding="{Binding Username}" />
+                    <GridViewColumn Header="Kodeord"  Width="170px" DisplayMemberBinding="{Binding Password}" />
+                    <GridViewColumn Header="Fornavn"  Width="200px" DisplayMemberBinding="{Binding FName}" />
+                    <GridViewColumn Header="Efternavn"  Width="270px" DisplayMemberBinding="{Binding LName}" />
+                    <GridViewColumn Header="E-mail"  Width="306px" DisplayMemberBinding="{Binding Email}" />
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="CreateApplierButton" Content="Opret admin" HorizontalAlignment="Left" Margin="1220,99,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="CreateApplierButton_Click" />
-        <Button Content="Slet admin" HorizontalAlignment="Left" Margin="1220,895,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White"/>
+        <Button x:Name="CreateAdminButton" Content="Opret admin" HorizontalAlignment="Left" Margin="1220,99,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="CreateAdminButton_Click" />
+        <Button x:Name="DeleteAdminButton" Content="Slet admin" HorizontalAlignment="Left" Margin="1220,895,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White" Click="DeleteAdminButton_Click"/>
         <Label Content="Admin" HorizontalAlignment="Left" Margin="35,17,0,0" VerticalAlignment="Top" FontSize="14" FontStyle="Italic"/>
         <Label Content="Admin" HorizontalAlignment="Left" Margin="35,41,0,0" VerticalAlignment="Top" FontSize="32"/>
         <Button x:Name="UpdateAdminButton" Content="Opdatere admin" HorizontalAlignment="Left" Margin="1220,157,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="UpdateAdminButton_Click" />
-        <StackPanel Name="GuiPanelAdminCreate" HorizontalAlignment="Left" Height="953" VerticalAlignment="Top" Width="1410"/>
-
+        <Label x:Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="1220,210,-24,0" VerticalAlignment="Top" Width="214" Foreground="Red"/>
+        <StackPanel x:Name="GuiPanelAdmin" HorizontalAlignment="Left" Height="953" VerticalAlignment="Top" Width="1410"/>
+        
     </Grid>
 
 

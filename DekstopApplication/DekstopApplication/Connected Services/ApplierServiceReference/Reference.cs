@@ -62,7 +62,7 @@ namespace DekstopApplication.ApplierServiceReference {
         private DekstopApplication.ApplierServiceReference.JobCV JobCVField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DekstopApplication.ApplierServiceReference.JobCategory[] JobCategoryListField;
+        private System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.JobCategory> JobCategoryListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LNameField;
@@ -259,7 +259,7 @@ namespace DekstopApplication.ApplierServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DekstopApplication.ApplierServiceReference.JobCategory[] JobCategoryList {
+        public System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.JobCategory> JobCategoryList {
             get {
                 return this.JobCategoryListField;
             }
@@ -356,7 +356,7 @@ namespace DekstopApplication.ApplierServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DekstopApplication.ApplierServiceReference.ApplierEducation[] ApplierEducationListField;
+        private System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.ApplierEducation> ApplierEducationListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ApplierIdField;
@@ -368,10 +368,10 @@ namespace DekstopApplication.ApplierServiceReference {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DekstopApplication.ApplierServiceReference.JobAppendix[] JobAppendixListField;
+        private System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.JobAppendix> JobAppendixListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DekstopApplication.ApplierServiceReference.JobExperience[] JobExperienceListField;
+        private System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.JobExperience> JobExperienceListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
@@ -387,7 +387,7 @@ namespace DekstopApplication.ApplierServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DekstopApplication.ApplierServiceReference.ApplierEducation[] ApplierEducationList {
+        public System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.ApplierEducation> ApplierEducationList {
             get {
                 return this.ApplierEducationListField;
             }
@@ -439,7 +439,7 @@ namespace DekstopApplication.ApplierServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DekstopApplication.ApplierServiceReference.JobAppendix[] JobAppendixList {
+        public System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.JobAppendix> JobAppendixList {
             get {
                 return this.JobAppendixListField;
             }
@@ -452,7 +452,7 @@ namespace DekstopApplication.ApplierServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DekstopApplication.ApplierServiceReference.JobExperience[] JobExperienceList {
+        public System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.JobExperience> JobExperienceList {
             get {
                 return this.JobExperienceListField;
             }
@@ -908,10 +908,10 @@ namespace DekstopApplication.ApplierServiceReference {
         System.Threading.Tasks.Task DeleteAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetAllAppliers", ReplyAction="http://tempuri.org/IApplierService/GetAllAppliersResponse")]
-        DekstopApplication.ApplierServiceReference.Applier[] GetAllAppliers();
+        System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.Applier> GetAllAppliers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetAllAppliers", ReplyAction="http://tempuri.org/IApplierService/GetAllAppliersResponse")]
-        System.Threading.Tasks.Task<DekstopApplication.ApplierServiceReference.Applier[]> GetAllAppliersAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.Applier>> GetAllAppliersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetApplier", ReplyAction="http://tempuri.org/IApplierService/GetApplierResponse")]
         DekstopApplication.ApplierServiceReference.Applier GetApplier(int id);
@@ -975,11 +975,11 @@ namespace DekstopApplication.ApplierServiceReference {
             return base.Channel.DeleteAsync(id);
         }
         
-        public DekstopApplication.ApplierServiceReference.Applier[] GetAllAppliers() {
+        public System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.Applier> GetAllAppliers() {
             return base.Channel.GetAllAppliers();
         }
         
-        public System.Threading.Tasks.Task<DekstopApplication.ApplierServiceReference.Applier[]> GetAllAppliersAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DekstopApplication.ApplierServiceReference.Applier>> GetAllAppliersAsync() {
             return base.Channel.GetAllAppliersAsync();
         }
         

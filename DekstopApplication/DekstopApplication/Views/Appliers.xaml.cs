@@ -23,10 +23,20 @@ namespace DekstopApplication.Views
     {
         ApplierCreate applierCreateView = new ApplierCreate();
         ApplierServiceClient applierClient = new ApplierServiceClient();
-
+        public List<Applier> applierList = new List<Applier>();
         public Appliers()
         {
             InitializeComponent();
+            applierList = applierClient.GetAllAppliers();
+            ApplierTable.ItemsSource = applierList;
+        }
+
+        public class ApplierItems
+        {
+            public string Email { get; set; }
+            public string Fornavn { get; set; }
+            public string Efternavn { get; set; }
+            public string Telefon { get; set; }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -47,6 +57,22 @@ namespace DekstopApplication.Views
             ApplierUpdate applierUpdateView = new ApplierUpdate(applier);
             GuiPanelApplierUpdate.Children.Clear();
             GuiPanelApplierUpdate.Children.Add(applierUpdateView);
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette", "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                applierClient.Delete(1048);
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                // No code here
+            }
+            
 
         }
     }
