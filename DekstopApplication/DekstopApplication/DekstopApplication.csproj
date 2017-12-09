@@ -101,6 +101,9 @@
     <Compile Include="Views\ReadEditJobPost.xaml.cs">
       <DependentUpon>ReadEditJobPost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WebInfoView.xaml.cs">
+      <DependentUpon>WebInfoView.xaml</DependentUpon>
+    </Compile>
     <Page Include="CMS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ReadEditJobPost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WebInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
