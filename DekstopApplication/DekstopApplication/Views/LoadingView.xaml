@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="DekstopApplication.Views.LoadingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DekstopApplication.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="886" d:DesignWidth="1400">
+    <Grid>
+		<MediaElement Source="http://assets.motherjones.com/interactives/projects/features/koch-network/shell19/img/loading.gif" HorizontalAlignment="Left" Height="126" Margin="592,367,0,0" VerticalAlignment="Top" Width="148"/>
+	</Grid>
+</UserControl>

@@ -22,9 +22,10 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class WebInfoView : UserControl
     {
-        //Instnace variables
-        private WebInfoJobCategory WebinfoJobCategoryView = new WebInfoJobCategory();
-        private WebInfoSiteTexts WebInfoSiteTextsView = new WebInfoSiteTexts();
+
+        //Instance variables
+        private LoadingView LoadingView = new LoadingView();
+
 
         public WebInfoView()
         {
@@ -33,14 +34,23 @@ namespace DekstopApplication.Views
 
         private void JobCategoryButton(object sender, RoutedEventArgs e)
         {
+            WebInfoJobCategory webinfoJobCategoryView = new WebInfoJobCategory();
             WebInfoPanel.Children.Clear();
-            WebInfoPanel.Children.Add(WebinfoJobCategoryView);
+            WebInfoPanel.Children.Add(webinfoJobCategoryView);
         }
 
         private void WebInfoTextButton(object sender, RoutedEventArgs e)
         {
+            WebInfoSiteTexts webInfoSiteTextsView = new WebInfoSiteTexts();
             WebInfoPanel.Children.Clear();
-            WebInfoPanel.Children.Add(WebInfoSiteTextsView);
+            WebInfoPanel.Children.Add(webInfoSiteTextsView);
+
+        }
+
+        public void DisplayLoadingView()
+        {
+            WebInfoPanel.Children.Clear();
+            WebInfoPanel.Children.Add(LoadingView);
         }
     }
 }
