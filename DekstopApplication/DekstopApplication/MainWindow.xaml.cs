@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using DekstopApplication.AdminServiceReference;
 using System.Net;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace DekstopApplication
 {
@@ -23,7 +24,7 @@ namespace DekstopApplication
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
 
         public MainWindow()
         {
@@ -47,21 +48,28 @@ namespace DekstopApplication
                 this.DragMove();
         }
 
-
-        //Login to a Admin profile and redirect to the CMS.
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Login method for loggin in to the CMS System.
+        /// Will redirect to cms view if successfull login
+        /// </summary>
+        private void Login()
         {
+
+            //Vi skal kigge på noget multithreading for at opnå bedre perfomance, for her hvor jeg gerne
+            // vil have en loading gif til at køre i baggrunden under login knappen blokeres fjernelsen af knappen (eller usynliggørrelsen)
+            LoginButton.Visibility = Visibility.Collapsed;
+
             string username = UsernameInput.Text;
             string password = PasswordInpunt.Password.ToString();
             AdminServiceClient client = new AdminServiceClient();
             
 
             //Brug et if statement for at tjekke at username og password ikke er null eller ikke indeholder noget 
-            if(username.ToUpper() != null && password != null)
+            if (username.ToUpper() != null && password != null)
             {
                 //Anvende client med login metoden og return brugeren. 
                 Admin admin = client.Login(username.ToLower(), password);
-
+                
 
                 //If statement om det der bliver returned er null eller ej. Hvis den ikke er null kan du efterfølgennde sender den videre i koden herunder.
                 if (admin != null)
@@ -74,7 +82,33 @@ namespace DekstopApplication
                 {
                     //Display a Message that tells you, your inputs a invalid.
                     MessageBox.Show("Brugernavn eller adgangskode er forkert prøv igen");
+                    LoginButton.Visibility = Visibility.Visible;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Login button listener.
+        /// Calls the Login.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Login();
+        }
+
+        /// <summary>
+        /// Listens for enter key pressed. Calls the Login method if pressed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                LoginButton.Visibility = Visibility.Hidden;
+                Login();
             }
         }
     }

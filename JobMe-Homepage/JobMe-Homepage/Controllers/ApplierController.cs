@@ -56,13 +56,58 @@ namespace JobMe_Homepage.Controllers
         public ActionResult UpdateUserProfile()
         {
 
-            VMApplierANDJobCategory vmApplierANDJobCategory = new VMApplierANDJobCategory
+            List<JobPostServiceReference.JobCategory> jobCategoryList = jobClient.GetAllJobCategories().ToList();
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+
+            VMApplierANDJobCategory vmApplierANDJobCategory = new VMApplierANDJobCategory();
+
+
+
+            List<CategoryObject> CategoryList = new List<CategoryObject>();
+
+            foreach (var item in jobCategoryList)
             {
-                Applier = Session["applier"] as ApplierServiceReference.Applier,
-                JobCategoryList = jobClient.GetAllJobCategories().ToList()
-            };
+                var test = applier.JobCategoryList.Where(m => m.Id == item.Id).FirstOrDefault();
+                  if (test != null)
+                {
+               CategoryObject categoryObject = new CategoryObject
+                {
+                    Id = item.Id,
+                    
+                    
+               
+                    IsChecked = true,
+                
+                    Name = item.Title
+                    
+                };
+
+                   CategoryList.Add(categoryObject);
+
+                }
+                else
+                {
+                    CategoryObject categoryObject = new CategoryObject
+                    {
+                        Id = item.Id,
 
 
+
+                        IsChecked = false,
+
+                        Name = item.Title
+
+                    };
+
+                    CategoryList.Add(categoryObject);
+
+                }
+
+            }
+
+            vmApplierANDJobCategory.Applier = applier;
+
+            vmApplierANDJobCategory.JobCategoryList = CategoryList;
 
             return View(vmApplierANDJobCategory);
         }
@@ -194,19 +239,33 @@ namespace JobMe_Homepage.Controllers
                 {
                     Id = jobCvId
                 }
-
-
             };
 
-            foreach (var item in Categories)
+
+           
+
+            List<ApplierServiceReference.JobCategory> jobCategoryList = new List<ApplierServiceReference.JobCategory>();
+
+            if (Categories != null)
             {
+
+           foreach (var item in Categories)
+            {
+                ApplierServiceReference.JobCategory jobCategory = new ApplierServiceReference.JobCategory
+                {
+                    Id = item,
+                   Title = "Noget" 
                 
-               // applier.JobCategoryList.ToList().Add(item);
+                };
+                
+              jobCategoryList.Add(jobCategory);
             }
-      
+  }
+           
+            applier.JobCategoryList = jobCategoryList;
 
 
-          
+
             client.Update(applier);   
             TempData["Success"] = "Successfuld updateret!";
             Session["applier"] = client.GetApplier(applierId);
