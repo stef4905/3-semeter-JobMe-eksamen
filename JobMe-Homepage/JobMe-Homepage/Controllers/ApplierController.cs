@@ -478,5 +478,12 @@ namespace JobMe_Homepage.Controllers
             return RedirectToAction("Booking/" + JobPostId);
         }
 
+        public int GetJobPostCount()
+        {
+            List<JobPostServiceReference.JobPost> applierList = new List<JobPostServiceReference.JobPost>();
+            applierList = jobClient.GetAllJobPost();
+            //int Count = applierList.Count();
+            return applierList.Count;
+        }
     }
 }

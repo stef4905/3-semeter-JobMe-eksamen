@@ -436,6 +436,7 @@
 	position: relative;
 }
 
+
 #textOfCount {
 	color: white;
 	font-size: 28px;
@@ -635,4 +636,50 @@ div.tab button {
 .inputLabel {
     float: left;
     margin-bottom: 2%;
+}
+
+/*Frontpage*/
+#FrontpageBackground {
+    background-image: url("https://ak4.picdn.net/shutterstock/videos/23047249/thumb/1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 650px;
+    margin: 0 auto;
+    margin-left: -36%;
+    margin-right: -36%;
+    text-align: left;
+    position: relative;
+    margin-top: -6%;
+}
+#BackToNormalMargin {
+    margin-left: 30%;
+    margin-right: 30%;
+}
+
+#feature1 {
+    margin-top: 10%;
+    text-align: center;
+}
+
+.FeatureImages {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#textCounter {
+    color: white;
+    font-size: 28px;
+    margin: auto;
+    margin-top: 10%;
+    margin-bottom: 3%; 
+    text-align: center!important ;
+}
+
+#formStyling {
+    margin-top: 4%;
+    padding-bottom: 6%;
+}
+#CreateBoxHeadline{
+    margin-left: 2%;
 }
