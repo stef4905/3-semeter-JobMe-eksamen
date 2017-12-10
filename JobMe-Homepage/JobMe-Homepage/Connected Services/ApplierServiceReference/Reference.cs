@@ -62,7 +62,7 @@ namespace JobMe_Homepage.ApplierServiceReference {
         private JobMe_Homepage.ApplierServiceReference.JobCV JobCVField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.ApplierServiceReference.JobCategory[] JobCategoryListField;
+        private System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.JobCategory> JobCategoryListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LNameField;
@@ -259,7 +259,7 @@ namespace JobMe_Homepage.ApplierServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.ApplierServiceReference.JobCategory[] JobCategoryList {
+        public System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.JobCategory> JobCategoryList {
             get {
                 return this.JobCategoryListField;
             }
@@ -356,7 +356,7 @@ namespace JobMe_Homepage.ApplierServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.ApplierServiceReference.ApplierEducation[] ApplierEducationListField;
+        private System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.ApplierEducation> ApplierEducationListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ApplierIdField;
@@ -368,10 +368,10 @@ namespace JobMe_Homepage.ApplierServiceReference {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.ApplierServiceReference.JobAppendix[] JobAppendixListField;
+        private System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.JobAppendix> JobAppendixListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.ApplierServiceReference.JobExperience[] JobExperienceListField;
+        private System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.JobExperience> JobExperienceListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
@@ -387,7 +387,7 @@ namespace JobMe_Homepage.ApplierServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.ApplierServiceReference.ApplierEducation[] ApplierEducationList {
+        public System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.ApplierEducation> ApplierEducationList {
             get {
                 return this.ApplierEducationListField;
             }
@@ -439,7 +439,7 @@ namespace JobMe_Homepage.ApplierServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.ApplierServiceReference.JobAppendix[] JobAppendixList {
+        public System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.JobAppendix> JobAppendixList {
             get {
                 return this.JobAppendixListField;
             }
@@ -452,7 +452,7 @@ namespace JobMe_Homepage.ApplierServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.ApplierServiceReference.JobExperience[] JobExperienceList {
+        public System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.JobExperience> JobExperienceList {
             get {
                 return this.JobExperienceListField;
             }
@@ -908,10 +908,10 @@ namespace JobMe_Homepage.ApplierServiceReference {
         System.Threading.Tasks.Task DeleteAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetAllAppliers", ReplyAction="http://tempuri.org/IApplierService/GetAllAppliersResponse")]
-        JobMe_Homepage.ApplierServiceReference.Applier[] GetAllAppliers();
+        System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.Applier> GetAllAppliers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetAllAppliers", ReplyAction="http://tempuri.org/IApplierService/GetAllAppliersResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.ApplierServiceReference.Applier[]> GetAllAppliersAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.Applier>> GetAllAppliersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetApplier", ReplyAction="http://tempuri.org/IApplierService/GetApplierResponse")]
         JobMe_Homepage.ApplierServiceReference.Applier GetApplier(int id);
@@ -975,11 +975,11 @@ namespace JobMe_Homepage.ApplierServiceReference {
             return base.Channel.DeleteAsync(id);
         }
         
-        public JobMe_Homepage.ApplierServiceReference.Applier[] GetAllAppliers() {
+        public System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.Applier> GetAllAppliers() {
             return base.Channel.GetAllAppliers();
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.ApplierServiceReference.Applier[]> GetAllAppliersAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.Applier>> GetAllAppliersAsync() {
             return base.Channel.GetAllAppliersAsync();
         }
         

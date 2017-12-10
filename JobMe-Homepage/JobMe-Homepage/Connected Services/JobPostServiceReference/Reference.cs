@@ -148,6 +148,9 @@ namespace JobMe_Homepage.JobPostServiceReference {
         private string AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CompanyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -196,6 +199,19 @@ namespace JobMe_Homepage.JobPostServiceReference {
                 if ((object.ReferenceEquals(this.AddressField, value) != true)) {
                     this.AddressField = value;
                     this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CompanyName {
+            get {
+                return this.CompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyNameField, value) != true)) {
+                    this.CompanyNameField = value;
+                    this.RaisePropertyChanged("CompanyName");
                 }
             }
         }
@@ -356,7 +372,7 @@ namespace JobMe_Homepage.JobPostServiceReference {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.JobPostServiceReference.Booking[] bookingField;
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.Booking> bookingField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -395,7 +411,7 @@ namespace JobMe_Homepage.JobPostServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.JobPostServiceReference.Booking[] booking {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.Booking> booking {
             get {
                 return this.bookingField;
             }
@@ -695,7 +711,7 @@ namespace JobMe_Homepage.JobPostServiceReference {
         private System.DateTime StartDateAndTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.JobPostServiceReference.Session[] sessionListField;
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.Session> sessionListField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -773,7 +789,7 @@ namespace JobMe_Homepage.JobPostServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.JobPostServiceReference.Session[] sessionList {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.Session> sessionList {
             get {
                 return this.sessionListField;
             }
@@ -969,7 +985,7 @@ namespace JobMe_Homepage.JobPostServiceReference {
         private JobMe_Homepage.JobPostServiceReference.JobCV JobCVField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.JobPostServiceReference.JobCategory[] JobCategoryListField;
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory> JobCategoryListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LNameField;
@@ -1166,7 +1182,7 @@ namespace JobMe_Homepage.JobPostServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.JobPostServiceReference.JobCategory[] JobCategoryList {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory> JobCategoryList {
             get {
                 return this.JobCategoryListField;
             }
@@ -1263,7 +1279,7 @@ namespace JobMe_Homepage.JobPostServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.JobPostServiceReference.ApplierEducation[] ApplierEducationListField;
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.ApplierEducation> ApplierEducationListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ApplierIdField;
@@ -1275,10 +1291,10 @@ namespace JobMe_Homepage.JobPostServiceReference {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.JobPostServiceReference.JobAppendix[] JobAppendixListField;
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobAppendix> JobAppendixListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private JobMe_Homepage.JobPostServiceReference.JobExperience[] JobExperienceListField;
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobExperience> JobExperienceListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TitleField;
@@ -1294,7 +1310,7 @@ namespace JobMe_Homepage.JobPostServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.JobPostServiceReference.ApplierEducation[] ApplierEducationList {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.ApplierEducation> ApplierEducationList {
             get {
                 return this.ApplierEducationListField;
             }
@@ -1346,7 +1362,7 @@ namespace JobMe_Homepage.JobPostServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.JobPostServiceReference.JobAppendix[] JobAppendixList {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobAppendix> JobAppendixList {
             get {
                 return this.JobAppendixListField;
             }
@@ -1359,7 +1375,7 @@ namespace JobMe_Homepage.JobPostServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public JobMe_Homepage.JobPostServiceReference.JobExperience[] JobExperienceList {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobExperience> JobExperienceList {
             get {
                 return this.JobExperienceListField;
             }
@@ -1821,10 +1837,10 @@ namespace JobMe_Homepage.JobPostServiceReference {
         System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.WorkHours> GetWorkHoursAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllWorkHours", ReplyAction="http://tempuri.org/IJobPostService/GetAllWorkHoursResponse")]
-        JobMe_Homepage.JobPostServiceReference.WorkHours[] GetAllWorkHours();
+        System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.WorkHours> GetAllWorkHours();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllWorkHours", ReplyAction="http://tempuri.org/IJobPostService/GetAllWorkHoursResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.WorkHours[]> GetAllWorkHoursAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.WorkHours>> GetAllWorkHoursAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateWorkHours", ReplyAction="http://tempuri.org/IJobPostService/UpdateWorkHoursResponse")]
         void UpdateWorkHours(JobMe_Homepage.JobPostServiceReference.WorkHours obj);
@@ -1851,10 +1867,10 @@ namespace JobMe_Homepage.JobPostServiceReference {
         System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobCategory> GetJobCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobCategories", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobCategoriesResponse")]
-        JobMe_Homepage.JobPostServiceReference.JobCategory[] GetAllJobCategories();
+        System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory> GetAllJobCategories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobCategories", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobCategoriesResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobCategory[]> GetAllJobCategoriesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory>> GetAllJobCategoriesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateJobCategory", ReplyAction="http://tempuri.org/IJobPostService/UpdateJobCategoryResponse")]
         void UpdateJobCategory(JobMe_Homepage.JobPostServiceReference.JobCategory obj);
@@ -1881,10 +1897,10 @@ namespace JobMe_Homepage.JobPostServiceReference {
         System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost> GetJobPostAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPost", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostResponse")]
-        JobMe_Homepage.JobPostServiceReference.JobPost[] GetAllJobPost();
+        System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost> GetAllJobPost();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPost", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost[]> GetAllJobPostAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost>> GetAllJobPostAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateJobPost", ReplyAction="http://tempuri.org/IJobPostService/UpdateJobPostResponse")]
         void UpdateJobPost(JobMe_Homepage.JobPostServiceReference.JobPost obj);
@@ -1893,10 +1909,10 @@ namespace JobMe_Homepage.JobPostServiceReference {
         System.Threading.Tasks.Task UpdateJobPostAsync(JobMe_Homepage.JobPostServiceReference.JobPost obj);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplication", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplicationResponse")]
-        JobMe_Homepage.JobPostServiceReference.JobPost[] GetAllJobPostToAJobApplication(int jobApplicationId);
+        System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost> GetAllJobPostToAJobApplication(int jobApplicationId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplication", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplicationResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost[]> GetAllJobPostToAJobApplicationAsync(int jobApplicationId);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost>> GetAllJobPostToAJobApplicationAsync(int jobApplicationId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostByMeetingId", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostByMeetingIdResponse")]
         JobMe_Homepage.JobPostServiceReference.JobPost GetJobPostByMeetingId(int meetingId);
@@ -1956,11 +1972,11 @@ namespace JobMe_Homepage.JobPostServiceReference {
             return base.Channel.GetWorkHoursAsync(id);
         }
         
-        public JobMe_Homepage.JobPostServiceReference.WorkHours[] GetAllWorkHours() {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.WorkHours> GetAllWorkHours() {
             return base.Channel.GetAllWorkHours();
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.WorkHours[]> GetAllWorkHoursAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.WorkHours>> GetAllWorkHoursAsync() {
             return base.Channel.GetAllWorkHoursAsync();
         }
         
@@ -1996,11 +2012,11 @@ namespace JobMe_Homepage.JobPostServiceReference {
             return base.Channel.GetJobCategoryAsync(id);
         }
         
-        public JobMe_Homepage.JobPostServiceReference.JobCategory[] GetAllJobCategories() {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory> GetAllJobCategories() {
             return base.Channel.GetAllJobCategories();
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobCategory[]> GetAllJobCategoriesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory>> GetAllJobCategoriesAsync() {
             return base.Channel.GetAllJobCategoriesAsync();
         }
         
@@ -2036,11 +2052,11 @@ namespace JobMe_Homepage.JobPostServiceReference {
             return base.Channel.GetJobPostAsync(id);
         }
         
-        public JobMe_Homepage.JobPostServiceReference.JobPost[] GetAllJobPost() {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost> GetAllJobPost() {
             return base.Channel.GetAllJobPost();
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost[]> GetAllJobPostAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost>> GetAllJobPostAsync() {
             return base.Channel.GetAllJobPostAsync();
         }
         
@@ -2052,11 +2068,11 @@ namespace JobMe_Homepage.JobPostServiceReference {
             return base.Channel.UpdateJobPostAsync(obj);
         }
         
-        public JobMe_Homepage.JobPostServiceReference.JobPost[] GetAllJobPostToAJobApplication(int jobApplicationId) {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost> GetAllJobPostToAJobApplication(int jobApplicationId) {
             return base.Channel.GetAllJobPostToAJobApplication(jobApplicationId);
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost[]> GetAllJobPostToAJobApplicationAsync(int jobApplicationId) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost>> GetAllJobPostToAJobApplicationAsync(int jobApplicationId) {
             return base.Channel.GetAllJobPostToAJobApplicationAsync(jobApplicationId);
         }
         
