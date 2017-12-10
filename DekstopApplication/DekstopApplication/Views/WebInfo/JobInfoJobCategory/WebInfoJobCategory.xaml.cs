@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DekstopApplication.JobPostServiceReference;
-using DekstopApplication.Views.WebInfo.JobInfoJobCategory;
 
 namespace DekstopApplication.Views.WebInfo
 {
@@ -26,52 +25,24 @@ namespace DekstopApplication.Views.WebInfo
         //Instance variables
         private List<JobCategory> JobCategoryList = new List<JobCategory>();
         private JobPostServiceClient JobPostClient = new JobPostServiceClient();
-
-        //Instanciating views
-        private AddJobCategoryView AddJobCategoryView = new AddJobCategoryView();
-        private UpdateJobCategoryView UpdateJobCategoryView = new UpdateJobCategoryView();
+        private JobCategory JobCategorySelected = null; // Used to keep knowing wich job category that is currently selected
+        private int IndexSelected;
 
         public WebInfoJobCategory()
         {
-            JobCategoryList = JobPostClient.GetAllJobCategories();
             InitializeComponent();
-            DisplayAllJobCategories();
+            UpdateJobCategoryListAndTable();
         }
 
-
         /// <summary>
-        /// Displayes all currenct available job categories from the database. 
-        /// Theise can be used with CRUD functionality
+        /// Updates the table and the list of all job categories
         /// </summary>
-        public void DisplayAllJobCategories()
+        private void UpdateJobCategoryListAndTable()
         {
+            JobCategoryList = JobPostClient.GetAllJobCategories();
             JobCategoryTable.ItemsSource = JobCategoryList;
         }
 
-
-        /// <summary>
-        /// Displayss the menu for adding a new job category by calling the corosponding user control
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddNewJobCategoryView(object sender, RoutedEventArgs e)
-        {
-            JobCategoryAddAndUpdatePanel.Children.Clear();
-            JobCategoryAddAndUpdatePanel.Children.Add(AddJobCategoryView);
-
-        }
-
-        /// <summary>
-        /// Displays the menu for the currently selected job category by calling the corosponding user control
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UpdateJobCategory(object sender, RoutedEventArgs e)
-        {
-            JobCategoryAddAndUpdatePanel.Children.Clear();
-            JobCategoryAddAndUpdatePanel.Children.Add(UpdateJobCategoryView);
-
-        }
 
         /// <summary>
         /// Deletes the selected job category from the database and the list
@@ -80,7 +51,68 @@ namespace DekstopApplication.Views.WebInfo
         /// <param name="e"></param>
         private void DeleteJobCategory(object sender, RoutedEventArgs e)
         {
+            JobPostClient.DeleteJobCategory(JobCategorySelected.Id);
+            UpdateJobCategoryListAndTable();
+        }
+
+        /// <summary>
+        /// Creates a new job category in the database. 
+        /// </summary>
+        /// <param name="sernder"></param>
+        /// <param name="e"></param>
+        private void AddNewJobCategory(object sernder, RoutedEventArgs e)
+        {
+            JobCategory jobCategory = new JobCategory();
+            jobCategory.Title = AddJobCategoryInput.Text;
+
+            JobPostClient.CreateJobCategory(jobCategory);
+
+            UpdateJobCategoryListAndTable();
+        }
+
+        /// <summary>
+        /// Updaring the current selected job category by the new title set in the inputfield
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateJobCategory(object sender, RoutedEventArgs e)
+        {
+            JobCategorySelected.Title = NewJobCategoryTitleInput.Text;
+
+            JobPostClient.UpdateJobCategory(JobCategorySelected);
+
+            NewJobCategoryTitleInput.Text = "";
+            UpdateJobCategoryListAndTable();
 
         }
+
+        /// <summary>
+        /// Automaticly sets the textfield text when highlighted
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void JobCategoryTable_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index;
+            //Get the current selected JobCategory object from the list 
+            if (JobCategoryTable.SelectedIndex >= 0)
+            {
+                index = JobCategoryTable.SelectedIndex;
+            }
+            else
+            {
+                index = IndexSelected;
+            }
+
+            JobCategorySelected = JobCategoryList[index];
+
+            //Setting the text in update section
+            CurrentJobCategoryTitleInput.Text = JobCategorySelected.Title;
+
+            //Sets the indexSelected to the current selected index on the table list. This then used for the next time this mehtod is called
+            IndexSelected = index;
+        }
+
+
     }
 }

@@ -15,13 +15,30 @@ namespace DataAccessLayer
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
         /// <summary>
-        /// Is  a mathod that creates a JobCategory in the databse with the variables....
+        /// Creates a new job category in the database with the given object
         /// </summary>
         /// <param name="obj"></param>
-        /// <returns></returns>
+        /// <returns>bool</returns>
         public bool Create(JobCategory obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "INSERT INTO JobCategories (Title) VALUES (@Title)";
+                        cmd.Parameters.AddWithValue("Title", obj.Title);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -30,7 +47,23 @@ namespace DataAccessLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "DELETE FROM JobCategories WHERE Id = @Id";
+                        cmd.Parameters.AddWithValue("Id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -99,7 +132,25 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Update(JobCategory obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "UPDATE JobCategories SET Title = @Title WHERE Id = @Id";
+                        cmd.Parameters.AddWithValue("Title", obj.Title);
+                        cmd.Parameters.AddWithValue("Id", obj.Id);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
     }
 }

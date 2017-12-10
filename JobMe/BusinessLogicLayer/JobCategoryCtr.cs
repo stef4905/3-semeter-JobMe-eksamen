@@ -19,7 +19,7 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public bool Create(JobCategory obj)
         {
-            throw new NotImplementedException();
+            return dbJobCategory.Create(obj);
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace BusinessLogicLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            dbJobCategory.Delete(id);
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace BusinessLogicLayer
         /// <returns>JobCategory</returns>
         public JobCategory Get(int id)
         {
-            throw new NotImplementedException();
+            return dbJobCategory.Get(id);
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public bool Update(JobCategory obj)
         {
-            throw new NotImplementedException();
+            return dbJobCategory.Update(obj);
         }
     }
 }
