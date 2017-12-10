@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DekstopApplication.Views.WebInfo;
+using DekstopApplication.Views.WebInfo.SiteTexts;
 
 namespace DekstopApplication.Views
 {
@@ -21,18 +22,25 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class WebInfoView : UserControl
     {
-
-        private WebInfoJobCategory WebinfoJobCategory = new WebInfoJobCategory();
+        //Instnace variables
+        private WebInfoJobCategory WebinfoJobCategoryView = new WebInfoJobCategory();
+        private WebInfoSiteTexts WebInfoSiteTextsView = new WebInfoSiteTexts();
 
         public WebInfoView()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void JobCategoryButton(object sender, RoutedEventArgs e)
         {
             WebInfoPanel.Children.Clear();
-            WebInfoPanel.Children.Add(WebinfoJobCategory);
+            WebInfoPanel.Children.Add(WebinfoJobCategoryView);
+        }
+
+        private void WebInfoTextButton(object sender, RoutedEventArgs e)
+        {
+            WebInfoPanel.Children.Clear();
+            WebInfoPanel.Children.Add(WebInfoSiteTextsView);
         }
     }
 }
