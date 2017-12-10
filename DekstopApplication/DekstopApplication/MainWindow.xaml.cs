@@ -25,11 +25,14 @@ namespace DekstopApplication
     public partial class MainWindow : Window
     {
 
+        //Instance variables
+        private CMS Cms;
 
         public MainWindow()
         {
             ServicePointManager.ServerCertificateValidationCallback = (obj, certificate, chain, errors) => true;
             InitializeComponent();
+            Cms = new CMS();
         }
 
         private void MinimizeWindow(object sender, RoutedEventArgs e)
@@ -55,10 +58,6 @@ namespace DekstopApplication
         private void Login()
         {
 
-            //Vi skal kigge på noget multithreading for at opnå bedre perfomance, for her hvor jeg gerne
-            // vil have en loading gif til at køre i baggrunden under login knappen blokeres fjernelsen af knappen (eller usynliggørrelsen)
-            LoginButton.Visibility = Visibility.Collapsed;
-
             string username = UsernameInput.Text;
             string password = PasswordInpunt.Password.ToString();
             AdminServiceClient client = new AdminServiceClient();
@@ -74,8 +73,7 @@ namespace DekstopApplication
                 //If statement om det der bliver returned er null eller ej. Hvis den ikke er null kan du efterfølgennde sender den videre i koden herunder.
                 if (admin != null)
                 {
-                    CMS cms = new CMS();
-                    cms.Show();
+                    Cms.Show();
                     this.Close();
                 }
                 else
@@ -95,6 +93,8 @@ namespace DekstopApplication
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //Removes the login button and displayes a loading icon under long login times
+            LoginButton.Visibility = Visibility.Collapsed;
             Login();
         }
 

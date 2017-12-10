@@ -37,7 +37,7 @@ namespace DekstopApplication.Views.WebInfo
         /// <summary>
         /// Updates the table and the list of all job categories
         /// </summary>
-        private void UpdateJobCategoryListAndTable()
+        public void UpdateJobCategoryListAndTable()
         {
             JobCategoryList = JobPostClient.GetAllJobCategories();
             JobCategoryTable.ItemsSource = JobCategoryList;
