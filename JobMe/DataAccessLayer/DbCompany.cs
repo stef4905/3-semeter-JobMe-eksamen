@@ -103,7 +103,43 @@ namespace DataAccessLayer
         /// <returns>List of all Company</returns>
         public List<Company> GetAll()
         {
-            throw new NotImplementedException();
+            List<Company> companyList = new List<Company>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Company";
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        DBBusinessType dbBusinessType = new DBBusinessType();
+
+                        //Gets the company
+
+                        Company company = new Company
+                        {
+                            Id = (int)reader["Id"],
+                            Email = (string)reader["Email"],
+                            Password = (string)reader["Password"],
+                            Phone = (int)reader["Phone"],
+                            Address = (string)reader["Address"],
+                            Country = (string)reader["Country"],
+                            ImageURL = (string)reader["ImageURL"],
+                            Description = (string)reader["Description"],
+                            BannerURL = (string)reader["BannerURL"],
+                            MaxRadius = (int)reader["MaxRadius"],
+                            Homepage = (string)reader["Homepage"],
+                            CompanyName = (string)reader["CompanyName"],
+                            CVR = (int)reader["CVR"],
+                            businessType = dbBusinessType.Get((int)reader["BusinessTypeId"]),
+                        };
+                        companyList.Add(company);
+                    }
+                }
+            }
+            return companyList;
         }
 
         /// <summary>

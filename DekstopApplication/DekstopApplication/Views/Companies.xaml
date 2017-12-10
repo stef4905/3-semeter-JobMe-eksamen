@@ -7,7 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="953" d:DesignWidth="1410">
     <Grid>
-		<Label Content="Virksomheder" HorizontalAlignment="Left" Margin="245,140,0,0" VerticalAlignment="Top"/>
-
-	</Grid>
+        <TextBox x:Name="CompanySearchBox" Margin="10,10,900,906" TextWrapping="Wrap" Text="Søg: id, firmanavn" MinHeight="10" FontSize="22"/>
+        <Button Content="Søg" HorizontalAlignment="Left" Margin="515,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White"/>
+        <ListView x:Name="Companytabel" HorizontalAlignment="Left" Height="891" Margin="10,52,0,0" VerticalAlignment="Top" Width="1205">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="50px" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Firma Navn" Width="150px" DisplayMemberBinding="{Binding CompanyName}"/>
+                    <GridViewColumn Header="Email" Width="150px" DisplayMemberBinding="{Binding Email}"/>
+                    <GridViewColumn Header="Country" Width="150px" DisplayMemberBinding="{Binding Country}"/>
+                    <GridViewColumn Header="HomePage" Width="150px" DisplayMemberBinding="{Binding HomePage}"/>
+                    <GridViewColumn Header="CVR" Width="150px" DisplayMemberBinding="{Binding CVR}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Vis Alle" HorizontalAlignment="Left" Margin="655,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White"/>
+    </Grid>
 </UserControl>

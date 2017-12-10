@@ -48,7 +48,7 @@ namespace BusinessLogicLayer
         /// <returns>List of Company</returns>
         public List<Company> GetAll()
         {
-            throw new NotImplementedException();
+            return dbCompany.GetAll();
         }
 
         /// <summary>

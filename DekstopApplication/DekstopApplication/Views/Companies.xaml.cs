@@ -20,6 +20,7 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class Companies : UserControl
     {
+
         public Companies()
         {
             InitializeComponent();
