@@ -25,6 +25,7 @@ namespace DekstopApplication
         Appliers ApplierView = new Appliers();
         Admin AdminView = new Admin();
         JobPost jobPostView = new JobPost();
+        WebInfoView WebInfoView = new WebInfoView();
 
         public CMS()
         {
@@ -90,6 +91,12 @@ namespace DekstopApplication
             GuiPanel.Children.Clear();
             AdminView.GuiPanelAdmin.Children.Clear();
             GuiPanel.Children.Add(AdminView);
+        }
+
+        private void WebInfo_Click(object sender, RoutedEventArgs e)
+        {
+            GuiPanel.Children.Clear();
+            GuiPanel.Children.Add(WebInfoView);
         }
     }
 }
