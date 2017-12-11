@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="953" d:DesignWidth="1410">
     <Grid>
-        <TextBox x:Name="CompanySearchBox" Margin="10,10,900,906" TextWrapping="Wrap" Text="Søg: id, firmanavn" MinHeight="10" FontSize="22"/>
+        <TextBox x:Name="CompanySearchBox" Margin="10,10,900,906" TextWrapping="Wrap" Text="Søg: Id, Firmanavn,  Email, Telefonnr, CVR " MinHeight="10" FontSize="22"/>
         <Button Content="Søg" HorizontalAlignment="Left" Margin="515,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="CompanySearch_Button"/>
         <ListView x:Name="Companytabel" HorizontalAlignment="Left" Height="891" Margin="10,52,0,0" VerticalAlignment="Top" Width="1205">
             <ListView.View>

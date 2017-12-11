@@ -141,7 +141,7 @@ namespace DataAccessLayer
 
                         if (reader["Address"] == DBNull.Value)
                         {
-                            company.Address = null;
+                            company.Address = "";
                         }
                         else
                         {
@@ -150,7 +150,7 @@ namespace DataAccessLayer
 
                         if (reader["Country"] == DBNull.Value)
                         {
-                            company.Country = null;
+                            company.Country = "";
                         }
                         else
                         {
@@ -158,7 +158,7 @@ namespace DataAccessLayer
                         }
                         if (reader["ImageURL"] == DBNull.Value)
                         {
-                            company.ImageURL = null;
+                            company.ImageURL = "";
                         }
                         else
                         {
@@ -166,7 +166,7 @@ namespace DataAccessLayer
                         }
                         if (reader["Description"] == DBNull.Value)
                         {
-                            company.Description = null;
+                            company.Description = "";
                         }
                         else
                         {
@@ -174,7 +174,7 @@ namespace DataAccessLayer
                         }
                         if (reader["BannerURL"] == DBNull.Value)
                         {
-                            company.BannerURL = null;
+                            company.BannerURL = "";
                         }
                         else
                         {
@@ -191,7 +191,7 @@ namespace DataAccessLayer
 
                         if (reader["HomePage"] == DBNull.Value)
                         {
-                            company.Homepage = null;
+                            company.Homepage = "";
                         }
                         else
                         {
@@ -200,7 +200,7 @@ namespace DataAccessLayer
 
                         if (reader["CompanyName"] == DBNull.Value)
                         {
-                            company.CompanyName = null;
+                            company.CompanyName = "";
                         }
                         else
                         {
