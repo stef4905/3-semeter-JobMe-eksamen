@@ -90,5 +90,14 @@ namespace BusinessLogicLayer
         {
             return dbJobPost.GetJogPostByMeetingId(meetingId);
         }
+
+        /// <summary>
+        /// Return the number of rows in the jobPost table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetJobPostTableSize()
+        {
+            return dbJobPost.GetJobPostTableSize();
+        }
     }
 }

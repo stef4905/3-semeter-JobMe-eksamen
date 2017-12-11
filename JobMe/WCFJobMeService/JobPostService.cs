@@ -179,6 +179,14 @@ namespace WCFJobMeService
             return jobPostCtr.GetJobPostByMeetingId(meetingId);
         }
 
+        /// <summary>
+        /// Return the number of rows in the jobPost table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetJobPostTableSize()
+        {
+            return jobPostCtr.GetJobPostTableSize();
+        }
         #endregion
     }
 }

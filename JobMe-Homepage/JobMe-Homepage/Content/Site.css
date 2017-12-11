@@ -42,7 +42,7 @@
 }
 
 footer{
-    background-color:#000;
+    /*background-color:#000;*/
     color: #fff;
 }
 
@@ -673,7 +673,7 @@ div.tab button {
     padding-right: 2%;
 }
 #FrontpageBackground {
-    background-image: url("https://imgur.com/PSAqTqW.png");
+    background-image: url("https://imgur.com/9UAs8zF.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 650px;

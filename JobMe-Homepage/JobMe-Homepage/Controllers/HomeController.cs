@@ -14,11 +14,12 @@ namespace JobMe_Homepage.Controllers
         ApplierServiceReference.ApplierServiceClient applierClient = new ApplierServiceReference.ApplierServiceClient();
         public ActionResult Index()
         {
-
+            
             VMJobPostAndApplierLists vmJobPostAndApplierLists = new VMJobPostAndApplierLists
             {
                 jobPostList = jobPostClient.GetAllJobPost(),
-                applierList = applierClient.GetAllAppliers()
+                applierList = applierClient.GetAllAppliers(),
+                
             };
 
             return View(vmJobPostAndApplierLists);

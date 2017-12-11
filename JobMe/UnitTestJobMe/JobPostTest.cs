@@ -75,8 +75,20 @@ namespace UnitTestJobMe
             //Assert
             Assert.IsNotNull(list);
         }
+        
+        [TestMethod]
+        public void TestJobPostTableSize()
+        {
+            //Arrange
+            int count;
+            DbJobPost dbJobPost = new DbJobPost();
 
+            //Act
+            count = dbJobPost.GetJobPostTableSize();
 
+            //Assert
+            Assert.AreEqual(14, count);
 
+        }
     }
 }
