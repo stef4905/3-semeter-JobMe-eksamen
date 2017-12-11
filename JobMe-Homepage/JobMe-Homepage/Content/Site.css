@@ -427,13 +427,20 @@
 }
 
 #ApplierIndexTopBackground {
-	background-image: url("https://ak4.picdn.net/shutterstock/videos/23047249/thumb/1.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	height: 400px;
-	margin: 0 auto; 
-	text-align: center;
-	position: relative;
+    background-image: url("https://ak4.picdn.net/shutterstock/videos/23047249/thumb/1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    margin-left: -36%;
+    margin-right: -36%;
+    margin-top: -6%;
+}
+#BackToNormalMargin {
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 
@@ -441,7 +448,8 @@
 	color: white;
 	font-size: 28px;
 	margin: auto;
-	line-height: 200px;
+    margin-top:6%;
+	
 }
 
 .seeRelativeJobsButton {
@@ -451,6 +459,7 @@
 	color: white;
 	font-size: 28px;
 	transition: background-color 0.2s;
+    margin-top: 4%;
 }
 
 .seeRelativeJobsButton:hover {
@@ -683,3 +692,20 @@ div.tab button {
 #CreateBoxHeadline{
     margin-left: 2%;
 }
+/* Company Frontpage*/
+#CompanyIndexTopBackground {
+    background-image: url("https://ak4.picdn.net/shutterstock/videos/23047249/thumb/1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 250px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    margin-left: -36%;
+    margin-right: -36%;
+    margin-top: -6%;
+}
+#buttonStyle {
+    margin-top: 4%;
+}
+
