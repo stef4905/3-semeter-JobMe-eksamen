@@ -182,6 +182,7 @@
     <Compile Include="Models\VMApplierANDJobCategory.cs" />
     <Compile Include="Models\VMBookingSession.cs" />
     <Compile Include="Models\VMCompanyANDJobPost.cs" />
+    <Compile Include="Models\VMJobPostAndApplierLists.cs" />
     <Compile Include="Models\VMJobPostANDJobApplication.cs" />
     <Compile Include="Models\VMJobPostJobApplication.cs" />
     <Compile Include="Models\VMJobPostLists.cs" />

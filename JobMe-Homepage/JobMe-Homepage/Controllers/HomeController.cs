@@ -3,14 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using JobMe_Homepage.JobPostServiceReference;
+using JobMe_Homepage.Models;
 
 namespace JobMe_Homepage.Controllers
 {
     public class HomeController : Controller
     {
+        JobPostServiceClient jobPostClient = new JobPostServiceClient();
+        ApplierServiceReference.ApplierServiceClient applierClient = new ApplierServiceReference.ApplierServiceClient();
         public ActionResult Index()
         {
-            return View();
+
+            VMJobPostAndApplierLists vmJobPostAndApplierLists = new VMJobPostAndApplierLists
+            {
+                jobPostList = jobPostClient.GetAllJobPost(),
+                applierList = applierClient.GetAllAppliers()
+            };
+
+            return View(vmJobPostAndApplierLists);
         }
 
         public ActionResult About()
@@ -34,3 +45,4 @@ namespace JobMe_Homepage.Controllers
         }
     }
 }
+

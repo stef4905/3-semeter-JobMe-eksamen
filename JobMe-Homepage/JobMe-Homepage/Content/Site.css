@@ -41,11 +41,20 @@
 
 }
 
+footer{
+    background-color:#000;
+    color: #fff;
+}
 
 /*Navbar*/
 .navbar-inverse {
 	background-color: #083056 !important;
 	border: none;
+}
+
+
+#HeaderSize {
+    padding: 5px;
 }
 
 	.navbar-inverse .navbar-brand {
@@ -652,20 +661,28 @@ div.tab button {
     float: left;
     margin-bottom: 2%;
 }
-
-/*Frontpage*/
+.container-fluid {
+     padding-right: 0px!important; 
+     padding-left: 0px!important; 
+   
+}
+ /*Frontpage*/
+#createBox {
+    width: 61%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
 #FrontpageBackground {
-    background-image: url("https://imgur.com/rYKmO2P.png");
+    background-image: url("https://imgur.com/PSAqTqW.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 650px;
     margin: 0 auto;
-    margin-left: -36%;
-    margin-right: -36%;
     text-align: left;
     position: relative;
     margin-top: -6%;
 }
+
 #BackToNormalMargin {
     margin-left: 30%;
     margin-right: 30%;
