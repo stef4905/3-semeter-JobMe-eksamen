@@ -50,8 +50,19 @@ namespace DataAccessLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Company WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("Id", id);
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
         }
+    
 
         /// <summary>
         /// Returns a Company Object from the database
@@ -114,27 +125,106 @@ namespace DataAccessLayer
 
                     while (reader.Read())
                     {
-                        DBBusinessType dbBusinessType = new DBBusinessType();
-
-                        //Gets the company
-
-                        Company company = new Company
+                        Company company = new Company();
+                        DBBusinessType dBBusinessType = new DBBusinessType();
+                        company.Id = (int)reader["Id"];
+                        company.Email = (string)reader["Email"];
+                        company.Password = (string)reader["Password"];
+                        if (reader["Phone"] == DBNull.Value)
                         {
-                            Id = (int)reader["Id"],
-                            Email = (string)reader["Email"],
-                            Password = (string)reader["Password"],
-                            Phone = (int)reader["Phone"],
-                            Address = (string)reader["Address"],
-                            Country = (string)reader["Country"],
-                            ImageURL = (string)reader["ImageURL"],
-                            Description = (string)reader["Description"],
-                            BannerURL = (string)reader["BannerURL"],
-                            MaxRadius = (int)reader["MaxRadius"],
-                            Homepage = (string)reader["Homepage"],
-                            CompanyName = (string)reader["CompanyName"],
-                            CVR = (int)reader["CVR"],
-                            businessType = dbBusinessType.Get((int)reader["BusinessTypeId"]),
-                        };
+                            company.Phone = 0;
+                        }
+                        else
+                        {
+                            company.Phone = (int)reader["Phone"];
+                        }
+
+                        if (reader["Address"] == DBNull.Value)
+                        {
+                            company.Address = null;
+                        }
+                        else
+                        {
+                            company.Address = (string)reader["Address"];
+                        }
+
+                        if (reader["Country"] == DBNull.Value)
+                        {
+                            company.Country = null;
+                        }
+                        else
+                        {
+                            company.Country = (string)reader["Country"];
+                        }
+                        if (reader["ImageURL"] == DBNull.Value)
+                        {
+                            company.ImageURL = null;
+                        }
+                        else
+                        {
+                            company.ImageURL = (string)reader["ImageURL"];
+                        }
+                        if (reader["Description"] == DBNull.Value)
+                        {
+                            company.Description = null;
+                        }
+                        else
+                        {
+                            company.Description = (string)reader["Description"];
+                        }
+                        if (reader["BannerURL"] == DBNull.Value)
+                        {
+                            company.BannerURL = null;
+                        }
+                        else
+                        {
+                            company.BannerURL = (string)reader["BannerURL"];
+                        }
+                        if (reader["MaxRadius"] == DBNull.Value)
+                        {
+                            company.MaxRadius = 0;
+                        }
+                        else
+                        {
+                            company.MaxRadius = (int)reader["MaxRadius"];
+                        }
+
+                        if (reader["HomePage"] == DBNull.Value)
+                        {
+                            company.Homepage = null;
+                        }
+                        else
+                        {
+                            company.Homepage = (string)reader["HomePage"];
+                        }
+
+                        if (reader["CompanyName"] == DBNull.Value)
+                        {
+                            company.CompanyName = null;
+                        }
+                        else
+                        {
+                            company.CompanyName = (string)reader["CompanyName"];
+                        }
+                        if (reader["CVR"] == DBNull.Value)
+                        {
+                            company.CVR = 0;
+                        }
+                        else
+                        {
+                            company.CVR = (int)reader["CVR"];
+                        }
+                        if (reader["BusinessTypeId"] == DBNull.Value)
+                        {
+                            company.businessType = new BusinessType();
+                            company.businessType.Id = 0;
+                            company.businessType.Type = "Ikke Angivet";
+                        }
+                        else
+                        {
+                            company.businessType = dBBusinessType.Get((int)reader["BusinessTypeId"]);
+                            company.businessType.Id = (int)reader["BusinessTypeId"];
+                        }
                         companyList.Add(company);
                     }
                 }
@@ -149,7 +239,38 @@ namespace DataAccessLayer
         /// <returns>A Bool to ensure the update</returns>
         public bool Update(Company obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE Company SET Email = @Email, Password = @Password, Phone = @Phone, Address = @Address, Country = @Country, ImageURL = @ImageURL, Description = @Description, BannerURl = @BannerURl, MaxRadius = @MaxRadius, HomePage = @HomePage, CompanyName = @CompanyName, CVR = @CVR, BusinessTypeId = @BusinessTypeId WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("Email", obj.Email);
+                    cmd.Parameters.AddWithValue("Password", obj.Password);
+                    cmd.Parameters.AddWithValue("Phone", obj.Phone);
+                    cmd.Parameters.AddWithValue("Address", obj.Address);
+                    cmd.Parameters.AddWithValue("Country", obj.Country);
+                    cmd.Parameters.AddWithValue("ImageURL", obj.ImageURL);
+                    cmd.Parameters.AddWithValue("Description", obj.Description);
+                    cmd.Parameters.AddWithValue("BannerURl", obj.BannerURL);
+                    cmd.Parameters.AddWithValue("MaxRadius", obj.MaxRadius);
+                    cmd.Parameters.AddWithValue("HomePage", obj.Homepage);
+                    cmd.Parameters.AddWithValue("CompanyName", obj.CompanyName);
+                    cmd.Parameters.AddWithValue("CVR", obj.CVR);
+                    cmd.Parameters.AddWithValue("BusinessTypeId", obj.businessType.Id);
+                    cmd.Parameters.AddWithValue("Id", obj.Id);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+
+                }
+            }
         }
 
         /// <summary>
