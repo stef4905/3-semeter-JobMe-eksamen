@@ -350,10 +350,10 @@ namespace DekstopApplication.CompanyServiceReference {
         System.Threading.Tasks.Task<DekstopApplication.CompanyServiceReference.Company> GetCompanyAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetAllCompany", ReplyAction="http://tempuri.org/ICompanyService/GetAllCompanyResponse")]
-        DekstopApplication.CompanyServiceReference.Company[] GetAllCompany();
+        System.Collections.Generic.List<DekstopApplication.CompanyServiceReference.Company> GetAllCompany();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetAllCompany", ReplyAction="http://tempuri.org/ICompanyService/GetAllCompanyResponse")]
-        System.Threading.Tasks.Task<DekstopApplication.CompanyServiceReference.Company[]> GetAllCompanyAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DekstopApplication.CompanyServiceReference.Company>> GetAllCompanyAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateCompany", ReplyAction="http://tempuri.org/ICompanyService/UpdateCompanyResponse")]
         void UpdateCompany(DekstopApplication.CompanyServiceReference.Company obj);
@@ -419,11 +419,11 @@ namespace DekstopApplication.CompanyServiceReference {
             return base.Channel.GetCompanyAsync(id);
         }
         
-        public DekstopApplication.CompanyServiceReference.Company[] GetAllCompany() {
+        public System.Collections.Generic.List<DekstopApplication.CompanyServiceReference.Company> GetAllCompany() {
             return base.Channel.GetAllCompany();
         }
         
-        public System.Threading.Tasks.Task<DekstopApplication.CompanyServiceReference.Company[]> GetAllCompanyAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DekstopApplication.CompanyServiceReference.Company>> GetAllCompanyAsync() {
             return base.Channel.GetAllCompanyAsync();
         }
         
