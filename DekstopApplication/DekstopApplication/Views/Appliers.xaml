@@ -5,28 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DekstopApplication.Views"
              mc:Ignorable="d" 
-            d:DesignHeight="953" d:DesignWidth="1410">
-    <Grid>
-        
+            d:DesignHeight="953" d:DesignWidth="1410" Width="1410" Height="953">
+    <Grid x:Name="GuiGridApplier">
+
         <TextBox x:Name="ApplierSearchBox" Margin="10,10,900,906" TextWrapping="Wrap" Text="Søg " MinHeight="10" FontSize="22"/>
-        <Button Content="Søg" HorizontalAlignment="Left" Margin="515,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White"/>
+        <Button x:Name="searchButton" Content="Søg" HorizontalAlignment="Left" Margin="515,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="searchButton_Click"/>
         <Button x:Name="CreateApplierButton" Content="Opret ansøger" HorizontalAlignment="Left" Margin="1220,65,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="CreateApplierButton_Click"/>
         <Button x:Name="UpdateApplierButton" Content="Opdatere ansøgere" HorizontalAlignment="Left" Margin="1220,124,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" BorderBrush="#FF2C5781" Background="#FF2C5781" Foreground="White" Click="UpdateApplierButton_Click" />
         <Button Content="Slet ansøger" HorizontalAlignment="Left" Margin="1220,895,0,0" VerticalAlignment="Top" Width="180" Height="48" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White" Click="Button_Click"/>
-        <StackPanel Name="GuiPanelApplierCreate" HorizontalAlignment="Left" Height="953" VerticalAlignment="Top" Width="1410"/>
-        <StackPanel Name="GuiPanelApplierUpdate" HorizontalAlignment="Left" Height="953" VerticalAlignment="Top" Width="1410">
-            <ListView x:Name="ApplierTable" HorizontalAlignment="Left" Height="878" Margin="10,65,0,0" VerticalAlignment="Top" Width="1199" Background="#7FFFFFFF">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Id" Width="100px" DisplayMemberBinding="{Binding Id}"/>
-                        <GridViewColumn Header="Email" Width="300px" DisplayMemberBinding="{Binding Email}"/>
-                        <GridViewColumn Header="Fornavn" Width="300px" DisplayMemberBinding="{Binding FName}"/>
-                        <GridViewColumn Header="Efternavn" Width="300px" DisplayMemberBinding="{Binding LName}"/>
-                        <GridViewColumn Header="Telefon" Width="200px" DisplayMemberBinding="{Binding Phone}"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </StackPanel>
+        <StackPanel Name="GuiPanelApplier" HorizontalAlignment="Left" Height="953" VerticalAlignment="Top" Width="1410"/>
+        <ListView x:Name="ApplierTable" HorizontalAlignment="Left" Height="878" Margin="10,65,0,0" VerticalAlignment="Top" Width="1199" Background="#7FFFFFFF">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" Width="100px" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Email" Width="300px" DisplayMemberBinding="{Binding Email}"/>
+                    <GridViewColumn Header="Fornavn" Width="300px" DisplayMemberBinding="{Binding FName}"/>
+                    <GridViewColumn Header="Efternavn" Width="300px" DisplayMemberBinding="{Binding LName}"/>
+                    <GridViewColumn Header="Telefon" Width="200px" DisplayMemberBinding="{Binding Phone}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="1220,172,0,0" VerticalAlignment="Top" Height="26" Width="180" Foreground="Red"/>
     </Grid>
 
 </UserControl>

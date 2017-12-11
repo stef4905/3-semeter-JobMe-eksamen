@@ -26,9 +26,12 @@ namespace DekstopApplication.Views
         public List<Applier> applierList = new List<Applier>();
         public Appliers()
         {
+
+          
             InitializeComponent();
             applierList = applierClient.GetAllAppliers();
             ApplierTable.ItemsSource = applierList;
+          
         }
 
         public class ApplierItems
@@ -39,34 +42,40 @@ namespace DekstopApplication.Views
             public string Telefon { get; set; }
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+    
 
         private void CreateApplierButton_Click(object sender, RoutedEventArgs e)
         {
-            GuiPanelApplierCreate.Children.Clear();
-            GuiPanelApplierCreate.Children.Add(applierCreateView);
+            GuiPanelApplier.Children.Clear();
+            GuiGridApplier.Children.Add(applierCreateView);
         }
 
         private void UpdateApplierButton_Click(object sender, RoutedEventArgs e)
         {
+            Applier applier = (Applier)ApplierTable.SelectedItem;
 
-            Applier applier = applierClient.GetApplier(5);
-            ApplierUpdate applierUpdateView = new ApplierUpdate(applier);
-            GuiPanelApplierUpdate.Children.Clear();
-            GuiPanelApplierUpdate.Children.Add(applierUpdateView);
+
+            if (applier == null)
+            {
+                FailCheckLabel.Content = "Vælg en ansøger at opdatere";
+            }
+            else
+            {
+                ApplierUpdate applierUpdateView = new ApplierUpdate(applier);
+                GuiPanelApplier.Children.Clear();
+                GuiGridApplier.Children.Add(applierUpdateView);
+            }
 
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Applier applier = (Applier)ApplierTable.SelectedItem;
 
             MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette", "Confirmation", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
-                applierClient.Delete(1048);
+                applierClient.Delete(applier.Id);
             }
             else if (result == MessageBoxResult.No)
             {
@@ -74,6 +83,36 @@ namespace DekstopApplication.Views
             }
             
 
+        }
+
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<Applier> ApplierSearchList = new List<Applier>();
+            foreach (var applier in applierList)
+            {
+                int id;
+                bool result = Int32.TryParse(ApplierSearchBox.Text, out id);
+
+        
+
+                if ((applier.FName != null && applier.FName.ToLower().Contains(ApplierSearchBox.Text.ToLower())) || (applier.FName != null && applier.LName.ToLower().Contains(ApplierSearchBox.Text.ToLower())) || applier.Email.ToLower().Contains(ApplierSearchBox.Text.ToLower()) || (applier.Phone.ToString() != null && applier.Phone.ToString().Contains(ApplierSearchBox.Text.ToLower())))
+                {
+                    ApplierSearchList.Add(applier);
+                }
+
+                else if (result)
+                {
+                    if (applier.Id == id)
+                    {
+                        ApplierSearchList.Add(applier);
+                    }
+                }
+            }
+            if (ApplierSearchList.Count != 0)
+            {
+                ApplierTable.ClearValue(ListView.ItemsSourceProperty);
+                ApplierTable.ItemsSource = ApplierSearchList;
+            }
         }
     }
 }

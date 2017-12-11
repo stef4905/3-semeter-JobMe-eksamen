@@ -30,7 +30,6 @@ namespace DekstopApplication.Views
         Applier applierG = new Applier();
         public ApplierUpdate(Applier applier)
         {
-
             InitializeComponent();
             applierG = applier;
             EmailInput.Text = applier.Email;
@@ -42,13 +41,24 @@ namespace DekstopApplication.Views
             DescriptionInput.Text = applier.Description;
             HomePageInput.Text = applier.HomePage;
             CurrentJobInput.Text = applier.CurrentJob;
-           
+            // Checks to see if the Apllier has a image or else it sets the default image(Apllier IMAGE)
+            Uri imageUri = null;
+            if (applier.ImageURL != null)
+            {
+                imageUri = new Uri(applier.ImageURL, UriKind.Absolute);
+            }
+            else
+            {
+                imageUri = new Uri("https://i.imgur.com/Csasjwt.png", UriKind.Absolute);
+            }
+            BitmapImage imageBitmap = new BitmapImage(imageUri);
+            ApplierImage.Source = imageBitmap;
             CreateCheckBoxList();
-
-           
-
         }
-
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((Panel)this.Parent).Children.Remove(this);
+        }
 
         /// <summary>
         /// Updates an Applier by pression the update button on the view
@@ -69,7 +79,8 @@ namespace DekstopApplication.Views
             {
                 FailCheckLabel.Content = "Alle felter skal være udfyldt!";
             }
-            else {
+            else
+            {
                 applier.Email = EmailInput.Text;
                 applier.FName = FNameInput.Text;
                 applier.LName = LNameInput.Text;
@@ -80,8 +91,12 @@ namespace DekstopApplication.Views
                 applier.HomePage = HomePageInput.Text;
                 applier.CurrentJob = CurrentJobInput.Text;
 
+                if (applier.JobCategoryList != null)
+                {
+                    applier.JobCategoryList.Clear();
+                }
+                List<JobCategory> jobList = new List<JobCategory>();
 
-                applier.JobCategoryList.Clear();
                 foreach (var item in CategoryList.Where(m => m.Cheeked))
                 {
                     JobCategory jobCategory = new JobCategory
@@ -89,9 +104,11 @@ namespace DekstopApplication.Views
                         Id = item.TheValue
 
                     };
-                    
-                    applier.JobCategoryList.Add(jobCategory);
+
+                    jobList.Add(jobCategory);
+
                 }
+                applier.JobCategoryList = jobList;
                 applierClient.Update(applier);
                 SuccesCheck.Content = "Brugeren er opdateret!";
             }
@@ -118,31 +135,31 @@ namespace DekstopApplication.Views
             List<JobPostServiceReference.JobCategory> CategoriesList = jobClient.GetAllJobCategories();
 
             CategoryList = new ObservableCollection<BoolStringClass>();
-           
-                foreach (var Category in CategoriesList)
-                {
 
-                    CategoryList.Add(new BoolStringClass { TheText = Category.Title, TheValue = Category.Id});
-                }
-       
-//              KODE TIL CHECK item er sat for starten virker ikke!!!
- //           foreach (var item in applierG.JobCategoryList)
- //           {
+            foreach (var Category in CategoriesList)
+            {
 
-           
- //               foreach (var category in CategoryList)
- //               {
- //                   if (category.TheText == item.Title)
- //                   {
- //                       category.IsChecked = true;
- //                   }
- //}
- //               }
-            
+                CategoryList.Add(new BoolStringClass { TheText = Category.Title, TheValue = Category.Id });
+            }
+
+            //              KODE TIL CHECK item er sat for starten virker ikke!!!
+            //           foreach (var item in applierG.JobCategoryList)
+            //           {
+
+
+            //               foreach (var category in CategoryList)
+            //               {
+            //                   if (category.TheText == item.Title)
+            //                   {
+            //                       category.IsChecked = true;
+            //                   }
+            //}
+            //               }
+
             this.DataContext = this;
         }
 
- 
+
 
         /// <summary>
         /// Cheks if the checkbox is unchecked and seets CategoryLists cheeked to false
@@ -184,10 +201,7 @@ namespace DekstopApplication.Views
 
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            ((Panel)this.Parent).Children.Remove(this);
-        }
+
     }
 
 

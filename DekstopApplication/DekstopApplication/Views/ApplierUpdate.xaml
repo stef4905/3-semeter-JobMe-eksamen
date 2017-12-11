@@ -31,16 +31,17 @@
         <TextBox x:Name="CurrentJobInput" HorizontalAlignment="Left" Height="37" Margin="35,807,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
         <Label Content="Nuværende job:" HorizontalAlignment="Left" Margin="34,763,0,0" VerticalAlignment="Top" FontSize="22"/>
 
-        <DatePicker x:Name="BirtdatePicker" HorizontalAlignment="Left" Margin="35,386,0,0" VerticalAlignment="Top" Width="705"/>
-        <ListBox Name="listBoxZone" ItemsSource="{Binding CategoryList}" Background="#00F0FFFF" Margin="846,162,123,476">
+        <DatePicker x:Name="BirtdatePicker" HorizontalAlignment="Left" Margin="38,386,0,0" VerticalAlignment="Top" Width="705"/>
+        <ListBox Name="listBoxZone" ItemsSource="{Binding CategoryList}" Background="#00F0FFFF" Margin="885,424,84,214" BorderBrush="#FFC2C2C3">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding Path=f, Mode=OneWay}" Name="CheckBoxZone"  Content="{Binding TheText}" Tag="{Binding TheValue}" Unchecked="CheckBoxZone_UnChecked" Checked="CheckBoxZone_Checked"  Margin="0,5,0,0"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="Job Kategorier:" HorizontalAlignment="Left" Margin="846,118,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <Label Content="Job Kategorier:" HorizontalAlignment="Left" Margin="885,380,0,0" VerticalAlignment="Top" FontSize="22"/>
         <Label x:Name="SuccesCheck" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="214" Foreground="#FF23D611" FontSize="20"/>
+        <Image x:Name="ApplierImage" HorizontalAlignment="Left" Height="230" Margin="885,84,0,0" VerticalAlignment="Top" Width="441"/>
 
     </Grid>
 </UserControl>
