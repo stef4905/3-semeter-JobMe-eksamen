@@ -92,6 +92,9 @@ namespace DekstopApplication.Views
             if (result == MessageBoxResult.Yes)
             {
                 applierClient.Delete(applier.Id);
+                applierList.Remove(applier);
+                ApplierTable.ClearValue(ListView.ItemsSourceProperty);
+                ApplierTable.ItemsSource = applierList;
             }
             else if (result == MessageBoxResult.No)
             {

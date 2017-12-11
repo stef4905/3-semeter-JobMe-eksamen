@@ -21,11 +21,11 @@
 					<GridViewColumn Header="Email" Width="300px" DisplayMemberBinding="{Binding Email}"/>
 					<GridViewColumn Header="Fornavn" Width="300px" DisplayMemberBinding="{Binding FName}"/>
 					<GridViewColumn Header="Efternavn" Width="300px" DisplayMemberBinding="{Binding LName}"/>
-					<GridViewColumn Header="Telefon" Width="200px" DisplayMemberBinding="{Binding Phone}"/>
+					<GridViewColumn Header="Telefon" Width="190px" DisplayMemberBinding="{Binding Phone}"/>
 				</GridView>
 			</ListView.View>
 		</ListView>
-		<Label x:Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="1220,172,0,0" VerticalAlignment="Top" Height="26" Width="180" Foreground="Red"/>
+		<Label Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="1220,172,0,0" VerticalAlignment="Top" Height="26" Width="180" Foreground="Red"/>
 		<Button Name="ShowAllAppliersButton" Content="Se alle" HorizontalAlignment="Left" Margin="668,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="ShowAllCurentAppliers"/>
 	</Grid>
 
