@@ -33,10 +33,13 @@ namespace DekstopApplication.Views
             FNameInput.Text = admin.FName;
             LNameInput.Text = admin.LName;
             EmailInput.Text = admin.Email;
-
         }
 
-
+        /// <summary>
+        /// Closes the current User Control view and returns to parent
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             ((Panel)this.Parent).Children.Remove(this);
@@ -59,10 +62,8 @@ namespace DekstopApplication.Views
             {
                 if (CurrentPasswordInput.Password.ToString() == "" && NewPasswordInput.Password.ToString() == "" && NewPasswordRepeatInput.Password.ToString() == "")
                 {
-                    
-                    admin.FName = FNameInput.Text;
-                    admin.LName = LNameInput.Text;
-                    admin.Email = EmailInput.Text;
+
+                    admin = UpdateInput(admin);
 
                     adminClient.Update(admin);
 
@@ -89,18 +90,24 @@ namespace DekstopApplication.Views
                 else
                 {
                     admin.Password = NewPasswordInput.Password.ToString();
-                    admin.FName = FNameInput.Text;
-                    admin.LName = LNameInput.Text;
-                    admin.Email = EmailInput.Text;
-
+                    admin = UpdateInput(admin);
                     adminClient.Update(admin);
-
-                    //GuiPanelUpdate.Children.Clear();
-                    
-                    //GuiPanelUpdate.Children.Add(adminView);
                     ((Panel)this.Parent).Children.Remove(this);
                 }
             }
+        }
+
+        /// <summary>
+        /// Updates the given Admin object with the Input textfields
+        /// </summary>
+        /// <param name="admin"></param>
+        /// <returns></returns>
+        public AdminServiceReference.Admin UpdateInput(AdminServiceReference.Admin admin)
+        {
+            admin.FName = FNameInput.Text;
+            admin.LName = LNameInput.Text;
+            admin.Email = EmailInput.Text;
+            return admin;
         }
     }
 }

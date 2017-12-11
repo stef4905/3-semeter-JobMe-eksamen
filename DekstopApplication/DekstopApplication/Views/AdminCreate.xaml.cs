@@ -35,7 +35,6 @@ namespace DekstopApplication.Views
         public AdminCreate()
         {
             InitializeComponent();
-
         }
 
         /// <summary>
@@ -47,7 +46,6 @@ namespace DekstopApplication.Views
             UsernameInput.Text = "";
             PasswordInput.Password = "";
             PasswordRepeatInput.Password = "";
-
         }
 
         /// <summary>
@@ -58,11 +56,6 @@ namespace DekstopApplication.Views
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             ((Panel)this.Parent).Children.Remove(this);
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -77,22 +70,18 @@ namespace DekstopApplication.Views
         /// <param name="e"></param>
         private void CreateAdminButton_Click(object sender, RoutedEventArgs e)
         {
-            string Username = UsernameInput.Text.ToLower();
-            string Password = PasswordInput.Password.ToString();
-            string PasswordRepeat = PasswordRepeatInput.Password.ToString();
-
-            AdminServiceReference.Admin admin = new AdminServiceReference.Admin
-            {
-                Username = Username,
-                Password = Password
-            };
-
-            if(Password != PasswordRepeat)
+            if(PasswordInput.Password.ToString() != PasswordRepeatInput.Password.ToString())
             {
                 FailCheckLabel.Content = "Kodeordet stemmer ikke overens";
             }
             else
             {
+                AdminServiceReference.Admin admin = new AdminServiceReference.Admin
+                {
+                    Username = UsernameInput.Text.ToLower(),
+                    Password = PasswordInput.Password.ToString()
+                };
+
                 adminClient.Create(admin);
                 TheFunc();
                 ((Panel)this.Parent).Children.Remove(this);

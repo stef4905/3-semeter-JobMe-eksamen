@@ -78,7 +78,6 @@ namespace DekstopApplication.Views
                 GuiPanelAdmin.Children.Clear();
                 GuiPanelAdmin.Children.Add(adminUpdateView);
             }
-
         }
 
         /// <summary>
