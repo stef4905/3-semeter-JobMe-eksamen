@@ -248,16 +248,16 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Password", obj.Password);
                     cmd.Parameters.AddWithValue("Phone", obj.Phone);
-                    cmd.Parameters.AddWithValue("Address", obj.Address);
-                    cmd.Parameters.AddWithValue("Country", obj.Country);
-                    cmd.Parameters.AddWithValue("ImageURL", obj.ImageURL);
-                    cmd.Parameters.AddWithValue("Description", obj.Description);
-                    cmd.Parameters.AddWithValue("BannerURl", obj.BannerURL);
+                    cmd.Parameters.AddWithValue("Address", obj.Address ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Country", obj.Country ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("ImageURL", obj.ImageURL ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Description", obj.Description ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("BannerURl", obj.BannerURL ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("MaxRadius", obj.MaxRadius);
-                    cmd.Parameters.AddWithValue("HomePage", obj.Homepage);
-                    cmd.Parameters.AddWithValue("CompanyName", obj.CompanyName);
+                    cmd.Parameters.AddWithValue("HomePage", obj.Homepage ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("CompanyName", obj.CompanyName ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("CVR", obj.CVR);
-                    cmd.Parameters.AddWithValue("BusinessTypeId", obj.businessType.Id);
+                    cmd.Parameters.AddWithValue("BusinessTypeId", obj.businessType.Id); 
                     cmd.Parameters.AddWithValue("Id", obj.Id);
                     try
                     {

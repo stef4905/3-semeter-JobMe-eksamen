@@ -13,6 +13,7 @@ namespace BusinessLogicLayer
 
         //Instance variables
         private DbCompany dbCompany = new DbCompany();
+        
 
         /// <summary>
         /// Sends an object through the DataAccessLayer, and executes Create Method
@@ -29,7 +30,7 @@ namespace BusinessLogicLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            dbCompany.Delete(id);
         }
 
         /// <summary>
@@ -39,7 +40,8 @@ namespace BusinessLogicLayer
         /// <returns></returns>
         public Company Get(int id)
         {
-            throw new NotImplementedException();
+            Company company = dbCompany.Get(id);
+            return company;
         }
 
         /// <summary>
@@ -57,7 +59,7 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public bool Update(Company obj)
         {
-            throw new NotImplementedException();
+            return dbCompany.Update(obj);
         }
 
 

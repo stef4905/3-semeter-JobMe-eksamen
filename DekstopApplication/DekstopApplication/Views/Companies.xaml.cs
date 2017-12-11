@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DekstopApplication.CompanyServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,50 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class Companies : UserControl
     {
+        CompanyServiceClient companyClient = new CompanyServiceClient();
+        public List<CompanyServiceReference.Company> companyList = new List<CompanyServiceReference.Company>();
 
         public Companies()
         {
             InitializeComponent();
+
+            companyList = companyClient.GetAllCompany();
+            Companytabel.ItemsSource = companyList;
+        }
+
+        private void ShowAllCompanies_Button(object sender, RoutedEventArgs e)
+        {
+            Companytabel.ClearValue(ListView.ItemsSourceProperty);
+            Companytabel.ItemsSource = companyList;
+            CompanySearchBox.Text = "";
+        }
+
+        private void CompanySearch_Button(object sender, RoutedEventArgs e)
+        {
+            List<CompanyServiceReference.Company> companySearchList = new List<CompanyServiceReference.Company>();
+            foreach (var company in companyList)
+            {
+                int id;
+
+                bool result = Int32.TryParse(CompanySearchBox.Text, out id);
+
+                if (company.CompanyName.ToLower().Contains(CompanySearchBox.Text.ToLower()) || company.Email.ToLower().Contains(CompanySearchBox.Text.ToLower()))
+                {
+                    companySearchList.Add(company);
+                }
+                else if (result)
+                {
+                    if (company.Id == id)
+                    {
+                        companySearchList.Add(company);
+                    }
+                }
+            }
+            if (companySearchList.Count != 0)
+            {
+                Companytabel.ClearValue(ListView.ItemsSourceProperty);
+                Companytabel.ItemsSource = companySearchList;
+            }
         }
     }
 }
