@@ -118,5 +118,14 @@ namespace BusinessLogicLayer
         {
             return dbApplier.Login(email, password);
         }
+
+        /// <summary>
+        /// Return the number of rows in the Applier table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetApplierTableSize()
+        {
+            return dbApplier.GetApplierTableSize();
+        }
     }
 }

@@ -559,7 +559,24 @@ namespace DataAccessLayer
             }
         }
 
+        /// <summary>
+        /// Return the number of rows in the Applier table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetApplierTableSize()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
 
+                    cmd.CommandText = "SELECT COUNT(*) FROM Applier";
+                    int count = (int)cmd.ExecuteScalar();
+                    return count;
+                }
+            }
+        }
     }
 }
 

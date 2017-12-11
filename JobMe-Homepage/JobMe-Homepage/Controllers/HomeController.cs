@@ -10,6 +10,7 @@ namespace JobMe_Homepage.Controllers
 {
     public class HomeController : Controller
     {
+        
         JobPostServiceClient jobPostClient = new JobPostServiceClient();
         ApplierServiceReference.ApplierServiceClient applierClient = new ApplierServiceReference.ApplierServiceClient();
         public ActionResult Index()
@@ -19,7 +20,6 @@ namespace JobMe_Homepage.Controllers
             {
                 jobPostList = jobPostClient.GetAllJobPost(),
                 applierList = applierClient.GetAllAppliers(),
-                
             };
 
             return View(vmJobPostAndApplierLists);

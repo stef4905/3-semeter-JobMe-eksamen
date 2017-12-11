@@ -29,5 +29,7 @@ namespace WCFJobMeService
 
         [OperationContract]
         void Update(JobCV obj);
+
+
     }
 }
