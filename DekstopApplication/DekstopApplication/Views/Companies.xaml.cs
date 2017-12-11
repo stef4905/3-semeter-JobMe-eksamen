@@ -48,7 +48,7 @@ namespace DekstopApplication.Views
 
                 bool result = Int32.TryParse(CompanySearchBox.Text, out id);
 
-                if (company.Email.ToLower().Contains(CompanySearchBox.Text.ToLower()))
+                if (company.CompanyName.ToLower().Contains(CompanySearchBox.Text.ToLower()) || company.Email.ToLower().Contains(CompanySearchBox.Text.ToLower()))
                 {
                     companySearchList.Add(company);
                 }
