@@ -55,6 +55,12 @@ namespace DekstopApplication.Views
             ApplierImage.Source = imageBitmap;
             CreateCheckBoxList();
         }
+
+        /// <summary>
+        /// Method for when the back button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             ((Panel)this.Parent).Children.Remove(this);
@@ -81,37 +87,48 @@ namespace DekstopApplication.Views
             }
             else
             {
-                applier.Email = EmailInput.Text;
-                applier.FName = FNameInput.Text;
-                applier.LName = LNameInput.Text;
-                applier.Birthdate = Convert.ToDateTime(BirtdatePicker.Text);
-                applier.Address = AdressInput.Text;
-                applier.Phone = Convert.ToInt32(PhoneInput.Text);
-                applier.Description = DescriptionInput.Text;
-                applier.HomePage = HomePageInput.Text;
-                applier.CurrentJob = CurrentJobInput.Text;
-
-                if (applier.JobCategoryList != null)
+                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil opdatere" + applier.FName + applier.LName +"?", "Confirmation", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
                 {
-                    applier.JobCategoryList.Clear();
-                }
-                List<JobCategory> jobList = new List<JobCategory>();
-
-                foreach (var item in CategoryList.Where(m => m.Cheeked))
-                {
-                    JobCategory jobCategory = new JobCategory
+                    applier.Email = EmailInput.Text;
+                    applier.FName = FNameInput.Text;
+                    applier.LName = LNameInput.Text;
+                    applier.Birthdate = Convert.ToDateTime(BirtdatePicker.Text);
+                    applier.Address = AdressInput.Text;
+                    applier.Phone = Convert.ToInt32(PhoneInput.Text);
+                    applier.Description = DescriptionInput.Text;
+                    applier.HomePage = HomePageInput.Text;
+                    applier.CurrentJob = CurrentJobInput.Text;
+                    if (applier.JobCategoryList != null)
                     {
-                        Id = item.TheValue
+                        applier.JobCategoryList.Clear();
+                    }
+                    List<JobCategory> jobList = new List<JobCategory>();
 
-                    };
+                    foreach (var item in CategoryList.Where(m => m.Cheeked))
+                    {
+                        JobCategory jobCategory = new JobCategory
+                        {
+                            Id = item.TheValue
 
-                    jobList.Add(jobCategory);
+                        };
 
+                        jobList.Add(jobCategory);
+
+                    }
+                    applier.JobCategoryList = jobList;
+                    applierClient.Update(applier);
+                    SuccesCheck.Content = "Brugeren er opdateret!";
+                    FailCheckLabel.Content = "";
                 }
-                applier.JobCategoryList = jobList;
-                applierClient.Update(applier);
-                SuccesCheck.Content = "Brugeren er opdateret!";
+
+                else if (result == MessageBoxResult.No)
+                {
+                    //No Code here
+                }
+
             }
+               
         }
 
 
@@ -142,20 +159,7 @@ namespace DekstopApplication.Views
                 CategoryList.Add(new BoolStringClass { TheText = Category.Title, TheValue = Category.Id });
             }
 
-            //              KODE TIL CHECK item er sat for starten virker ikke!!!
-            //           foreach (var item in applierG.JobCategoryList)
-            //           {
-
-
-            //               foreach (var category in CategoryList)
-            //               {
-            //                   if (category.TheText == item.Title)
-            //                   {
-            //                       category.IsChecked = true;
-            //                   }
-            //}
-            //               }
-
+         
             this.DataContext = this;
         }
 
