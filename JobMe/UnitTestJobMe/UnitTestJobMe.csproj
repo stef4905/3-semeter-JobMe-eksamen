@@ -51,6 +51,7 @@
     <Compile Include="SessionTest.cs" />
     <Compile Include="BookingTest.cs" />
     <Compile Include="JobPostTest.cs" />
+    <Compile Include="CompanyTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogicLayer\BusinessLogicLayer.csproj">

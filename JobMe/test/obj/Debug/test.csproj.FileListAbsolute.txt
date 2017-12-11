@@ -82,3 +82,17 @@ C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\test\obj\Debug\test
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\test\obj\Debug\test.csproj.CoreCompileInputs.cache
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\test\obj\Debug\test.exe
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\test\obj\Debug\test.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\bin\Debug\test.exe.config
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\bin\Debug\test.exe
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\bin\Debug\test.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\bin\Debug\BusinessLogicLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\bin\Debug\DataAccessLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\bin\Debug\ModelLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\bin\Debug\BusinessLogicLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\bin\Debug\DataAccessLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\bin\Debug\DataAccessLayer.dll.config
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\bin\Debug\ModelLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\obj\Debug\test.exe
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\test\obj\Debug\test.pdb
