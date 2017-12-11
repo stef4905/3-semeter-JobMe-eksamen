@@ -26,14 +26,16 @@ namespace DekstopApplication.Views
         public List<Applier> applierList = new List<Applier>();
         public Appliers()
         {
-
-          
             InitializeComponent();
-            applierList = applierClient.GetAllAppliers();
-            ApplierTable.ItemsSource = applierList;
-          
+            UpdateTable();
+            applierCreateView.TheFunc = UpdateTable;
         }
 
+        public void UpdateTable()
+        {
+            applierList = applierClient.GetAllAppliers();
+            ApplierTable.ItemsSource = applierList;
+        }
         public class ApplierItems
         {
             public string Email { get; set; }

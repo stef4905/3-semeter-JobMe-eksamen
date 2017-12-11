@@ -22,8 +22,11 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class ApplierCreate : UserControl
     {
-
+        public delegate void ParentFunction();
         ApplierServiceClient applierClient = new ApplierServiceClient();
+        
+        //Poiting to outside function on parent
+        public ParentFunction TheFunc;
         public ApplierCreate()
         {
             InitializeComponent();
@@ -57,8 +60,8 @@ namespace DekstopApplication.Views
             {
                 applierClient.Create(applier);
 
-                
 
+                TheFunc();
                 ((Panel)this.Parent).Children.Remove(this);
 
 
