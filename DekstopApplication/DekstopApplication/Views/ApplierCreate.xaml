@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DekstopApplication.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="953" d:DesignWidth="1410">
-    <Grid Background="#FFC2C2C3" Height="953" Width="1410">
+             d:DesignHeight="953" d:DesignWidth="1410" Width="1410" Height="952">
+    <Grid x:Name="GuiPanelCreateApplier" Background="#FFC2C2C3" Height="953" Width="1410">
         <TextBox x:Name="EmailInput" HorizontalAlignment="Left" Height="37" Margin="35,138,0,0"  VerticalAlignment="Top" Width="705" FontSize="22"/>
         <Label Content="Opret ansøger" HorizontalAlignment="Left" Margin="35,41,0,0" VerticalAlignment="Top" FontSize="32"/>
         <Label Content="E-mail:" HorizontalAlignment="Left" Margin="35,99,0,0" VerticalAlignment="Top" FontSize="22"/>

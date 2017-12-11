@@ -79,12 +79,13 @@ namespace DekstopApplication.Views
                 jobPostList.Remove(jobPostList[index]);
                 JobPostTabel.ClearValue(ListView.ItemsSourceProperty);
                 JobPostTabel.ItemsSource = jobPostList;
+                MessageBox.Show("Job Post Slettet!");
             }
             else if (result == MessageBoxResult.No)
             {
                 //No code yet
             }
-            MessageBox.Show("Job Post Slettet!");
+            
 
         }
 

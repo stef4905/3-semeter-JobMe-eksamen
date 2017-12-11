@@ -25,25 +25,21 @@ namespace JobMe_Homepage.Controllers
         public ActionResult Index()
         {
             ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
-
-
             List<JobPostServiceReference.JobPost> jobPostList = new List<JobPostServiceReference.JobPost>();
-
             List<JobApplication> jobApplicationList = jobApplicationClient.GetAllByApplierId(applier.Id).ToList();
             
-
             foreach (var jobapplication in jobApplicationList)
             {
                 List<JobPostServiceReference.JobPost> jobPostList2 = jobClient.GetAllJobPostToAJobApplication(jobapplication.Id).ToList();
-
-
                 jobPostList.AddRange(jobPostList2);
-               
             }
+            VMJobPostLists vmJobPostList = new VMJobPostLists
+            {
+                jobPostListMeeting = jobPostList,
+                jobPostList = jobClient.GetAllJobPost()
 
-
-
-            return View(jobPostList);
+            };
+            return View(vmJobPostList);
         }
 
         public ActionResult _CreateApplier()

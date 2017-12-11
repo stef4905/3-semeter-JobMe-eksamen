@@ -206,7 +206,7 @@ namespace DataAccessLayer
                             {
                                 applier.CurrentJob = (string)reader["CurrentJob"];
                             }
-                            
+
                             if (reader["Birthdate"] == DBNull.Value)
                             {
                                 applier.Birthdate = new DateTime();
@@ -218,10 +218,10 @@ namespace DataAccessLayer
 
                             if (reader["JobCVId"] != DBNull.Value)
                             {
-                               applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
+                                applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
                             }
 
-                            
+
                         }
                     }
 
@@ -286,15 +286,17 @@ namespace DataAccessLayer
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                Applier applier = new Applier();
+
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM Applier";
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    DBJobCV dBJobCV = new DBJobCV();
+
                     while (reader.Read())
                     {
+                        DBJobCV dBJobCV = new DBJobCV();
+                        Applier applier = new Applier();
                         applier.Id = (int)reader["Id"];
                         applier.Email = (string)reader["Email"];
                         if (reader["Phone"] == DBNull.Value)

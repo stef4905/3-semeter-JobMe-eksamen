@@ -7,40 +7,41 @@
              mc:Ignorable="d" 
               d:DesignHeight="953" d:DesignWidth="1410">
     <Grid Background="#FFC2C2C3" Height="953" Width="1410">
-        <TextBox x:Name="EmailInput" HorizontalAlignment="Left" Height="37" Margin="35,138,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text="" />
+        <TextBox Name="EmailInput" HorizontalAlignment="Left" Height="37" Margin="35,138,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text="" />
         <Label Content="Opdatere ansøger" HorizontalAlignment="Left" Margin="35,41,0,0" VerticalAlignment="Top" FontSize="32"/>
         <Label Content="E-mail:" HorizontalAlignment="Left" Margin="35,99,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <Button x:Name="UpdateButton" Content="Opdatere" HorizontalAlignment="Left" Margin="1219,886,0,0" VerticalAlignment="Top" Width="153" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="UpdateButton_Click"  />
+        <Button Name="UpdateButton" Content="Opdatere" HorizontalAlignment="Left" Margin="1219,886,0,0" VerticalAlignment="Top" Width="153" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="UpdateButton_Click"  />
         <Label Content="Ansøger &gt; Opdatere ansøger" HorizontalAlignment="Left" Margin="35,17,0,0" VerticalAlignment="Top" FontSize="14" FontStyle="Italic"/>
-        <Button x:Name="BackButton" Content="&lt;- Tilbage" HorizontalAlignment="Left" Margin="1247,10,0,0" VerticalAlignment="Top" Width="153" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="BackButton_Click" />
-        <Label x:Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="214" Foreground="Red"/>
-        <Label x:Name="UserLabel" Content="" HorizontalAlignment="Left" Margin="301,44,0,0" VerticalAlignment="Top" FontSize="32" Width="252"/>
-        <TextBox x:Name="FNameInput" HorizontalAlignment="Left" Height="37" Margin="35,219,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+        <Button Name="BackButton" Content="&lt;- Tilbage" HorizontalAlignment="Left" Margin="1247,10,0,0" VerticalAlignment="Top" Width="153" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="BackButton_Click" />
+        <Label Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="214" Foreground="Red"/>
+        <Label Name="UserLabel" Content="" HorizontalAlignment="Left" Margin="301,44,0,0" VerticalAlignment="Top" FontSize="32" Width="252"/>
+        <TextBox Name="FNameInput" HorizontalAlignment="Left" Height="37" Margin="35,219,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
         <Label Content="Fornavn:" HorizontalAlignment="Left" Margin="35,180,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBox x:Name="LNameInput" HorizontalAlignment="Left" Height="37" Margin="35,300,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+        <TextBox Name="LNameInput" HorizontalAlignment="Left" Height="37" Margin="35,300,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
         <Label Content="Efternavn:" HorizontalAlignment="Left" Margin="35,261,0,0" VerticalAlignment="Top" FontSize="22"/>
         <Label Content="Fødselsdag:" HorizontalAlignment="Left" Margin="35,342,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBox x:Name="AdressInput" HorizontalAlignment="Left" Height="37" Margin="34,463,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+        <TextBox Name="AdressInput" HorizontalAlignment="Left" Height="37" Margin="34,463,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
         <Label Content="Addresse:" HorizontalAlignment="Left" Margin="34,424,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBox x:Name="PhoneInput" HorizontalAlignment="Left" Height="37" Margin="35,549,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+        <TextBox Name="PhoneInput" HorizontalAlignment="Left" Height="37" Margin="35,549,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
         <Label Content="Telefon:" HorizontalAlignment="Left" Margin="34,505,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBox x:Name="DescriptionInput" HorizontalAlignment="Left" Height="37" Margin="35,635,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+        <TextBox Name="DescriptionInput" HorizontalAlignment="Left" Height="37" Margin="35,635,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
         <Label Content="Beskrivelse:" HorizontalAlignment="Left" Margin="34,591,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBox x:Name="HomePageInput" HorizontalAlignment="Left" Height="37" Margin="34,721,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+        <TextBox Name="HomePageInput" HorizontalAlignment="Left" Height="37" Margin="34,721,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
         <Label Content="Hjemmeside:" HorizontalAlignment="Left" Margin="33,677,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <TextBox x:Name="CurrentJobInput" HorizontalAlignment="Left" Height="37" Margin="35,807,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+        <TextBox Name="CurrentJobInput" HorizontalAlignment="Left" Height="37" Margin="35,807,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
         <Label Content="Nuværende job:" HorizontalAlignment="Left" Margin="34,763,0,0" VerticalAlignment="Top" FontSize="22"/>
 
-        <DatePicker x:Name="BirtdatePicker" HorizontalAlignment="Left" Margin="35,386,0,0" VerticalAlignment="Top" Width="705"/>
-        <ListBox Name="listBoxZone" ItemsSource="{Binding CategoryList}" Background="#00F0FFFF" Margin="846,162,123,476">
+        <DatePicker x:Name="BirtdatePicker" HorizontalAlignment="Left" Margin="38,386,0,0" VerticalAlignment="Top" Width="705"/>
+        <ListBox Name="listBoxZone" ItemsSource="{Binding CategoryList}" Background="#00F0FFFF" Margin="885,424,84,214" BorderBrush="#FFC2C2C3">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <CheckBox IsChecked="{Binding Path=f, Mode=OneWay}" Name="CheckBoxZone"  Content="{Binding TheText}" Tag="{Binding TheValue}" Unchecked="CheckBoxZone_UnChecked" Checked="CheckBoxZone_Checked"  Margin="0,5,0,0"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label Content="Job Kategorier:" HorizontalAlignment="Left" Margin="846,118,0,0" VerticalAlignment="Top" FontSize="22"/>
-        <Label x:Name="SuccesCheck" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="214" Foreground="#FF23D611" FontSize="20"/>
+        <Label Content="Job Kategorier:" HorizontalAlignment="Left" Margin="885,380,0,0" VerticalAlignment="Top" FontSize="22"/>
+        <Label Name="SuccesCheck" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="214" Foreground="#FF23D611" FontSize="20"/>
+        <Image Name="ApplierImage" HorizontalAlignment="Left" Height="230" Margin="885,84,0,0" VerticalAlignment="Top" Width="441"/>
 
     </Grid>
 </UserControl>

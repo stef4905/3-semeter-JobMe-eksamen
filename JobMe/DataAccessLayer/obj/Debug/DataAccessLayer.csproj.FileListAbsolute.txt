@@ -261,3 +261,12 @@ E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\DataAccessLayer\obj\Debug\Da
 E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\ModelLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\ModelLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
