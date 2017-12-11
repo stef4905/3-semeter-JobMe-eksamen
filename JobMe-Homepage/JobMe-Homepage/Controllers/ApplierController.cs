@@ -27,7 +27,7 @@ namespace JobMe_Homepage.Controllers
             ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
             List<JobPostServiceReference.JobPost> jobPostList = new List<JobPostServiceReference.JobPost>();
             List<JobApplication> jobApplicationList = jobApplicationClient.GetAllByApplierId(applier.Id).ToList();
-            
+
             foreach (var jobapplication in jobApplicationList)
             {
                 List<JobPostServiceReference.JobPost> jobPostList2 = jobClient.GetAllJobPostToAJobApplication(jobapplication.Id).ToList();
@@ -60,47 +60,58 @@ namespace JobMe_Homepage.Controllers
 
 
             List<CategoryObject> CategoryList = new List<CategoryObject>();
-
-            foreach (var item in jobCategoryList)
+            if (applier.JobCategoryList == null)
             {
-                var test = applier.JobCategoryList.Where(m => m.Id == item.Id).FirstOrDefault();
-                  if (test != null)
-                {
-               CategoryObject categoryObject = new CategoryObject
-                {
-                    Id = item.Id,
-                    
-                    
-               
-                    IsChecked = true,
-                
-                    Name = item.Title
-                    
-                };
-
-                   CategoryList.Add(categoryObject);
-
-                }
-                else
-                {
-                    CategoryObject categoryObject = new CategoryObject
-                    {
-                        Id = item.Id,
-
-
-
-                        IsChecked = false,
-
-                        Name = item.Title
-
-                    };
-
-                    CategoryList.Add(categoryObject);
-
-                }
-
+                applier.JobCategoryList = new List<ApplierServiceReference.JobCategory>();
             }
 
+                foreach (var item in jobCategoryList)
+            {
+                
+
+
+                    var test = applier.JobCategoryList.Where(m => m.Id == item.Id).FirstOrDefault();
+
+                    if (test != null)
+                    {
+                        CategoryObject categoryObject = new CategoryObject
+                        {
+                            Id = item.Id,
+
+
+
+                            IsChecked = true,
+
+                            Name = item.Title
+
+                        };
+
+                        CategoryList.Add(categoryObject);
+
+                    }
+
+                    else
+                    {
+                        CategoryObject categoryObject = new CategoryObject
+                        {
+                            Id = item.Id,
+
+
+
+                            IsChecked = false,
+
+                            Name = item.Title
+
+                        };
+
+                        CategoryList.Add(categoryObject);
+
+                    }
+
+
+                }
+               
+          
             vmApplierANDJobCategory.Applier = applier;
 
             vmApplierANDJobCategory.JobCategoryList = CategoryList;
@@ -201,7 +212,7 @@ namespace JobMe_Homepage.Controllers
             {
                 Applier = applier,
                 JobApplicationList = jobApplicationClient.GetAllByApplierId(applier.Id).ToList()
-               
+
             };
 
 
@@ -211,16 +222,17 @@ namespace JobMe_Homepage.Controllers
         }
 
         [HttpPost]
-        public ActionResult _UpdateUserProfile(int applierId, string emailInput, string bannerInput, string imageInput, string fNameInput, string lNameInput, DateTime birthdate, int PhoneInput, string addressInput,
-                                                string countryInput, string currentJobInput, string homepageInput, string descriptionInput, int jobCvId, List<int> Categories)
+        public ActionResult _UpdateUserProfile(string emailInput, string bannerInput, string imageInput, string fNameInput, string lNameInput, DateTime birthdate, int PhoneInput, string addressInput,
+                                                string countryInput, string currentJobInput, string homepageInput, string descriptionInput, List<int> Categories)
         {
+            ApplierServiceReference.Applier applierS = Session["applier"] as ApplierServiceReference.Applier;
+
             ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier
             {
-                Id = applierId,
+                Id = applierS.Id,
                 Email = emailInput,
                 BannerURL = bannerInput,
                 ImageURL = imageInput,
-                //MISSING jobCaregory and status is not working
                 FName = fNameInput,
                 LName = lNameInput,
                 Birthdate = birthdate,
@@ -231,41 +243,71 @@ namespace JobMe_Homepage.Controllers
                 HomePage = homepageInput,
                 Status = true,
                 Description = descriptionInput,
-                JobCV = new ApplierServiceReference.JobCV
-                {
-                    Id = jobCvId
-                }
+                JobCV = applierS.JobCV,
+                Password = applierS.Password
+
             };
-
-
-           
 
             List<ApplierServiceReference.JobCategory> jobCategoryList = new List<ApplierServiceReference.JobCategory>();
 
             if (Categories != null)
             {
 
-           foreach (var item in Categories)
-            {
-                ApplierServiceReference.JobCategory jobCategory = new ApplierServiceReference.JobCategory
+                foreach (var item in Categories)
                 {
-                    Id = item,
-                   Title = "Noget" 
-                
-                };
-                
-              jobCategoryList.Add(jobCategory);
+                    ApplierServiceReference.JobCategory jobCategory = new ApplierServiceReference.JobCategory
+                    {
+                        Id = item,
+                        Title = "Noget"
+
+                    };
+
+                    jobCategoryList.Add(jobCategory);
+                }
             }
-  }
-           
+
             applier.JobCategoryList = jobCategoryList;
 
 
 
-            client.Update(applier);   
-            TempData["Success"] = "Successfuld updateret!";
-            Session["applier"] = client.GetApplier(applierId);
+            client.Update(applier);
+            TempData["Success"] = "Successfuld opdateret!";
+            Session["applier"] = client.GetApplier(applier.Id);
             return RedirectToAction("UpdateUserProfile");
+        }
+
+
+        [HttpPost]
+        public ActionResult UpdatePassword(string currentPassword, string newPassword, string RepeatNewPassword)
+        {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+
+            if (applier.Password != currentPassword)
+            {
+                TempData["Fail"] = "Forkert kodeord";
+
+
+                return RedirectToAction("UpdateUserProfile");
+
+            }
+            else if (newPassword != RepeatNewPassword)
+            {
+                TempData["Fail"] = "Kodeordene stemmer ikke overens!";
+
+
+                return RedirectToAction("UpdateUserProfile");
+            }
+            else
+            {
+                applier.Password = newPassword;
+
+                client.Update(applier);
+                TempData["Success"] = "Kodeordet er ændret!";
+                Session["applier"] = client.GetApplier(applier.Id);
+                return RedirectToAction("UpdateUserProfile");
+
+            }
+
         }
 
         [HttpPost]
@@ -297,13 +339,13 @@ namespace JobMe_Homepage.Controllers
                 Description = description,
                 Id = id
             };
-          
+
 
             jobApplicationClient.Update(jobApplication);
             TempData["Success"] = "Successfuld opdateret!";
             return RedirectToAction("JobApplication");
         }
-        
+
         public ActionResult DeleteApplication(int id)
         {
             jobApplicationClient.Delete(id);
@@ -323,7 +365,7 @@ namespace JobMe_Homepage.Controllers
             //Mangler fagterm.
             applier = Session["applier"] as ApplierServiceReference.Applier;
             return PartialView(applier);
-        
+
         }
         #endregion
 
@@ -351,8 +393,8 @@ namespace JobMe_Homepage.Controllers
             if (applier != null)
             {
 
-            Session["applier"] = applier;
-            return RedirectToAction("Index");
+                Session["applier"] = applier;
+                return RedirectToAction("Index");
             }
             TempData["Fail"] = "Fail";
             return RedirectToAction("Index", "Home");
@@ -388,7 +430,7 @@ namespace JobMe_Homepage.Controllers
                 JobPost = jobClient.GetJobPost(id),
                 JobApplicationList = jobApplicationClient.GetAllByApplierId(applier.Id).ToList(),
                 applier = applier
-                
+
             };
 
             return View(vMJobPostANDJobApplication);
@@ -417,28 +459,28 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult Booking(int id)
         {
-            
-         JobPostServiceReference.JobPost jobPost = jobClient.GetJobPost(id);
-           List<BookingService.Booking> bookingList =  bookingServiceClient.GetAllBooking(jobPost.Meeting.Id).ToList();
+
+            JobPostServiceReference.JobPost jobPost = jobClient.GetJobPost(id);
+            List<BookingService.Booking> bookingList = bookingServiceClient.GetAllBooking(jobPost.Meeting.Id).ToList();
             //List<BookingService.Session> sessionList = new List<BookingService.Session>();
             //foreach (var session in bookingList)
             //{
             //    sessionList.AddRange(session.sessionList);
-                
+
             //}
 
             VMBookingSession vMBookingSession = new VMBookingSession
             {
                 BookingList = bookingList,
-              
+
                 Applier = Session["Applier"] as ApplierServiceReference.Applier,
                 JobPost = jobPost
-                
+
 
             };
 
 
-            
+
             return View(vMBookingSession);
         }
 

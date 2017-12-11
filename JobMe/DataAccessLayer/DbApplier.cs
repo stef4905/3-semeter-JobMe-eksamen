@@ -117,6 +117,7 @@ namespace DataAccessLayer
                         {
                             applier.Id = (int)reader["Id"];
                             applier.Email = (string)reader["Email"];
+                            applier.Password = (string)reader["Password"];
                             if (reader["Phone"] == DBNull.Value)
                             {
                                 applier.Phone = 0;
@@ -424,7 +425,7 @@ namespace DataAccessLayer
                 {
                     cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Address = @Address, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
                         " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
-                        " CurrentJob = @CurrentJob, Birthdate = @Birthdate " +
+                        " CurrentJob = @CurrentJob, Birthdate = @Birthdate, Password = @Password " +
                         "WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Phone", obj.Phone);
@@ -441,6 +442,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("Status", obj.Status);
                     cmd.Parameters.AddWithValue("CurrentJob", obj.CurrentJob ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("Birthdate", obj.Birthdate);
+                    cmd.Parameters.AddWithValue("Password", obj.Password);
                     cmd.Parameters.AddWithValue("Id", obj.Id);
 
                     try

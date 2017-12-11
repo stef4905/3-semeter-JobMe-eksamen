@@ -17,21 +17,36 @@
                 <div class="col-md-8 col-xs-12 col-sm-12 col-lg-8">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
-                            <h3>Ændre adgangskode</h3>
-                            <label class="ApplierUpdateText">Nuværende adgangskode</label>
-                            <div class="input-group" id="ApplierInputContainer">
-                                <input type="text" class="form-control" id="usr" value="" name="currentPassword" required>
-                            </div>
-                            <label class="ApplierUpdateText">Ny adgangskode</label>
-                            <div class="input-group" id="ApplierInputContainer">
-                                <input type="text" class="form-control" id="usr" value="" name="newPassword" required>
-                            </div>
-                            <label class="ApplierUpdateText">Gentag ny adgangskode</label>
-                            <div class="input-group" id="ApplierInputContainer">
-                                <input type="text" class="form-control" id="usr" value="" name="RepeatNewPassword" required>
-                            </div>
 
-                            <button type="button" class="btn btn-primary" id="SavePasswordButton">Gem ny adgangskode</button>
+                            @if (TempData["Success"] != null)
+                            {
+
+                                <p class="text-success" id="successMessage">@TempData["Success"]</p>
+                            }
+                            @if (TempData["Fail"] != null)
+                            {
+
+                                <p class="text-danger" id="successMessage">@TempData["Fail"]</p>
+                            }
+                            <h3>Ændre adgangskode</h3>
+
+                            <form action="/Applier/UpdatePassword" method="post">
+                                <label class="ApplierUpdateText">Nuværende adgangskode</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="password" class="form-control" id="usr" value="" name="currentPassword" required>
+                                </div>
+                                <label class="ApplierUpdateText">Ny adgangskode</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="password" class="form-control" id="usr" value="" name="newPassword" required>
+                                </div>
+                                <label class="ApplierUpdateText">Gentag ny adgangskode</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="password" class="form-control" id="usr" value="" name="RepeatNewPassword" required>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary" id="SavePasswordButton">Gem ny adgangskode</button>
+
+                            </form>
                         </div>
                     </div>
 
@@ -108,6 +123,21 @@
                                     <input type="text" class="form-control" name="emailInput" value="@Model.Applier.Email" required />
                                 </div>
                             </div>
+                            <div class="col-sm-12">
+
+                                <label for="description">Profil billede URL:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="imageInput" value="@Model.Applier.ImageURL" required />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+
+                                <label for="description">Banner billede URL:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="bannerInput" value="@Model.Applier.BannerURL" required />
+                                </div>
+                            </div>
+
                             <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6">
                                 <label class="ApplierUpdateText">Jeg søger job som er:</label>
                                 <div class="input-group" id="ApplierInputContainer">
@@ -143,11 +173,10 @@
                                 </div>
                             </div>
 
-                            <input type="hidden" name="imageInput" value="@Model.Applier.ImageURL" />
-                            <input type="hidden" name="bannerInput" value="@Model.Applier.BannerURL" />
 
-                            <input type="hidden" name="applierId" value="@Model.Applier.Id" />
-                            <input type="hidden" name="jobCvId" value="@Model.Applier.JobCV.Id" />
+
+                 
+                          
                             <button type="submit" class="btn btn-primary" id="SaveProfileButton">Gem ændringer</button>
                         </form>
                     </div>

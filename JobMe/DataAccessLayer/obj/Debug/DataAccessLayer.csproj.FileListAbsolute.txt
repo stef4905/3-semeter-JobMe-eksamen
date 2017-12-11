@@ -282,3 +282,15 @@ C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\DataAccessLayer\obj
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\DataAccessLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll

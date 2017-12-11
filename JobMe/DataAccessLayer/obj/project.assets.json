@@ -269,20 +269,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KasperV\\.nuget\\packages\\": {}
+    "C:\\Users\\Sofie\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Sofie\\source\\repos\\3-semeter-JobMe-eksamen7\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
       "projectName": "DataAccessLayer",
-      "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
-      "packagesPath": "C:\\Users\\KasperV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\obj\\",
+      "projectPath": "C:\\Users\\Sofie\\source\\repos\\3-semeter-JobMe-eksamen7\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "packagesPath": "C:\\Users\\Sofie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Sofie\\source\\repos\\3-semeter-JobMe-eksamen7\\JobMe\\DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\KasperV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Sofie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -295,8 +295,8 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\Sofie\\source\\repos\\3-semeter-JobMe-eksamen7\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\Sofie\\source\\repos\\3-semeter-JobMe-eksamen7\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }
