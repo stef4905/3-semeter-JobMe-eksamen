@@ -419,7 +419,7 @@
 
 #ApplierIndexTitle {
 	font-size: 18px;
-	color: cornflowerblue;
+	
 }
 
 .ApplierIndexTitleMargin {
@@ -430,13 +430,19 @@
     background-image: url("https://imgur.com/HZqA5ml.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 400px;
+    height: 365px;
     margin: 0 auto;
     text-align: center;
     position: relative;
     margin-left: -36%;
     margin-right: -36%;
     margin-top: -6%;
+    margin-bottom: 2%;
+}
+
+#jobPostButtonStyle {
+    margin: 0 auto;
+    display: block;
 }
 #BackToNormalMargin {
     margin-left: 30%;
@@ -708,4 +714,9 @@ div.tab button {
 #buttonStyle {
     margin-top: 4%;
 }
+#buttonStyle2 {
+    line-height: 5;
+}
+
+
 
