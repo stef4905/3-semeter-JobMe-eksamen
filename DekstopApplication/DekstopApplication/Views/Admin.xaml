@@ -8,7 +8,7 @@
              d:DesignHeight="953" d:DesignWidth="1410" Width="1410" Height="953">
 
     <Grid Name="GuiGridAdmin">
-        <ListView x:Name="AdminTable" Margin="35,99,204,10" Grid.Column="6" SelectionChanged="ListView_SelectionChanged">
+        <ListView x:Name="AdminTable" Margin="35,99,204,10" Grid.Column="6">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" Width="50px" DisplayMemberBinding="{Binding Id}"/>

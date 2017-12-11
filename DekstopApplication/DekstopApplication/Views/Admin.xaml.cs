@@ -21,33 +21,49 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class Admin : UserControl
     {
-        AdminServiceClient adminClient = new AdminServiceClient();
-        AdminCreate adminCreateView = new AdminCreate();
-        
-        
+
+        //Instance variables
+        AdminServiceClient AdminClient = new AdminServiceClient();
+        AdminCreate AdminCreateView = new AdminCreate();
         public List<AdminServiceReference.Admin> adminList = new List<AdminServiceReference.Admin>();
+
+
+        /// <summary>
+        /// Construct the User Control view for admin
+        /// </summary>
         public Admin()
         {
-            adminList = adminClient.GetAllAdmin();
             InitializeComponent();
+            UpdateTable();
+            AdminCreateView.TheFunc = UpdateTable;
+        }
+
+        /// <summary>
+        /// Updates the current list of Admins taken from the database
+        /// </summary>
+        public void UpdateTable()
+        {
+            adminList = AdminClient.GetAllAdmin();
             AdminTable.ItemsSource = adminList;
         }
 
-        public class AdminItems
-        {
-            public string Brugernavn { get; set; }
-            public string Kodeord { get; set; }
-            public string Fornavn { get; set; }
-            public string Efternavn { get; set; }
-            public string Email { get; set; }
-        }
-
+        /// <summary>
+        /// Clear textfields method is called on the AdminCreateView and add it to the Child
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreateAdminButton_Click(object sender, RoutedEventArgs e)
         {
+            AdminCreateView.ClearTextFields();
             GuiPanelAdmin.Children.Clear();
-            GuiPanelAdmin.Children.Add(adminCreateView);
+            GuiPanelAdmin.Children.Add(AdminCreateView);
         }
 
+        /// <summary>
+        /// Opens the view for updating the selected Admin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateAdminButton_Click(object sender, RoutedEventArgs e)
         {
             AdminServiceReference.Admin admin = (AdminServiceReference.Admin)AdminTable.SelectedItem;
@@ -61,22 +77,15 @@ namespace DekstopApplication.Views
                 AdminUpdate adminUpdateView = new AdminUpdate(admin);
                 GuiPanelAdmin.Children.Clear();
                 GuiPanelAdmin.Children.Add(adminUpdateView);
-                
-                
             }
 
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-
-            //AdminServiceReference.Admin admin = new AdminServiceReference.Admin();
-            //List<Admin> adminList1 = adminList.Items.Clear();
-            //var adminList = adminClient.GetAdmin(4);
-            //AdminList.ItemsSource = adminList1;
-        }
-
+        /// <summary>
+        /// Deletes the current selected Admin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteAdminButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -84,7 +93,7 @@ namespace DekstopApplication.Views
             if (result == MessageBoxResult.Yes)
             {
                 int index = AdminTable.SelectedIndex;
-                adminClient.Delete(adminList[index].Id);
+                AdminClient.Delete(adminList[index].Id);
                 adminList.Remove(adminList[index]);
                 AdminTable.ClearValue(ListView.ItemsSourceProperty);
                 AdminTable.ItemsSource = adminList;
