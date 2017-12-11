@@ -91,6 +91,7 @@ namespace DekstopApplication.Views
                 jobPost.StartDate = StartDateBox.SelectedDate.Value.Date;
                 jobPost.EndDate = EndDateBox.SelectedDate.Value.Date;
                 jobCLient.UpdateJobPost(jobPost);
+                MessageBox.Show("Job Post Opdateret!");
             }
             else if (result == MessageBoxResult.No)
             {
@@ -107,7 +108,6 @@ namespace DekstopApplication.Views
         private void UpdateJobPostButton_Click(object sender, RoutedEventArgs e)
         {
             UpdateJobPostBoxes();
-            MessageBox.Show("Job Post Opdateret!");
         }
         /// <summary>
         /// Back Button
