@@ -24,49 +24,77 @@ namespace DekstopApplication.Views
         ApplierCreate applierCreateView = new ApplierCreate();
         ApplierServiceClient applierClient = new ApplierServiceClient();
         public List<Applier> applierList = new List<Applier>();
+
+        /// <summary>
+        /// Cunstructor for the Applier User Control View
+        /// </summary>
         public Appliers()
         {
             InitializeComponent();
+            UpdateTable();
+            applierCreateView.TheFunc = UpdateTable;
+        }
+
+        /// <summary>
+        /// Updates the tabel with all new Appliers from the database
+        /// </summary>
+        public void UpdateTable()
+        {
             applierList = applierClient.GetAllAppliers();
             ApplierTable.ItemsSource = applierList;
         }
-
-        public class ApplierItems
-        {
-            public string Email { get; set; }
-            public string Fornavn { get; set; }
-            public string Efternavn { get; set; }
-            public string Telefon { get; set; }
-        }
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
+    
+        /// <summary>
+        /// Opens the User Control view for creating a new Applier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreateApplierButton_Click(object sender, RoutedEventArgs e)
         {
-            GuiPanelApplierCreate.Children.Clear();
-            GuiPanelApplierCreate.Children.Add(applierCreateView);
+            GuiPanelApplier.Children.Clear();
+            GuiGridApplier.Children.Add(applierCreateView);
         }
 
+
+        /// <summary>
+        /// Opens the new User Control view for updating the selected Applier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateApplierButton_Click(object sender, RoutedEventArgs e)
         {
+            Applier applier = (Applier)ApplierTable.SelectedItem;
 
-            Applier applier = applierClient.GetApplier(5);
-            ApplierUpdate applierUpdateView = new ApplierUpdate(applier);
-            GuiPanelApplierUpdate.Children.Clear();
-            GuiPanelApplierUpdate.Children.Add(applierUpdateView);
+
+            if (applier == null)
+            {
+                FailCheckLabel.Content = "Vælg en ansøger at opdatere";
+            }
+            else
+            {
+                ApplierUpdate applierUpdateView = new ApplierUpdate(applier);
+                GuiPanelApplier.Children.Clear();
+                GuiGridApplier.Children.Add(applierUpdateView);
+            }
 
         }
 
+        /// <summary>
+        /// Deletes the selected Applier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Applier applier = (Applier)ApplierTable.SelectedItem;
 
             MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette", "Confirmation", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
-                applierClient.Delete(1048);
+                applierClient.Delete(applier.Id);
+                applierList.Remove(applier);
+                ApplierTable.ClearValue(ListView.ItemsSourceProperty);
+                ApplierTable.ItemsSource = applierList;
             }
             else if (result == MessageBoxResult.No)
             {
@@ -74,6 +102,51 @@ namespace DekstopApplication.Views
             }
             
 
+        }
+
+        /// <summary>
+        /// Search function to find specific Appliers on the table
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void searchButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<Applier> ApplierSearchList = new List<Applier>();
+            foreach (var applier in applierList)
+            {
+                int id;
+                bool result = Int32.TryParse(ApplierSearchBox.Text, out id);
+
+        
+
+                if ((applier.FName != null && applier.FName.ToLower().Contains(ApplierSearchBox.Text.ToLower())) || (applier.FName != null && applier.LName.ToLower().Contains(ApplierSearchBox.Text.ToLower())) || applier.Email.ToLower().Contains(ApplierSearchBox.Text.ToLower()) || (applier.Phone.ToString() != null && applier.Phone.ToString().Contains(ApplierSearchBox.Text.ToLower())))
+                {
+                    ApplierSearchList.Add(applier);
+                }
+
+                else if (result)
+                {
+                    if (applier.Id == id)
+                    {
+                        ApplierSearchList.Add(applier);
+                    }
+                }
+            }
+            if (ApplierSearchList.Count != 0)
+            {
+                ApplierTable.ClearValue(ListView.ItemsSourceProperty);
+                ApplierTable.ItemsSource = ApplierSearchList;
+            }
+        }
+
+        /// <summary>
+        /// Calls the UpdateTable method when button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowAllCurentAppliers(object sender, RoutedEventArgs e)
+        {
+            UpdateTable();
         }
     }
 }

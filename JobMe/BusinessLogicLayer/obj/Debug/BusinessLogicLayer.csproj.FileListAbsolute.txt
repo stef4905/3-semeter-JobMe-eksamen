@@ -303,3 +303,14 @@ E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\obj\Debug
 E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
 E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

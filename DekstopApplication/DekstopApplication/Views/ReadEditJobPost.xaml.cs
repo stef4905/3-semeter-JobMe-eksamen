@@ -71,7 +71,7 @@ namespace DekstopApplication.Views
                 {
                     CategoryListBox.SelectedIndex = CategoryListBox.Items.IndexOf(jobPost.jobCategory.Title);
                 }
-                
+
             }
 
         }
@@ -80,14 +80,23 @@ namespace DekstopApplication.Views
         /// </summary>
         public void UpdateJobPostBoxes()
         {
-            jobPost.CompanyName = CompanyNameBox.Text;
-            jobPost.Title = JobPostTitleTextBox.Text;
-            jobPost.JobTitle = JobPostJobTitleTextBox.Text;
-            jobPost.Address = JobPostAdressTextbox.Text;
-            jobPost.Description = JobPostDescriptionTextBox.Text;
-            jobPost.StartDate = StartDateBox.SelectedDate.Value.Date;
-            jobPost.EndDate = EndDateBox.SelectedDate.Value.Date;
-            jobCLient.UpdateJobPost(jobPost);
+            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil opdatere dette Job Opslag?", "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                jobPost.CompanyName = CompanyNameBox.Text;
+                jobPost.Title = JobPostTitleTextBox.Text;
+                jobPost.JobTitle = JobPostJobTitleTextBox.Text;
+                jobPost.Address = JobPostAdressTextbox.Text;
+                jobPost.Description = JobPostDescriptionTextBox.Text;
+                jobPost.StartDate = StartDateBox.SelectedDate.Value.Date;
+                jobPost.EndDate = EndDateBox.SelectedDate.Value.Date;
+                jobCLient.UpdateJobPost(jobPost);
+                MessageBox.Show("Job Post Opdateret!");
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                //No Code here
+            }
         }
 
         /// <summary>
@@ -100,7 +109,11 @@ namespace DekstopApplication.Views
         {
             UpdateJobPostBoxes();
         }
-
+        /// <summary>
+        /// Back Button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackToMainMenuButton_Click(object sender, RoutedEventArgs e)
         {
             ((Panel)this.Parent).Children.Remove(this);

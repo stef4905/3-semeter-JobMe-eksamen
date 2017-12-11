@@ -375,3 +375,17 @@ E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\WCFJobMeService\obj\Debug\WC
 E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csproj.CoreCompileInputs.cache
 E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.dll
 E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.dll.config
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\bin\Debug\WCFJobMeService.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\bin\Debug\BusinessLogicLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\bin\Debug\ModelLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\bin\Debug\ModelLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\bin\Debug\DataAccessLayer.dll.config
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csprojResolveAssemblyReference.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.csproj.CoreCompileInputs.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\WCFJobMeService\obj\Debug\WCFJobMeService.pdb
