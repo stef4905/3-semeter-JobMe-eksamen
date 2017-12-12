@@ -38,12 +38,12 @@
                     <!--Seperator-->
                     <div class="row" id="seperator"></div>
                     <div id="seperatorStyling"></div>
-                    <div  id="descriptionText">Beskrivelse:</div>
-                    <div  id="descriptionBodyText">
+                    <div id="descriptionText">Beskrivelse:</div>
+                    <div id="descriptionBodyText">
                         @Model.jobPost.Description
                     </div>
                     <div id="seperatorStyling"></div>
-                    <div  id="descriptionText">Kategori:</div><div id="descriptionBodyText">@Model.jobPost.jobCategory.Title</div>
+                    <div id="descriptionText">Kategori:</div><div id="descriptionBodyText">@Model.jobPost.jobCategory.Title</div>
 
 
                     @if (applier.Status)
@@ -57,49 +57,50 @@
                     else
                     {
                         <div class="col-lg-2" style="float: right">
-                            <button  id="jobPostStyle" class="btn btn-blue">Ikke aktiv </button>
+                            <button id="jobPostStyle" class="btn btn-blue">Ikke aktiv </button>
                         </div>
                     }
 
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <div class="col-sm-12 ">
-                    <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Andre ligende jobs</label>
 
-                    @foreach (var jobPost in Model.jobPostList.Where(m => m.jobCategory.Id.Equals(Model.jobPost.jobCategory.Id)).OrderBy(x => Guid.NewGuid()).Take(3))
+
+    <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Andre ligende jobs</label>
+    <div class="col-sm-12 ">
+        <div class="row">
+            @foreach (var jobPost in Model.jobPostList.Where(m => m.jobCategory.Id.Equals(Model.jobPost.jobCategory.Id)).OrderBy(x => Guid.NewGuid()).Take(3))
             {
 
-                        <div class="col-sm-12 bg-white jobPost content panel panel-default">
-                            <div class="row">
+                <div class="col-sm-12 bg-white jobPost content panel panel-default">
+                    <div class="row">
 
-                                <div class="col-xs-3">
-                                    <img class="img-responsive" src="@jobPost.company.ImageURL">
-                                </div>
-                                <div class="col-xs-7">
-                                    <h4 class="company-Name"><strong>@jobPost.Title</strong></h4><h5><strong>@jobPost.company.CompanyName</strong></h5><h4><small>@jobPost.Description</small></h4>
-                                </div>
-                                <div class="col-xs-2 pull-right">
-                                    <a id="jobPostButtonStyle" class="btn btn-blue" href="/applier/JobPost/@jobPost.Id">Læs mere</a>
-                                </div>
-                            </div>
+                        <div class="col-xs-3">
+                            <img class="img-responsive" src="@jobPost.company.ImageURL">
                         </div>
-                    }
-
+                        <div class="col-xs-7">
+                            <h4 class="company-Name"><strong>@jobPost.Title</strong></h4><h5><strong>@jobPost.company.CompanyName</strong></h5><h4><small>@jobPost.Description</small></h4>
+                        </div>
+                        <div class="col-xs-2 pull-right">
+                            <a id="jobPostButtonStyle" class="btn btn-blue" href="/applier/JobPost/@jobPost.Id">Læs mere</a>
+                        </div>
+                    </div>
                 </div>
-                
-            </div>
+            }
+
         </div>
     </div>
+</div>
 
-    </div>
-
-    @*<!--#endregion-->
-            <!--#region jobPost right infomation-->
-            <div class="col-sm-3" id="jobPostRightContent">
-                hej
-            </div>
+@*<!--#endregion-->
+        <!--#region jobPost right infomation-->
+        <div class="col-sm-3" id="jobPostRightContent">
+            hej
         </div>
-        <!--#endregion-->*@
+    </div>
+    <!--#endregion-->*@
 
 
 

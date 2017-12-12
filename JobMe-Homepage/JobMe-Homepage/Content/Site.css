@@ -157,11 +157,13 @@ footer {
     float: right;
 }
 
+#JobPostSeperator{
+    margin-top: 4%;
+}
 
 /*JobCV Design site*/
-
 #profile-col {
-	background-color: #e9e9e9;
+    background-color: #e9e9e9;
 }
 
 #experience-col {
