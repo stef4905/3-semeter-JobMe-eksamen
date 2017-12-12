@@ -435,6 +435,7 @@
     <Content Include="Views\Applier\UpdateUserProfile.cshtml" />
     <Content Include="Views\Company\Meeting.cshtml" />
     <Content Include="Views\Applier\Booking.cshtml" />
+    <Content Include="Views\Applier\_ReadJobCV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

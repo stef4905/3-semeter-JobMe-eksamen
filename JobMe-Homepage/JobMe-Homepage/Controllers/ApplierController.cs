@@ -143,18 +143,7 @@ namespace JobMe_Homepage.Controllers
             return null;
         }
 
-        public ActionResult JobCV()
-        {
-            return View();
-            //Get the jobcv from the profile currently logged in
-            //Return view with the JobCV object
-            //If button "Gem oplysninger" is pressed get all information from the site
-            //Assign the infomation to the JobCV object for the profile
-            //Update in database
-
-            //If button "Annuler/Gå tilbage" is pressed, dispose all changes
-            //Return user to profile site
-        }
+    
 
 
         public ActionResult FindJobPosts()
@@ -237,6 +226,7 @@ namespace JobMe_Homepage.Controllers
 
             };
             jobCVServiceClient.CreateJobexpericene(jobExperience);
+            TempData["Success"] = "Successfuld oprettet!";
             Session["Applier"] = client.GetApplier(applier.Id);
             return RedirectToAction("JobApplication");
         }
@@ -255,6 +245,7 @@ namespace JobMe_Homepage.Controllers
 
             };
             jobCVServiceClient.UpdateJobexpericene(jobExperience);
+            TempData["Success"] = "Successfuld opdateret!";
             Session["Applier"] = client.GetApplier(applier.Id);
             return RedirectToAction("JobApplication");
         }
@@ -283,6 +274,7 @@ namespace JobMe_Homepage.Controllers
 
             };
             jobCVServiceClient.CreateApplierEducation(applierEducation);
+            TempData["Success"] = "Successfuld oprettet!";
             Session["Applier"] = client.GetApplier(applier.Id);
             return RedirectToAction("JobApplication");
         }
@@ -303,6 +295,7 @@ namespace JobMe_Homepage.Controllers
             };
             jobCVServiceClient.UpdateApplierEducation(applierEducation);
             Session["Applier"] = client.GetApplier(applier.Id);
+            TempData["Success"] = "Successfuld opdateret!";
             return RedirectToAction("JobApplication");
         }
 
@@ -462,6 +455,19 @@ namespace JobMe_Homepage.Controllers
             //Mangler fagterm.
             applier = Session["applier"] as ApplierServiceReference.Applier;
             return PartialView(applier);
+
+        }
+
+        public ActionResult _ReadJobCV()
+        {
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
+
+            //Mangler fagterm.
+            applier = Session["applier"] as ApplierServiceReference.Applier;
+
+            ApplierServiceReference.JobCV jobCV = applier.JobCV;
+            return PartialView(jobCV);
+            
 
         }
         #endregion
