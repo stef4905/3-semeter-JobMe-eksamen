@@ -71,9 +71,6 @@ namespace DataAccessLayer
         /// <returns></returns>
         public Company Get(int id)
         {
-
-            //Company company = new Company();
-            //DBBusinessType dbBusinessType = new DBBusinessType();
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
@@ -90,25 +87,6 @@ namespace DataAccessLayer
 
                     if (reader.Read())
                     {
-                        //company.Id = (int)reader["Id"];
-                        //company.Email = (string)reader["Email"];
-                        //company.Password = (string)reader["Password"];
-                        //company.Phone = (int)reader["Phone"];
-                        //company.Address = (string)reader["Address"];
-                        //company.Country = (string)reader["Country"];
-                        //company.Description = (string)reader["Description"];
-                        //company.BannerURL = (string)reader["BannerURL"];
-                        //company.MaxRadius = (int)reader["MaxRadius"];
-                        //company.Homepage = (string)reader["HomePage"];
-                        //company.CompanyName = (string)reader["CompanyName"];
-                        //company.CVR = (int)reader["CVR"];
-                        //company.businessType = dbBusinessType.Get((int)reader["BusinessTypeId"]);
-                        //// Allows ImageURL to be null, if not null, reads the current company ImageURL.
-                        //if (reader.IsDBNull(reader.GetOrdinal("ImageURL")))
-                        //    company.ImageURL = null;
-                        //else
-                        //    company.ImageURL = (string)reader["ImageURL"];
-
                         company.Id = (int)reader["Id"];
                         company.Email = (string)reader["Email"];
                         company.Password = (string)reader["Password"];
