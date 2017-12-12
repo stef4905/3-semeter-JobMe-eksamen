@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 2,
   "targets": {
     ".NETFramework,Version=v4.6.1": {
       "Microsoft.Data.Tools.UnitTest/10.0.60809": {
@@ -50,12 +50,6 @@
         "framework": ".NETFramework,Version=v4.6.1",
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809"
-        },
-        "compile": {
-          "bin/placeholder/ModelLayer.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ModelLayer.dll": {}
         }
       }
     },
@@ -108,12 +102,6 @@
         "framework": ".NETFramework,Version=v4.6.1",
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809"
-        },
-        "compile": {
-          "bin/placeholder/ModelLayer.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ModelLayer.dll": {}
         }
       }
     },
@@ -166,12 +154,6 @@
         "framework": ".NETFramework,Version=v4.6.1",
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809"
-        },
-        "compile": {
-          "bin/placeholder/ModelLayer.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ModelLayer.dll": {}
         }
       }
     },
@@ -224,12 +206,6 @@
         "framework": ".NETFramework,Version=v4.6.1",
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809"
-        },
-        "compile": {
-          "bin/placeholder/ModelLayer.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/ModelLayer.dll": {}
         }
       }
     }
@@ -269,37 +245,33 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KasperV\\.nuget\\packages\\": {}
+    "C:\\Users\\wow99\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
       "projectName": "DataAccessLayer",
-      "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
-      "packagesPath": "C:\\Users\\KasperV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\obj\\",
+      "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "outputPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
-      "skipContentFileWrite": true,
-      "configFilePaths": [
-        "C:\\Users\\KasperV\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-      ],
       "originalTargetFrameworks": [
         "net461"
       ],
-      "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
-      },
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }
+      }
+    },
+    "dependencies": {
+      "Microsoft.Data.Tools.UnitTest": {
+        "target": "Package",
+        "version": "10.0.60809"
       }
     },
     "frameworks": {

@@ -79,8 +79,8 @@ namespace UnitTestJobMe
             CompanyCtr companyCtr = new CompanyCtr();
 
             //Act
-            companyCtr.Delete(1017);
-            Company company = companyCtr.Get(1017);
+            companyCtr.Delete(1018);
+            Company company = companyCtr.Get(1018);
 
             //Assert
             Assert.IsNull(company.Email);
@@ -94,10 +94,10 @@ namespace UnitTestJobMe
             Company company = new Company();
 
             //Act
-            company = companyCtr.Get(1017);
+            company = companyCtr.Get(1016);
 
             //Assert
-            Assert.AreEqual(company.Id, 1017);
+            Assert.AreEqual(company.Id, 1016);
         }
 
     }

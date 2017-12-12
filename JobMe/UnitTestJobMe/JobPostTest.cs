@@ -93,13 +93,13 @@ namespace UnitTestJobMe
         }
 
         [TestMethod]
-        public void JobPostUpdateDBTest()
+        public void JobPostUpdateTest()
         {
             //Arrange
             DbJobPost dbJobPost = new DbJobPost();
             JobPostCtr jobPostCtr = new JobPostCtr();
 
-            Company testcompany = new Company("unittest@gmail.com", "hellopassword");
+            Company testcompany = new Company();
             testcompany.Id = 1;
             WorkHours testworkHours = new WorkHours();
             testworkHours.Id = 1;
@@ -108,53 +108,44 @@ namespace UnitTestJobMe
             Meeting testmeeting = new Meeting
             {
                 CompanyId = 1,
-                Id = 6
+                Id = 54
 
             };
-            JobPost jobPost = new JobPost
-            {
-                Id = 5001,
-                Title = "UnitTestsss",
-                Description = "Simple Unit Testssss",
-                StartDate = new DateTime(2017, 05, 05),
-                EndDate = new DateTime(2018, 05, 05),
-                JobTitle = "Unit Test Job Titleeeeeeee",
-                workHours = testworkHours,
-                Address = "UnitTestVejURedigeret 123",
-                company = testcompany,
-                jobCategory = testjobCategory,
-                Meeting = testmeeting
-
-
-            };
-
 
             JobPost jobPostUpdate = new JobPost
             {
-                Id = 5001,
-                Title = "UnitTested",
-                Description = "Simple Unit Tested",
-                StartDate = new DateTime(2017, 05, 05),
-                EndDate = new DateTime(2018, 05, 05),
-                JobTitle = "Unit Test Job Title",
+                Id = 1051,
+                Title = "UnitTestedAgain",
+                Description = "Simple Unit Tested once more",
+                StartDate = new DateTime(2017, 12, 12),
+                EndDate = new DateTime(2019, 05, 05),
+                JobTitle = "Unit Test Job Titleee",
                 workHours = testworkHours,
-                Address = "UnitTestVej 321",
+                Address = "UnitTestVej 321123",
                 company = testcompany,
                 jobCategory = testjobCategory,
                 Meeting = testmeeting
-
-
             };
+            JobPost JobPostReturnedToTest = null;
+
             //Act
-            jobPostCtr.Create(jobPost);
             jobPostCtr.Update(jobPostUpdate);
+            JobPostReturnedToTest = jobPostCtr.Get(jobPostUpdate.Id);
 
             //Assert
-            Assert.AreNotEqual(jobPost, jobPostUpdate);
-
-
-
+            Assert.AreEqual(JobPostReturnedToTest.Id, jobPostUpdate.Id);
+            Assert.AreEqual(JobPostReturnedToTest.Title, jobPostUpdate.Title);
+            Assert.AreEqual(JobPostReturnedToTest.Description, jobPostUpdate.Description);
+            Assert.AreEqual(JobPostReturnedToTest.StartDate, jobPostUpdate.StartDate);
+            Assert.AreEqual(JobPostReturnedToTest.EndDate, jobPostUpdate.EndDate);
+            Assert.AreEqual(JobPostReturnedToTest.JobTitle, jobPostUpdate.JobTitle);
+            Assert.AreEqual(JobPostReturnedToTest.workHours.Id, jobPostUpdate.workHours.Id);
+            Assert.AreEqual(JobPostReturnedToTest.Address, jobPostUpdate.Address);
+            Assert.AreEqual(JobPostReturnedToTest.company.Id, jobPostUpdate.company.Id);
+            Assert.AreEqual(JobPostReturnedToTest.jobCategory.Id, jobPostUpdate.jobCategory.Id);
+            Assert.AreEqual(JobPostReturnedToTest.Meeting.Id, jobPostUpdate.Meeting.Id);
         }
+
         [TestMethod]
         public void DeleteJobPost()
         {
@@ -162,12 +153,12 @@ namespace UnitTestJobMe
             JobPostCtr jobPostCtr = new JobPostCtr();
 
             //Act
-            jobPostCtr.Delete(1050);
-            JobPost deletedJobPost = jobPostCtr.Get(1050);
+            jobPostCtr.Delete(1052);
+            JobPost deletedJobPost = jobPostCtr.Get(1052);
 
 
             //Assert
-            Assert.IsNull(deletedJobPost.Id);
+            Assert.IsNull(deletedJobPost.JobTitle);
         }
     }
 }

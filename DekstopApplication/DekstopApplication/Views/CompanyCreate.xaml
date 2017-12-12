@@ -10,7 +10,7 @@
 		<Label Content="Opret virksomhed" HorizontalAlignment="Left" Margin="35,41,0,0" VerticalAlignment="Top" FontSize="32"/>
 		<Button Name="CreateButton" Content="Opret" HorizontalAlignment="Left" Margin="1246,907,0,0" VerticalAlignment="Top" Width="154" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White"  />
 		<Label Content="Virksomhed &gt; Opret virksomhed" HorizontalAlignment="Left" Margin="35,17,0,0" VerticalAlignment="Top" FontSize="14" FontStyle="Italic"/>
-		<Button Name="BackButton" Content="&lt;- Tilbage" HorizontalAlignment="Left" Margin="1247,10,0,0" VerticalAlignment="Top" Width="153" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" />
+		<Button Name="BackButton" Content="&lt;- Tilbage" HorizontalAlignment="Left" Margin="1247,10,0,0" VerticalAlignment="Top" Width="153" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="BackButton_Click" />
 		<Label Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="214" Foreground="Red"/>
 		<TextBox Name="EmailInput" HorizontalAlignment="Left" Height="37" Margin="35,138,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text="" />
 		<Label Content="E-mail:" HorizontalAlignment="Left" Margin="35,99,0,0" VerticalAlignment="Top" FontSize="22"/>
