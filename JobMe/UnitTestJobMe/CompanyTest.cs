@@ -172,7 +172,24 @@ namespace UnitTestJobMe
 
             //Assert
             Assert.AreEqual(null, businessType.Type);
+        }
 
+        /// <summary>
+        /// Test method to see if GetCompanyTableSize in company controller works.
+        /// Should return more than 0 if there is any companies in the database.
+        /// </summary>
+        [TestMethod]
+        public void CompanyTableSize()
+        {
+            //Arrange
+            int count = 0;
+            CompanyCtr companyCtr = new CompanyCtr();
+
+            //Act
+            count = companyCtr.GetCompanyTableSize();
+
+            //Assert
+            Assert.IsTrue(count >= 0);
         }
        
 

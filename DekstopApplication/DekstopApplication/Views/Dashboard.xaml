@@ -7,7 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="953" d:DesignWidth="1410" >
 	<Grid>
-		<Label Content="Dashboard" HorizontalAlignment="Left" Margin="196,211,0,0" VerticalAlignment="Top"/>
-
+		<Image Source="https://cdn1.iconfinder.com/data/icons/business-and-finance-20/200/vector_65_01-128.png" HorizontalAlignment="Left" Height="190" Margin="200,240,0,0" VerticalAlignment="Top" Width="200"/>
+		<Image Source="https://cdn1.iconfinder.com/data/icons/business-and-finance-20/200/vector_65_02-128.png" HorizontalAlignment="Left" Height="190" Margin="1018,240,0,0" VerticalAlignment="Top" Width="200"/>
+		<Image Source="https://cdn1.iconfinder.com/data/icons/business-and-finance-20/200/vector_65_12-128.png" HorizontalAlignment="Left" Height="190" Margin="600,240,0,0" VerticalAlignment="Top" Width="200"/>
+		<Label Content="Ansøgerer" HorizontalAlignment="Left" Margin="209,481,0,0" VerticalAlignment="Top" Foreground="#82abbc" FontSize="30px"/>
+		<Label Content="Jobannoncer" HorizontalAlignment="Left" Margin="609,481,0,0" VerticalAlignment="Top" Foreground="#82abbc" FontSize="30px"/>
+		<Label Content="Virksomheder" HorizontalAlignment="Left" Margin="1018,481,0,0" VerticalAlignment="Top" Foreground="#82abbc" FontSize="30px"/>
+		<Label Name="ApplierCountLabel" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="209,435,0,0" VerticalAlignment="Top" Foreground="#82abbc" FontSize="30px" Width="147"/>
+		<Label Name="JobPostLabel" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="609,435,0,0" VerticalAlignment="Top" Foreground="#82abbc" FontSize="30px" Width="180"/>
+		<Label Name="CompanyCountLabel" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="1018,431,0,0" VerticalAlignment="Top" Foreground="#82abbc" FontSize="30px" Width="194"/>
 	</Grid>
 </UserControl>

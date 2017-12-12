@@ -74,6 +74,15 @@ namespace WCFJobMeService
         {
             return companyCtr.Login(email, password);
         }
+
+        /// <summary>
+        /// Returns a int (count) for the numbers of rows of companies in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetCompanyTableSize()
+        {
+            return companyCtr.GetCompanyTableSize();
+        }
         #endregion
 
         #region BusinessType Service

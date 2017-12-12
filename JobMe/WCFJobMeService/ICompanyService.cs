@@ -30,6 +30,9 @@ namespace WCFJobMeService
 
         [OperationContract]
         Company Login(string email, string password);
+
+        [OperationContract]
+        int GetCompanyTableSize();
         #endregion
 
         #region BusinessType Service
