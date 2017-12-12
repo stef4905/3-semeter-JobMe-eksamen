@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     <link rel="icon" type="image/png" href="~/Content/image/JobMeIcon.png" />
-   
+
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -85,22 +85,22 @@
         </div>
 
     </div>
-        <div id="content" class="container-fluid">
+    <div id="content" class="container-fluid">
 
-            @RenderBody()
+        @RenderBody()
+    </div>
+
+
+    <hr />
+
+
+    <footer class="container-fluid">
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year - JobMe</p>
         </div>
 
+    </footer>
 
-        <hr />
-    
-        <div class="container-fluid">
-            <footer>
-
-                <p>&copy; @DateTime.Now.Year - JobMe</p>
-
-            </footer>
-        </div>
-    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
