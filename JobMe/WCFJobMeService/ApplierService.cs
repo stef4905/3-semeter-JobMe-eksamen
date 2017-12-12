@@ -75,7 +75,7 @@ namespace WCFJobMeService
         /// Return the number of rows in the Applier table in the database
         /// </summary>
         /// <returns></returns>
-        public int GetJobPostTableSize()
+        public int GetApplierTableSize()
         {
             return applierCtr.GetApplierTableSize();
         }

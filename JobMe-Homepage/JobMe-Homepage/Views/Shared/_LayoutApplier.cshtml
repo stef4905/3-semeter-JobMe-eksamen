@@ -25,9 +25,9 @@
             </div>
             <div class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Jobs", "FindJobPosts", "Applier")</li> <!-- Make link to Jobspage -->
-                    <!-- | indsætte her -->
-                    <li>@Html.ActionLink("Virksomhed", "FindJobPosts", "Applier")</li> <!-- Make link til companies -->
+                    <li>@Html.ActionLink("Dashboard", "Index", "Applier")</li> 
+                    <li>@Html.ActionLink("Find jobs", "FindJobPosts", "Applier")</li> 
+                 
                     <li class="dropdown">
                         @Html.Partial("_CurrentUser", Session["applier"])
                     </li>
@@ -37,13 +37,14 @@
             </div>
         </div>
     </nav>
-    <div class="container body-content">
+  
         @RenderBody()
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
-    </div>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

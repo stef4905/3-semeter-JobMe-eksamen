@@ -5,56 +5,55 @@
 
 }
 
+<div class="container body-content">
+    <h2>Ansøgninger:</h2>
 
-<h2>Ansøgninger:</h2>
+    <form action="/applier/sendApplication" method="post">
+        <div class="form-group">
+            <label for="WorkHours">vælg ansøgning:</label>
+            <select class="form-control" name="jobApplicationId">
+                @foreach (var jobApplication in Model.JobApplicationList)
+                {
 
-<form action="/applier/sendApplication" method="post">
-    <div class="form-group">
-        <label for="WorkHours">vælg ansøgning:</label>
-        <select class="form-control" name="jobApplicationId">
-            @foreach (var jobApplication in Model.JobApplicationList)
-            {
-               
-                <option value="@jobApplication.Id">@jobApplication.Title</option>
-
-
-            }
+                    <option value="@jobApplication.Id">@jobApplication.Title</option>
 
 
-        </select>
-
-        <input type="hidden" name="jobPostId" value="@Model.JobPost.Id" />
-    </div>
-    <h2>CV</h2>
-    @Html.Partial("_JobCV", Session["applier"])
-
-    @*<input type="submit" class="btn btn-blue btn-sendApplication" name="send" value="Send jobansøgning" />*@
-
-    <a class="btn btn-blue btn-sendApplication" data-toggle="modal" data-target="#send" href="#send">Send jobansøgning</a>
+                }
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="send" role="dialog">
-        <div class="modal-dialog">
+            </select>
 
-            <!-- Modal content-->
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4>Er du sikker på du vil sende din ansøgning? </h4>
-                <div class="modal-body">
+            <input type="hidden" name="jobPostId" value="@Model.JobPost.Id" />
+        </div>
+        <h2>CV</h2>
+        @Html.Partial("_JobCV", Session["applier"])
 
-                    <input type="submit" class="btn btn-blue btn-sendApplication" name="send" value="Send jobansøgning" />
+        @*<input type="submit" class="btn btn-blue btn-sendApplication" name="send" value="Send jobansøgning" />*@
+
+        <a class="btn btn-blue btn-sendApplication" data-toggle="modal" data-target="#send" href="#send">Send jobansøgning</a>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="send" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Er du sikker på du vil sende din ansøgning? </h4>
+                    <div class="modal-body">
+
+                        <input type="submit" class="btn btn-blue btn-sendApplication" name="send" value="Send jobansøgning" />
+
+                    </div>
 
                 </div>
 
             </div>
-
         </div>
+
+
+    </form>
+
     </div>
 
-
-</form>
-
-   
-        
-  

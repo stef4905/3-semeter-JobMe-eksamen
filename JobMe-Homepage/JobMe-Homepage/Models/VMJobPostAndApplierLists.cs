@@ -12,5 +12,6 @@ namespace JobMe_Homepage.Models
         public List<JobPost> jobPostList { get; set; }
         public List<ApplierServiceReference.Applier> applierList { get; set; }
         public int countOfJobPosts { get; set; }
+        public int countOfAppliers { get; set; }
     }
 }
