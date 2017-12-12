@@ -25,20 +25,21 @@
 
 
 }
-    <!--#region infographics about all jobs and relevant jobs on the applier-->
-<div class="panel">
-    <div class="panel-body" id="CompanyIndexTopBackground">
-        <div>
-            <div id="textOfCount">
-                <h2>@Model.Company.CompanyName</h2>
+<!--#region infographics about all jobs and relevant jobs on the applier-->
+<div class="container-fluid body-content">
+    
+        <div class="panel-body" id="CompanyIndexTopBackground">
+            <div>
+                <div id="textOfCount">
+                    <h2>@Model.Company.CompanyName</h2>
+                </div>
+
             </div>
-          
-        </div>
 
     </div>
 </div>
 <!--#endregion-->
-<div class="container body-content">
+<div class="container">
 
     <div class="row">
         <div class="col-sm-12">
@@ -67,21 +68,21 @@
         </div>
     </div>
 </div>
-    @section scripts {
+@section scripts {
 
 
 
-        <script>
+    <script>
 
 
-            window.onload = function () {
-                $('#succesModal').show();
+        window.onload = function () {
+            $('#succesModal').show();
 
-                $('#succesModal').click(function (event) {
-                    $('#succesModal').hide();
-                });
-            }
-        </script>
+            $('#succesModal').click(function (event) {
+                $('#succesModal').hide();
+            });
+        }
+    </script>
 
 
-    }
+}
