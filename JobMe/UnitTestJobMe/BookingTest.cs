@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BusinessLogicLayer;
 using ModelLayer;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace UnitTestJobMe
 {
@@ -84,7 +86,7 @@ namespace UnitTestJobMe
         public void TestGetByMeetingId()
         {
             //Arrange
-           
+
             int meetingId = 6;
             BookingCtr bookingCtr = new BookingCtr();
 
@@ -93,6 +95,27 @@ namespace UnitTestJobMe
 
             //Assert
             Assert.AreEqual(meetingId, returnedBooking.MeetingId);
+        }
+
+        [TestMethod]
+        public void TestConcurrencyBookingofSession()
+        {
+            //Arrange
+            DateTime startDateAndTime = new DateTime(2017, 12, 12, 12, 0, 0);
+            DateTime endDateAndtime = new DateTime(2017, 12, 12, 16, 0, 0);
+            int numbersOfInterviews = 4;
+            Booking booking = new Booking(startDateAndTime, endDateAndtime, numbersOfInterviews, 6);
+            Session session = new Session();
+            BookingCtr bookingCtr = new BookingCtr();
+            SessionCtr sessionCtr = new SessionCtr();
+
+
+
+            //Act
+
+            //Thread thread1 = new Thread(ThreadStart(sessionCtr.Create(session, booking)));
+
+            //Assert
         }
     }
 }
