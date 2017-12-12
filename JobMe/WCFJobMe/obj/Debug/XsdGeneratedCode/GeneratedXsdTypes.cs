@@ -14,7 +14,7 @@ namespace WCFJobMe.ContractTypes
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("MSBuild", "15.3.409+gc1de301405")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("MSBuild", "15.1.1012+g251a9aec17")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -309,7 +309,7 @@ namespace WCFJobMe.ContractTypes
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("MSBuild", "15.3.409+gc1de301405")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("MSBuild", "15.1.1012+g251a9aec17")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -336,7 +336,7 @@ namespace WCFJobMe.ContractTypes
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("MSBuild", "15.3.409+gc1de301405")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("MSBuild", "15.1.1012+g251a9aec17")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
