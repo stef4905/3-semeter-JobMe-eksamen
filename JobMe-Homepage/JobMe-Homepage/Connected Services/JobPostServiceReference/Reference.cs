@@ -1919,6 +1919,12 @@ namespace JobMe_Homepage.JobPostServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostByMeetingId", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostByMeetingIdResponse")]
         System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost> GetJobPostByMeetingIdAsync(int meetingId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostTableSize", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostTableSizeResponse")]
+        int GetJobPostTableSize();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostTableSize", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostTableSizeResponse")]
+        System.Threading.Tasks.Task<int> GetJobPostTableSizeAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2082,6 +2088,14 @@ namespace JobMe_Homepage.JobPostServiceReference {
         
         public System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost> GetJobPostByMeetingIdAsync(int meetingId) {
             return base.Channel.GetJobPostByMeetingIdAsync(meetingId);
+        }
+        
+        public int GetJobPostTableSize() {
+            return base.Channel.GetJobPostTableSize();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetJobPostTableSizeAsync() {
+            return base.Channel.GetJobPostTableSizeAsync();
         }
     }
 }

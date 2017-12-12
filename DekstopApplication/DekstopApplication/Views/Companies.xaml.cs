@@ -75,5 +75,24 @@ namespace DekstopApplication.Views
                 Companytabel.ItemsSource = companySearchList;
             }
         }
+
+        private void AddNewCompany(object sender, RoutedEventArgs e)
+        {
+            CompanyCreate companyCreate = new CompanyCreate();
+            CompanyStackPanel.Children.Clear();
+            CompanyStackPanel.Children.Add(companyCreate);
+        }
+
+        private void UpdateCompany(object sender, RoutedEventArgs e)
+        {
+            CompanyUpdate companyUpdate = new CompanyUpdate();
+            CompanyStackPanel.Children.Clear();
+            CompanyStackPanel.Children.Add(companyUpdate);
+        }
+
+        private void DeteleCompany(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

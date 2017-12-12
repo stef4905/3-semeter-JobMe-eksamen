@@ -69,6 +69,9 @@ namespace WCFJobMeService
 
         [OperationContract]
         JobPost GetJobPostByMeetingId(int meetingId);
+
+        [OperationContract]
+        int GetJobPostTableSize();
         #endregion
 
     }

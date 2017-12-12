@@ -38,50 +38,50 @@
     </div>
 </div>
 <!--#endregion-->
+<div class="container body-content">
 
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Dine aktuelle jobannoncer:</h2>
 
-<div class="row">
-    <div class="col-sm-12">
-        <h2>Dine aktuelle jobannoncer:</h2>
+            @foreach (var JobPost in Model.JobPost)
+            {
 
-        @foreach (var JobPost in Model.JobPost)
-        {
+                <div class="col-sm-12 bg-white jobPost content panel panel-default">
+                    <div class="row">
 
-            <div class="col-sm-12 bg-white jobPost content panel panel-default">
-                <div class="row">
-
-                    <div class="col-xs-3">
-                        <img class="img-responsive" src="@JobPost.company.ImageURL">
-                    </div>
-                    <div class="col-xs-7">
-                        <h4 class="company-Name"><strong>@JobPost.Title</strong></h4><h5><strong>@JobPost.company.CompanyName</strong></h5><h4><small>@JobPost.Description</small></h4>
-                    </div>
-                    <div class="col-xs-2 pull-right">
-                        <a id="buttonStyle" class="btn btn-blue" href="company/JobPost/@JobPost.Id">Se jobopslag</a>
-                        <a id="buttonStyle" class="btn btn-blue" href="company/AppliersForJob/@JobPost.Id">Se ansøgere</a>
-                        <a id="buttonStyle" class="btn btn-blue" href="company/Meeting/@JobPost.Meeting.Id">Arrangere møder</a>
+                        <div class="col-xs-3">
+                            <img class="img-responsive" src="@JobPost.company.ImageURL">
+                        </div>
+                        <div class="col-xs-7">
+                            <h4 class="company-Name"><strong>@JobPost.Title</strong></h4><h5><strong>@JobPost.company.CompanyName</strong></h5><h4><small>@JobPost.Description</small></h4>
+                        </div>
+                        <div class="col-xs-2 pull-right">
+                            <a id="buttonStyle" class="btn btn-blue" href="company/JobPost/@JobPost.Id">Se jobopslag</a>
+                            <a id="buttonStyle" class="btn btn-blue" href="company/AppliersForJob/@JobPost.Id">Se ansøgere</a>
+                            <a id="buttonStyle" class="btn btn-blue" href="company/Meeting/@JobPost.Meeting.Id">Arrangere møder</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
 </div>
-
-@section scripts {
-
+    @section scripts {
 
 
-    <script>
+
+        <script>
 
 
-        window.onload = function () {
-            $('#succesModal').show();
+            window.onload = function () {
+                $('#succesModal').show();
 
-            $('#succesModal').click(function (event) {
-                $('#succesModal').hide();
-            });
-        }
-    </script>
+                $('#succesModal').click(function (event) {
+                    $('#succesModal').hide();
+                });
+            }
+        </script>
 
 
-}
+    }

@@ -20,7 +20,9 @@ namespace JobMe_Homepage.Controllers
             {
                 jobPostList = jobPostClient.GetAllJobPost(),
                 applierList = applierClient.GetAllAppliers(),
-            };
+                countOfJobPosts = jobPostClient.GetJobPostTableSize(),
+                countOfAppliers = applierClient.GetApplierTableSize()
+        };
 
             return View(vmJobPostAndApplierLists);
         }

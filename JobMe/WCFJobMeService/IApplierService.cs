@@ -33,6 +33,9 @@ namespace WCFJobMeService
         [OperationContract]
         Applier Login(string email, string password);
 
+        [OperationContract]
+        int GetApplierTableSize();
+
 
     }
 

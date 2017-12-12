@@ -443,8 +443,6 @@ footer{
     margin: 0 auto;
     text-align: center;
     position: relative;
-    margin-left: -36%;
-    margin-right: -36%;
     margin-top: -6%;
     margin-bottom: 2%;
 }
@@ -724,8 +722,6 @@ div.tab button {
     margin: 0 auto;
     text-align: center;
     position: relative;
-    margin-left: -36%;
-    margin-right: -36%;
     margin-top: -6%;
 }
 #buttonStyle {
