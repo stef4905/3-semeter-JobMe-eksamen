@@ -421,7 +421,7 @@ namespace JobMe_Homepage.Controllers
         public ActionResult SendApplication(int id)
         {
             ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
-            TempData["Success"] = "Din ansøgning er blevet sendt";
+            
             //Mangler fagterm.
             applier = Session["applier"] as ApplierServiceReference.Applier;
 
@@ -452,6 +452,7 @@ namespace JobMe_Homepage.Controllers
 
 
             jobApplicationClient.SendApplication(jobApplication, jobPost);
+            TempData["Success"] = "Din ansøgning er blevet sendt";
             return RedirectToAction("Index");
         }
 
