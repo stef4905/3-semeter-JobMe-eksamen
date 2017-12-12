@@ -1,5 +1,5 @@
-﻿@*@model JobMe_Homepage.JobPostServiceReference.JobPost*@
-@model JobMe_Homepage.Models.VMJobPostAndApplierLists
+﻿@model JobMe_Homepage.Models.VMJobPostANDJobPostList
+
 @{
     ViewBag.Title = "JobPost";
     Layout = "~/Views/Shared/_LayoutApplier.cshtml";
@@ -43,7 +43,7 @@
                         @Model.jobPost.Description
                     </div>
                     <div id="seperatorStyling"></div>
-                    <div  id="descriptionText">Kategori:</div><div id="descriptionBodyText">Renrøring</div>
+                    <div  id="descriptionText">Kategori:</div><div id="descriptionBodyText">@Model.jobPost.jobCategory.Title</div>
 
 
                     @if (applier.Status)
@@ -64,9 +64,9 @@
                 </div>
 
                 <div class="col-sm-12 ">
-                    <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Relevante jobs</label>
+                    <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Andre ligende jobs</label>
 
-                    @*@foreach (var jobPost in Model.jobPostList)
+                    @foreach (var jobPost in Model.jobPostList.Where(m => m.jobCategory.Id.Equals(Model.jobPost.jobCategory.Id)).OrderBy(x => Guid.NewGuid()).Take(3))
             {
 
                         <div class="col-sm-12 bg-white jobPost content panel panel-default">
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                         </div>
-                    }*@
+                    }
 
                 </div>
                 

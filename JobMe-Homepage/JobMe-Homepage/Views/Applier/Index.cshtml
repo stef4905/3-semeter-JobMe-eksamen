@@ -74,13 +74,13 @@
         <!--#region List of jbopost that are relactive to the current applier-->
         <div class="col-sm-12 ">
             <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Relevante jobs</label>
-
-            @foreach (var jobPost in Model.jobPostList.Take(4))
-            {
-
+          
+            
+                @foreach (var jobPost in Model.jobPostList.OrderBy(x => Guid.NewGuid()).Take(6))
+                {
+                   
                 <div class="col-sm-12 bg-white jobPost content panel panel-default">
                     <div class="row">
-
                         <div class="col-xs-3">
                             <img class="img-responsive" src="@jobPost.company.ImageURL">
                         </div>
@@ -91,7 +91,8 @@
                             <a id="jobPostButtonStyle" class="btn btn-blue" href="/applier/JobPost/@jobPost.Id">Læs mere</a>
                         </div>
                     </div>
-                </div>
+                </div>             
+          
             }
             <!--#endregion-->
         </div>
@@ -102,8 +103,6 @@
 
 
         <script>
-
-
             window.onload = function () {
                 $('#succesModal').show();
 

@@ -189,6 +189,7 @@
     <Compile Include="Models\VMCompanyANDJobPost.cs" />
     <Compile Include="Models\VMJobPostAndApplierLists.cs" />
     <Compile Include="Models\VMJobPostANDJobApplication.cs" />
+    <Compile Include="Models\VMJobPostANDJobPostList.cs" />
     <Compile Include="Models\VMJobPostJobApplication.cs" />
     <Compile Include="Models\VMJobPostLists.cs" />
     <Compile Include="Models\VMJobPostWorkHoursJobCategory.cs" />

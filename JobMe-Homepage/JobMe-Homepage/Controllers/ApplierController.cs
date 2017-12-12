@@ -38,8 +38,8 @@ namespace JobMe_Homepage.Controllers
             {
                 jobPostListMeeting = jobPostList,
                 jobPostList = jobClient.GetAllJobPost(),
-                countOfJobPosts = jobClient.GetJobPostTableSize()
-                
+                countOfJobPosts = jobClient.GetJobPostTableSize(),
+                applier = Session["applier"] as ApplierServiceReference.Applier
             };
             return View(vmJobPostList);
         }
@@ -509,8 +509,13 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult JobPost(int id)
         {
-            JobPostServiceReference.JobPost jobPost = jobClient.GetJobPost(id);
-            return View(jobPost);
+          
+            VMJobPostANDJobPostList jobPostAndList = new VMJobPostANDJobPostList
+            {
+                jobPost = jobClient.GetJobPost(id),
+                jobPostList = jobClient.GetAllJobPost()
+            };
+            return View(jobPostAndList);
         }
 
 

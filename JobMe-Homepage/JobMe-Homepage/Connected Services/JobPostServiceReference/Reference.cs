@@ -1282,9 +1282,6 @@ namespace JobMe_Homepage.JobPostServiceReference {
         private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.ApplierEducation> ApplierEducationListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ApplierIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1318,19 +1315,6 @@ namespace JobMe_Homepage.JobPostServiceReference {
                 if ((object.ReferenceEquals(this.ApplierEducationListField, value) != true)) {
                     this.ApplierEducationListField = value;
                     this.RaisePropertyChanged("ApplierEducationList");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ApplierId {
-            get {
-                return this.ApplierIdField;
-            }
-            set {
-                if ((this.ApplierIdField.Equals(value) != true)) {
-                    this.ApplierIdField = value;
-                    this.RaisePropertyChanged("ApplierId");
                 }
             }
         }
