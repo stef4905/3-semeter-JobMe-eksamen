@@ -9,7 +9,7 @@ using System.Configuration;
 
 namespace DataAccessLayer
 {
-    class DBBusinessType : IDataAccess<BusinessType>
+    public class DBBusinessType : IDataAccess<BusinessType>
     {
 
         //Connection string for instanciating sql connection 
@@ -22,7 +22,24 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Create(BusinessType obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "INSERT INTO BusinessType (Type) VALUES (@Type)";
+                        cmd.Parameters.AddWithValue("Type", obj.Type);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -31,7 +48,23 @@ namespace DataAccessLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "DELETE FROM BusinessType WHERE Id = @Id";
+                        cmd.Parameters.AddWithValue("Id", id);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -60,14 +93,56 @@ namespace DataAccessLayer
             return businessType;
         }
 
+        /// <summary>
+        /// Returns all current available business types from the database
+        /// </summary>
+        /// <returns>List<BusinessType></returns>
         public List<BusinessType> GetAll()
         {
-            throw new NotImplementedException();
+            List<BusinessType> businessTypeList = new List<BusinessType>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "Select * from BusinessType";
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        BusinessType businessType = new BusinessType((int)reader["Id"], (string)reader["Type"]);
+                        businessTypeList.Add(businessType);
+                    }
+                }
+            }
+            return businessTypeList;
         }
 
+        /// <summary>
+        /// Updates the given businesstype in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>bool</returns>
         public bool Update(BusinessType obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "UPDATE BusinessType SET Type = @Type WHERE Id = @Id";
+                        cmd.Parameters.AddWithValue("Type", obj.Type);
+                        cmd.Parameters.AddWithValue("Id", obj.Id);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
     }
 }

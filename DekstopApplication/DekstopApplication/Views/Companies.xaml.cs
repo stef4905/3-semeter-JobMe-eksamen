@@ -21,14 +21,22 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class Companies : UserControl
     {
-        CompanyServiceClient companyClient = new CompanyServiceClient();
-        public List<CompanyServiceReference.Company> companyList = new List<CompanyServiceReference.Company>();
+        //Instance variables
+        CompanyServiceClient CompanyClient = new CompanyServiceClient();
+        public List<CompanyServiceReference.Company> CompanyList = new List<CompanyServiceReference.Company>();
+        public CompanyServiceReference.Company CompanySelected = null; //Used to keet knowlegde of who the current selected company is
+        private int LastIndexSeletected;
 
         public Companies()
         {
             InitializeComponent();
-            companyList = companyClient.GetAllCompany();
-            Companytabel.ItemsSource = companyList;
+            UpdateTable();
+        }
+
+        public void UpdateTable()
+        {
+            CompanyList = CompanyClient.GetAllCompany();
+            Companytabel.ItemsSource = CompanyList;
         }
 
         /// <summary>
@@ -39,7 +47,7 @@ namespace DekstopApplication.Views
         private void ShowAllCompanies_Button(object sender, RoutedEventArgs e)
         {
             Companytabel.ClearValue(ListView.ItemsSourceProperty);
-            Companytabel.ItemsSource = companyList;
+            Companytabel.ItemsSource = CompanyList;
             CompanySearchBox.Text = "";
         }
         /// <summary>
@@ -51,7 +59,7 @@ namespace DekstopApplication.Views
         private void CompanySearch_Button(object sender, RoutedEventArgs e)
         {
             List<CompanyServiceReference.Company> companySearchList = new List<CompanyServiceReference.Company>();
-            foreach (var company in companyList)
+            foreach (var company in CompanyList)
             {
                 int id;
 
@@ -79,20 +87,62 @@ namespace DekstopApplication.Views
         private void AddNewCompany(object sender, RoutedEventArgs e)
         {
             CompanyCreate companyCreate = new CompanyCreate();
+            companyCreate.TheFunc = UpdateTable;
             CompanyStackPanel.Children.Clear();
             CompanyStackPanel.Children.Add(companyCreate);
         }
 
         private void UpdateCompany(object sender, RoutedEventArgs e)
         {
-            CompanyUpdate companyUpdate = new CompanyUpdate();
-            CompanyStackPanel.Children.Clear();
-            CompanyStackPanel.Children.Add(companyUpdate);
+            if (CompanySelected != null)
+            {
+                CompanyUpdate companyUpdate = new CompanyUpdate(CompanySelected);
+                companyUpdate.TheFunc = UpdateTable;
+                CompanyStackPanel.Children.Clear();
+                CompanyStackPanel.Children.Add(companyUpdate);
+            }
+            else
+            {
+                MessageBox.Show("Du har ikke valgt en virksomhed at opdatere");
+            }
         }
 
         private void DeteleCompany(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("Er du sikker på at du vil slette denne virksomhed?", "Confirmation", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                CompanyClient.DeleteCompany(CompanySelected.Id);
+                MessageBox.Show("Virksomeden " + CompanySelected.CompanyName + " er blevet slettet!");
+                UpdateTable();
+            }
+            else if (result == MessageBoxResult.No)
+            {
+                //No code here
+            }
+        }
 
+
+        /// <summary>
+        /// Used to store wich company who is currenty selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Companytabel_SelectedCompany(object sender, SelectionChangedEventArgs e)
+        {
+            int index;
+
+            if (Companytabel.SelectedIndex >= 0)
+            {
+                index = Companytabel.SelectedIndex;
+                CompanySelected = CompanyList[index];
+            }
+            else
+            {
+                index = LastIndexSeletected;
+            }
+
+            LastIndexSeletected = index;
         }
     }
 }

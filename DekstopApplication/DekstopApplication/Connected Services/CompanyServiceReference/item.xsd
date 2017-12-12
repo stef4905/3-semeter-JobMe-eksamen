@@ -32,4 +32,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfCompany" nillable="true" type="tns:ArrayOfCompany" />
+  <xs:complexType name="ArrayOfBusinessType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BusinessType" nillable="true" type="tns:BusinessType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBusinessType" nillable="true" type="tns:ArrayOfBusinessType" />
 </xs:schema>

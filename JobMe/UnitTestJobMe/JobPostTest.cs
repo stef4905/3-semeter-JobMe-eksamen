@@ -153,8 +153,8 @@ namespace UnitTestJobMe
             JobPostCtr jobPostCtr = new JobPostCtr();
 
             //Act
-            jobPostCtr.Delete(1052);
-            JobPost deletedJobPost = jobPostCtr.Get(1052);
+            jobPostCtr.Delete(1043);
+            JobPost deletedJobPost = jobPostCtr.Get(1043);
 
 
             //Assert

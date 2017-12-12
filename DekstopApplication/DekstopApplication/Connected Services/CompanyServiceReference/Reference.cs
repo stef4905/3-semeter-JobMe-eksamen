@@ -366,6 +366,36 @@ namespace DekstopApplication.CompanyServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/Login", ReplyAction="http://tempuri.org/ICompanyService/LoginResponse")]
         System.Threading.Tasks.Task<DekstopApplication.CompanyServiceReference.Company> LoginAsync(string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateBusinessType", ReplyAction="http://tempuri.org/ICompanyService/CreateBusinessTypeResponse")]
+        bool CreateBusinessType(DekstopApplication.CompanyServiceReference.BusinessType obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateBusinessType", ReplyAction="http://tempuri.org/ICompanyService/CreateBusinessTypeResponse")]
+        System.Threading.Tasks.Task<bool> CreateBusinessTypeAsync(DekstopApplication.CompanyServiceReference.BusinessType obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetBusinessType", ReplyAction="http://tempuri.org/ICompanyService/GetBusinessTypeResponse")]
+        DekstopApplication.CompanyServiceReference.BusinessType GetBusinessType(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetBusinessType", ReplyAction="http://tempuri.org/ICompanyService/GetBusinessTypeResponse")]
+        System.Threading.Tasks.Task<DekstopApplication.CompanyServiceReference.BusinessType> GetBusinessTypeAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetAllBusinessType", ReplyAction="http://tempuri.org/ICompanyService/GetAllBusinessTypeResponse")]
+        System.Collections.Generic.List<DekstopApplication.CompanyServiceReference.BusinessType> GetAllBusinessType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetAllBusinessType", ReplyAction="http://tempuri.org/ICompanyService/GetAllBusinessTypeResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DekstopApplication.CompanyServiceReference.BusinessType>> GetAllBusinessTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateBusinessType", ReplyAction="http://tempuri.org/ICompanyService/UpdateBusinessTypeResponse")]
+        bool UpdateBusinessType(DekstopApplication.CompanyServiceReference.BusinessType obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/UpdateBusinessType", ReplyAction="http://tempuri.org/ICompanyService/UpdateBusinessTypeResponse")]
+        System.Threading.Tasks.Task<bool> UpdateBusinessTypeAsync(DekstopApplication.CompanyServiceReference.BusinessType obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/DeleteBusinessType", ReplyAction="http://tempuri.org/ICompanyService/DeleteBusinessTypeResponse")]
+        void DeleteBusinessType(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/DeleteBusinessType", ReplyAction="http://tempuri.org/ICompanyService/DeleteBusinessTypeResponse")]
+        System.Threading.Tasks.Task DeleteBusinessTypeAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -441,6 +471,46 @@ namespace DekstopApplication.CompanyServiceReference {
         
         public System.Threading.Tasks.Task<DekstopApplication.CompanyServiceReference.Company> LoginAsync(string email, string password) {
             return base.Channel.LoginAsync(email, password);
+        }
+        
+        public bool CreateBusinessType(DekstopApplication.CompanyServiceReference.BusinessType obj) {
+            return base.Channel.CreateBusinessType(obj);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CreateBusinessTypeAsync(DekstopApplication.CompanyServiceReference.BusinessType obj) {
+            return base.Channel.CreateBusinessTypeAsync(obj);
+        }
+        
+        public DekstopApplication.CompanyServiceReference.BusinessType GetBusinessType(int id) {
+            return base.Channel.GetBusinessType(id);
+        }
+        
+        public System.Threading.Tasks.Task<DekstopApplication.CompanyServiceReference.BusinessType> GetBusinessTypeAsync(int id) {
+            return base.Channel.GetBusinessTypeAsync(id);
+        }
+        
+        public System.Collections.Generic.List<DekstopApplication.CompanyServiceReference.BusinessType> GetAllBusinessType() {
+            return base.Channel.GetAllBusinessType();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DekstopApplication.CompanyServiceReference.BusinessType>> GetAllBusinessTypeAsync() {
+            return base.Channel.GetAllBusinessTypeAsync();
+        }
+        
+        public bool UpdateBusinessType(DekstopApplication.CompanyServiceReference.BusinessType obj) {
+            return base.Channel.UpdateBusinessType(obj);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateBusinessTypeAsync(DekstopApplication.CompanyServiceReference.BusinessType obj) {
+            return base.Channel.UpdateBusinessTypeAsync(obj);
+        }
+        
+        public void DeleteBusinessType(int id) {
+            base.Channel.DeleteBusinessType(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteBusinessTypeAsync(int id) {
+            return base.Channel.DeleteBusinessTypeAsync(id);
         }
     }
 }

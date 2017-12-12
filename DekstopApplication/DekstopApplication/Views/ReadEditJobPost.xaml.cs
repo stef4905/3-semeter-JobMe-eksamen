@@ -91,6 +91,10 @@ namespace DekstopApplication.Views
                 jobPost.StartDate = StartDateBox.SelectedDate.Value.Date;
                 jobPost.EndDate = EndDateBox.SelectedDate.Value.Date;
                 jobCLient.UpdateJobPost(jobPost);
+
+                int selectedJobPost = CategoryListBox.SelectedIndex;
+                jobPost.jobCategory = categoryList[selectedJobPost];
+
                 MessageBox.Show("Job Post Opdateret!");
             }
             else if (result == MessageBoxResult.No)
@@ -108,6 +112,7 @@ namespace DekstopApplication.Views
         private void UpdateJobPostButton_Click(object sender, RoutedEventArgs e)
         {
             UpdateJobPostBoxes();
+            ((Panel)this.Parent).Children.Remove(this);
         }
         /// <summary>
         /// Back Button

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DekstopApplication.Views.WebInfo;
-using DekstopApplication.Views.WebInfo.SiteTexts;
+using DekstopApplication.Views.WebInfo.BusinessType;
 
 namespace DekstopApplication.Views
 {
@@ -41,9 +41,9 @@ namespace DekstopApplication.Views
 
         private void WebInfoTextButton(object sender, RoutedEventArgs e)
         {
-            WebInfoSiteTexts webInfoSiteTextsView = new WebInfoSiteTexts();
+            WebInfoBusinessType webInfoBusinessType = new WebInfoBusinessType();
             WebInfoPanel.Children.Clear();
-            WebInfoPanel.Children.Add(webInfoSiteTextsView);
+            WebInfoPanel.Children.Add(webInfoBusinessType);
 
         }
 

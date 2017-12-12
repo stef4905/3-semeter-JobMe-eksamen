@@ -51,8 +51,25 @@ namespace DekstopApplication.Views.WebInfo
         /// <param name="e"></param>
         private void DeleteJobCategory(object sender, RoutedEventArgs e)
         {
-            JobPostClient.DeleteJobCategory(JobCategorySelected.Id);
-            UpdateJobCategoryListAndTable();
+            if (JobCategoryTable.SelectedIndex >= 0)
+            {
+                MessageBoxResult result = MessageBox.Show("Er du sikker på at du vil slette " + JobCategorySelected.Title, "Confirmation", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    JobPostClient.DeleteJobCategory(JobCategorySelected.Id);
+                    UpdateJobCategoryListAndTable();
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    //No code here
+                }
+                JobCategoryTable.SelectedIndex = -1;
+            }
+            else
+            {
+                MessageBox.Show("Du har ikke valgt en job kategori");
+            }
+
         }
 
         /// <summary>
@@ -108,11 +125,7 @@ namespace DekstopApplication.Views.WebInfo
 
             //Setting the text in update section
             CurrentJobCategoryTitleInput.Text = JobCategorySelected.Title;
-
-            //Sets the indexSelected to the current selected index on the table list. This then used for the next time this mehtod is called
-            IndexSelected = index;
         }
-
 
     }
 }
