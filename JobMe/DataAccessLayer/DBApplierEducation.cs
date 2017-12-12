@@ -28,13 +28,13 @@ namespace DataAccessLayer
                 {
                     try
                     {
-                        cmd.CommandText = "INSERT INTO ApplierEducation (EducationName, Institution, StartDate, EndDate, JobCVId) VALUES (@EducationName, @Institution, @StartDate, @EndDate, @JobCVId) WHERE Id = @Id";
+                        cmd.CommandText = "INSERT INTO ApplierEducation (EducationName, Institution, StartDate, EndDate, JobCVId) VALUES (@EducationName, @Institution, @StartDate, @EndDate, @JobCVId)";
                         cmd.Parameters.AddWithValue("EducationName", obj.EducationName);
                         cmd.Parameters.AddWithValue("Institution", obj.Institution);
                         cmd.Parameters.AddWithValue("StartDate", obj.StartDate);
                         cmd.Parameters.AddWithValue("EndDate", obj.EndDate);
                         cmd.Parameters.AddWithValue("JobCVId", obj.JobCVId);
-                        cmd.Parameters.AddWithValue("Id", obj.id);
+                        cmd.ExecuteNonQuery();
                         return true;
                     }
                     catch (SqlException) {
@@ -51,7 +51,16 @@ namespace DataAccessLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM ApplierEducation WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("Id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>

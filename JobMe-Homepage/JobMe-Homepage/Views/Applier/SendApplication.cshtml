@@ -14,10 +14,7 @@
             <select class="form-control" name="jobApplicationId">
                 @foreach (var jobApplication in Model.JobApplicationList)
                 {
-
                     <option value="@jobApplication.Id">@jobApplication.Title</option>
-
-
                 }
 
 
@@ -26,7 +23,7 @@
             <input type="hidden" name="jobPostId" value="@Model.JobPost.Id" />
         </div>
         <h2>CV</h2>
-        @Html.Partial("_JobCV", Session["applier"])
+        @Html.Partial("_ReadJobCV", Model.applier.JobCV)
 
         @*<input type="submit" class="btn btn-blue btn-sendApplication" name="send" value="Send jobansøgning" />*@
 
@@ -55,5 +52,5 @@
 
     </form>
 
-    </div>
+</div>
 

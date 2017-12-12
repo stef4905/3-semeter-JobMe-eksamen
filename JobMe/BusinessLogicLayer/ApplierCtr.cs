@@ -24,7 +24,8 @@ namespace BusinessLogicLayer
             {
                 Applier applier = dbApplier.CreateAndReturnApplier(obj);
                 applier.Birthdate = DateTime.Now;
-                applier.JobCV = new JobCV(0, "Ikke endnu redigeret", 0, "Bio tekst");
+                applier.JobCV = new JobCV(0, "Ikke endnu redigeret", "Bio tekst");
+
                 Applier applierReturned = jobCVCtr.CreateAndReturnPrimaryKey(applier.JobCV, applier);
                 Update(applierReturned);
                 return true;
@@ -81,9 +82,13 @@ namespace BusinessLogicLayer
         {
             try
             {
-               
+
                 dbApplier.Update(obj);
-                UpdateApplierJobCategories(obj);
+                if (obj.JobCategoryList != null)
+                {
+                    UpdateApplierJobCategories(obj);
+                }
+
                 return true;
             }
             catch (Exception e)
