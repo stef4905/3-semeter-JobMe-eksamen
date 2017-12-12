@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="JobCVService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IJobCVService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://localhost:8713/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://localhost:8713/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://localhost:8713/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ModelLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IJobCVService_CreateAndReturnPrimaryKey_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAndReturnPrimaryKey" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_CreateAndReturnPrimaryKey_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAndReturnPrimaryKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_Create_InputMessage">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_Create_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_Delete_InputMessage">
+    <wsdl:part name="parameters" element="tns:Delete" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_Delete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_Get_InputMessage">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_Get_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_GetAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAll" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_GetAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_CreateJobexpericene_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateJobexpericene" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_CreateJobexpericene_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateJobexpericeneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_UpdateJobexpericene_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJobexpericene" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_UpdateJobexpericene_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJobexpericeneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_DeleteJobexpericene_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJobexpericene" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_DeleteJobexpericene_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJobexpericeneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_CreateApplierEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateApplierEducation" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_CreateApplierEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateApplierEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_UpdateApplierEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplierEducation" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_UpdateApplierEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateApplierEducationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_DeleteApplierEducation_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteApplierEducation" />
+  </wsdl:message>
+  <wsdl:message name="IJobCVService_DeleteApplierEducation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteApplierEducationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IJobCVService">
+    <wsdl:operation name="CreateAndReturnPrimaryKey">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/CreateAndReturnPrimaryKey" message="tns:IJobCVService_CreateAndReturnPrimaryKey_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/CreateAndReturnPrimaryKeyResponse" message="tns:IJobCVService_CreateAndReturnPrimaryKey_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/Create" message="tns:IJobCVService_Create_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/CreateResponse" message="tns:IJobCVService_Create_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/Delete" message="tns:IJobCVService_Delete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/DeleteResponse" message="tns:IJobCVService_Delete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/Get" message="tns:IJobCVService_Get_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/GetResponse" message="tns:IJobCVService_Get_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/GetAll" message="tns:IJobCVService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/GetAllResponse" message="tns:IJobCVService_GetAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/Update" message="tns:IJobCVService_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/UpdateResponse" message="tns:IJobCVService_Update_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateJobexpericene">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/CreateJobexpericene" message="tns:IJobCVService_CreateJobexpericene_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/CreateJobexpericeneResponse" message="tns:IJobCVService_CreateJobexpericene_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobexpericene">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/UpdateJobexpericene" message="tns:IJobCVService_UpdateJobexpericene_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/UpdateJobexpericeneResponse" message="tns:IJobCVService_UpdateJobexpericene_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobexpericene">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/DeleteJobexpericene" message="tns:IJobCVService_DeleteJobexpericene_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/DeleteJobexpericeneResponse" message="tns:IJobCVService_DeleteJobexpericene_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateApplierEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/CreateApplierEducation" message="tns:IJobCVService_CreateApplierEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/CreateApplierEducationResponse" message="tns:IJobCVService_CreateApplierEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplierEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/UpdateApplierEducation" message="tns:IJobCVService_UpdateApplierEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/UpdateApplierEducationResponse" message="tns:IJobCVService_UpdateApplierEducation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApplierEducation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobCVService/DeleteApplierEducation" message="tns:IJobCVService_DeleteApplierEducation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobCVService/DeleteApplierEducationResponse" message="tns:IJobCVService_DeleteApplierEducation_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IJobCVService" type="tns:IJobCVService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IJobCVService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateAndReturnPrimaryKey">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/CreateAndReturnPrimaryKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/Create" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/Delete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAll">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/GetAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateJobexpericene">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/CreateJobexpericene" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobexpericene">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/UpdateJobexpericene" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobexpericene">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/DeleteJobexpericene" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateApplierEducation">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/CreateApplierEducation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateApplierEducation">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/UpdateApplierEducation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteApplierEducation">
+      <soap12:operation soapAction="http://tempuri.org/IJobCVService/DeleteApplierEducation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="JobCVService">
+    <wsdl:port name="WSHttpBinding_IJobCVService" binding="tns:WSHttpBinding_IJobCVService">
+      <soap12:address location="https://localhost:8713/JobCVService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://localhost:8713/JobCVService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

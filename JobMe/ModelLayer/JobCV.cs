@@ -15,8 +15,6 @@ namespace ModelLayer
         [DataMember]
         public string Title { get; set; }
         [DataMember]
-        public int ApplierId { get; set; }
-        [DataMember]
         public string Bio { get; set; }
         [DataMember]
         public List<JobAppendix> JobAppendixList = new List<JobAppendix>();
@@ -31,11 +29,11 @@ namespace ModelLayer
         /// <param name="id"></param>
         /// <param name="title"></param>
         /// <param name="applierId"></param>
-        public JobCV(int id, string title, int applierId, string bio)
+        public JobCV(int id, string title, string bio)
         {
             this.Id = id;
             this.Title = title;
-            this.ApplierId = applierId;
+           
             this.Bio = bio;
         }
         /// <summary>

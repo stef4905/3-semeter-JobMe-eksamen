@@ -31,5 +31,27 @@ namespace WCFJobMeService
         void Update(JobCV obj);
 
 
+        #region JobExperienceService
+        [OperationContract]
+        void CreateJobexpericene(JobExperience jobExperience);
+
+        [OperationContract]
+        void UpdateJobexpericene(JobExperience jobExperience);
+        [OperationContract]
+        void DeleteJobexpericene(int id);
+
+        #endregion
+
+        #region EducationService
+        [OperationContract]
+        void CreateApplierEducation(ApplierEducation applierEducation);
+
+        [OperationContract]
+        void UpdateApplierEducation(ApplierEducation applierEducation);
+        [OperationContract]
+        void DeleteApplierEducation(int id);
+
+        #endregion
+
     }
 }

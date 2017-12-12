@@ -425,7 +425,7 @@ namespace DataAccessLayer
                 {
                     cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Address = @Address, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
                         " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
-                        " CurrentJob = @CurrentJob, Birthdate = @Birthdate, Password = @Password " +
+                        " CurrentJob = @CurrentJob, Birthdate = @Birthdate, Password = @Password, JobCVId = @JobCVId " +
                         "WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Phone", obj.Phone);
@@ -443,7 +443,9 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("CurrentJob", obj.CurrentJob ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("Birthdate", obj.Birthdate);
                     cmd.Parameters.AddWithValue("Password", obj.Password);
+                    cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
                     cmd.Parameters.AddWithValue("Id", obj.Id);
+                    
 
                     try
                     {
