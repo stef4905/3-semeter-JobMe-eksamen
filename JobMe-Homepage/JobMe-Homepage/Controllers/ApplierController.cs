@@ -39,7 +39,7 @@ namespace JobMe_Homepage.Controllers
                 jobPostListMeeting = jobPostList,
                 jobPostList = jobClient.GetAllJobPost(),
                 countOfJobPosts = jobClient.GetJobPostTableSize()
-
+                
             };
             return View(vmJobPostList);
         }

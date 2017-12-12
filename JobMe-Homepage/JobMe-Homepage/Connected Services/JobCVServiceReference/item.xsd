@@ -3,6 +3,7 @@
   <xs:complexType name="JobCV">
     <xs:sequence>
       <xs:element minOccurs="0" name="ApplierEducationList" nillable="true" type="tns:ArrayOfApplierEducation" />
+      <xs:element minOccurs="0" name="ApplierId" type="xs:int" />
       <xs:element minOccurs="0" name="Bio" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="JobAppendixList" nillable="true" type="tns:ArrayOfJobAppendix" />

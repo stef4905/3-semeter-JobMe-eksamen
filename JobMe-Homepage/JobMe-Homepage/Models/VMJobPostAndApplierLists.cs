@@ -13,6 +13,6 @@ namespace JobMe_Homepage.Models
         public List<ApplierServiceReference.Applier> applierList { get; set; }
         public int countOfJobPosts { get; set; }
         public int countOfAppliers { get; set; }
-        public JobPost jobPost { get; set; }
+        
     }
 }

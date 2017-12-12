@@ -26,6 +26,9 @@ namespace JobMe_Homepage.JobCVServiceReference {
         private JobMe_Homepage.JobCVServiceReference.ApplierEducation[] ApplierEducationListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ApplierIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -59,6 +62,19 @@ namespace JobMe_Homepage.JobCVServiceReference {
                 if ((object.ReferenceEquals(this.ApplierEducationListField, value) != true)) {
                     this.ApplierEducationListField = value;
                     this.RaisePropertyChanged("ApplierEducationList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ApplierId {
+            get {
+                return this.ApplierIdField;
+            }
+            set {
+                if ((this.ApplierIdField.Equals(value) != true)) {
+                    this.ApplierIdField = value;
+                    this.RaisePropertyChanged("ApplierId");
                 }
             }
         }
@@ -914,42 +930,6 @@ namespace JobMe_Homepage.JobCVServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/Update", ReplyAction="http://tempuri.org/IJobCVService/UpdateResponse")]
         System.Threading.Tasks.Task UpdateAsync(JobMe_Homepage.JobCVServiceReference.JobCV obj);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/CreateJobexpericene", ReplyAction="http://tempuri.org/IJobCVService/CreateJobexpericeneResponse")]
-        void CreateJobexpericene(JobMe_Homepage.JobCVServiceReference.JobExperience jobExperience);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/CreateJobexpericene", ReplyAction="http://tempuri.org/IJobCVService/CreateJobexpericeneResponse")]
-        System.Threading.Tasks.Task CreateJobexpericeneAsync(JobMe_Homepage.JobCVServiceReference.JobExperience jobExperience);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/UpdateJobexpericene", ReplyAction="http://tempuri.org/IJobCVService/UpdateJobexpericeneResponse")]
-        void UpdateJobexpericene(JobMe_Homepage.JobCVServiceReference.JobExperience jobExperience);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/UpdateJobexpericene", ReplyAction="http://tempuri.org/IJobCVService/UpdateJobexpericeneResponse")]
-        System.Threading.Tasks.Task UpdateJobexpericeneAsync(JobMe_Homepage.JobCVServiceReference.JobExperience jobExperience);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/DeleteJobexpericene", ReplyAction="http://tempuri.org/IJobCVService/DeleteJobexpericeneResponse")]
-        void DeleteJobexpericene(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/DeleteJobexpericene", ReplyAction="http://tempuri.org/IJobCVService/DeleteJobexpericeneResponse")]
-        System.Threading.Tasks.Task DeleteJobexpericeneAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/CreateApplierEducation", ReplyAction="http://tempuri.org/IJobCVService/CreateApplierEducationResponse")]
-        void CreateApplierEducation(JobMe_Homepage.JobCVServiceReference.ApplierEducation applierEducation);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/CreateApplierEducation", ReplyAction="http://tempuri.org/IJobCVService/CreateApplierEducationResponse")]
-        System.Threading.Tasks.Task CreateApplierEducationAsync(JobMe_Homepage.JobCVServiceReference.ApplierEducation applierEducation);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/UpdateApplierEducation", ReplyAction="http://tempuri.org/IJobCVService/UpdateApplierEducationResponse")]
-        void UpdateApplierEducation(JobMe_Homepage.JobCVServiceReference.ApplierEducation applierEducation);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/UpdateApplierEducation", ReplyAction="http://tempuri.org/IJobCVService/UpdateApplierEducationResponse")]
-        System.Threading.Tasks.Task UpdateApplierEducationAsync(JobMe_Homepage.JobCVServiceReference.ApplierEducation applierEducation);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/DeleteApplierEducation", ReplyAction="http://tempuri.org/IJobCVService/DeleteApplierEducationResponse")]
-        void DeleteApplierEducation(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobCVService/DeleteApplierEducation", ReplyAction="http://tempuri.org/IJobCVService/DeleteApplierEducationResponse")]
-        System.Threading.Tasks.Task DeleteApplierEducationAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1025,54 +1005,6 @@ namespace JobMe_Homepage.JobCVServiceReference {
         
         public System.Threading.Tasks.Task UpdateAsync(JobMe_Homepage.JobCVServiceReference.JobCV obj) {
             return base.Channel.UpdateAsync(obj);
-        }
-        
-        public void CreateJobexpericene(JobMe_Homepage.JobCVServiceReference.JobExperience jobExperience) {
-            base.Channel.CreateJobexpericene(jobExperience);
-        }
-        
-        public System.Threading.Tasks.Task CreateJobexpericeneAsync(JobMe_Homepage.JobCVServiceReference.JobExperience jobExperience) {
-            return base.Channel.CreateJobexpericeneAsync(jobExperience);
-        }
-        
-        public void UpdateJobexpericene(JobMe_Homepage.JobCVServiceReference.JobExperience jobExperience) {
-            base.Channel.UpdateJobexpericene(jobExperience);
-        }
-        
-        public System.Threading.Tasks.Task UpdateJobexpericeneAsync(JobMe_Homepage.JobCVServiceReference.JobExperience jobExperience) {
-            return base.Channel.UpdateJobexpericeneAsync(jobExperience);
-        }
-        
-        public void DeleteJobexpericene(int id) {
-            base.Channel.DeleteJobexpericene(id);
-        }
-        
-        public System.Threading.Tasks.Task DeleteJobexpericeneAsync(int id) {
-            return base.Channel.DeleteJobexpericeneAsync(id);
-        }
-        
-        public void CreateApplierEducation(JobMe_Homepage.JobCVServiceReference.ApplierEducation applierEducation) {
-            base.Channel.CreateApplierEducation(applierEducation);
-        }
-        
-        public System.Threading.Tasks.Task CreateApplierEducationAsync(JobMe_Homepage.JobCVServiceReference.ApplierEducation applierEducation) {
-            return base.Channel.CreateApplierEducationAsync(applierEducation);
-        }
-        
-        public void UpdateApplierEducation(JobMe_Homepage.JobCVServiceReference.ApplierEducation applierEducation) {
-            base.Channel.UpdateApplierEducation(applierEducation);
-        }
-        
-        public System.Threading.Tasks.Task UpdateApplierEducationAsync(JobMe_Homepage.JobCVServiceReference.ApplierEducation applierEducation) {
-            return base.Channel.UpdateApplierEducationAsync(applierEducation);
-        }
-        
-        public void DeleteApplierEducation(int id) {
-            base.Channel.DeleteApplierEducation(id);
-        }
-        
-        public System.Threading.Tasks.Task DeleteApplierEducationAsync(int id) {
-            return base.Channel.DeleteApplierEducationAsync(id);
         }
     }
 }
