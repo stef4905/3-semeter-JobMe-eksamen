@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using JobMe_Homepage.JobCVServiceReference;
 namespace JobMe_Homepage.Controllers
 {
     public class ApplierController : Controller
@@ -20,6 +20,7 @@ namespace JobMe_Homepage.Controllers
 
         JobApplicationServiceClient jobApplicationClient = new JobApplicationServiceClient();
         BookingServiceClient bookingServiceClient = new BookingServiceClient();
+        JobCVServiceReference.JobCVServiceClient jobCVServiceClient = new JobCVServiceReference.JobCVServiceClient();
 
         // GET: Applier
         public ActionResult Index()
@@ -66,53 +67,53 @@ namespace JobMe_Homepage.Controllers
                 applier.JobCategoryList = new List<ApplierServiceReference.JobCategory>();
             }
 
-                foreach (var item in jobCategoryList)
+            foreach (var item in jobCategoryList)
             {
-                
 
 
-                    var test = applier.JobCategoryList.Where(m => m.Id == item.Id).FirstOrDefault();
 
-                    if (test != null)
+                var test = applier.JobCategoryList.Where(m => m.Id == item.Id).FirstOrDefault();
+
+                if (test != null)
+                {
+                    CategoryObject categoryObject = new CategoryObject
                     {
-                        CategoryObject categoryObject = new CategoryObject
-                        {
-                            Id = item.Id,
+                        Id = item.Id,
 
 
 
-                            IsChecked = true,
+                        IsChecked = true,
 
-                            Name = item.Title
+                        Name = item.Title
 
-                        };
+                    };
 
-                        CategoryList.Add(categoryObject);
-
-                    }
-
-                    else
-                    {
-                        CategoryObject categoryObject = new CategoryObject
-                        {
-                            Id = item.Id,
-
-
-
-                            IsChecked = false,
-
-                            Name = item.Title
-
-                        };
-
-                        CategoryList.Add(categoryObject);
-
-                    }
-
+                    CategoryList.Add(categoryObject);
 
                 }
-               
-          
+
+                else
+                {
+                    CategoryObject categoryObject = new CategoryObject
+                    {
+                        Id = item.Id,
+
+
+
+                        IsChecked = false,
+
+                        Name = item.Title
+
+                    };
+
+                    CategoryList.Add(categoryObject);
+
+                }
+
+
+            }
+
+
             vmApplierANDJobCategory.Applier = applier;
 
             vmApplierANDJobCategory.JobCategoryList = CategoryList;
@@ -221,6 +222,101 @@ namespace JobMe_Homepage.Controllers
 
             return View(vmApplierAndApplication);
         }
+        #region JOBCV
+        [HttpPost]
+        public ActionResult createJobexpericene(string title, DateTime startDate, DateTime endDate, string description, int jobCVID)
+        {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+            JobCVServiceReference.JobExperience jobExperience = new JobCVServiceReference.JobExperience
+            {
+                Title = title,
+                StartDate = startDate,
+                EndDate = endDate,
+                Description = description,
+                JobCVId = jobCVID
+
+            };
+            jobCVServiceClient.CreateJobexpericene(jobExperience);
+            Session["Applier"] = client.GetApplier(applier.Id);
+            return RedirectToAction("JobApplication");
+        }
+        [HttpPost]
+        public ActionResult UpdateJobexpericene(string title, DateTime startDate, DateTime endDate, string description, int id)
+        {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+            JobCVServiceReference.JobExperience jobExperience = new JobCVServiceReference.JobExperience
+            {
+                Title = title,
+                StartDate = startDate,
+                EndDate = endDate,
+                Description = description,
+                JobCVId = applier.JobCV.Id,
+                Id = id
+
+            };
+            jobCVServiceClient.UpdateJobexpericene(jobExperience);
+            Session["Applier"] = client.GetApplier(applier.Id);
+            return RedirectToAction("JobApplication");
+        }
+
+        public ActionResult DeleteJobExperience(int id)
+        {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+
+            TempData["Success"] = "Successfuld slettet!";
+            jobCVServiceClient.DeleteJobexpericene(id);
+            Session["Applier"] = client.GetApplier(applier.Id);
+            return RedirectToAction("JobApplication");
+        }
+
+        [HttpPost]
+        public ActionResult CreateEducation(string title, DateTime startDate, DateTime endDate, string institution)
+        {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+            JobCVServiceReference.ApplierEducation applierEducation = new JobCVServiceReference.ApplierEducation
+            {
+                EducationName = title,
+                StartDate = startDate,
+                EndDate = endDate,
+                Institution = institution,
+                JobCVId = applier.JobCV.Id
+
+            };
+            jobCVServiceClient.CreateApplierEducation(applierEducation);
+            Session["Applier"] = client.GetApplier(applier.Id);
+            return RedirectToAction("JobApplication");
+        }
+
+        [HttpPost]
+        public ActionResult UpdateEducation(string title, DateTime startDate, DateTime endDate, string institution, int id)
+        {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+            JobCVServiceReference.ApplierEducation applierEducation = new JobCVServiceReference.ApplierEducation
+            {
+                EducationName = title,
+                StartDate = startDate,
+                EndDate = endDate,
+                Institution = institution,
+                JobCVId = applier.JobCV.Id,
+                id = id
+
+            };
+            jobCVServiceClient.UpdateApplierEducation(applierEducation);
+            Session["Applier"] = client.GetApplier(applier.Id);
+            return RedirectToAction("JobApplication");
+        }
+
+        public ActionResult DeleteEducation(int id)
+        {
+            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+
+            TempData["Success"] = "Successfuld slettet!";
+            jobCVServiceClient.DeleteApplierEducation(id);
+            Session["Applier"] = client.GetApplier(applier.Id);
+            return RedirectToAction("JobApplication");
+        }
+
+        #endregion
 
         [HttpPost]
         public ActionResult _UpdateUserProfile(string emailInput, string bannerInput, string imageInput, string fNameInput, string lNameInput, DateTime birthdate, int PhoneInput, string addressInput,
@@ -421,7 +517,7 @@ namespace JobMe_Homepage.Controllers
         public ActionResult SendApplication(int id)
         {
             ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
-            
+
             //Mangler fagterm.
             applier = Session["applier"] as ApplierServiceReference.Applier;
 

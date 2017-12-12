@@ -110,7 +110,7 @@ namespace DataAccessLayer
                     {
                         cmd.CommandText = "UPDATE JobCV SET Title = @Title, ApplierId = @ApplierId WHERE Id = @Id ";
                         cmd.Parameters.AddWithValue("Titlte", obj.Title);
-                        cmd.Parameters.AddWithValue("StartDate", obj.ApplierId);
+                        
                         cmd.Parameters.AddWithValue("Id", obj.Id);
                         cmd.ExecuteNonQuery();
                         return true;
