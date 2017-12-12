@@ -62,8 +62,8 @@ namespace DekstopApplication.Views
         /// Creates a new admin when button is pressed. 
         /// Gets all input from the view and assigns it to a new Admin object.
         /// Also checks to see if the password input is the same in passwordRepeat to ensure correct password.
-        /// The servicereference method for creating a new admin is then called where the Admin object is set as paremter.
-        /// Calls TheFuck wich contains the UpdateTable() method from the parent view.
+        /// The servicereference method for creating a new admin is then called where the Admin object is set as parameter.
+        /// Calls TheFunc wich contains the UpdateTable() method from the parent view.
         /// Closes the current UserControl view.
         /// </summary>
         /// <param name="sender"></param>

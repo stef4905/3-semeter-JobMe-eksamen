@@ -32,7 +32,9 @@ namespace DekstopApplication.Views
             InitializeComponent();
             UpdateTable();
         }
-
+        /// <summary>
+        /// Used for Delegate Function
+        /// </summary>
         public void UpdateTable()
         {
             CompanyList = CompanyClient.GetAllCompany();
@@ -40,6 +42,7 @@ namespace DekstopApplication.Views
         }
 
         /// <summary>
+        /// Get All Companies Button
         /// Calls the get all function, and populates the Company Table.
         /// </summary>
         /// <param name="sender"></param>
@@ -84,6 +87,13 @@ namespace DekstopApplication.Views
             }
         }
 
+        /// <summary>
+        /// Creates a new instance of the window CompanyCreate view
+        /// Calls the delegate function UpdateTable()
+        /// Adds the new CompanyCreate instance to the Panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddNewCompany(object sender, RoutedEventArgs e)
         {
             CompanyCreate companyCreate = new CompanyCreate();
@@ -92,6 +102,15 @@ namespace DekstopApplication.Views
             CompanyStackPanel.Children.Add(companyCreate);
         }
 
+        /// <summary>
+        /// Update Company Button
+        /// Creates a new instance of CompanyUpdate view
+        /// Calls the delegate function UpdateTable()
+        /// Adds the CompanyUpdate view to the Panel
+        /// If no company is selected, a messagebox will show.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateCompany(object sender, RoutedEventArgs e)
         {
             if (CompanySelected != null)
@@ -107,13 +126,21 @@ namespace DekstopApplication.Views
             }
         }
 
-        private void DeteleCompany(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Delete Company Button
+        /// Calls DeleteCompany method throguh CompanyClient on the Selected ID on the Company table view
+        /// A messagebox will show to comfirm with a Yes/No response required to remove the Company
+        /// If removed, a confirmation will be shown
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteCompany(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Er du sikker på at du vil slette denne virksomhed?", "Confirmation", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("Er du sikker på at du vil slette denne virksomhed?" + CompanySelected.CompanyName, "Confirmation", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
                 CompanyClient.DeleteCompany(CompanySelected.Id);
-                MessageBox.Show("Virksomeden " + CompanySelected.CompanyName + " er blevet slettet!");
+                MessageBox.Show("Virksomheden " + CompanySelected.CompanyName + " er blevet slettet!");
                 UpdateTable();
             }
             else if (result == MessageBoxResult.No)
@@ -124,7 +151,7 @@ namespace DekstopApplication.Views
 
 
         /// <summary>
-        /// Used to store wich company who is currenty selected
+        /// Used to store wich company who is currenty selected on the company tabel
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

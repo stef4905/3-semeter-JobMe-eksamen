@@ -67,18 +67,6 @@ C:\Users\Sofie\Source\Repos\3-semeter-JobMe-eksamen3\JobMe\BusinessLogicLayer\ob
 C:\Users\Sofie\Source\Repos\3-semeter-JobMe-eksamen3\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
