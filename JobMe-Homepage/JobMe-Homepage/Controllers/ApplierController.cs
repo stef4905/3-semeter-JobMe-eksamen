@@ -36,7 +36,8 @@ namespace JobMe_Homepage.Controllers
             VMJobPostLists vmJobPostList = new VMJobPostLists
             {
                 jobPostListMeeting = jobPostList,
-                jobPostList = jobClient.GetAllJobPost()
+                jobPostList = jobClient.GetAllJobPost(),
+                countOfJobPosts = jobClient.GetJobPostTableSize()
 
             };
             return View(vmJobPostList);
