@@ -70,7 +70,7 @@ namespace JobMe_Homepage.Controllers
             VMWorkHoursJobCategory VM = new VMWorkHoursJobCategory();
             VM.WorkHoursList = jobClient.GetAllWorkHours().ToList();
             VM.JobCategoryList = jobClient.GetAllJobCategories().ToList();
-            TempData["Success"] = "Successfuld lavet!";
+          
             return View(VM);
         }
         /// <summary>
@@ -114,7 +114,9 @@ namespace JobMe_Homepage.Controllers
             };
             try
             {
+
                 jobClient.CreateJobPost(jobPost);
+                TempData["Success"] = "Successfuld lavet!";
                 return RedirectToAction("Index");
             }
             catch (Exception)
