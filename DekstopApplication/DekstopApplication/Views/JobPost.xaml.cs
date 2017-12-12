@@ -111,7 +111,7 @@ namespace DekstopApplication.Views
         private void ShowJobPostOnNewView(object sender, RoutedEventArgs e)
         {
             int index;
-            //Get the current selected JobPost object from the list.9
+            //Get the current selected JobPost object from the list.
             if (JobPostTabel.SelectedIndex >= 0)
             {
                 index = JobPostTabel.SelectedIndex;

@@ -84,7 +84,7 @@ namespace DekstopApplication.Views
         /// Gets all input put the view and assigns it to the new Company Object.
         /// The service refrence method for creating a new company is then called where the Company is set as Parameter
         /// Calls TheFunc which contains the UpdateTable() method from the parent view.
-        /// Closes the current UserControl view
+        /// Closes the current UserControl view.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
