@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DekstopApplication.ApplierServiceReference;
+using DekstopApplication.JobPostServiceReference;
+using DekstopApplication.CompanyServiceReference;
 
 namespace DekstopApplication.Views
 {
@@ -20,9 +23,26 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class Dashboard : UserControl
     {
+
+        //Instance variables
+        private JobPostServiceClient JobPostClient = new JobPostServiceClient();
+        private ApplierServiceClient ApplierClient = new ApplierServiceClient();
+        private CompanyServiceClient CompanyClient = new CompanyServiceClient();
+
         public Dashboard()
         {
             InitializeComponent();
+            SetAllCounts();
+        }
+
+        /// <summary>
+        /// Sets all labels in user control view to their needed values
+        /// </summary>
+        private void SetAllCounts()
+        {
+            ApplierCountLabel.Content = ApplierClient.GetApplierTableSize().ToString();
+            JobPostLabel.Content = JobPostClient.GetJobPostTableSize().ToString();
+            CompanyCountLabel.Content = CompanyClient.GetCompanyTableSize().ToString();
         }
     }
 }

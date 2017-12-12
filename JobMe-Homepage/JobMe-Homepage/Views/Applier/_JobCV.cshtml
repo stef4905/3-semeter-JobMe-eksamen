@@ -6,8 +6,10 @@
         <div class="col-sm-12">
             <h2 id="createApplication">Erhvervserfaring</h2>
         </div>
-
-        @foreach (var item in Model.JobCV.JobExperienceList)
+        @if(Model.JobCV.JobExperienceList != null){
+        
+    
+        foreach (var item in Model.JobCV.JobExperienceList)
         {
             <form action="/Applier/updateJobexpericene" method="post">
                 <div class="form-group">
@@ -62,7 +64,7 @@
 
 
         }
-
+        }
         <div class="row">
             <h2 class="createApplication">opret ny erhverserfaring:</h2>
             <form action="/Applier/createJobexpericene" method="post">
@@ -105,8 +107,8 @@
         <div class="col-sm-12">
             <h2 id="createApplication">Uddannelser:</h2>
         </div>
-
-        @foreach (var item in Model.JobCV.ApplierEducationList)
+        @if( Model.JobCV.ApplierEducationList != null) {
+        foreach (var item in Model.JobCV.ApplierEducationList)
         {
             <form action="/Applier/UpdateEducation" method="post">
                 <div class="form-group">
@@ -160,7 +162,7 @@
             </div>
 
 
-        }
+        }}
         <h2 class="createApplication">Opret ny uddanelse</h2>
         <form action="/Applier/CreateEducation" method="post">
             <div class="form-group">

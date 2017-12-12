@@ -409,5 +409,30 @@ namespace DataAccessLayer
                 }
             }
         }
+
+        /// <summary>
+        /// Returns a int (count) for the numbers of rows of companies in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetCompanyTableSize()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "";
+                        cmd.CommandText = "SELECT COUNT(*) FROM Applier";
+                        return (int)cmd.ExecuteScalar();
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
+        }
     }
 }

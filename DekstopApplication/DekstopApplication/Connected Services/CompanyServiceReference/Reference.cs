@@ -367,6 +367,12 @@ namespace DekstopApplication.CompanyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/Login", ReplyAction="http://tempuri.org/ICompanyService/LoginResponse")]
         System.Threading.Tasks.Task<DekstopApplication.CompanyServiceReference.Company> LoginAsync(string email, string password);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetCompanyTableSize", ReplyAction="http://tempuri.org/ICompanyService/GetCompanyTableSizeResponse")]
+        int GetCompanyTableSize();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/GetCompanyTableSize", ReplyAction="http://tempuri.org/ICompanyService/GetCompanyTableSizeResponse")]
+        System.Threading.Tasks.Task<int> GetCompanyTableSizeAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICompanyService/CreateBusinessType", ReplyAction="http://tempuri.org/ICompanyService/CreateBusinessTypeResponse")]
         bool CreateBusinessType(DekstopApplication.CompanyServiceReference.BusinessType obj);
         
@@ -471,6 +477,14 @@ namespace DekstopApplication.CompanyServiceReference {
         
         public System.Threading.Tasks.Task<DekstopApplication.CompanyServiceReference.Company> LoginAsync(string email, string password) {
             return base.Channel.LoginAsync(email, password);
+        }
+        
+        public int GetCompanyTableSize() {
+            return base.Channel.GetCompanyTableSize();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetCompanyTableSizeAsync() {
+            return base.Channel.GetCompanyTableSizeAsync();
         }
         
         public bool CreateBusinessType(DekstopApplication.CompanyServiceReference.BusinessType obj) {

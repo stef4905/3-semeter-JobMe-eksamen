@@ -479,13 +479,21 @@ namespace DataAccessLayer
                     cmd.CommandText = "SELECT * FROM Applier WHERE Email = @email AND Password = @password";
                     cmd.Parameters.AddWithValue("email", email);
                     cmd.Parameters.AddWithValue("password", password);
-
+                     
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
+
+                        DBJobCV dbJobCV = new DBJobCV();
                         applier.Id = (int)reader["Id"];
                         applier.Email = (string)reader["Email"];
                         applier.Password = (string)reader["Password"];
+
+
+                        if (reader["JobCVId"] != DBNull.Value)
+                        {
+                            applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
+                        }
                         if (reader.IsDBNull(reader.GetOrdinal("Description")))
                         { // Kan evt ændres til status når den bliver sat værk.
                             applier.Description = null;
