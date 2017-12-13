@@ -1,195 +1,214 @@
 ﻿@model JobMe_Homepage.ApplierServiceReference.Applier
 <!-- #region Deployement-->
-<div class="col-sm-12 panel panel-default" id="experience-col">
+<div class="col-sm-12" id="experience-col">
 
-    <div class="row" id="profileInfoRight">
-        <div class="col-sm-12">
-            <h2 id="createApplication">Erhvervserfaring</h2>
-        </div>
-        @if(Model.JobCV.JobExperienceList != null){
-        
-    
-        foreach (var item in Model.JobCV.JobExperienceList)
+    <div class="row" >
+
+        <h2 id="createApplication">Erhvervserfaring</h2>
+
+        @if (Model.JobCV.JobExperienceList != null)
         {
-            <form action="/Applier/updateJobexpericene" method="post">
-                <div class="form-group">
-                    <label for="jobTitel">Titel:</label>
-                    <input type="text" name="title" class="form-control" id="jobTitel" value="@item.Title" required />
-                </div>
 
-                <div class="row">
+
+            foreach (var item in Model.JobCV.JobExperienceList)
+            {
+                <form action="/Applier/updateJobexpericene" method="post">
+                    <div class="form-group">
+                        <label for="jobTitel">Titel:</label>
+                        <input type="text" name="title" class="form-control" id="jobTitel" value="@item.Title" required />
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-sm-6">
+                                <label for="startDate">Start Dato:</label>
+                                <input type="date" name="StartDate" class="form-control" id="startDate" value="@item.StartDate.ToString("yyyy-MM-dd")" min="" required />
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="endDate">Slut Dato:</label>
+                                <input type="date" name="EndDate" class="form-control" id="endDate" value="@item.EndDate.ToString("yyyy-MM-dd")" min="" required />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Beskrivelse:</label>
+                        <textarea name="description" class="form-control textareaApplication" id="description" required>@item.Description</textarea>
+                    </div>
+                    <input type="hidden" name="id" value="@item.Id" />
+
                     <div class="col-sm-6">
-                        <label for="startDate">Start Dato:</label>
-                        <input type="date" name="StartDate" class="form-control" id="startDate" value="@item.StartDate.ToString("yyyy-MM-dd")" min="" required />
+
+                        <a class="btn btn-danger btneditapplication" data-toggle="modal" data-target="#@item.Id" href="#@item.Id">Slet</a>
                     </div>
                     <div class="col-sm-6">
-                        <label for="endDate">Slut Dato:</label>
-                        <input type="date" name="EndDate" class="form-control" id="endDate" value="@item.EndDate.ToString("yyyy-MM-dd")" min="" required />
+                        <button type="submit" class="btn btn-default btn-blue createApplicationBtn" id="cvSaveButtons">Opdatere joberfaring</button>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="description">Beskrivelse:</label>
-                    <textarea name="description" class="form-control textareaApplication" id="description" required>@item.Description</textarea>
-                </div>
-                <input type="hidden" name="id" value="@item.Id" />
-
-                <div class="col-sm-6">
-
-                    <a class="btn btn-danger btneditapplication" data-toggle="modal" data-target="#@item.Id" href="#@item.Id">Slet</a>
-                </div>
-                <div class="col-sm-6">
-                    <button type="submit" class="btn btn-default btn-blue createApplicationBtn">Opdatere joberfering</button>
-                </div>
-            </form>
-
+                </form>
+                
                  <!-- Modal -->
-            <div class="modal fade" id="@item.Id" role="dialog">
-                <div class="modal-dialog">
+                <div class="modal fade" id="@item.Id" role="dialog">
+                    <div class="modal-dialog">
 
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4>Er du sikker på du vil slette? Vær opmærksom på at hvis du bruger denne ansøgning til en jobansøgning bliver din ansøgning slettet!</h4>
-                        <div class="modal-body">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4>Er du sikker på du vil slette? Vær opmærksom på at hvis du bruger denne ansøgning til en jobansøgning bliver din ansøgning slettet!</h4>
+                            <div class="modal-body">
 
-                            <a class="btn btn-danger" href="/Applier/DeleteJobExperience/@item.Id">Ja jeg er sikker</a>
+                                <a class="btn btn-danger" href="/Applier/DeleteJobExperience/@item.Id">Ja jeg er sikker</a>
 
+
+                            </div>
 
                         </div>
 
                     </div>
-
                 </div>
-            </div>
 
 
+            }
         }
-        }
+    </div>
         <div class="row">
-            <h2 class="createApplication">opret ny erhverserfaring:</h2>
+            <h2 id="createApplication">Opret ny erhverserfaring:</h2>
             <form action="/Applier/createJobexpericene" method="post">
                 <div class="form-group">
                     <label for="jobTitel">Titel:</label>
                     <input type="text" name="title" class="form-control" id="jobTitel" required />
                 </div>
-
-                <div class="row">
-                    <div class="col-sm-6">
-                        <label for="startDate">Start Dato:</label>
-                        <input type="date" name="StartDate" class="form-control" id="startDate" min="" required />
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="endDate">Slut Dato:</label>
-                        <input type="date" name="EndDate" class="form-control" id="endDate" min="" required />
-                    </div>
-                </div>
                 <div class="form-group">
-                    <label for="description">Beskrivelse:</label>
-                    <textarea name="description" class="form-control textareaApplication" id="description" required></textarea>
-                </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="startDate">Start Dato:</label>
+                            <input type="date" name="StartDate" class="form-control" id="startDate" min="" required />
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="endDate">Slut Dato:</label>
+                            <input type="date" name="EndDate" class="form-control" id="endDate" min="" required />
+                        </div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Beskrivelse:</label>
+                        <textarea name="description" class="form-control textareaApplication" id="description" required></textarea>
+                    </div>
 
 
-                <input type="hidden" name="jobCVID" value="@Model.JobCV.Id" required />
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-default btn-blue createApplicationBtn">Opret ny joberfering</button>
-                </div>
-            </form>
+                    <input type="hidden" name="jobCVID" value="@Model.JobCV.Id" required />
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-default btn-blue createApplicationBtn" id="cvSaveButtons">Opret ny joberfering</button>
+                    </div>
+</form>
 
         </div>
-    </div>
-        <!--#endregion-->
-        <!-- #region Education-->
+    <div id="seperator"></div>
+    <!--#endregion-->
+    <!-- #region Education-->
+</div>
 
-        <div class="row" id="seperator">
-            <div class="col-sm-12"></div>
-        </div>
-    <div class="col-sm-12 panel panel-default" id="experience-col">
-        <div class="col-sm-12">
-            <h2 id="createApplication">Uddannelser:</h2>
-        </div>
-        @if( Model.JobCV.ApplierEducationList != null) {
-        foreach (var item in Model.JobCV.ApplierEducationList)
+  <div class="row">
+    <div id="experience-col">
+
+        <h2 id="createApplication">Uddannelser:</h2>
+
+        @if (Model.JobCV.ApplierEducationList != null)
         {
-            <form action="/Applier/UpdateEducation" method="post">
-                <div class="form-group">
-                    <label for="jobTitel">Uddanelse navn:</label>
-                    <input type="text" name="title" class="form-control" id="jobTitel" value="@item.EducationName" required />
-                </div>
-                <div class="form-group">
-                    <label for="jobTitel">Institution:</label>
-                    <input type="text" name="institution" class="form-control" id="jobTitel" value="@item.Institution" required />
-                </div>
-                <div class="row">
+            foreach (var item in Model.JobCV.ApplierEducationList)
+            {
+                <form action="/Applier/UpdateEducation" method="post">
+                    <div class="form-group">
+                        <label for="jobTitel">Uddanelse navn:</label>
+                        <input type="text" name="title" class="form-control" id="jobTitel" value="@item.EducationName" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="jobTitel">Institution:</label>
+                        <input type="text" name="institution" class="form-control" id="jobTitel" value="@item.Institution" required />
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label for="startDate">Start Dato:</label>
+                                <input type="date" name="StartDate" class="form-control" id="startDate" value="@item.StartDate.ToString("yyyy-MM-dd")" min="" required />
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="endDate">Slut Dato:</label>
+                                <input type="date" name="EndDate" class="form-control" id="endDate" value="@item.EndDate.ToString("yyyy-MM-dd")" min="" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="id" value="@item.id" />
+
                     <div class="col-sm-6">
-                        <label for="startDate">Start Dato:</label>
-                        <input type="date" name="StartDate" class="form-control" id="startDate" value="@item.StartDate.ToString("yyyy-MM-dd")" min="" required />
+
+                        <a class="btn btn-danger btneditapplication" data-toggle="modal" data-target="#@item.id" href="#@item.id" id="cvDeleteButtons">Slet</a>
                     </div>
                     <div class="col-sm-6">
-                        <label for="endDate">Slut Dato:</label>
-                        <input type="date" name="EndDate" class="form-control" id="endDate" value="@item.EndDate.ToString("yyyy-MM-dd")" min="" required />
+                        <button type="submit" class="btn btn-default btn-blue createApplicationBtn" id="cvSaveButtons">Opdatere joberfering</button>
                     </div>
-                </div>
 
-                <input type="hidden" name="id" value="@item.id" />
-
-                <div class="col-sm-6">
-
-                    <a class="btn btn-danger btneditapplication" data-toggle="modal" data-target="#@item.id" href="#@item.id">Slet</a>
-                </div>
-                <div class="col-sm-6">
-                    <button type="submit" class="btn btn-default btn-blue createApplicationBtn">Opdatere joberfering</button>
-                </div>
-            </form>
+                </form>
 
                  <!-- Modal -->
-            <div class="modal fade" id="@item.id" role="dialog">
-                <div class="modal-dialog">
+                <div class="modal fade" id="@item.id" role="dialog">
+                    <div class="modal-dialog">
 
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4>Er du sikker på du vil slette?</h4>
-                        <div class="modal-body">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4>Er du sikker på du vil slette?</h4>
+                            <div class="modal-body">
 
-                            <a class="btn btn-danger" href="/Applier/DeleteEducation/@item.id">Ja jeg er sikker</a>
+                                <a class="btn btn-danger" href="/Applier/DeleteEducation/@item.id">Ja jeg er sikker</a>
 
+
+                            </div>
 
                         </div>
 
                     </div>
-
                 </div>
-            </div>
 
 
-        }}
-        <h2 class="createApplication">Opret ny uddanelse</h2>
-        <form action="/Applier/CreateEducation" method="post">
-            <div class="form-group">
-                <label for="jobTitel">Uddanelse navn:</label>
-                <input type="text" name="title" class="form-control" id="jobTitel" required />
-            </div>
-            <div class="form-group">
-                <label for="jobTitel">institution:</label>
-                <input type="text" name="institution" class="form-control" id="jobTitel" required />
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <label for="startDate">Start Dato:</label>
-                    <input type="date" name="StartDate" class="form-control" id="startDate" required />
+            }
+        }
+
+    </div>
+</div>
+    <div class="row">
+        <div id="experience-col">
+            <h2 class="createApplication">Opret ny uddanelse</h2>
+            <form action="/Applier/CreateEducation" method="post">
+                <div class="form-group">
+                    <label for="jobTitel">Uddanelse navn:</label>
+                    <input type="text" name="title" class="form-control" id="jobTitel" required />
                 </div>
-                <div class="col-sm-6">
-                    <label for="endDate">Slut Dato:</label>
-                    <input type="date" name="EndDate" class="form-control" id="endDate" min="" required />
+                <div class="form-group">
+                    <label for="jobTitel">institution:</label>
+                    <input type="text" name="institution" class="form-control" id="jobTitel" required />
                 </div>
-            </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label for="startDate">Start Dato:</label>
+                            <input type="date" name="StartDate" class="form-control" id="startDate" required />
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="endDate">Slut Dato:</label>
+                            <input type="date" name="EndDate" class="form-control" id="endDate" min="" required />
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-sm-16">
+                    <button type="submit" class="btn btn-default btn-blue createApplicationBtn" id="cvSaveButtons">Opret uddanelse </button>
+                </div>
+            </form>
 
-            <div class="col-sm-16">
-                <button type="submit" class="btn btn-default btn-blue createApplicationBtn">Opret uddanelse </button>
-            </div>
-        </form>
         </div>
+        </div>
+
 
         <!--#endregion-->
         <!--#region certificates and more-->
@@ -213,7 +232,7 @@
                 <div class="col-sm-12"></div>
             </div>
         *@
-    </div>
+    
 
 
 
