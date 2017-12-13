@@ -25,6 +25,7 @@ namespace DekstopApplication.Views
         public List<JobPostServiceReference.JobPost> JobPostList = new List<JobPostServiceReference.JobPost>();
         private int LastIndexSelected; // Stores the last selected index of Job Post Table.
         private JobPostServiceReference.JobPost JobPostSelected = null; // Used to keep knowing which Jobpost is selected.
+        int IndexSelected;
 
         /// <summary>
         /// Constructor for the JobPost User Control.
@@ -88,21 +89,26 @@ namespace DekstopApplication.Views
         /// <param name="e"></param>
         private void DeleteJobPost(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette dette Job Opslag?", "Confirmation", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            if (JobPostTabel.SelectedIndex >= 0)
             {
-                var index = JobPostTabel.SelectedIndex;
-                jobPostClient.DeleteJobPost(JobPostList[index].Id);
-                JobPostList.Remove(JobPostList[index]);
-                JobPostTabel.ClearValue(ListView.ItemsSourceProperty);
-                JobPostTabel.ItemsSource = JobPostList;
-                MessageBox.Show("Job Post Slettet!");
+                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette job opslaget " + JobPostSelected.JobTitle, "Confirmation", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    jobPostClient.DeleteJobPost(JobPostSelected.Id);
+                    UpdateTableAndList();
+                    MessageBox.Show("Job Post Slettet!");
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    //No code yet
+                }
             }
-            else if (result == MessageBoxResult.No)
+            else
             {
-                //No code yet
+                MessageBox.Show("Du har ikke valgt et job opslag");
             }
-            
+
+
 
         }
 
@@ -144,6 +150,26 @@ namespace DekstopApplication.Views
             }
             //Sets the indexSelected to the current selected index on the tabel list. This is then used for the next time this method is called.
             LastIndexSelected = index;
+        }
+
+        /// <summary>
+        /// live opdates the current selected JobPost that are used through the class.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void JobPostTabel_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            int index;
+            //Get the current selected JobCategory object from the list 
+            if (JobPostTabel.SelectedIndex >= 0)
+            {
+                index = JobPostTabel.SelectedIndex;
+            }
+            else
+            {
+                index = IndexSelected;
+            }
+            JobPostSelected = JobPostList[index];
         }
     }
 }

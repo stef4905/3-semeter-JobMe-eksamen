@@ -71,7 +71,7 @@ namespace DekstopApplication.Views
         /// <param name="e"></param>
         private void UpdateAdminButton_Click(object sender, RoutedEventArgs e)
         {
-            AdminServiceReference.Admin admin = adminNew;
+            AdminServiceReference.Admin admin = Admin;
 
             if (!Regex.IsMatch(EmailInput.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"))
             {

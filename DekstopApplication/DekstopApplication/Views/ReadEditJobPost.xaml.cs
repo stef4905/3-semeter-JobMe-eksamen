@@ -107,8 +107,15 @@ namespace DekstopApplication.Views
                 JobPost.EndDate = EndDateBox.SelectedDate.Value.Date;
                 JobClient.UpdateJobPost(JobPost);
 
-                int selectedJobPost = CategoryListBox.SelectedIndex;
-                JobPost.jobCategory = CategoryList[selectedJobPost];
+                string selected = CategoryListBox.SelectedValue.ToString();
+
+                foreach (var Category in CategoryList)
+                {
+                    if (selected == Category.Title)
+                    {
+                        JobPost.jobCategory = Category;
+                    }
+                }
 
                 MessageBox.Show("Job Post Opdateret!");
                 ((Panel)this.Parent).Children.Remove(this);

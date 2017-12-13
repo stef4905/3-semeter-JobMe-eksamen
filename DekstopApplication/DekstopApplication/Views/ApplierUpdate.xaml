@@ -35,15 +35,7 @@
 		<Label Content="Nuværende job:" HorizontalAlignment="Left" Margin="395,841,0,0" VerticalAlignment="Top" FontSize="22"/>
 
 		<DatePicker x:Name="BirtdatePicker" HorizontalAlignment="Left" Margin="38,386,0,0" VerticalAlignment="Top" Width="705"/>
-		<ListBox Name="listBoxZone" ItemsSource="{Binding CategoryList}" Background="#00F0FFFF" Margin="885,505,84,133" BorderBrush="#FFC2C2C3">
-			<ListBox.ItemTemplate>
-				<DataTemplate>
-					<CheckBox IsChecked="{Binding Path=f, Mode=OneWay}" Name="CheckBoxZone"  Content="{Binding TheText}" Tag="{Binding TheValue}" Unchecked="CheckBoxZone_UnChecked" Checked="CheckBoxZone_Checked"  Margin="0,5,0,0"/>
-				</DataTemplate>
-			</ListBox.ItemTemplate>
-		</ListBox>
-		<Label Content="Job Kategorier:" HorizontalAlignment="Left" Margin="885,461,0,0" VerticalAlignment="Top" FontSize="22"/>
-		<Label Name="SuccesCheck" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="214" Foreground="#FF23D611" FontSize="20"/>
+		<Label Name="SuccesCheck" HorizontalAlignment="Left" Margin="35,79,0,0" VerticalAlignment="Top" Width="214" Foreground="#FF23D611" FontSize="20"/>
 		<Image Name="ApplierImage" HorizontalAlignment="Left" Height="230" Margin="885,84,0,0" VerticalAlignment="Top" Width="441"/>
 
 	</Grid>

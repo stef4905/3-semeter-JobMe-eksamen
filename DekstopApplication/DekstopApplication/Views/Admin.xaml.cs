@@ -24,9 +24,10 @@ namespace DekstopApplication.Views
         //Instance variables
         AdminServiceClient AdminClient = new AdminServiceClient();
         AdminCreate AdminCreateView = new AdminCreate();
-        public List<AdminServiceReference.Admin> adminList = new List<AdminServiceReference.Admin>();
-        public AdminServiceReference.Admin admin = new AdminServiceReference.Admin();
-
+        private List<AdminServiceReference.Admin> AdminList = new List<AdminServiceReference.Admin>();
+        private AdminServiceReference.Admin AdminI = new AdminServiceReference.Admin();
+        private AdminServiceReference.Admin AdminSelected = null; // Used to store the current selected Admin
+        private int IndexSelected;
 
         /// <summary>
         /// Constructor for the User Control view for admin
@@ -43,8 +44,8 @@ namespace DekstopApplication.Views
         /// </summary>
         public void UpdateTable()
         {
-            adminList = AdminClient.GetAllAdmin();
-            AdminTable.ItemsSource = adminList;
+            AdminList = AdminClient.GetAllAdmin();
+            AdminTable.ItemsSource = AdminList;
         }
 
         /// <summary>
@@ -88,20 +89,47 @@ namespace DekstopApplication.Views
         /// <param name="e"></param>
         private void DeleteAdminButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette" + admin.Email, "Confirmation", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            if (AdminTable.SelectedIndex >= 0)
             {
-                int index = AdminTable.SelectedIndex;
-                AdminClient.Delete(adminList[index].Id);
-                adminList.Remove(adminList[index]);
-                MessageBox.Show("Admin " + admin.Email + " er blevet slettet!");
-                AdminTable.ClearValue(ListView.ItemsSourceProperty);
-                AdminTable.ItemsSource = adminList;
+                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette" + AdminI.Email, "Confirmation", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    int index = AdminTable.SelectedIndex;
+                    AdminClient.Delete(AdminList[index].Id);
+                    AdminList.Remove(AdminList[index]);
+                    MessageBox.Show("Admin " + AdminI.Email + " er blevet slettet!");
+                    AdminTable.ClearValue(ListView.ItemsSourceProperty);
+                    AdminTable.ItemsSource = AdminList;
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    // No code here
+                }
             }
-            else if (result == MessageBoxResult.No)
+            else
             {
-                // No code here
+                MessageBox.Show("Du har ikke valgt en admin");
             }
+        }
+
+        /// <summary>
+        /// live opdates the current selected Admin that are used through the class.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AdminTable_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            int index;
+            //Get the current selected Admin object from the list 
+            if (AdminTable.SelectedIndex >= 0)
+            {
+                index = AdminTable.SelectedIndex;
+            }
+            else
+            {
+                index = IndexSelected;
+            }
+            AdminSelected = AdminList[index];
         }
     }
 }
