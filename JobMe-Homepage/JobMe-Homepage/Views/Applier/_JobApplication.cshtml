@@ -26,17 +26,18 @@
     }
     <div class="row" id="profileInfoRight">
         
-            <p id="ApplicationHeadline">Personlig Ansøgninger:</p>
- 
+            
+        <h2 class="createApplication">Personlig Ansøgninger:</h2>
    
 
 
         @foreach (var jobApplication in Model.JobApplicationList)
         {
 
-           
+            
             <form id="succes" action="/Applier/UpdateApplication" method="post">
                 <div class="form-group">
+                    
                     <label class="applicationJobTitle" for="jobTitel">Titel:</label>
                     <input type="text" name="title" value="@jobApplication.Title" class="form-control" id="jobTitel" required/>
                 </div>
@@ -106,7 +107,7 @@
             <input type="hidden" name="applierId" value="@Model.Applier.Id" required/>
             <div class="col-sm-12">
                 
-                <button type="submit" class="btn btn-default btn-blue createApplicationBtn">Opret ny ansøgning</button>
+                <button type="submit" class="btn btn-default btn-blue createApplicationBtn" id="cvSaveButtons">Opret ny ansøgning</button>
 
 
             </div>
