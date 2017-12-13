@@ -300,6 +300,7 @@ namespace DataAccessLayer
                         Applier applier = new Applier();
                         applier.Id = (int)reader["Id"];
                         applier.Email = (string)reader["Email"];
+                        applier.Password = (string)reader["Password"];
                         if (reader["Phone"] == DBNull.Value)
                         {
                             applier.Phone = 0;

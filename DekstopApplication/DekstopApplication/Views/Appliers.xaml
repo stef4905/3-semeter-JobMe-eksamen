@@ -8,7 +8,7 @@
             d:DesignHeight="953" d:DesignWidth="1410" Width="1410" Height="953">
 	<Grid x:Name="GuiGridApplier">
 
-		<TextBox x:Name="ApplierSearchBox" Margin="10,10,900,906" TextWrapping="Wrap" Text="Søg" MinHeight="10" FontSize="22"/>
+		<TextBox x:Name="ApplierSearchBox" Margin="10,10,900,906" TextWrapping="Wrap" Text="Søg: Navn, Email og telefon nr" MinHeight="10" FontSize="22"/>
 		<Button x:Name="searchButton" Content="Søg" HorizontalAlignment="Left" Margin="515,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="searchButton_Click"/>
 		<Button x:Name="CreateApplierButton" Content="Opret ansøger" HorizontalAlignment="Left" Margin="1224,52,0,0" VerticalAlignment="Top" Width="169" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="CreateApplierButton_Click"/>
 		<Button x:Name="UpdateApplierButton" Content="Opdatere ansøgere" HorizontalAlignment="Left" Margin="1224,110,0,0" VerticalAlignment="Top" Width="169" Height="37" FontSize="18" BorderBrush="#FF2C5781" Background="#FF2C5781" Foreground="White" Click="UpdateApplierButton_Click" />

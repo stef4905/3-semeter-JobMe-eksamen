@@ -31,6 +31,11 @@ namespace DekstopApplication.Views
         //delegate function variable
         public ParentFunction TheFunc;
 
+        /// <summary>
+        /// Constructor for the CompanyCreate User Control.
+        /// Sets the BusinessTypeList equal to the GetAllBusinessType from the CompanyClient.
+        /// Calls the SetBusinessTypeCombo.
+        /// </summary>
         public CompanyCreate()
         {
             BusinessTypeList = CompanyClient.GetAllBusinessType();
@@ -51,7 +56,7 @@ namespace DekstopApplication.Views
 
         }
         /// <summary>
-        /// All InputFields in CompanyCreateView.
+        /// Sets all the Company objects variables equal to their corosponding input values from the User Control
         /// </summary>
         private void GetAllInputs()
         {
@@ -71,6 +76,7 @@ namespace DekstopApplication.Views
             Company.businessType = BusinessTypeList[selectedBusinessTypeIndex];
         }
 
+
         /// <summary>
         /// Closes CompanyCreate View
         /// </summary>
@@ -80,6 +86,7 @@ namespace DekstopApplication.Views
         {
             ((Panel)this.Parent).Children.Remove(this);
         }
+
         /// <summary>
         /// Gets all input put the view and assigns it to the new Company Object.
         /// The service refrence method for creating a new company is then called where the Company is set as Parameter

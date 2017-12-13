@@ -27,13 +27,18 @@ namespace DekstopApplication.Views
         public CompanyServiceReference.Company CompanySelected = null; //Used to keet knowlegde of who the current selected company is
         private int LastIndexSeletected;
 
+        /// <summary>
+        /// Constructor for the Companies User Control
+        /// </summary>
         public Companies()
         {
             InitializeComponent();
             UpdateTable();
         }
+
         /// <summary>
-        /// Used for Delegate Function
+        /// Updates the table wich contains all current companies that are available from the database.
+        /// This is allsp used as a delegate function for children user controls
         /// </summary>
         public void UpdateTable()
         {
@@ -53,6 +58,7 @@ namespace DekstopApplication.Views
             Companytabel.ItemsSource = CompanyList;
             CompanySearchBox.Text = "";
         }
+
         /// <summary>
         /// Search Company Function
         /// Sorts the Companylist after the specific input entered in the Company Search Input Field.
@@ -65,9 +71,7 @@ namespace DekstopApplication.Views
             foreach (var company in CompanyList)
             {
                 int id;
-
                 bool result = Int32.TryParse(CompanySearchBox.Text, out id);
-
                 if (company.CompanyName.ToLower().Contains(CompanySearchBox.Text.ToLower()) || company.Email.ToLower().Contains(CompanySearchBox.Text.ToLower()) || company.Phone.ToString().Contains(CompanySearchBox.Text.ToLower()) || company.CVR.ToString().Contains(CompanySearchBox.Text.ToLower()))
                 {
                     companySearchList.Add(company);
@@ -115,10 +119,10 @@ namespace DekstopApplication.Views
         {
             if (CompanySelected != null)
             {
-                CompanyUpdate companyUpdate = new CompanyUpdate(CompanySelected);
-                companyUpdate.TheFunc = UpdateTable;
+                CompanyUpdate companyUpdateView = new CompanyUpdate(CompanySelected);
+                companyUpdateView.TheFunc = UpdateTable; //Sets the delegate function in the CompanyUpdateView
                 CompanyStackPanel.Children.Clear();
-                CompanyStackPanel.Children.Add(companyUpdate);
+                CompanyStackPanel.Children.Add(companyUpdateView);
             }
             else
             {
@@ -145,10 +149,9 @@ namespace DekstopApplication.Views
             }
             else if (result == MessageBoxResult.No)
             {
-                //No code here
+                //No code here since the program should not do anyting
             }
         }
-
 
         /// <summary>
         /// Used to store wich company who is currenty selected on the company tabel

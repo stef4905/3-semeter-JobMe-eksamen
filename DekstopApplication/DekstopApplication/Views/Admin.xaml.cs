@@ -67,7 +67,6 @@ namespace DekstopApplication.Views
         private void UpdateAdminButton_Click(object sender, RoutedEventArgs e)
         {
             AdminServiceReference.Admin admin = (AdminServiceReference.Admin)AdminTable.SelectedItem;
-
             if(admin == null)
             {
                 FailCheckLabel.Content = "Vælg en admin at updatere";
@@ -89,7 +88,6 @@ namespace DekstopApplication.Views
         /// <param name="e"></param>
         private void DeleteAdminButton_Click(object sender, RoutedEventArgs e)
         {
-
             MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette" + admin.Email, "Confirmation", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
@@ -104,7 +102,6 @@ namespace DekstopApplication.Views
             {
                 // No code here
             }
-
         }
     }
 }

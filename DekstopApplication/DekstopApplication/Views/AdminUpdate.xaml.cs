@@ -24,15 +24,29 @@ namespace DekstopApplication.Views
     {
         AdminServiceReference.Admin adminNew = new AdminServiceReference.Admin();
         AdminServiceClient adminClient = new AdminServiceClient();
-        Admin adminView = new Admin();
+        AdminServiceReference.Admin Admin = new AdminServiceReference.Admin();
 
+        /// <summary>
+        /// Constructor for AdminUpdate User Control.
+        /// Takes a Admin object as parameters used through the class.
+        /// Calls the SetAllText method. 
+        /// </summary>
+        /// <param name="admin"></param>
         public AdminUpdate(AdminServiceReference.Admin admin)
         {
             InitializeComponent();
-            adminNew = admin;
-            FNameInput.Text = admin.FName;
-            LNameInput.Text = admin.LName;
-            EmailInput.Text = admin.Email;
+            this.Admin = admin;
+            SetAllText();
+        }
+
+        /// <summary>
+        /// Sets all the needed textfields with their corosponding values from the Admin object.
+        /// </summary>
+        public void SetAllText()
+        {
+            FNameInput.Text = Admin.FName;
+            LNameInput.Text = Admin.LName;
+            EmailInput.Text = Admin.Email;
         }
 
         /// <summary>

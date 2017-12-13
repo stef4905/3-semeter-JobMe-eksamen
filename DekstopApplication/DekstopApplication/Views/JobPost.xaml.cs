@@ -22,26 +22,43 @@ namespace DekstopApplication.Views
     public partial class JobPost : UserControl
     {
         JobPostServiceClient jobPostClient = new JobPostServiceClient();
-        public List<JobPostServiceReference.JobPost> jobPostList = new List<JobPostServiceReference.JobPost>();
+        public List<JobPostServiceReference.JobPost> JobPostList = new List<JobPostServiceReference.JobPost>();
         private int LastIndexSelected; // Stores the last selected index of Job Post Table.
         private JobPostServiceReference.JobPost JobPostSelected = null; // Used to keep knowing which Jobpost is selected.
+
+        /// <summary>
+        /// Constructor for the JobPost User Control.
+        /// Calls the UpdateTableAndList method.
+        /// </summary>
         public JobPost()
         {
             InitializeComponent();
-            jobPostList = jobPostClient.GetAllJobPost();
-            JobPostTabel.ItemsSource = jobPostList;
+            UpdateTableAndList();
+        }
+
+        /// <summary>
+        /// Updates the JobPostList using the JobPostClient where a list
+        /// of all current JobPost from the database´.
+        /// Sets the JobPostTabel equal to the JopPostList, this
+        /// displays all the jobPosts on the list.
+        /// </summary>
+        public void UpdateTableAndList()
+        {
+            JobPostList = jobPostClient.GetAllJobPost();
+            JobPostTabel.ItemsSource = JobPostList;
         }
 
         /// <summary>
         /// Search Job Post Function.
-        /// Calls get all Function in initialize component, and then sorts it after the specific input entered.
+        /// Calls get all Function in initialize component, 
+        /// and then sorts it after the specific input entered.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void SearchJobPostButton(object sender, RoutedEventArgs e)
         {
             List<JobPostServiceReference.JobPost> jobPostSearchList = new List<JobPostServiceReference.JobPost>();
-            foreach (var jobPost in jobPostList)
+            foreach (var jobPost in JobPostList)
             {
                 int id;
                 bool result = Int32.TryParse(JobPostSearchBox.Text, out id);
@@ -75,10 +92,10 @@ namespace DekstopApplication.Views
             if (result == MessageBoxResult.Yes)
             {
                 var index = JobPostTabel.SelectedIndex;
-                jobPostClient.DeleteJobPost(jobPostList[index].Id);
-                jobPostList.Remove(jobPostList[index]);
+                jobPostClient.DeleteJobPost(JobPostList[index].Id);
+                JobPostList.Remove(JobPostList[index]);
                 JobPostTabel.ClearValue(ListView.ItemsSourceProperty);
-                JobPostTabel.ItemsSource = jobPostList;
+                JobPostTabel.ItemsSource = JobPostList;
                 MessageBox.Show("Job Post Slettet!");
             }
             else if (result == MessageBoxResult.No)
@@ -98,7 +115,7 @@ namespace DekstopApplication.Views
         private void ShowAllJobPost(object sender, RoutedEventArgs e)
         {
             JobPostTabel.ClearValue(ListView.ItemsSourceProperty);
-            JobPostTabel.ItemsSource = jobPostList;
+            JobPostTabel.ItemsSource = JobPostList;
             JobPostSearchBox.Text = "";
         }
 
@@ -115,7 +132,7 @@ namespace DekstopApplication.Views
             if (JobPostTabel.SelectedIndex >= 0)
             {
                 index = JobPostTabel.SelectedIndex;
-                JobPostSelected = jobPostList[index];
+                JobPostSelected = JobPostList[index];
                 ShowJobPostOnView.Children.Clear();
                 ReadEditJobPost readEditJobPost = new ReadEditJobPost(JobPostSelected);
                 ShowJobPostOnView.Children.Add(readEditJobPost);

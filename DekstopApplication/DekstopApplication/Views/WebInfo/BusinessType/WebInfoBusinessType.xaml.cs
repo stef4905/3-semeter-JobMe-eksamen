@@ -28,6 +28,10 @@ namespace DekstopApplication.Views.WebInfo.BusinessType
         private CompanyServiceReference.BusinessType BusinessTypeSelected = null;
         private int IndexSelected;
 
+        /// <summary>
+        /// Constructor for the WebInfoBusinessType User Control.
+        /// Calls the UpdateBusinessTypeListAndTable() method.
+        /// </summary>
         public WebInfoBusinessType()
         {
             InitializeComponent();
@@ -37,12 +41,19 @@ namespace DekstopApplication.Views.WebInfo.BusinessType
         /// <summary>
         /// Updates the table and the list of all businesstypes
         /// </summary>
-        public void UpdateBusinessTypeListAndTable()
+        private void UpdateBusinessTypeListAndTable()
         {
             BusinessTypeList = CompanyClient.GetAllBusinessType();
             BusinessTypeTable.ItemsSource = BusinessTypeList;
         }
 
+        /// <summary>
+        /// Instanciating a new BusinessType object, where the Type input is sat to the objects variable.
+        /// CompanyClient create method is then called with the given BusinessType object as parameter.
+        /// Calls the updateBusinessTypeListAndTable() method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddNewBusineesType_Click(object sender, RoutedEventArgs e)
         {
             CompanyServiceReference.BusinessType businessType = new CompanyServiceReference.BusinessType();
@@ -51,6 +62,14 @@ namespace DekstopApplication.Views.WebInfo.BusinessType
             UpdateBusinessTypeListAndTable();
         }
 
+        /// <summary>
+        /// Displays a messagebox to ensure that the user invoked this method on purpose. 
+        /// Set the new type of the BusinessType equal to the objects variable.
+        /// CompanyClient update method is then called with the given BusinessType object as parameter.
+        /// Calls the updateBusinessTypeListAndTable() method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateBusinessType_Click(object sender, RoutedEventArgs e)
         {
 
@@ -68,6 +87,13 @@ namespace DekstopApplication.Views.WebInfo.BusinessType
             }
         }
 
+        /// <summary>
+        /// Displays a messagebox to ensure that the user invoked this method on purpose.
+        /// CompanyClient delete method is then called with the given current selected BusinessType object Id as parameter.
+        /// Calls the updateBusinessTypeListAndTable() method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteBusinessType_Click(object sender, RoutedEventArgs e)
         {
             if (BusinessTypeTable.SelectedIndex >= 0)
@@ -92,7 +118,11 @@ namespace DekstopApplication.Views.WebInfo.BusinessType
         }
 
 
-
+        /// <summary>
+        /// live opdates the current selected BusinessType that are used through the class.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BusinessTypeTable_SelectedBusineesType(object sender, SelectionChangedEventArgs e)
         {
             int index;
@@ -105,9 +135,7 @@ namespace DekstopApplication.Views.WebInfo.BusinessType
             {
                 index = IndexSelected;
             }
-
             BusinessTypeSelected = BusinessTypeList[index];
-
             //Setting the text in update section
             CurrentBusinessTypeInput.Text = BusinessTypeSelected.Type;
         }
