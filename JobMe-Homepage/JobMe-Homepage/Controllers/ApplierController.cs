@@ -286,8 +286,7 @@ namespace JobMe_Homepage.Controllers
             else
             {
                 applier.Password = newPassword;
-
-                client.Update(applier);
+                client.UpdatePassword(applier);
                 TempData["Success"] = "Kodeordet er ændret!";
                 Session["applier"] = client.GetApplier(applier.Id);
                 return RedirectToAction("UpdateUserProfile");
