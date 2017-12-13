@@ -19,7 +19,7 @@
         <TextBox x:Name="LNameInput" HorizontalAlignment="Left" Height="37" Margin="717,219,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="650" FontSize="22" />
         <Label Content="Efternavn:" HorizontalAlignment="Left" Margin="717,180,0,0" VerticalAlignment="Top" FontSize="22"/>
         <TextBox x:Name="EmailInput" HorizontalAlignment="Left" Height="37" Margin="717,300,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="650" FontSize="22" />
-        <Label x:Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="214" Foreground="Red"/>
+        <Label x:Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="650" Foreground="Red"/>
         <Label Content="E-mail:" HorizontalAlignment="Left" Margin="717,261,0,0" VerticalAlignment="Top" FontSize="22"/>
         <PasswordBox x:Name="NewPasswordInput" HorizontalAlignment="Left" Margin="35,219,0,0" VerticalAlignment="Top" Width="650" Height="37"/>
         <PasswordBox x:Name="NewPasswordRepeatInput" HorizontalAlignment="Left" Margin="35,300,0,0" VerticalAlignment="Top" Width="650" Height="37"/>

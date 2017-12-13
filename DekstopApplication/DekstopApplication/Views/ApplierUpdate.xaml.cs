@@ -25,7 +25,6 @@ namespace DekstopApplication.Views
     {
 
         //Instance variables
-        public ObservableCollection<BoolStringClass> CategoryList { get; set; }
         private ApplierServiceClient ApplierClient = new ApplierServiceClient();
         private Applier Applier = new Applier();
 
@@ -40,6 +39,7 @@ namespace DekstopApplication.Views
             InitializeComponent();
             Applier = applier;
             SetAllText();
+            this.DataContext = this;
         }
 
         /// <summary>
@@ -69,7 +69,6 @@ namespace DekstopApplication.Views
             }
             BitmapImage imageBitmap = new BitmapImage(imageUri);
             ApplierImage.Source = imageBitmap;
-            CreateCheckBoxList();
         }
 
         /// <summary>
@@ -104,7 +103,7 @@ namespace DekstopApplication.Views
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil opdatere" + applier.FName + applier.LName +"?", "Confirmation", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil opdatere" + applier.FName + applier.LName + "?", "Confirmation", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
                     applier.Email = EmailInput.Text;
@@ -116,22 +115,7 @@ namespace DekstopApplication.Views
                     applier.Description = DescriptionInput.Text;
                     applier.HomePage = HomePageInput.Text;
                     applier.CurrentJob = CurrentJobInput.Text;
-                    if (applier.JobCategoryList != null)
-                    {
-                        applier.JobCategoryList.Clear();
-                    }
-                    List<JobCategory> jobCategoryList = new List<JobCategory>();
-
-                    foreach (var item in CategoryList.Where(m => m.Cheeked))
-                    {
-                        JobCategory jobCategory = new JobCategory
-                        {
-                            Id = item.TheValue
-
-                        };
-                        jobCategoryList.Add(jobCategory);
-                    }
-                    applier.JobCategoryList = jobCategoryList;
+                 
                     ApplierClient.Update(applier);
                     SuccesCheck.Content = "Brugeren er opdateret!";
                     FailCheckLabel.Content = "";
@@ -141,73 +125,14 @@ namespace DekstopApplication.Views
                     //No Code here
                 }
             }
-               
-        }
-
-        /// <summary>
-        /// Create the checkboxlist, by getting the jobCategory data from the JobPostClient
-        /// </summary>
-        public void CreateCheckBoxList()
-        {
-            JobPostServiceReference.JobPostServiceClient jobClient = new JobPostServiceReference.JobPostServiceClient();
-            List<JobPostServiceReference.JobCategory> CategoriesList = jobClient.GetAllJobCategories();
-            CategoryList = new ObservableCollection<BoolStringClass>();
-            foreach (var Category in CategoriesList)
-            {
-
-                CategoryList.Add(new BoolStringClass { TheText = Category.Title, TheValue = Category.Id });
-            }  
-            this.DataContext = this;
-        }
-
-
-
-        /// <summary>
-        /// Cheks if the checkbox is unchecked and sets CategoryLists cheeked to false
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CheckBoxZone_UnChecked(object sender, RoutedEventArgs e)
-        {
-            CheckBox clickedBox = (CheckBox)sender;
-            foreach (var item in CategoryList.Where(m => m.TheValue == Convert.ToInt32(clickedBox.Tag.ToString())))
-            {
-                if (clickedBox.IsEnabled)
-                {
-                    item.Cheeked = false;
-                }
-            }
 
         }
 
-        /// <summary>
-        /// Cheks if the checkbox is checked and seets CategoryLists cheeked to true
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CheckBoxZone_Checked(object sender, RoutedEventArgs e)
-        {
-            CheckBox clickedBox = (CheckBox)sender;
-            foreach (var item in CategoryList.Where(m => m.TheValue == Convert.ToInt32(clickedBox.Tag.ToString())))
-            {
-                if (clickedBox.IsEnabled)
-                {
-                    item.Cheeked = true;
-                }
-            }
-        }
 
 
-    }
 
-    /// <summary>
-    /// Class made to the CategoryList, to make checkboxes
-    /// </summary>
-    public class BoolStringClass : CheckBox
-    {
-        public string TheText { get; set; }
-        public int TheValue { get; set; }
-        public bool Cheeked { get; set; }
+
+
     }
 
 

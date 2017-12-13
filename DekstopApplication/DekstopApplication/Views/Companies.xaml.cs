@@ -140,16 +140,23 @@ namespace DekstopApplication.Views
         /// <param name="e"></param>
         private void DeleteCompany(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Er du sikker på at du vil slette denne virksomhed?" + CompanySelected.CompanyName, "Confirmation", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            if (Companytabel.SelectedIndex >= 0)
             {
-                CompanyClient.DeleteCompany(CompanySelected.Id);
-                MessageBox.Show("Virksomheden " + CompanySelected.CompanyName + " er blevet slettet!");
-                UpdateTable();
+                MessageBoxResult result = MessageBox.Show("Er du sikker på at du vil slette denne virksomhed?" + CompanySelected.CompanyName, "Confirmation", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    CompanyClient.DeleteCompany(CompanySelected.Id);
+                    MessageBox.Show("Virksomheden " + CompanySelected.CompanyName + " er blevet slettet!");
+                    UpdateTable();
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    //No code here since the program should not do anyting
+                }
             }
-            else if (result == MessageBoxResult.No)
+            else
             {
-                //No code here since the program should not do anyting
+                MessageBox.Show("Du har ikke valgt en virksomhed!");
             }
         }
 

@@ -404,6 +404,7 @@ namespace DataAccessLayer
                         {
                             applier.JobCV = dBJobCV.Get((int)reader["JobCVId"]);
                         }
+                        applier = GetJobCategoryOnApplier(applier);
                         applierList.Add(applier);
 
                     }

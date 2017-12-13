@@ -91,8 +91,16 @@ namespace DekstopApplication.Views
             Company.Country = CountryInput.Text;
 
             //Get the selected BusinessType
-            int selectedBusinessTypeIndex = BusinessTypeInput.SelectedIndex;
-            Company.businessType = BusinessTypeList[selectedBusinessTypeIndex];
+            string selected = BusinessTypeInput.SelectedValue.ToString();
+
+            foreach (var BusinessType in BusinessTypeList)
+            {
+                if (selected == BusinessType.Type)
+                {
+                    Company.businessType = BusinessType;
+                }
+            }
+
         }
 
         /// <summary>
