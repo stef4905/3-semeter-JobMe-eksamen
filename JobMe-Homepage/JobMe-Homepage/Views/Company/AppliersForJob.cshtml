@@ -42,26 +42,18 @@
         <div class="col-sm-8" id="experience-col">
             <div class="row" id="profileInfoRight">
 
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#Application">Ansøgning</a></li>
-                    <li><a href="#JobCV">CV</a></li>
-                </ul>
-                <div class="tab-content" id="">
+                     <div class="tab-content" id="">
 
                     @foreach (var item in Model.JobApplicationList)
                     {
                         <div id="@item.Applier.Id" class="tab-pane fade in">
 
-                            <div class="tab-content">
-                                <div id="Application" class="tab-pane fade in active">
+                            <h2>Ansøgning:</h2>
                                     @Html.Partial("_JobApplication", item)
-
-                                </div>
-                                <div id="JobCV" class="tab-pane fade">
-
+                    
+                            <h2>CV:</h2>
                                     @Html.Partial("_JobCV", item.Applier.JobCV)
-                                </div>
-                            </div>
+                  
 
                             <H2>Indkald ansøger at booke et møde</H2>
 

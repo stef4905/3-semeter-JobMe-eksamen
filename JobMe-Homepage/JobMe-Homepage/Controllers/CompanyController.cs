@@ -303,7 +303,7 @@ namespace JobMe_Homepage.Controllers
         {
             Session session = BookingServiceClient.GetSession(id);
             session.ApplierId = 0;
-            bool updated = BookingServiceClient.UpdateSession(session);
+            bool updated = BookingServiceClient.RemoveApplierFromSession(session);
             return RedirectToAction("Meeting/" + meetingId);
         }
 
