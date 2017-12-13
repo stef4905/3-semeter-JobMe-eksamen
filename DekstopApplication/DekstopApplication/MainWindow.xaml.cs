@@ -124,7 +124,6 @@ namespace DekstopApplication
         {
             if (e.Key == Key.Return)
             {
-                LoginButton.Visibility = Visibility.Hidden;
                 Login();
             }
         }

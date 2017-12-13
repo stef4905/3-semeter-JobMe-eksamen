@@ -36,6 +36,8 @@ namespace WCFJobMeService
         [OperationContract]
         int GetApplierTableSize();
 
+        [OperationContract]
+        void UpdatePassword(Applier applier);
 
     }
 

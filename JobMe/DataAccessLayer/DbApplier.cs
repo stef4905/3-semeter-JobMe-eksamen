@@ -591,6 +591,33 @@ namespace DataAccessLayer
                 }
             }
         }
+
+        /// <summary>
+        /// Updates the given Appleir objects password in the database
+        /// </summary>
+        /// <param name="applier"></param>
+        public void UpdatePassword(Applier applier)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "UPDATE Applier set Password = @Password WHERE Id = @Id";
+                        cmd.Parameters.AddWithValue("Password", applier.Password);
+                        cmd.Parameters.AddWithValue("Id", applier.Id);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
+        }
+
     }
 }
 
