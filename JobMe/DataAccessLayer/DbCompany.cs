@@ -424,7 +424,7 @@ namespace DataAccessLayer
                     try
                     {
                         cmd.CommandText = "";
-                        cmd.CommandText = "SELECT COUNT(*) FROM Applier";
+                        cmd.CommandText = "SELECT COUNT(*) FROM Company";
                         return (int)cmd.ExecuteScalar();
                     }
                     catch (SqlException e)
