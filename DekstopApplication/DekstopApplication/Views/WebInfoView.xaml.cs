@@ -26,12 +26,19 @@ namespace DekstopApplication.Views
         //Instance variables
         private LoadingView LoadingView = new LoadingView();
 
-
+        /// <summary>
+        /// Constructor for the WebInfoView User Control
+        /// </summary>
         public WebInfoView()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Opens the WebInfoJobCategory User Control on the WenInfoPanel child after clearing it first.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void JobCategoryButton(object sender, RoutedEventArgs e)
         {
             WebInfoJobCategory webinfoJobCategoryView = new WebInfoJobCategory();
@@ -39,18 +46,17 @@ namespace DekstopApplication.Views
             WebInfoPanel.Children.Add(webinfoJobCategoryView);
         }
 
+        /// <summary>
+        /// Opens the WebInfoBusinessType User Control on the WenInfoPanel child after clearing it first.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void WebInfoTextButton(object sender, RoutedEventArgs e)
         {
             WebInfoBusinessType webInfoBusinessType = new WebInfoBusinessType();
             WebInfoPanel.Children.Clear();
             WebInfoPanel.Children.Add(webInfoBusinessType);
 
-        }
-
-        public void DisplayLoadingView()
-        {
-            WebInfoPanel.Children.Clear();
-            WebInfoPanel.Children.Add(LoadingView);
         }
     }
 }

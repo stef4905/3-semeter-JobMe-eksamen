@@ -28,6 +28,10 @@ namespace DekstopApplication.Views.WebInfo
         private JobCategory JobCategorySelected = null; // Used to keep knowing wich job category that is currently selected
         private int IndexSelected;
 
+        /// <summary>
+        /// Constructor for the WebInfoJobCategory User Control.
+        /// Calls the UpdateJobCategoryListAndTable() method.
+        /// </summary>
         public WebInfoJobCategory()
         {
             InitializeComponent();
@@ -43,9 +47,10 @@ namespace DekstopApplication.Views.WebInfo
             JobCategoryTable.ItemsSource = JobCategoryList;
         }
 
-
-        /// <summary>
-        /// Deletes the selected job category from the database and the list
+        /// /// <summary>
+        /// Displays a messagebox to ensure that the user invoked this method on purpose.
+        /// JobPostClient delete method is then called with the given current selected JobCategory object Id as parameter.
+        /// Calls the UpdateJobCategoryListAndTable() method.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -73,38 +78,39 @@ namespace DekstopApplication.Views.WebInfo
         }
 
         /// <summary>
-        /// Creates a new job category in the database. 
+        /// Instanciating a new JobCategory object, where the Type input is sat to the objects variable.
+        /// JobPostClient create method is then called with the given JobCategory object as parameter.
+        /// Calls the UpdateJobCategoryListAndTable() method.
         /// </summary>
-        /// <param name="sernder"></param>
+        /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddNewJobCategory(object sernder, RoutedEventArgs e)
+        private void AddNewJobCategory(object sender, RoutedEventArgs e)
         {
             JobCategory jobCategory = new JobCategory();
             jobCategory.Title = AddJobCategoryInput.Text;
-
             JobPostClient.CreateJobCategory(jobCategory);
-
             UpdateJobCategoryListAndTable();
         }
 
         /// <summary>
-        /// Updaring the current selected job category by the new title set in the inputfield
+        /// Displays a messagebox to ensure that the user invoked this method on purpose. 
+        /// Set the new type of the JobCategory equal to the objects variable.
+        /// JobPostClient update method is then called with the given JobCategory object as parameter.
+        /// Calls the UpdateJobCategoryListAndTable() method.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void UpdateJobCategory(object sender, RoutedEventArgs e)
         {
             JobCategorySelected.Title = NewJobCategoryTitleInput.Text;
-
             JobPostClient.UpdateJobCategory(JobCategorySelected);
-
             NewJobCategoryTitleInput.Text = "";
             UpdateJobCategoryListAndTable();
 
         }
 
         /// <summary>
-        /// Automaticly sets the textfield text when highlighted
+        /// live opdates the current selected JobCategory that are used through the class.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -120,9 +126,7 @@ namespace DekstopApplication.Views.WebInfo
             {
                 index = IndexSelected;
             }
-
             JobCategorySelected = JobCategoryList[index];
-
             //Setting the text in update section
             CurrentJobCategoryTitleInput.Text = JobCategorySelected.Title;
         }

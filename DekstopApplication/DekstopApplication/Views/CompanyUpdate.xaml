@@ -23,7 +23,7 @@
 		<Label Content="Addresse:" HorizontalAlignment="Left" Margin="34,424,0,0" VerticalAlignment="Top" FontSize="22"/>
 		<TextBox Name="PhoneInput" HorizontalAlignment="Left" Height="37" Margin="35,549,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
 		<Label Content="Telefon:" HorizontalAlignment="Left" Margin="34,505,0,0" VerticalAlignment="Top" FontSize="22"/>
-		<TextBox Name="DescriptionInput" HorizontalAlignment="Left" Height="204" Margin="35,718,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+		<TextBox Name="DescriptionInput" HorizontalAlignment="Left" Height="204" Margin="35,718,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" TextWrapping="Wrap" AcceptsReturn="True"/>
 		<Label Content="Beskrivelse:" HorizontalAlignment="Left" Margin="34,674,0,0" VerticalAlignment="Top" FontSize="22"/>
 		<TextBox Name="HomepageInput" HorizontalAlignment="Left" Height="37" Margin="34,637,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
 		<Label Content="Hjemmeside:" HorizontalAlignment="Left" Margin="33,593,0,0" VerticalAlignment="Top" FontSize="22"/>

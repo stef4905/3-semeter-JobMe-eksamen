@@ -30,6 +30,14 @@ namespace DekstopApplication.Views
         //delegate function variable
         public ParentFunction TheFunc;
 
+        /// <summary>
+        /// Constructor for the CompanyUpdate User Control.
+        /// Takes a Company as a needed parameter, wich is then set to the instance varaible.
+        /// This ensures that it can be used through the class.
+        /// BusinessTypeList set to GetAllBusinessType from the database.
+        /// Calls the SetAllText method.
+        /// </summary>
+        /// <param name="company"></param>
         public CompanyUpdate(CompanyServiceReference.Company company)
         {
             Company = company;
@@ -39,7 +47,7 @@ namespace DekstopApplication.Views
         }
 
         /// <summary>
-        /// Sets all needed textfields equal to the ovjecct Company
+        /// Sets all needed input textfields equal to the Company objects corosponding variables
         /// </summary>
         private void SetAllText()
         {
@@ -66,6 +74,10 @@ namespace DekstopApplication.Views
 
         }
 
+        /// <summary>
+        /// Sets all the Company objects variables equal to their corosponding input values 
+        /// from the User Control
+        /// </summary>
         private void GetAllInputs()
         {
             Company.Email = EmailInput.Text;
@@ -83,6 +95,11 @@ namespace DekstopApplication.Views
             Company.businessType = BusinessTypeList[selectedBusinessTypeIndex];
         }
 
+        /// <summary>
+        /// Closes the current User Controll. This will then show the parent User Control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             ((Panel)this.Parent).Children.Remove(this);

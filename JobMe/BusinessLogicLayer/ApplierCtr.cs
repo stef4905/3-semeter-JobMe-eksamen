@@ -93,8 +93,7 @@ namespace BusinessLogicLayer
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                return false;
+                throw e;
             }
         }
 

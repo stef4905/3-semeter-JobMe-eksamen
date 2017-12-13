@@ -29,6 +29,10 @@ namespace DekstopApplication.Views
         private ApplierServiceClient ApplierClient = new ApplierServiceClient();
         private CompanyServiceClient CompanyClient = new CompanyServiceClient();
 
+        /// <summary>
+        /// Constructor for the Dashboard User Control
+        /// Calls SetAllCounts method. 
+        /// </summary>
         public Dashboard()
         {
             InitializeComponent();
