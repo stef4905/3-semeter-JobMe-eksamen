@@ -274,11 +274,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KasperV\\source\\repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
       "projectName": "DataAccessLayer",
-      "projectPath": "C:\\Users\\KasperV\\source\\repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
       "packagesPath": "C:\\Users\\KasperV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KasperV\\source\\repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\obj\\",
+      "outputPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -295,8 +295,8 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\KasperV\\source\\repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\KasperV\\source\\repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }
