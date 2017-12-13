@@ -8,12 +8,10 @@
 <!-- JobCV design and creationg -->
 <div class="container body-content">
     <div class="row">
-
         <div class="col-sm-4" id="profile-col">
             <img id="profileImage" src="@Model.Applier.ImageURL" class="img-circle" width="300" height="300">
             <div class="firstName" align="center">@Model.Applier.FName</div>
             <div class="lastName" align="center">@Model.Applier.LName</div>
-
             <!-- Contact information about the profile. -->
             <div class="profileInfoLeft">
                 <div class="row">
@@ -104,7 +102,6 @@
 
 
     @section scripts {
-
         <script>
 
             $(document).ready(function () {
@@ -113,22 +110,15 @@
                 });
             });
         </script>
-
         <script>
-
-
             window.onload = function () {
                 $('#succesModal').show();
 
                 $('#succesModal').click(function (event) {
                     $('#succesModal').hide();
                 });
-
-
             }
         </script>
-
-
     }
 
 

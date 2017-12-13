@@ -1,5 +1,4 @@
 ﻿@model JobMe_Homepage.CompanyServiceReference.Company
-
 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
     @if (Model.ImageURL != null)
     {
@@ -11,9 +10,6 @@
         <img src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" class="profile-picture img-responsive img-circle" alt="Something"> <!-- Make dynamic profile picture -->
 
     }
-
-
-
     <strong>@Model.CompanyName</strong>
     <span class="glyphicon glyphicon-chevron-down"></span>
 </a>
@@ -36,18 +32,9 @@
                 <div class="col-lg-8">
                     <p class="text-left p-mobile"><strong>@Model.CompanyName</strong></p>
                     <p class="text-left p-mobile small">@Model.Email</p>
-                    @*<p class="text-left">
-                        <a href="#" class="btn btn-block btn-sm btn-blue">Virksomheden</a>
-                    </p>*@
-                    @*<p class="text-left">
-                        <a href="#" class="btn btn-block btn-sm btn-blue">Redigere Profil</a>
-                    </p>*@
                     <p class="text-left">
                         <a href="/company/createJobPost" class="btn btn-block btn-sm btn-blue">Opret Jobs</a>
                     </p>
-             
-
-
                 </div>
             </div>
         </div>

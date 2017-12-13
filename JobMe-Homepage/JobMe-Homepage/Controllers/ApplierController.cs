@@ -172,10 +172,12 @@ namespace JobMe_Homepage.Controllers
         [HttpPost]
         public ActionResult _CreateApplier(string Email, string Password, string PasswordControl)
         {
-            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
-            applier.Password = Password;
-            applier.Email = Email;
-            
+            ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier
+            {
+                Password = Password,
+                Email = Email
+            };
+
             if (Password == PasswordControl)
             {
                 client.Create(applier);
@@ -318,10 +320,12 @@ namespace JobMe_Homepage.Controllers
         /// <returns>Returns a view with the ViewModel with a lists of JobPosts, JobCategorys and WorkHours</returns>
         public ActionResult FindJobPosts()
         {
-            VMJobPostWorkHoursJobCategory VM = new VMJobPostWorkHoursJobCategory();
-            VM.JobPostList = jobClient.GetAllJobPost().ToList();
-            VM.JobCategoryList = jobClient.GetAllJobCategories().ToList();
-            VM.WorkHoursList = jobClient.GetAllWorkHours().ToList();
+            VMJobPostWorkHoursJobCategory VM = new VMJobPostWorkHoursJobCategory
+            {
+                JobPostList = jobClient.GetAllJobPost().ToList(),
+                JobCategoryList = jobClient.GetAllJobCategories().ToList(),
+                WorkHoursList = jobClient.GetAllWorkHours().ToList()
+            };
             return View(VM);
         }
 
@@ -337,8 +341,10 @@ namespace JobMe_Homepage.Controllers
         [HttpPost]
         public ActionResult FindJobPosts(string search, int km, int category, int workHours)
         {
-            VMJobPostWorkHoursJobCategory VM = new VMJobPostWorkHoursJobCategory();
-            VM.JobPostList = jobClient.GetAllJobPost().ToList();
+            VMJobPostWorkHoursJobCategory VM = new VMJobPostWorkHoursJobCategory
+            {
+                JobPostList = jobClient.GetAllJobPost().ToList()
+            };
             List<JobPostServiceReference.JobPost> JobPostsList = new List<JobPostServiceReference.JobPost>();
 
             foreach (var jobPosts in VM.JobPostList.Where(f => f.Title.ToLower().Contains(search.ToLower()) ||
@@ -408,7 +414,14 @@ namespace JobMe_Homepage.Controllers
             TempData["Success"] = "Successfuld oprettet!";
             return RedirectToAction("JobApplication");
         }
-
+        /// <summary>
+        /// An HTTPPost method there respone on httpPost requst, and calls the UpdateApplication method from the ApplierService
+        /// with the params title, description and id
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="description"></param>
+        /// <param name="id"></param>
+        /// <returns>Returns a redicrect to action to the view jobApllication</returns>
         [HttpPost]
         public ActionResult UpdateApplication(string title, string description, int id)
         {
@@ -418,8 +431,6 @@ namespace JobMe_Homepage.Controllers
                 Description = description,
                 Id = id
             };
-
-
             jobApplicationClient.Update(jobApplication);
             TempData["Success"] = "Successfuld opdateret!";
             return RedirectToAction("JobApplication");
@@ -463,6 +474,14 @@ namespace JobMe_Homepage.Controllers
             return View(vMJobPostANDJobApplication);
         }
 
+
+        /// <summary>
+        /// An HTTPPost method there respone on httpPost requst, and calls the SendAppliaction method from the ApplierService
+        /// with the params jobApplicationId and jobPostId
+        /// </summary>
+        /// <param name="jobApplicationId"></param>
+        /// <param name="jobPostId"></param>
+        /// <returns>Returns a redirectToAction to the view index on the ApplierController</returns>
         [HttpPost]
         public ActionResult SendApplication(int jobApplicationId, int jobPostId)
         {
@@ -475,8 +494,6 @@ namespace JobMe_Homepage.Controllers
             {
                 Id = jobPostId
             };
-
-
             jobApplicationClient.SendApplication(jobApplication, jobPost);
             TempData["Success"] = "Din ansøgning er blevet sendt";
             return RedirectToAction("Index");
@@ -484,8 +501,19 @@ namespace JobMe_Homepage.Controllers
         #endregion
 
         #region JOBCV
+
+        /// <summary>
+        /// An HTTPPost method there respones on httpPost requst, and calls the createJobExpreicene method from the ApplierService
+        /// with the params title, startdate, endDate, description and jobCVID
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="description"></param>
+        /// <param name="jobCVID"></param>
+        /// <returns>Returns a RedirectToAction to the view jobappliaction</returns>
         [HttpPost]
-        public ActionResult createJobexpericene(string title, DateTime startDate, DateTime endDate, string description, int jobCVID)
+        public ActionResult CreateJobexpericene(string title, DateTime startDate, DateTime endDate, string description, int jobCVID)
         {
             ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
             JobCVServiceReference.JobExperience jobExperience = new JobCVServiceReference.JobExperience
@@ -502,6 +530,18 @@ namespace JobMe_Homepage.Controllers
             Session["Applier"] = client.GetApplier(applier.Id);
             return RedirectToAction("JobApplication");
         }
+
+        /// <summary>
+        /// A HTTPPost method there respones on httpPost requst, and calls the UpdateJobExpreicene method from the ApplierService
+        /// with the params title, startdate, endDate, description, jobCVID and id
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="description"></param>
+        /// <param name="jobCVID"></param>
+        /// /// <param name="Id"></param>
+        /// <returns>Returns a RedirectToAction to the view jobappliaction</returns>
         [HttpPost]
         public ActionResult UpdateJobexpericene(string title, DateTime startDate, DateTime endDate, string description, int id)
         {
@@ -522,6 +562,12 @@ namespace JobMe_Homepage.Controllers
             return RedirectToAction("JobApplication");
         }
 
+
+        /// <summary>
+        /// DeleteMethod for the jobExperience with the param id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Returns a RedirectToAction to the view jobappliaction</returns>
         public ActionResult DeleteJobExperience(int id)
         {
             ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
@@ -532,6 +578,15 @@ namespace JobMe_Homepage.Controllers
             return RedirectToAction("JobApplication");
         }
 
+        /// <summary>
+        /// A HTTPPost method there respones on httpPost requst, and calls the CreateEducation method from the ApplierService
+        /// with the params title, startdate, endDate and institution
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="institution"></param>
+        /// <returns>Returns a RedirectToAction to the view jobappliaction</returns>
         [HttpPost]
         public ActionResult CreateEducation(string title, DateTime startDate, DateTime endDate, string institution)
         {
@@ -551,6 +606,16 @@ namespace JobMe_Homepage.Controllers
             return RedirectToAction("JobApplication");
         }
 
+        /// <summary>
+        /// A HTTPPost method there respones on httpPost requst, and calls the UpdateEducation method from the ApplierService
+        /// with the params title, startdate, endDate, institution and id
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <param name="institution"></param>
+        /// <param name="id"></param>
+        /// <returns>Returns a RedirectToAction to the view jobappliaction</returns>
         [HttpPost]
         public ActionResult UpdateEducation(string title, DateTime startDate, DateTime endDate, string institution, int id)
         {
@@ -571,6 +636,12 @@ namespace JobMe_Homepage.Controllers
             return RedirectToAction("JobApplication");
         }
 
+
+        /// <summary>
+        /// DeleteMethod for the Education with the param id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Returns a RedirectToAction to the view jobappliaction</returns>
         public ActionResult DeleteEducation(int id)
         {
             ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
@@ -580,23 +651,28 @@ namespace JobMe_Homepage.Controllers
             Session["Applier"] = client.GetApplier(applier.Id);
             return RedirectToAction("JobApplication");
         }
+
+        /// <summary>
+        /// Display a partial view for JobCV
+        /// </summary>
+        /// <returns>returns a partielview with an Applier Object</returns>
         public ActionResult _JobCV()
         {
             ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
-
-            //Mangler fagterm.
             applier = Session["applier"] as ApplierServiceReference.Applier;
             return PartialView(applier);
 
         }
 
+        /// <summary>
+        /// Displays a partial view for readJobCV
+        /// </summary>
+        /// <returns>Returns a partielview with the object JobCV</returns>
         public ActionResult _ReadJobCV()
         {
             ApplierServiceReference.Applier applier = new ApplierServiceReference.Applier();
-
-            //Mangler fagterm.
+            
             applier = Session["applier"] as ApplierServiceReference.Applier;
-
             ApplierServiceReference.JobCV jobCV = applier.JobCV;
             return PartialView(jobCV);
 
@@ -605,41 +681,37 @@ namespace JobMe_Homepage.Controllers
         #endregion
 
         #region Booking
+        /// <summary>
+        /// Displays a booking view with the param Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Returns a view with a viewmodel VMBookingSession with a applier and jobPost object</returns>
         public ActionResult Booking(int id)
         {
 
             JobPostServiceReference.JobPost jobPost = jobClient.GetJobPost(id);
             List<BookingService.Booking> bookingList = bookingServiceClient.GetAllBooking(jobPost.Meeting.Id).ToList();
-            //List<BookingService.Session> sessionList = new List<BookingService.Session>();
-            //foreach (var session in bookingList)
-            //{
-            //    sessionList.AddRange(session.sessionList);
-
-            //}
-
             VMBookingSession vMBookingSession = new VMBookingSession
             {
                 BookingList = bookingList,
 
                 Applier = Session["Applier"] as ApplierServiceReference.Applier,
                 JobPost = jobPost
-
-
             };
-
-
-
             return View(vMBookingSession);
         }
 
+        /// <summary>
+        /// BookMetting method, set an applier on a booking by updating the session with a applier id in the bookingServiceClient
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="JobPostId"></param>
+        /// <returns>Returns a redirecToAction to booking view with the param JobPostId</returns>
         public ActionResult BookMeeting(int id, int JobPostId)
         {
-
-
             ApplierServiceReference.Applier applier = Session["Applier"] as ApplierServiceReference.Applier;
             BookingService.Session session = bookingServiceClient.GetSession(id);
             session.ApplierId = applier.Id;
-
 
             bool returnedStatus = bookingServiceClient.UpdateSession(session);
             if (returnedStatus == true)
@@ -654,6 +726,12 @@ namespace JobMe_Homepage.Controllers
         }
 
 
+        /// <summary>
+        /// DeleteBooking method with the params id and jobPostId. Removes a applier from a session
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="JobPostId"></param>
+        /// <returns>Returns a redirectToAction to booking with the param jobPostId</returns>
         public ActionResult DeleteBooking(int id, int JobPostId)
         {
             BookingService.Session session = bookingServiceClient.GetSession(id);

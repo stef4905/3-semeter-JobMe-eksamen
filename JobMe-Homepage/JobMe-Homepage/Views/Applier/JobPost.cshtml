@@ -1,5 +1,4 @@
 ﻿@model JobMe_Homepage.Models.VMJobPostANDJobPostList
-
 @{
     ViewBag.Title = "JobPost";
     Layout = "~/Views/Shared/_LayoutApplier.cshtml";
@@ -20,7 +19,6 @@
                             <div class="jobPostBasicInfo">Ansættelse: @Model.jobPost.workHours.Type</div>
                             <div class="jobPostBasicInfo">Ansøgnings periode: @Model.jobPost.StartDate.ToShortDateString() - @Model.jobPost.EndDate.ToShortDateString()</div>
                             <div class="jobPostBasicInfo">Lokation: @Model.jobPost.Address</div>
-
                         </div>
                         <div class="col-sm-4">
                             <!--Profile image from the company!-->
@@ -44,11 +42,8 @@
                     </div>
                     <div id="seperatorStyling"></div>
                     <div id="descriptionText">Kategori:</div><div id="descriptionBodyText">@Model.jobPost.jobCategory.Title</div>
-
-
                     @if (applier.Status)
                     {
-
                         <div class="col-lg-2" style="float: right">
                             <a id="jobPostStyle" class="btn-blue btn" href="/Applier/SendApplication/@Model.jobPost.Id">Send ansøgning</a>
 
@@ -60,23 +55,17 @@
                             <button id="jobPostStyle" class="btn btn-blue">Ikke aktiv </button>
                         </div>
                     }
-
                 </div>
             </div>
         </div>
     </div>
-
-
-
     <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Andre ligende jobs</label>
     <div class="col-sm-12 ">
         <div class="row">
             @foreach (var jobPost in Model.jobPostList.Where(m => m.jobCategory.Id.Equals(Model.jobPost.jobCategory.Id)).OrderBy(x => Guid.NewGuid()).Take(3))
             {
-
                 <div class="col-sm-12 bg-white jobPost content panel panel-default">
                     <div class="row">
-
                         <div class="col-xs-3">
                             <img class="img-responsive" src="@jobPost.company.ImageURL">
                         </div>
@@ -93,17 +82,4 @@
         </div>
     </div>
 </div>
-
-@*<!--#endregion-->
-        <!--#region jobPost right infomation-->
-        <div class="col-sm-3" id="jobPostRightContent">
-            hej
-        </div>
-    </div>
-    <!--#endregion-->*@
-
-
-
-
-
 

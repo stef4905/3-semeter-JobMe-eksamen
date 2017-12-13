@@ -27,12 +27,9 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Dashboard", "Index", "Applier")</li> 
                     <li>@Html.ActionLink("Find jobs", "FindJobPosts", "Applier")</li> 
-                 
                     <li class="dropdown">
                         @Html.Partial("_CurrentUser", Session["applier"])
                     </li>
-
-
                 </ul>
             </div>
         </div>

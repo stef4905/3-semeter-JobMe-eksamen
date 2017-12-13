@@ -24,15 +24,11 @@
             </div>
 
 
-
-
             <div class="col-sm-6">
-
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="form-group">
                             <div class="input-group">
-
                                 <div class="input-group-addon"> Km</div>
                                 <select class="form-control" name="km" id="km">
                                     <option value="0">50+</option>
@@ -48,28 +44,22 @@
                     <div class="col-sm-5">
                         <div class="form-group">
                             <div class="input-group">
-
                                 <div class="input-group-addon"> Job Type</div>
                                 <select class="form-control" name="category" id="Category">
                                     <option value="0">Alle</option>
-
                                     @foreach (var Category in Model.JobCategoryList)
                                     {
                                         <option value="@Category.Id">@Category.Title</option>
                                     }
-
                                 </select>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-sm-4">
                         <div class="form-group">
                             <div class="input-group">
-
                                 <div class="input-group-addon"> Tid</div>
                                 <select class="form-control" name="workHours" id="workhours">
-
                                     <option value="0">Alle</option>
                                     @foreach (var WorkHours in Model.WorkHoursList)
                                     {
@@ -79,9 +69,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -90,17 +77,10 @@
 
     <h2>@ViewBag.SearchField</h2>
 
-
-
     <!-- #region Searched items -->
-
-
-    <div class="row ">
-
-
+    <div class="row">
         @foreach (var JobPost in Model.JobPostList.Where(m => m.EndDate >= DateTime.Now && m.StartDate <= DateTime.Now))
         {
-
             <div class="col-sm-12 bg-white jobPost content panel panel-default">
                 <div class="row">
 
@@ -111,9 +91,6 @@
                         <h4 class="company-Name"><strong>@JobPost.Title</strong></h4><h5><strong>@JobPost.company.CompanyName</strong></h5><h4><small>@JobPost.Description</small></h4>
                     </div>
                     <div class="col-xs-2 pull-right">
-
-
-
                         <a class="btn btn-blue" href="/applier/JobPost/@JobPost.Id">Se mere</a>
                     </div>
                 </div>
@@ -122,33 +99,29 @@
     </div>
     <div class="pagination"></div>
 </div>
-    @section scripts {
+@section scripts {
+    <script>
+        jQuery(function ($) {
+            var items = $(".content");
 
-        <script>
-            jQuery(function ($) {
-                var items = $(".content");
+            var numItems = items.length;
+            var perPage = 10;
+            // only show the first 2 (or "first per_page") items initially
+            items.slice(perPage).hide();
 
-                var numItems = items.length;
-                var perPage = 10;
+            $(".pagination").pagination({
+                items: numItems,
+                itemsOnPage: perPage,
+                cssStyle: "light-theme",
+                onPageClick: function (pageNumber) {
+                    var showFrom = perPage * (pageNumber - 1);
+                    var showTo = showFrom + perPage;
 
-                // only show the first 2 (or "first per_page") items initially
-                items.slice(perPage).hide();
-
-                // now setup pagination
-                $(".pagination").pagination({
-                    items: numItems,
-                    itemsOnPage: perPage,
-                    cssStyle: "light-theme",
-                    onPageClick: function (pageNumber) { // this is where the magic happens
-                        // someone changed page, lets hide/show trs appropriately
-                        var showFrom = perPage * (pageNumber - 1);
-                        var showTo = showFrom + perPage;
-
-                        items.hide() // first hide everything, then show for the new page
-                            .slice(showFrom, showTo).show();
-                    }
-                });
+                    items.hide()
+                        .slice(showFrom, showTo).show();
+                }
             });
-        </script>
-    }
-    <!-- #endregion -->
+        });
+    </script>
+}
+<!-- #endregion -->

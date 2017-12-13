@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_LayoutApplier.cshtml";
 
 }
-
 <div class="container body-content panel panel-default">
     <h2>Ansøgninger:</h2>
 
@@ -16,41 +15,26 @@
                 {
                     <option value="@jobApplication.Id">@jobApplication.Title</option>
                 }
-
-
             </select>
-
             <input type="hidden" name="jobPostId" value="@Model.JobPost.Id" />
         </div>
         <h2>CV</h2>
         @Html.Partial("_ReadJobCV", Model.applier.JobCV)
-
-        @*<input type="submit" class="btn btn-blue btn-sendApplication" name="send" value="Send jobansøgning" />*@
-
         <a class="btn btn-blue btn-sendApplication btn-margin-botton pull-right" data-toggle="modal" data-target="#send" href="#send">Send jobansøgning</a>
-
 
         <!-- Modal -->
         <div class="modal fade" id="send" role="dialog">
             <div class="modal-dialog">
-
                 <!-- Modal content-->
                 <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4>Er du sikker på du vil sende din ansøgning? </h4>
                     <div class="modal-body">
-
                         <input type="submit" class="btn btn-blue btn-sendApplication" name="send" value="Send jobansøgning" />
-
                     </div>
-
                 </div>
-
             </div>
         </div>
-
-
     </form>
-
 </div>
 

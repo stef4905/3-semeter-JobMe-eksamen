@@ -1,63 +1,35 @@
 ﻿@model JobMe_Homepage.Models.VMJobPostAndApplierLists
 @{
     ViewBag.Title = "Home Page";
-  
+
 }
-
 <!--#region Create a profile area-->
-
-    <div class="panel-body" id="FrontpageBackground">
-        <div id="" class="container">
-            <div id="textCounter">
-                <h2>Vi har lige nu @Model.countOfJobPosts jobannoncer og @Model.countOfAppliers jobsøgende profiler</h2>
-            </div>
-            <div class="panel panel-defaultv center-block" id="createBox">
-               
-                        <div id="formStyling">
-                            <div id="CreateBoxHeadline"> <h3>Opret dig nu og få adgang med det samme!</h3></div>
-                            <div class="modal-body">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#Jobansoger">Jobansøger</a></li>
-                                    <li><a href="#Virksomhed">Virksomhed</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div id="Jobansoger" class="tab-pane fade in active">
-                                        @Html.Partial("_CreateApplier", "Applier")
-
-                                        @*<form action="/Home/CreateApplier" method="post">
-
-                                            <div class="form-group">
-                                                <label for="email">Email addresse:</label>
-                                                <input type="email" name="Email" class="form-control" id="email" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="pwd">Kodeord:</label>
-                                                <input type="password" name="Password" class="form-control" id="password" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="pwd">Gentag kodeord:</label>
-                                                <input type="password" name="PasswordControl" class="form-control" id="passwordControl" required>
-                                            </div>
-                                            <div class="checkbox col-sm-10">
-                                                <label><input type="checkbox"> Remember me</label>
-                                            </div>
-                                            <div class=" col-sm-2">
-                                                <button name="FrontpageButton" type="submit" class="btn btn-default btn-blue pull-right">Opret</button>
-                                            </div>
-
-                                        </form>*@
-                                    </div>
-                                    <div id="Virksomhed" class="tab-pane fade">
-                                        @Html.Partial("_CreateCompany", "Company")
-                                    </div>
-                                </div>
-                            </div>
+<div class="panel-body" id="FrontpageBackground">
+    <div id="" class="container">
+        <div id="textCounter">
+            <h2>Vi har lige nu @Model.countOfJobPosts jobannoncer og @Model.countOfAppliers jobsøgende profiler</h2>
+        </div>
+        <div class="panel panel-defaultv center-block" id="createBox">
+            <div id="formStyling">
+                <div id="CreateBoxHeadline"> <h3>Opret dig nu og få adgang med det samme!</h3></div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#Jobansoger">Jobansøger</a></li>
+                        <li><a href="#Virksomhed">Virksomhed</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="Jobansoger" class="tab-pane fade in active">
+                            @Html.Partial("_CreateApplier", "Applier")
                         </div>
-                    
-                
+                        <div id="Virksomhed" class="tab-pane fade">
+                            @Html.Partial("_CreateCompany", "Company")
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
 <!--#endregion-->
 <div class="container">
