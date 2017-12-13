@@ -131,5 +131,15 @@ namespace BusinessLogicLayer
         {
             return dbApplier.GetApplierTableSize();
         }
+
+
+        /// <summary>
+        /// Updates the given Appleir objects password
+        /// </summary>
+        /// <param name="applier"></param>
+        public void UpdatePassword(Applier applier)
+        {
+            dbApplier.UpdatePassword(applier);
+        }
     }
 }
