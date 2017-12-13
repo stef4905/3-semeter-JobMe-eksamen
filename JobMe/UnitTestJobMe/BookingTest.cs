@@ -113,7 +113,7 @@ namespace UnitTestJobMe
 
             //Act
 
-            //Thread thread1 = new Thread(ThreadStart(sessionCtr.Create(session, booking)));
+            Thread thread1 = new Thread(sessionCtr.Create(session, booking));
 
             //Assert
         }
