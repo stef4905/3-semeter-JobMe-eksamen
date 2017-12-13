@@ -27,7 +27,7 @@
 		<Button Content="Vis Alle" HorizontalAlignment="Left" Margin="655,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="ShowAllCompanies_Button"/>
 		<Button Content="Tiføj virksomhed" HorizontalAlignment="Left" Margin="1227,52,0,0" VerticalAlignment="Top" Width="169" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="AddNewCompany"/>
 		<Button Content="Opdater virksomhed" HorizontalAlignment="Left" Margin="1227,108,0,0" VerticalAlignment="Top" Width="171" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="UpdateCompany"/>
-		<Button Content="Slet Virksomhed" HorizontalAlignment="Left" Margin="1227,906,0,0" VerticalAlignment="Top" Width="169" Height="37" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White" Click="DeteleCompany"/>
+        <Button Content="Slet Virksomhed" HorizontalAlignment="Left" Margin="1227,906,0,0" VerticalAlignment="Top" Width="169" Height="37" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White" Click="DeleteCompany"/>
 		<StackPanel Name="CompanyStackPanel" HorizontalAlignment="Left" Height="953" VerticalAlignment="Top" Width="1410" Grid.ColumnSpan="2"/>
 	</Grid>
 </UserControl>

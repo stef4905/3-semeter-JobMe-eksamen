@@ -89,7 +89,7 @@ namespace DekstopApplication.Views
         }
 
         /// <summary>
-        /// Updates the current Company
+        /// Updates the current Company.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

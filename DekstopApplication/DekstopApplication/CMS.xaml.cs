@@ -30,6 +30,8 @@ namespace DekstopApplication
         public CMS()
         {
             InitializeComponent();
+            GuiPanel.Children.Clear();
+            GuiPanel.Children.Add(DashboardView);
         }
 
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)

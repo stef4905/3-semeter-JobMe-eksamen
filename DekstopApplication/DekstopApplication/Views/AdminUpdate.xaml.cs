@@ -46,7 +46,12 @@ namespace DekstopApplication.Views
         }
 
         /// <summary>
-        /// Update admin in database
+        /// Update Admin Method
+        /// Check if the email is in the right structure by Regex.
+        /// If not, a label will appear that it's not a valid email
+        /// If correct, you will be able to update the admin password on the entered email.
+        /// Update method is called by adminClient with Admin object as parameter() with the newly entered input.
+        /// And closes the Update Admin view
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

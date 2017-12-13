@@ -53,9 +53,12 @@ namespace JobMe_Homepage.Controllers
 
         public ActionResult UpdateUserProfile()
         {
-
+            
             List<JobPostServiceReference.JobCategory> jobCategoryList = jobClient.GetAllJobCategories().ToList();
-            ApplierServiceReference.Applier applier = Session["applier"] as ApplierServiceReference.Applier;
+            ApplierServiceReference.Applier appliers = Session["applier"] as ApplierServiceReference.Applier;
+
+            ApplierServiceReference.Applier applier = client.GetApplier(appliers.Id);
+
 
             VMApplierANDJobCategory vmApplierANDJobCategory = new VMApplierANDJobCategory();
 
@@ -131,7 +134,10 @@ namespace JobMe_Homepage.Controllers
             //få de 2 passwords --- SKAL SIKRES!!!!
             if (Password == PasswordControl)
             {
-                client.Create(applier);
+                 client.Create(applier);
+
+                applier = client.Login(Email, Password);
+
                 Session["applier"] = applier;
                 return RedirectToAction("Index");
             }

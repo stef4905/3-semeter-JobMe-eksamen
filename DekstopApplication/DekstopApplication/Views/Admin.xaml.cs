@@ -21,15 +21,15 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class Admin : UserControl
     {
-
         //Instance variables
         AdminServiceClient AdminClient = new AdminServiceClient();
         AdminCreate AdminCreateView = new AdminCreate();
         public List<AdminServiceReference.Admin> adminList = new List<AdminServiceReference.Admin>();
+        public AdminServiceReference.Admin admin = new AdminServiceReference.Admin();
 
 
         /// <summary>
-        /// Construct the User Control view for admin
+        /// Constructor for the User Control view for admin
         /// </summary>
         public Admin()
         {
@@ -48,7 +48,7 @@ namespace DekstopApplication.Views
         }
 
         /// <summary>
-        /// Clear textfields method is called on the AdminCreateView and add it to the Child
+        /// Clear textfields method is called on the AdminCreateView and adds it to the Child
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -81,19 +81,22 @@ namespace DekstopApplication.Views
         }
 
         /// <summary>
-        /// Deletes the current selected Admin
+        /// Calls Delete() Method through AdminClient on the SelectedIndex, and it will store the SelectedIndex as index variable
+        /// A confirmation will show which requires Yes/No response, before the AdminClient will execute the Delete() method
+        /// If an admin has been removed, it will show by confirmation.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void DeleteAdminButton_Click(object sender, RoutedEventArgs e)
         {
 
-            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette", "Confirmation", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette" + admin.Email, "Confirmation", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
                 int index = AdminTable.SelectedIndex;
                 AdminClient.Delete(adminList[index].Id);
                 adminList.Remove(adminList[index]);
+                MessageBox.Show("Admin " + admin.Email + " er blevet slettet!");
                 AdminTable.ClearValue(ListView.ItemsSourceProperty);
                 AdminTable.ItemsSource = adminList;
             }

@@ -135,6 +135,12 @@
   <wsdl:message name="IJobPostService_GetJobPostByMeetingId_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetJobPostByMeetingIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IJobPostService_GetJobPostTableSize_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobPostTableSize" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetJobPostTableSize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobPostTableSizeResponse" />
+  </wsdl:message>
   <wsdl:portType name="IJobPostService">
     <wsdl:operation name="CreateWorkHours">
       <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/CreateWorkHours" message="tns:IJobPostService_CreateWorkHours_InputMessage" />
@@ -203,6 +209,10 @@
     <wsdl:operation name="GetJobPostByMeetingId">
       <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetJobPostByMeetingId" message="tns:IJobPostService_GetJobPostByMeetingId_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetJobPostByMeetingIdResponse" message="tns:IJobPostService_GetJobPostByMeetingId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobPostTableSize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetJobPostTableSize" message="tns:IJobPostService_GetJobPostTableSize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetJobPostTableSizeResponse" message="tns:IJobPostService_GetJobPostTableSize_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IJobPostService" type="tns:IJobPostService">
@@ -354,6 +364,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetJobPostByMeetingId">
       <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetJobPostByMeetingId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobPostTableSize">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetJobPostTableSize" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
