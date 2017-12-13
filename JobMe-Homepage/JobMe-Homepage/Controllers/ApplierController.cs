@@ -286,8 +286,7 @@ namespace JobMe_Homepage.Controllers
             else
             {
                 applier.Password = newPassword;
-
-                client.Update(applier);
+                client.UpdatePassword(applier);
                 TempData["Success"] = "Kodeordet er ændret!";
                 Session["applier"] = client.GetApplier(applier.Id);
                 return RedirectToAction("UpdateUserProfile");
@@ -339,7 +338,7 @@ namespace JobMe_Homepage.Controllers
         /// <param name="workHours"></param>
         /// <returns>Returns a view with the ViewModel with a lists of JobPosts, JobCategorys and WorkHours</returns>
         [HttpPost]
-        public ActionResult FindJobPosts(string search, int km, int category, int workHours)
+        public ActionResult FindJobPosts(string search, /*int km,*/ int category, int workHours)
         {
             VMJobPostWorkHoursJobCategory VM = new VMJobPostWorkHoursJobCategory
             {
@@ -350,11 +349,11 @@ namespace JobMe_Homepage.Controllers
             foreach (var jobPosts in VM.JobPostList.Where(f => f.Title.ToLower().Contains(search.ToLower()) ||
             f.company.CompanyName.ToLower().Contains(search.ToLower())))
             {
-                if (workHours == 0 && category == 0 && km == 0)
+                if (workHours == 0 && category == 0 /*&& km == 0*/)
                 {
                     JobPostsList.Add(jobPosts);
                 }
-                if (km != 0 || workHours != 0 || category != 0)
+                if (/*km != 0 ||*/ workHours != 0 || category != 0)
                 {
                     if (jobPosts.workHours.Id == workHours || jobPosts.jobCategory.Id == category)
                     {

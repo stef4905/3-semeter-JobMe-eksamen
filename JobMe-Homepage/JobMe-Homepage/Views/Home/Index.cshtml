@@ -9,23 +9,23 @@
         <div id="textCounter">
             <h2>Vi har lige nu @Model.countOfJobPosts jobannoncer og @Model.countOfAppliers jobsøgende profiler</h2>
         </div>
-        <div class="panel panel-defaultv center-block" id="createBox">
+        <div class="panel panel-default center-block" id="createBox">
             <div id="formStyling">
                 <div id="CreateBoxHeadline"> <h3>Opret dig nu og få adgang med det samme!</h3></div>
-                <div class="modal-body">
+               
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#Jobansoger">Jobansøger</a></li>
-                        <li><a href="#Virksomhed">Virksomhed</a></li>
+                        <li class="active"><a href="#Jobansogere" data-toggle="tab">Jobansøger</a></li>
+                        <li><a href="#Virksomheden" data-toggle="tab">Virksomhed</a></li>
                     </ul>
                     <div class="tab-content">
-                        <div id="Jobansoger" class="tab-pane fade in active">
+                        <div id="Jobansogere" class="tab-pane fade in active">
                             @Html.Partial("_CreateApplier", "Applier")
                         </div>
-                        <div id="Virksomhed" class="tab-pane fade">
+                        <div id="Virksomheden" class="tab-pane fade">
                             @Html.Partial("_CreateCompany", "Company")
                         </div>
                     </div>
-                </div>
+              
             </div>
         </div>
     </div>

@@ -58,7 +58,7 @@
         <!--#endregion-->
         <!--#region List of jbopost that are relactive to the current applier-->
         <div class="col-sm-12 ">
-            <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Relevante jobs</label>
+            <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Mulige jobs</label>
                 @foreach (var jobPost in Model.jobPostList.OrderBy(x => Guid.NewGuid()).Take(6))
                 {
                 <div class="col-sm-12 bg-white jobPost content panel panel-default">
