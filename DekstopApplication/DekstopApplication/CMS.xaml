@@ -10,7 +10,7 @@
         <Rectangle Fill="#FF083056" HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="1671" MouseDown="Rectangle_MouseDown"/>
         <Button Content="_" Margin="1598,2,39,970" Click="MinimizeWindow" Foreground="#FCFFFFFF" BorderBrush="#00707070" FontSize="36" FontFamily="Verdana Pro" HorizontalAlignment="Center" VerticalAlignment="Center" Height="48" Width="34" Background="{x:Null}"/>
         <Button Content="X" Margin="1632,6,7,970" Click="CloseWindow" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="White" FontSize="36" FontFamily="Verdana Pro" />
-        <Label Content="JobMe - V0.0.1" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Arial Nova"/>
+        <Label Content="JobMe - V1.0.0" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Arial Nova"/>
         <Rectangle Fill="#FF142638" HorizontalAlignment="Left" Height="953" Margin="0,67,0,0" VerticalAlignment="Top" Width="261"/>
 
         <Button Content="Forside" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click"/>
