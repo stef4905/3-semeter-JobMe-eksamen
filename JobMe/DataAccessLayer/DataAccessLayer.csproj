@@ -50,7 +50,6 @@
     <Compile Include="DBBooking.cs" />
     <Compile Include="DBBusinessType.cs" />
     <Compile Include="DbCompany.cs" />
-    <Compile Include="DbConnection.cs" />
     <Compile Include="DBJobAppendix.cs" />
     <Compile Include="DbJobApplication.cs" />
     <Compile Include="DbJobCategory.cs" />

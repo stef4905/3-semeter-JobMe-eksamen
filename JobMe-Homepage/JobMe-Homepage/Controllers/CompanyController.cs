@@ -119,10 +119,8 @@ namespace JobMe_Homepage.Controllers
             }
             else
             {
-                
+                return null;   
             }
-
-            return null;
         }
 
         #endregion
