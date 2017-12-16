@@ -38,7 +38,7 @@ namespace DekstopApplication.Views
 
         /// <summary>
         /// Updates the table wich contains all current companies that are available from the database.
-        /// This is allsp used as a delegate function for children user controls
+        /// This is also used as a delegate function for children user controls
         /// </summary>
         public void UpdateTable()
         {
