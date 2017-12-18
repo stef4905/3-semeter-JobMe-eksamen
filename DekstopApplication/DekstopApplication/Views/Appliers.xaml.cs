@@ -35,7 +35,6 @@ namespace DekstopApplication.Views
         {
             InitializeComponent();
             UpdateTableAndList();
-            //applierCreateView.TheFunc = UpdateTableAndList;
         }
 
         /// <summary>
