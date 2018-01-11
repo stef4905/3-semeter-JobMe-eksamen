@@ -211,20 +211,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KasperV\\.nuget\\packages\\": {}
+    "C:\\Users\\sofie\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj",
+      "projectUniqueName": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\ModelLayer\\ModelLayer.csproj",
       "projectName": "ModelLayer",
-      "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj",
-      "packagesPath": "C:\\Users\\KasperV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\obj\\",
+      "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\ModelLayer\\ModelLayer.csproj",
+      "packagesPath": "C:\\Users\\sofie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\ModelLayer\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\KasperV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sofie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -238,6 +238,12 @@
         "net461": {
           "projectReferences": {}
         }
+      }
+    },
+    "dependencies": {
+      "Microsoft.Data.Tools.UnitTest": {
+        "target": "Package",
+        "version": "10.0.60809"
       }
     },
     "frameworks": {

@@ -396,20 +396,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KasperV\\.nuget\\packages\\": {}
+    "C:\\Users\\sofie\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
+      "projectUniqueName": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
       "projectName": "WCFJobMeService",
-      "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
-      "packagesPath": "C:\\Users\\KasperV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\WCFJobMeService\\obj\\",
+      "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
+      "packagesPath": "C:\\Users\\sofie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\WCFJobMeService\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\KasperV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sofie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -422,14 +422,20 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-              "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+            "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+              "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
             },
-            "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\KasperV\\Source\\Repos\\3-semeter-JobMe-eksamen2\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }
+      }
+    },
+    "dependencies": {
+      "Microsoft.Data.Tools.UnitTest": {
+        "target": "Package",
+        "version": "10.0.60809"
       }
     },
     "frameworks": {
