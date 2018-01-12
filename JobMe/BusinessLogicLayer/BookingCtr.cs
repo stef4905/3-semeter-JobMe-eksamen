@@ -22,13 +22,16 @@ namespace BusinessLogicLayer
         {
             try
             {
-                DateTime LastEndTime = booking.StartDateAndTime;
+                //LastEndTime is used to set then new starttime for the session nr. 2 and further.
+                DateTime lastEndTime = booking.StartDateAndTime;
+
+                //Calculating the available time for each session
                 Booking bookingReturned = DbBooking.Create(booking);
                 TimeSpan diff = booking.EndDateAndTime - bookingReturned.StartDateAndTime;
                 TimeSpan availableTime = new TimeSpan(diff.Ticks / bookingReturned.InterviewAmount);
 
 
-                //Calculating the endtime
+                //Calculating the endtime only set once
                 Double ii = Convert.ToDouble(bookingReturned.InterviewAmount);
                 TimeSpan totalEndTime = new TimeSpan(0, Convert.ToInt16(availableTime.Minutes * ii), 0);
                 DateTime endTime = bookingReturned.EndDateAndTime - totalEndTime + availableTime;
@@ -37,14 +40,14 @@ namespace BusinessLogicLayer
                 {
 
                     Session session = new Session();
-                    session.StartTime = LastEndTime;
+                    session.StartTime = lastEndTime;
                     session.EndTime = endTime;
                     SessionCtr.Create(session, bookingReturned);
 
 
                     //Set the starttime on the original booking to ensure new time is sat for next session
                     //bookingReturned.StartDateAndTime = session.StartTime.Add(availableTime);
-                    LastEndTime = endTime;
+                    lastEndTime = endTime;
                     endTime = endTime + availableTime;
                     
                 }
