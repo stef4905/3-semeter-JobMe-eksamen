@@ -58,6 +58,7 @@
     <Compile Include="DBMeeting.cs" />
     <Compile Include="DBSession.cs" />
     <Compile Include="DbWorkHour.cs" />
+    <Compile Include="HashingHelper.cs" />
     <Compile Include="IDataAccess.cs" />
     <Compile Include="DBJobExperience.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
