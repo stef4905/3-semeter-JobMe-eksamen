@@ -27,9 +27,14 @@ namespace DataAccessLayer
                     connection.Open();
                     using (SqlCommand cmd = connection.CreateCommand())
                     {
-                        cmd.CommandText = "INSERT INTO Company (Email, Password) VALUES (@Email, @Password)";
+                        var salt = HashingHelper.GenerateSalt();
+                        string saltedHash = HashingHelper.HashPassword(obj.Password, salt);
+                        cmd.CommandText = "INSERT INTO Company (Email, Password, PasswordHash, Salt) VALUES (@Email, @Password, @PasswordHash, @Salt)";
                         cmd.Parameters.AddWithValue("Email", obj.Email);
                         cmd.Parameters.AddWithValue("Password", obj.Password);
+                        cmd.Parameters.AddWithValue("PasswordHash", saltedHash);
+                        cmd.Parameters.AddWithValue("Salt", salt);
+
                         cmd.ExecuteNonQuery();
                         return true;
                     }
@@ -327,7 +332,9 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "UPDATE Company SET Email = @Email, Password = @Password, Phone = @Phone, Address = @Address, Country = @Country, ImageURL = @ImageURL, Description = @Description, BannerURl = @BannerURl, MaxRadius = @MaxRadius, HomePage = @HomePage, CompanyName = @CompanyName, CVR = @CVR, BusinessTypeId = @BusinessTypeId WHERE Id = @Id";
+                    var salt = HashingHelper.GenerateSalt();
+                    string saltedHash = HashingHelper.HashPassword(obj.Password, salt);
+                    cmd.CommandText = "UPDATE Company SET Email = @Email, Password = @Password, Phone = @Phone, Address = @Address, Country = @Country, ImageURL = @ImageURL, Description = @Description, BannerURl = @BannerURl, MaxRadius = @MaxRadius, HomePage = @HomePage, CompanyName = @CompanyName, CVR = @CVR, BusinessTypeId = @BusinessTypeId, PasswordHash = @PasswordHash, Salt = @Salt WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Password", obj.Password);
                     cmd.Parameters.AddWithValue("Phone", obj.Phone);
@@ -340,7 +347,9 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("HomePage", obj.Homepage ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("CompanyName", obj.CompanyName ?? (object)DBNull.Value);
                     cmd.Parameters.AddWithValue("CVR", obj.CVR);
-                    cmd.Parameters.AddWithValue("BusinessTypeId", obj.businessType.Id); 
+                    cmd.Parameters.AddWithValue("BusinessTypeId", obj.businessType.Id);
+                    cmd.Parameters.AddWithValue("PasswordHash", saltedHash);
+                    cmd.Parameters.AddWithValue("Salt", salt);
                     cmd.Parameters.AddWithValue("Id", obj.Id);
                     try
                     {
@@ -379,36 +388,76 @@ namespace DataAccessLayer
                     {
                         company.Id = (int)reader["Id"];
                         company.Email = (string)reader["Email"];
-                        company.Password = (string)reader["Password"];
-                        if (reader.IsDBNull(reader.GetOrdinal("Description"))) // Kan evt ændres til status når den bliver sat værk.
-                            company.Description = null;
-                        else
-                            company.Description = (string)reader["Description"];
 
-
-                    }
-                    reader.Close();
-
-
-                    if (company.Email == email && company.Password == password && company.Description != null)
-                    {
-                        Company FullCompany = Get(company.Id);
-                        return FullCompany;
-                    }
-
-                    else
-                    {
-                        if (company.Email == email && company.Password == password)
+                        string currentSalt = reader.GetString(reader.GetOrdinal("Salt"));
+                        string currentSaltedHash = reader.GetString(reader.GetOrdinal("PasswordHash"));
+                        if (HashingHelper.CheckPassword(password, currentSalt, currentSaltedHash))
                         {
-                            return company;
+                            company = Get(company.Id);
+                        }
+                        else
+                        {
+                            company = null;
                         }
                     }
-
-                    return null;
-
+                    return company;
                 }
             }
         }
+
+        ///// <summary>
+        /////  Finds a company in the database with the given param, and return the company
+        ///// </summary>
+        ///// <param name="email"></param>
+        ///// <param name="password"></param>
+        ///// <returns></returns>
+        //public Company Login(string email, string password)
+        //{
+        //    using (SqlConnection connection = new SqlConnection(ConnectionString))
+        //    {
+        //        Company company = new Company();
+        //        connection.Open();
+        //        using (SqlCommand cmd = connection.CreateCommand())
+        //        {
+        //            cmd.CommandText = "SELECT * FROM Company WHERE Email = @email AND Password = @password";
+        //            cmd.Parameters.AddWithValue("email", email);
+        //            cmd.Parameters.AddWithValue("password", password);
+
+        //            SqlDataReader reader = cmd.ExecuteReader();
+        //            if (reader.Read())
+        //            {
+        //                company.Id = (int)reader["Id"];
+        //                company.Email = (string)reader["Email"];
+        //                company.Password = (string)reader["Password"];
+        //                if (reader.IsDBNull(reader.GetOrdinal("Description"))) // Kan evt ændres til status når den bliver sat værk.
+        //                    company.Description = null;
+        //                else
+        //                    company.Description = (string)reader["Description"];
+
+
+        //            }
+        //            reader.Close();
+
+
+        //            if (company.Email == email && company.Password == password && company.Description != null)
+        //            {
+        //                Company FullCompany = Get(company.Id);
+        //                return FullCompany;
+        //            }
+
+        //            else
+        //            {
+        //                if (company.Email == email && company.Password == password)
+        //                {
+        //                    return company;
+        //                }
+        //            }
+
+        //            return null;
+
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Returns a int (count) for the numbers of rows of companies in the database
