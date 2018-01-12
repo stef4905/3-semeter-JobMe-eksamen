@@ -52,7 +52,16 @@ namespace DataAccessLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM JobExperience WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("Id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
@@ -149,7 +158,7 @@ namespace DataAccessLayer
                     try
                     {
                         cmd.CommandText = "UPDATE JobExperience SET Title = @Title, StartDate = @StartDate, EndDate = @EndDate, Description = @Description, JobCVId = @JobCVId WHERE Id = @Id ";
-                        cmd.Parameters.AddWithValue("Titlte", obj.Title);
+                        cmd.Parameters.AddWithValue("Title", obj.Title);
                         cmd.Parameters.AddWithValue("StartDate", obj.StartDate);
                         cmd.Parameters.AddWithValue("EndDate", obj.EndDate);
                         cmd.Parameters.AddWithValue("Description", obj.Description);
@@ -158,9 +167,9 @@ namespace DataAccessLayer
                         cmd.ExecuteNonQuery();
                         return true;
                     }
-                    catch (SqlException)
+                    catch (SqlException e)
                     {
-                        return false;
+                        throw e;
                     }
                 }
             }

@@ -28,6 +28,9 @@ namespace DekstopApplication
         //Instance variables
         private CMS Cms;
 
+        /// <summary>
+        /// Constructor of the MainWindow view
+        /// </summary>
         public MainWindow()
         {
             ServicePointManager.ServerCertificateValidationCallback = (obj, certificate, chain, errors) => true;
@@ -35,16 +38,31 @@ namespace DekstopApplication
             Cms = new CMS();
         }
 
+        /// <summary>
+        /// Enables an image to minimize the view to the taskbar on your machine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MinimizeWindow(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
+        /// <summary>
+        /// Enables an image to close the view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CloseWindow(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Enables mouse dragin the view around the dekstop
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -52,8 +70,11 @@ namespace DekstopApplication
         }
 
         /// <summary>
-        /// Login method for loggin in to the CMS System.
-        /// Will redirect to cms view if successfull login
+        /// Enables the feature to login ti the CMS system.
+        /// Takes the username and password from the view and instanciating a new AdminServiceClient.
+        /// Checks both username and password to ensure they has a value before using with the login method on the AdminServiceClient.
+        /// If the method returns a admin it displayes the CMS and closes the MainWindow.
+        /// If the method returns null, the method displayes a message with a message about what went wrong.s
         /// </summary>
         private void Login()
         {
@@ -80,21 +101,17 @@ namespace DekstopApplication
                 {
                     //Display a Message that tells you, your inputs a invalid.
                     MessageBox.Show("Brugernavn eller adgangskode er forkert prøv igen");
-                    LoginButton.Visibility = Visibility.Visible;
                 }
             }
         }
 
         /// <summary>
-        /// Login button listener.
-        /// Calls the Login.
+        /// When login button is pressed the login() method from this class is called.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Removes the login button and displayes a loading icon under long login times
-            LoginButton.Visibility = Visibility.Collapsed;
             Login();
         }
 
@@ -107,7 +124,6 @@ namespace DekstopApplication
         {
             if (e.Key == Key.Return)
             {
-                LoginButton.Visibility = Visibility.Hidden;
                 Login();
             }
         }

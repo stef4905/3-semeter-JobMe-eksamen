@@ -6,10 +6,9 @@
 }
 @if (TempData["Success"] != null)
 {
-                  <!-- Modal -->
+  <!-- Modal -->
     <div class="modal fade in" id="succesModal" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -19,80 +18,51 @@
             </div>
         </div>
     </div>
-
-
 }
-
-<!--#region infographics about all jobs and relevant jobs on the applier-->
+<div class="container-fluid body-content">
+    <!--#region infographics about all jobs and relevant jobs on the applier-->
     <div class="panel-body" id="ApplierIndexTopBackground">
         <div>
             <div id="textOfCount">
-                Vi har lige nu 12.301 joannoncer hvor 458 paaser på din profil
+                Vi har lige nu @Model.countOfJobPosts jobannoncer
             </div>
-            <a id="buttonStyle2" class="seeRelativeJobsButton" href="~/Applier/FindJobPosts" >Find Job</a>
+            <a id="buttonStyle2" class="seeRelativeJobsButton" href="~/Applier/FindJobPosts">Find Job</a>
         </div>
-
     </div>
-<!--#endregion-->
-<!--#region Jobsmeeting-->
-
-
-
-    @if (Model.jobPostListMeeting.Count() > 0)
-    {
+  </div>
+    <!--#endregion-->
+    <!--#region Jobsmeeting-->
+    <div class="container">
+        @if (Model.jobPostListMeeting.Count() > 0)
+        {
+            <div class="col-sm-12 ">
+                <h2>Møde indkaldelse fra virksomhed:</h2>
+                @foreach (var JobPost in Model.jobPostListMeeting)
+                {
+                    <div class="col-sm-12 bg-white jobPost content panel panel-default">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="img-responsive" src="@JobPost.company.ImageURL">
+                            </div>
+                            <div class="col-xs-7">
+                                <h4 class="company-Name"><strong>@JobPost.Title</strong></h4><h5><strong>@JobPost.company.CompanyName</strong></h5><h4><small>@JobPost.Description</small></h4>
+                            </div>
+                            <div class="col-xs-2 pull-right">
+                                <a id="jobPostButtonStyle" class="btn btn-blue" href="/Applier/Booking/@JobPost.Id">Book møde</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        <!--#endregion-->
+        <!--#region List of jbopost that are relactive to the current applier-->
         <div class="col-sm-12 ">
-            <h2>Møde indkaldelse fra virksomhed:</h2>
-
-            @foreach (var JobPost in Model.jobPostListMeeting)
-            {
-
-            <div class="col-sm-12 bg-white jobPost content panel panel-default">
-                <div class="row">
-
-                    <div class="col-xs-3">
-                        <img class="img-responsive" src="@JobPost.company.ImageURL">
-                    </div>
-                    <div class="col-xs-7">
-                        <h4 class="company-Name"><strong>@JobPost.Title</strong></h4><h5><strong>@JobPost.company.CompanyName</strong></h5><h4><small>@JobPost.Description</small></h4>
-                    </div>
-                    <div class="col-xs-2 pull-right">
-                        <a id="jobPostButtonStyle" class="btn btn-blue" href="/Applier/Booking/@JobPost.Id">Book møde</a>
-                    </div>
-                </div>
-            </div>
-
-            }
-         </div>
-     }
-        
-
-
-
-<!--#endregion-->
-<!-- #region Search function -->
-<div class="col-sm-12 ">
-    @*<div class="panel-body">*@
-        
-            <label id="ApplierIndexTitle">Søg efter job</label>
-            <div class="input-group" id="ApplierInputContainer">
-                <input type="text" class="form-control" placeholder="Søgord: stilling, firmanavn osv" name="search" />
-                <div class="input-group-btn">
-                    <button class="btn btn-blue" id="ApplierSearchButton" type="submit">Søg</button>
-                </div>
-            </div>
-
-
-            <!--#endregion-->
-            <!--#region List of jbopost that are relactive to the current applier-->
-
-            <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Relevante jobs</label>
-
-            @foreach (var jobPost in Model.jobPostList.Take(4))
-            {
-
+            <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Mulige jobs</label>
+                @foreach (var jobPost in Model.jobPostList.OrderBy(x => Guid.NewGuid()).Take(6))
+                {
                 <div class="col-sm-12 bg-white jobPost content panel panel-default">
                     <div class="row">
-
                         <div class="col-xs-3">
                             <img class="img-responsive" src="@jobPost.company.ImageURL">
                         </div>
@@ -103,29 +73,19 @@
                             <a id="jobPostButtonStyle" class="btn btn-blue" href="/applier/JobPost/@jobPost.Id">Læs mere</a>
                         </div>
                     </div>
-                </div>
+                </div>             
             }
             <!--#endregion-->
-</div>
+        </div>
+    </div>
+    @section scripts {
+        <script>
+            window.onload = function () {
+                $('#succesModal').show();
 
-
-@section scripts {
-
-
-
-    <script>
-
-
-        window.onload = function () {
-            $('#succesModal').show();
-
-            $('#succesModal').click(function (event) {
-                $('#succesModal').hide();
-            });
-
-
-        }
-    </script>
-
-
-}
+                $('#succesModal').click(function (event) {
+                    $('#succesModal').hide();
+                });
+            }
+        </script>
+    }

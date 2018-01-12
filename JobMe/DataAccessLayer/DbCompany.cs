@@ -71,41 +71,124 @@ namespace DataAccessLayer
         /// <returns></returns>
         public Company Get(int id)
         {
-
-            Company company = new Company();
-            DBBusinessType dbBusinessType = new DBBusinessType();
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
+                DBBusinessType dbBusinessType = new DBBusinessType();
+                Company company = new Company();
+
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT * FROM Company WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Id", id);
                     SqlDataReader reader = cmd.ExecuteReader();
+
+
+
                     if (reader.Read())
                     {
                         company.Id = (int)reader["Id"];
                         company.Email = (string)reader["Email"];
                         company.Password = (string)reader["Password"];
-                        company.Phone = (int)reader["Phone"];
-                        company.Address = (string)reader["Address"];
-                        company.Country = (string)reader["Country"];
-                        company.Description = (string)reader["Description"];
-                        company.BannerURL = (string)reader["BannerURL"];
-                        company.MaxRadius = (int)reader["MaxRadius"];
-                        company.Homepage = (string)reader["HomePage"];
-                        company.CompanyName = (string)reader["CompanyName"];
-                        company.CVR = (int)reader["CVR"];
-                        company.businessType = dbBusinessType.Get((int)reader["BusinessTypeId"]);
-                        // Allows ImageURL to be null, if not null, reads the current company ImageURL.
-                        if (reader.IsDBNull(reader.GetOrdinal("ImageURL")))
-                            company.ImageURL = null;
+                        if (reader["Phone"] == DBNull.Value)
+                        {
+                            company.Phone = 0;
+                        }
                         else
+                        {
+                            company.Phone = (int)reader["Phone"];
+                        }
+
+                        if (reader["Address"] == DBNull.Value)
+                        {
+                            company.Address = "";
+                        }
+                        else
+                        {
+                            company.Address = (string)reader["Address"];
+                        }
+
+                        if (reader["Country"] == DBNull.Value)
+                        {
+                            company.Country = "";
+                        }
+                        else
+                        {
+                            company.Country = (string)reader["Country"];
+                        }
+                        if (reader["ImageURL"] == DBNull.Value)
+                        {
+                            company.ImageURL = "";
+                        }
+                        else
+                        {
                             company.ImageURL = (string)reader["ImageURL"];
+                        }
+                        if (reader["Description"] == DBNull.Value)
+                        {
+                            company.Description = "";
+                        }
+                        else
+                        {
+                            company.Description = (string)reader["Description"];
+                        }
+                        if (reader["BannerURL"] == DBNull.Value)
+                        {
+                            company.BannerURL = "";
+                        }
+                        else
+                        {
+                            company.BannerURL = (string)reader["BannerURL"];
+                        }
+                        if (reader["MaxRadius"] == DBNull.Value)
+                        {
+                            company.MaxRadius = 0;
+                        }
+                        else
+                        {
+                            company.MaxRadius = (int)reader["MaxRadius"];
+                        }
+
+                        if (reader["HomePage"] == DBNull.Value)
+                        {
+                            company.Homepage = "";
+                        }
+                        else
+                        {
+                            company.Homepage = (string)reader["HomePage"];
+                        }
+
+                        if (reader["CompanyName"] == DBNull.Value)
+                        {
+                            company.CompanyName = "";
+                        }
+                        else
+                        {
+                            company.CompanyName = (string)reader["CompanyName"];
+                        }
+                        if (reader["CVR"] == DBNull.Value)
+                        {
+                            company.CVR = 0;
+                        }
+                        else
+                        {
+                            company.CVR = (int)reader["CVR"];
+                        }
+                        if (reader["BusinessTypeId"] == DBNull.Value)
+                        {
+                            company.businessType = new BusinessType();
+                            company.businessType.Id = 0;
+                            company.businessType.Type = "Ikke Angivet";
+                        }
+                        else
+                        {
+                            company.businessType = dbBusinessType.Get((int)reader["BusinessTypeId"]);
+                            company.businessType.Id = (int)reader["BusinessTypeId"];
+                        }
                     }
                 }
+                return company;
             }
-            return company;
         }
 
         /// <summary>
@@ -141,7 +224,7 @@ namespace DataAccessLayer
 
                         if (reader["Address"] == DBNull.Value)
                         {
-                            company.Address = null;
+                            company.Address = "";
                         }
                         else
                         {
@@ -150,7 +233,7 @@ namespace DataAccessLayer
 
                         if (reader["Country"] == DBNull.Value)
                         {
-                            company.Country = null;
+                            company.Country = "";
                         }
                         else
                         {
@@ -158,7 +241,7 @@ namespace DataAccessLayer
                         }
                         if (reader["ImageURL"] == DBNull.Value)
                         {
-                            company.ImageURL = null;
+                            company.ImageURL = "";
                         }
                         else
                         {
@@ -166,7 +249,7 @@ namespace DataAccessLayer
                         }
                         if (reader["Description"] == DBNull.Value)
                         {
-                            company.Description = null;
+                            company.Description = "";
                         }
                         else
                         {
@@ -174,7 +257,7 @@ namespace DataAccessLayer
                         }
                         if (reader["BannerURL"] == DBNull.Value)
                         {
-                            company.BannerURL = null;
+                            company.BannerURL = "";
                         }
                         else
                         {
@@ -191,7 +274,7 @@ namespace DataAccessLayer
 
                         if (reader["HomePage"] == DBNull.Value)
                         {
-                            company.Homepage = null;
+                            company.Homepage = "";
                         }
                         else
                         {
@@ -200,7 +283,7 @@ namespace DataAccessLayer
 
                         if (reader["CompanyName"] == DBNull.Value)
                         {
-                            company.CompanyName = null;
+                            company.CompanyName = "";
                         }
                         else
                         {
@@ -323,6 +406,31 @@ namespace DataAccessLayer
 
                     return null;
 
+                }
+            }
+        }
+
+        /// <summary>
+        /// Returns a int (count) for the numbers of rows of companies in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetCompanyTableSize()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "";
+                        cmd.CommandText = "SELECT COUNT(*) FROM Company";
+                        return (int)cmd.ExecuteScalar();
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
                 }
             }
         }

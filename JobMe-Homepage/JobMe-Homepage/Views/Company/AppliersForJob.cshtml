@@ -3,90 +3,60 @@
     ViewBag.Title = "AppliersForJob";
     Layout = "~/Views/Shared/_LayoutCompany.cshtml";
 }
-.
-<h2>Ansøger:</h2>
-<div class="row">
-
-    <div class="col-sm-4">
-
-
-
-        <ul class="tab list-group id=" contact-list"">
-            @foreach (var JobApplication in Model.JobApplicationList)
-            {
-
-
-                <li class="list-group-item applierForJob-group">
-                    <a class="JobApplierText" href="#@JobApplication.Applier.Id">
-                        <div class="col-xs-12 col-sm-3">
-                            <img src="@JobApplication.Applier.ImageURL" alt="@JobApplication.Applier.FName @JobApplication.Applier.LName" class="img-responsive img-circle applier-image-url" />
-                        </div>
-                        <div class="col-xs-12 col-sm-9">
-                            <span class="name">@JobApplication.Applier.FName @JobApplication.Applier.LName</span><br />
-
-
-
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-
-
-            }
-
-
-
-        </ul>
-    </div>
-    <div class="col-sm-8" id="experience-col">
-        <div class="row" id="profileInfoRight">
-
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#Application">Ansøgning</a></li>
-                <li><a href="#JobCV">CV</a></li>
-            </ul>
-            <div class="tab-content" id="">
-
-                @foreach (var item in Model.JobApplicationList)
-                {
-                    <div id="@item.Applier.Id" class="tab-pane fade in">
-
-                        <div class="tab-content">
-                            <div id="Application" class="tab-pane fade in active">
-                                @Html.Partial("_JobApplication", item)
-
+<div class="container body-content">
+    <h2>Ansøger:</h2>
+    <div class="row">
+        <div class="col-sm-4">
+            <ul class="tab list-group id=" contact-list"">
+                @foreach (var JobApplication in Model.JobApplicationList)
+                 {
+                    <li class="list-group-item applierForJob-group">
+                        <a class="JobApplierText" href="#@JobApplication.Applier.Id">
+                            <div class="col-xs-12 col-sm-3">
+                                <img src="@JobApplication.Applier.ImageURL" alt="@JobApplication.Applier.FName @JobApplication.Applier.LName" class="img-responsive img-circle applier-image-url" />
                             </div>
-                            <div id="JobCV" class="tab-pane fade">
-
-                                @Html.Partial("_JobCV", item.Applier.JobCV)
+                            <div class="col-xs-12 col-sm-9">
+                                <span class="name">@JobApplication.Applier.FName @JobApplication.Applier.LName</span><br />
                             </div>
-                        </div>
-
-                        <H2>Indkald ansøger at booke et møde</H2>
-                        
-                        
-                        <form action="/Company/AppliersForJob" method="post">
-                            <input type="hidden" name="jobApplicationId" value="@item.Id" />
-                            <input type="hidden" name="jobPostId" value="@Model.jobPost.Id" />
-                       
-
-
-                            <button type="submit" class="btn-blue btn" name="accepted" value="1">Accepter Ansøgning</button>
-                            <button type="submit" class="btn-danger btn" name="accepted" value="0">Arkiver Ansøgning</button>
-
-                        </form>
-                     
-                </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </li>
                 }
+            </ul>
+        </div>
+        <div class="col-sm-8" id="experience-col">
+            <div class="row" id="profileInfoRight">
 
+                <div class="tab-content" id="">
+
+                    @foreach (var item in Model.JobApplicationList)
+                    {
+                        <div id="@item.Applier.Id" class="tab-pane fade in">
+
+                            <h2>Ansøgning:</h2>
+                            @Html.Partial("_JobApplication", item)
+
+                            <h2>CV:</h2>
+                            @Html.Partial("_JobCV", item.Applier.JobCV)
+
+
+                            <H2>Indkald ansøger at booke et møde</H2>
+
+                            <form action="/Company/AppliersForJob" method="post">
+                                <input type="hidden" name="jobApplicationId" value="@item.Id" />
+                                <input type="hidden" name="jobPostId" value="@Model.jobPost.Id" />
+                                <button type="submit" class="btn-blue btn" name="accepted" value="1">Accepter Ansøgning</button>
+                                <button type="submit" class="btn-danger btn" name="accepted" value="0">Arkiver Ansøgning</button>
+
+                            </form>
+                        </div>
+                    }
+
+                </div>
             </div>
-
-           
         </div>
     </div>
 </div>
-
 
 
 
@@ -108,12 +78,6 @@
             });
         });
     </script>
-
-
-
-
-
-
 }
 
 

@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BusinessLogicLayer;
 using ModelLayer;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace UnitTestJobMe
 {
@@ -84,7 +86,7 @@ namespace UnitTestJobMe
         public void TestGetByMeetingId()
         {
             //Arrange
-           
+
             int meetingId = 6;
             BookingCtr bookingCtr = new BookingCtr();
 
@@ -93,6 +95,78 @@ namespace UnitTestJobMe
 
             //Assert
             Assert.AreEqual(meetingId, returnedBooking.MeetingId);
+        }
+
+        [TestMethod]
+        public void TestConcurrencyBookingofSession()
+        {
+            //Variables to store wich applier is sat
+            int applier1Id;
+            bool applier1Bool = false;
+            int applier2Id;
+            bool applier2Bool = false;
+            BookingCtr bookingCtr = new BookingCtr();
+            SessionCtr sessionCtr = new SessionCtr();
+            MeetingCtr meetingCtr = new MeetingCtr();
+            ApplierCtr applierCtr = new ApplierCtr();
+
+            // Get Appliers
+            Applier applier1 = applierCtr.Get(4);
+            Applier applier2 = applierCtr.Get(5);
+
+            //Set the store variables
+            applier1Id = applier1.Id;
+            applier2Id = applier2.Id;
+
+            // Get booking
+            Booking booking1 = bookingCtr.Get(85);
+
+            // Get Meeting
+            Meeting meeting1 = meetingCtr.Get(booking1.MeetingId);
+
+            // Get Session
+            Session session1 = sessionCtr.Get(146);
+            Session session2 = sessionCtr.Get(146);
+
+            // Sets Applierd ID equal to sessions applier ID.
+            session1.ApplierId = applier1.Id;
+            session2.ApplierId = applier2.Id;
+
+
+            //Act
+            ThreadStart doIt;
+            ThreadStart doItAgain;
+            doIt = () => sessionCtr.Update(session1);
+            doItAgain = () => sessionCtr.Update(session1);
+
+
+            // Starts thread 1
+            Thread thread1 = new Thread(doIt);
+            thread1.Start();
+
+            // Starts thread 2
+            Thread thread2 = new Thread(doIt);
+            thread2.Start();
+
+            // Gets the current session after update
+            Session sessionGet = sessionCtr.Get(54);
+
+            // Checks to see which applier gets the current session.
+            if (sessionGet.ApplierId == applier1Id)
+            {
+                applier1Bool = true;
+            }
+            else if (sessionGet.ApplierId == applier2Id)
+            {
+                applier2Bool = true;
+            }
+            else
+            {
+                //No code here. If not parsed the test fails
+            }
+
+            //Assert
+            Assert.IsTrue(applier1Bool || applier2Bool);
         }
     }
 }

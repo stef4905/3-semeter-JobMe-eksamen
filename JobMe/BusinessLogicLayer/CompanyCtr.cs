@@ -73,5 +73,14 @@ namespace BusinessLogicLayer
         {
             return dbCompany.Login(email, password);
         }
+
+        /// <summary>
+        /// Returns a int (count) for the numbers of rows of companies in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetCompanyTableSize()
+        {
+            return dbCompany.GetCompanyTableSize();
+        }
     }
 }

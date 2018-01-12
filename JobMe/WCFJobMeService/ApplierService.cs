@@ -71,6 +71,22 @@ namespace WCFJobMeService
             return applierCtr.Login(email, password);
         }
 
-  
+        /// <summary>
+        /// Return the number of rows in the Applier table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetApplierTableSize()
+        {
+            return applierCtr.GetApplierTableSize();
+        }
+
+        /// <summary>
+        /// Updates the given Applier objects password
+        /// </summary>
+        /// <param name="applier"></param>
+        public void UpdatePassword(Applier applier)
+        {
+            applierCtr.UpdatePassword(applier);
+        }
     }
 }

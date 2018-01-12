@@ -24,7 +24,8 @@ namespace BusinessLogicLayer
             {
                 Applier applier = dbApplier.CreateAndReturnApplier(obj);
                 applier.Birthdate = DateTime.Now;
-                applier.JobCV = new JobCV(0, "Ikke endnu redigeret", 0, "Bio tekst");
+                applier.JobCV = new JobCV(0, "Ikke endnu redigeret", "Bio tekst");
+
                 Applier applierReturned = jobCVCtr.CreateAndReturnPrimaryKey(applier.JobCV, applier);
                 Update(applierReturned);
                 return true;
@@ -81,15 +82,18 @@ namespace BusinessLogicLayer
         {
             try
             {
-               
+
                 dbApplier.Update(obj);
-                UpdateApplierJobCategories(obj);
+                if (obj.JobCategoryList != null)
+                {
+                    UpdateApplierJobCategories(obj);
+                }
+
                 return true;
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                return false;
+                throw e;
             }
         }
 
@@ -117,6 +121,25 @@ namespace BusinessLogicLayer
         public Applier Login(string email, string password)
         {
             return dbApplier.Login(email, password);
+        }
+
+        /// <summary>
+        /// Return the number of rows in the Applier table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetApplierTableSize()
+        {
+            return dbApplier.GetApplierTableSize();
+        }
+
+
+        /// <summary>
+        /// Updates the given Appleir objects password
+        /// </summary>
+        /// <param name="applier"></param>
+        public void UpdatePassword(Applier applier)
+        {
+            dbApplier.UpdatePassword(applier);
         }
     }
 }

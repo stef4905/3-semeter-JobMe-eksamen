@@ -8,27 +8,29 @@
              d:DesignHeight="953" d:DesignWidth="1410">
 	<Grid x:Name="GuiPanelCreateCompany" Background="#FFC2C2C3" Height="953" Width="1410">
 		<Label Content="Opret virksomhed" HorizontalAlignment="Left" Margin="35,41,0,0" VerticalAlignment="Top" FontSize="32"/>
-		<Button Name="CreateButton" Content="Opret" HorizontalAlignment="Left" Margin="1246,907,0,0" VerticalAlignment="Top" Width="154" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White"  />
+		<Button Name="CreateButton" Content="Opret" HorizontalAlignment="Left" Margin="1246,907,0,0" VerticalAlignment="Top" Width="154" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="CreateCompany_Click"  />
 		<Label Content="Virksomhed &gt; Opret virksomhed" HorizontalAlignment="Left" Margin="35,17,0,0" VerticalAlignment="Top" FontSize="14" FontStyle="Italic"/>
-		<Button Name="BackButton" Content="&lt;- Tilbage" HorizontalAlignment="Left" Margin="1247,10,0,0" VerticalAlignment="Top" Width="153" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" />
+		<Button Name="BackButton" Content="&lt;- Tilbage" HorizontalAlignment="Left" Margin="1247,10,0,0" VerticalAlignment="Top" Width="153" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="BackButton_Click" />
 		<Label Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="214" Foreground="Red"/>
-		<TextBox Name="EmailInput" HorizontalAlignment="Left" Height="37" Margin="35,138,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text="" />
+		<TextBox x:Name="EmailInput" HorizontalAlignment="Left" Height="37" Margin="35,138,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text="" />
 		<Label Content="E-mail:" HorizontalAlignment="Left" Margin="35,99,0,0" VerticalAlignment="Top" FontSize="22"/>
+		<TextBox x:Name="CompanyNameInput" HorizontalAlignment="Left" Height="37" Margin="35,219,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
 		<Label Content="Firma navn:" HorizontalAlignment="Left" Margin="35,180,0,0" VerticalAlignment="Top" FontSize="22"/>
-		<TextBox Name="LNameInput" HorizontalAlignment="Left" Height="37" Margin="35,300,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+		<TextBox x:Name="CVRInput" HorizontalAlignment="Left" Height="37" Margin="35,300,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
 		<Label Content="CVR:" HorizontalAlignment="Left" Margin="35,261,0,0" VerticalAlignment="Top" FontSize="22"/>
-		<TextBox Name="AdressInput" HorizontalAlignment="Left" Height="37" Margin="34,463,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+		<TextBox x:Name="AddressInput" HorizontalAlignment="Left" Height="37" Margin="34,463,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
 		<Label Content="Addresse:" HorizontalAlignment="Left" Margin="34,424,0,0" VerticalAlignment="Top" FontSize="22"/>
-		<TextBox Name="PhoneInput" HorizontalAlignment="Left" Height="37" Margin="35,549,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+		<TextBox x:Name="PhoneInput" HorizontalAlignment="Left" Height="37" Margin="35,549,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
 		<Label Content="Telefon:" HorizontalAlignment="Left" Margin="34,505,0,0" VerticalAlignment="Top" FontSize="22"/>
-		<TextBox Name="DescriptionInput" HorizontalAlignment="Left" Height="37" Margin="35,635,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
-		<Label Content="Beskrivelse:" HorizontalAlignment="Left" Margin="34,591,0,0" VerticalAlignment="Top" FontSize="22"/>
-		<TextBox Name="HomePageInput" HorizontalAlignment="Left" Height="37" Margin="34,721,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
-		<Label Content="Hjemmeside:" HorizontalAlignment="Left" Margin="33,677,0,0" VerticalAlignment="Top" FontSize="22"/>
-		<TextBox Name="CurrentJobInput" HorizontalAlignment="Left" Height="37" Margin="35,807,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
-		<Label Content="Nuværende job:" HorizontalAlignment="Left" Margin="34,763,0,0" VerticalAlignment="Top" FontSize="22"/>
-		<TextBox Name="PasswordInput" HorizontalAlignment="Left" Height="37" Margin="768,138,0,0"  VerticalAlignment="Top" Width="325" FontSize="22" Text="" />
+		<TextBox x:Name="DescriptionInput" HorizontalAlignment="Left" Height="204" Margin="35,718,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" TextWrapping="Wrap" AcceptsReturn="True"/>
+		<Label Content="Beskrivelse:" HorizontalAlignment="Left" Margin="34,674,0,0" VerticalAlignment="Top" FontSize="22"/>
+		<TextBox x:Name="HomepageInput" HorizontalAlignment="Left" Height="37" Margin="34,637,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
+		<Label Content="Hjemmeside:" HorizontalAlignment="Left" Margin="33,593,0,0" VerticalAlignment="Top" FontSize="22"/>
+		<TextBox x:Name="PasswordInput" HorizontalAlignment="Left" Height="37" Margin="768,138,0,0"  VerticalAlignment="Top" Width="325" FontSize="22" Text="" />
 		<Label Content="Password:" HorizontalAlignment="Left" Margin="768,99,0,0" VerticalAlignment="Top" FontSize="22"/>
-		<TextBox Name="CompanyNameInput" HorizontalAlignment="Left" Height="37" Margin="35,219,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text="" />
+		<TextBox x:Name="CountryInput" HorizontalAlignment="Left" Height="37" Margin="768,463,0,0"  VerticalAlignment="Top" Width="325" FontSize="22" Text="" />
+		<ComboBox x:Name="BusinessTypeInput" HorizontalAlignment="Left" Margin="768,549,0,0" VerticalAlignment="Top" Width="325" Height="37" FontSize="16"/>
+		<Label Content="Virksomheds type:" HorizontalAlignment="Left" Margin="768,511,0,0" VerticalAlignment="Top" FontSize="22"/>
+		<Label Content="Land:" HorizontalAlignment="Left" Margin="768,424,0,0" VerticalAlignment="Top" FontSize="22"/>
 	</Grid>
 </UserControl>

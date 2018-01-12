@@ -359,9 +359,6 @@ namespace JobMe_Homepage.ApplierServiceReference {
         private System.Collections.Generic.List<JobMe_Homepage.ApplierServiceReference.ApplierEducation> ApplierEducationListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ApplierIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -395,19 +392,6 @@ namespace JobMe_Homepage.ApplierServiceReference {
                 if ((object.ReferenceEquals(this.ApplierEducationListField, value) != true)) {
                     this.ApplierEducationListField = value;
                     this.RaisePropertyChanged("ApplierEducationList");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ApplierId {
-            get {
-                return this.ApplierIdField;
-            }
-            set {
-                if ((this.ApplierIdField.Equals(value) != true)) {
-                    this.ApplierIdField = value;
-                    this.RaisePropertyChanged("ApplierId");
                 }
             }
         }
@@ -930,6 +914,18 @@ namespace JobMe_Homepage.ApplierServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/Login", ReplyAction="http://tempuri.org/IApplierService/LoginResponse")]
         System.Threading.Tasks.Task<JobMe_Homepage.ApplierServiceReference.Applier> LoginAsync(string email, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetApplierTableSize", ReplyAction="http://tempuri.org/IApplierService/GetApplierTableSizeResponse")]
+        int GetApplierTableSize();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetApplierTableSize", ReplyAction="http://tempuri.org/IApplierService/GetApplierTableSizeResponse")]
+        System.Threading.Tasks.Task<int> GetApplierTableSizeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/UpdatePassword", ReplyAction="http://tempuri.org/IApplierService/UpdatePasswordResponse")]
+        void UpdatePassword(JobMe_Homepage.ApplierServiceReference.Applier applier);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/UpdatePassword", ReplyAction="http://tempuri.org/IApplierService/UpdatePasswordResponse")]
+        System.Threading.Tasks.Task UpdatePasswordAsync(JobMe_Homepage.ApplierServiceReference.Applier applier);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1005,6 +1001,22 @@ namespace JobMe_Homepage.ApplierServiceReference {
         
         public System.Threading.Tasks.Task<JobMe_Homepage.ApplierServiceReference.Applier> LoginAsync(string email, string password) {
             return base.Channel.LoginAsync(email, password);
+        }
+        
+        public int GetApplierTableSize() {
+            return base.Channel.GetApplierTableSize();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetApplierTableSizeAsync() {
+            return base.Channel.GetApplierTableSizeAsync();
+        }
+        
+        public void UpdatePassword(JobMe_Homepage.ApplierServiceReference.Applier applier) {
+            base.Channel.UpdatePassword(applier);
+        }
+        
+        public System.Threading.Tasks.Task UpdatePasswordAsync(JobMe_Homepage.ApplierServiceReference.Applier applier) {
+            return base.Channel.UpdatePasswordAsync(applier);
         }
     }
 }

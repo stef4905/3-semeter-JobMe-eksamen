@@ -22,21 +22,39 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class ApplierCreate : UserControl
     {
+
+        //Instance variables
         public delegate void ParentFunction();
-        ApplierServiceClient applierClient = new ApplierServiceClient();
+        private ApplierServiceClient ApplierClient = new ApplierServiceClient();
         
-        //Poiting to outside function on parent
+        //Pointing to outside function on parent
         public ParentFunction TheFunc;
+
+        /// <summary>
+        /// Cunstroctor for the ApplierCreate User Control
+        /// </summary>
         public ApplierCreate()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Closes the current User Controll.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BackButton_Click(object sender, RoutedEventArgs e)
         {
             ((Panel)this.Parent).Children.Remove(this);
         }
 
+        /// <summary>
+        /// Gets all the inputs and instaciating a new Applier object wit the values.
+        /// Calls the ApplierClient.Create() method given the Applier Object.
+        /// This method also ensures validation on the insertet values, to ensure they are correct for their value.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
             string Email = EmailInput.Text;
@@ -55,20 +73,12 @@ namespace DekstopApplication.Views
             {
                 FailCheckLabel.Content = "Kode ordet stemmer ikke overens";
             }
-
             else
             {
-                applierClient.Create(applier);
-
-
-                TheFunc();
+                ApplierClient.Create(applier);
+                TheFunc(); //Calling the updateTableAndList() method on the parent User Control
                 ((Panel)this.Parent).Children.Remove(this);
-
-
             }
-
-
-            
         }
     }
 }

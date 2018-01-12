@@ -21,38 +21,48 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class ReadEditJobPost : UserControl
     {
-        JobPostServiceClient jobCLient = new JobPostServiceClient();
-        List<JobPostServiceReference.JobCategory> categoryList = new List<JobPostServiceReference.JobCategory>();
-        public JobPostServiceReference.JobPost jobPost = null;
 
+        //Instance variables
+        private JobPostServiceClient JobClient = new JobPostServiceClient();
+        private List<JobPostServiceReference.JobCategory> CategoryList = new List<JobPostServiceReference.JobCategory>();
+        public JobPostServiceReference.JobPost JobPost = null;
+
+        /// <summary>
+        /// Cunstructor for the ReadEditJobPost User Control.
+        /// Takes a JobPost object as parameter, this is then used through the class.
+        /// Sets the CategoryList equal to all JobCategories from the database.
+        /// Calls the SetAllBoxWithText method.
+        /// </summary>
+        /// <param name="jobPost"></param>
         public ReadEditJobPost(JobPostServiceReference.JobPost jobPost)
         {
-            this.jobPost = jobPost;
-            categoryList = jobCLient.GetAllJobCategories();
+            this.JobPost = jobPost;
+            CategoryList = JobClient.GetAllJobCategories();
             InitializeComponent();
             SetAllBoxWithText();
             this.DataContext = this;
         }
 
         /// <summary>
-        /// Sets all the needed information on the user controll by the JobPost object from the main
+        /// Sets all the needed information on the user controll by
+        /// the JobPost objects corosponding variables.
         /// </summary>
         public void SetAllBoxWithText()
         {
             //Sets all the content boxes with their desired information
-            CompanyNameBox.Text = jobPost.CompanyName;
-            JobPostTitleTextBox.Text = jobPost.Title;
-            JobPostJobTitleTextBox.Text = jobPost.JobTitle;
-            JobPostAdressTextbox.Text = jobPost.Address;
-            JobPostDescriptionTextBox.Text = jobPost.Description;
-            StartDateBox.SelectedDate = jobPost.StartDate;
-            EndDateBox.SelectedDate = jobPost.EndDate;
+            CompanyNameBox.Text = JobPost.CompanyName;
+            JobPostTitleTextBox.Text = JobPost.Title;
+            JobPostJobTitleTextBox.Text = JobPost.JobTitle;
+            JobPostAdressTextbox.Text = JobPost.Address;
+            JobPostDescriptionTextBox.Text = JobPost.Description;
+            StartDateBox.SelectedDate = JobPost.StartDate;
+            EndDateBox.SelectedDate = JobPost.EndDate;
 
             //Checks to see if the company has a image or else it sets the defoult image (JOBME IMAGE)
             Uri imageUri = null;
-            if (jobPost.company.ImageURL != null)
+            if (JobPost.company.ImageURL != null)
             {
-                imageUri = new Uri(jobPost.company.ImageURL, UriKind.Absolute);
+                imageUri = new Uri(JobPost.company.ImageURL, UriKind.Absolute);
             }
             else
             {
@@ -63,35 +73,52 @@ namespace DekstopApplication.Views
 
             //Generates a combobox with all the current job categories in the database. 
             //Also sets the selected category corosponding to the jobPost object
-            foreach (var category in categoryList)
+            foreach (var category in CategoryList)
             {
                 CategoryListBox.Items.Add(category.Title);
 
-                if (category.Title == jobPost.jobCategory.Title)
+                if (category.Title == JobPost.jobCategory.Title)
                 {
-                    CategoryListBox.SelectedIndex = CategoryListBox.Items.IndexOf(jobPost.jobCategory.Title);
+                    CategoryListBox.SelectedIndex = CategoryListBox.Items.IndexOf(JobPost.jobCategory.Title);
                 }
 
             }
 
         }
+
         /// <summary>
-        /// Method for Updating JobPost fields for a specific JobPost
+        /// Updates the JobPost objects variables corosponding with the inputfields values.
+        /// Shows a messagebox to ensure user invoked this update in pourpis. 
+        /// Shows a success message and closes the User Control.
         /// </summary>
-        public void UpdateJobPostBoxes()
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UpdateJobPostButton_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Er du sikker på du vil opdatere dette Job Opslag?", "Confirmation", MessageBoxButton.YesNo);
             if (result == MessageBoxResult.Yes)
             {
-                jobPost.CompanyName = CompanyNameBox.Text;
-                jobPost.Title = JobPostTitleTextBox.Text;
-                jobPost.JobTitle = JobPostJobTitleTextBox.Text;
-                jobPost.Address = JobPostAdressTextbox.Text;
-                jobPost.Description = JobPostDescriptionTextBox.Text;
-                jobPost.StartDate = StartDateBox.SelectedDate.Value.Date;
-                jobPost.EndDate = EndDateBox.SelectedDate.Value.Date;
-                jobCLient.UpdateJobPost(jobPost);
+                JobPost.CompanyName = CompanyNameBox.Text;
+                JobPost.Title = JobPostTitleTextBox.Text;
+                JobPost.JobTitle = JobPostJobTitleTextBox.Text;
+                JobPost.Address = JobPostAdressTextbox.Text;
+                JobPost.Description = JobPostDescriptionTextBox.Text;
+                JobPost.StartDate = StartDateBox.SelectedDate.Value.Date;
+                JobPost.EndDate = EndDateBox.SelectedDate.Value.Date;
+                JobClient.UpdateJobPost(JobPost);
+
+                string selected = CategoryListBox.SelectedValue.ToString();
+
+                foreach (var Category in CategoryList)
+                {
+                    if (selected == Category.Title)
+                    {
+                        JobPost.jobCategory = Category;
+                    }
+                }
+
                 MessageBox.Show("Job Post Opdateret!");
+                ((Panel)this.Parent).Children.Remove(this);
             }
             else if (result == MessageBoxResult.No)
             {
@@ -100,17 +127,7 @@ namespace DekstopApplication.Views
         }
 
         /// <summary>
-        /// On Update button click, it invokes the Update JobPostBoxes method.
-        /// Which wil update the fields.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UpdateJobPostButton_Click(object sender, RoutedEventArgs e)
-        {
-            UpdateJobPostBoxes();
-        }
-        /// <summary>
-        /// Back Button
+        /// Closes the current User Control.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

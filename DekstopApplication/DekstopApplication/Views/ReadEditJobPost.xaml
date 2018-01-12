@@ -14,7 +14,7 @@
         <TextBox Name="JobPostJobTitleTextBox" HorizontalAlignment="Left" Height="34" Margin="221,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="442" FontSize="16"/>
         <Label Name="JobPostStartDateLabel" Content="StartDato:" HorizontalAlignment="Left" Margin="48,337,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
         <Label Name="JobPostEndDateLabel" Content="SlutDato:" HorizontalAlignment="Left" Margin="766,335,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
-        <TextBox Name="JobPostDescriptionTextBox" HorizontalAlignment="Left" Height="428" Margin="221,392,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1077" FontSize="16"/>
+		<TextBox Name="JobPostDescriptionTextBox" HorizontalAlignment="Left" Height="428" Margin="221,392,0,0" Text="" VerticalAlignment="Top" Width="1077" FontSize="16" TextWrapping="Wrap" AcceptsReturn="True"/>
         <Label Name="JobPostCategoryLabel" Content="Kategori:" HorizontalAlignment="Left" Margin="55,194,0,0" VerticalAlignment="Top" Height="44" Width="109" FontSize="22" FontWeight="Bold"/>
         <Label Name="JobPostAdressLabel" Content="Adresse:" HorizontalAlignment="Left" Margin="55,262,0,0" VerticalAlignment="Top" Height="44" Width="109" FontSize="22" FontWeight="Bold"/>
         <TextBox Name="JobPostAdressTextbox" HorizontalAlignment="Left" Height="34" Margin="221,272,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="442" FontSize="16"/>

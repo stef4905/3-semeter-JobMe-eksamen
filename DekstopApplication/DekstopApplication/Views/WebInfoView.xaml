@@ -8,9 +8,9 @@
              d:DesignHeight="953" d:DesignWidth="1410" Width="1410" Height="953">
 	<Grid>
 		<Rectangle Fill="#FF142638" HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="1410"/>
-		<Button Content="Job katagorier" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="JobCategoryButton" />
+		<Button Content="Job kategorier" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="JobCategoryButton" />
 		<StackPanel Name="WebInfoPanel" HorizontalAlignment="Left" Height="886" Margin="10,67,0,0" VerticalAlignment="Top" Width="1400"/>
-		<Button Content="Side tekster" HorizontalAlignment="Left" Margin="270,10,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="WebInfoTextButton" />
+		<Button Content="Virksomhedstyper" HorizontalAlignment="Left" Margin="270,10,0,0" VerticalAlignment="Top" Width="287" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="WebInfoTextButton" />
 
 	</Grid>
 </UserControl>

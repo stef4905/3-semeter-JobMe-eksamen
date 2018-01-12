@@ -118,11 +118,11 @@
     <Compile Include="Views\WebInfoView.xaml.cs">
       <DependentUpon>WebInfoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WebInfo\BusinessType\WebInfoBusinessType.xaml.cs">
+      <DependentUpon>WebInfoBusinessType.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WebInfo\JobInfoJobCategory\WebInfoJobCategory.xaml.cs">
       <DependentUpon>WebInfoJobCategory.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\WebInfo\SiteTexts\WebInfoSiteTexts.xaml.cs">
-      <DependentUpon>WebInfoSiteTexts.xaml</DependentUpon>
     </Compile>
     <Page Include="CMS.xaml">
       <SubType>Designer</SubType>
@@ -199,11 +199,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WebInfo\JobInfoJobCategory\WebInfoJobCategory.xaml">
+    <Page Include="Views\WebInfo\BusinessType\WebInfoBusinessType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WebInfo\SiteTexts\WebInfoSiteTexts.xaml">
+    <Page Include="Views\WebInfo\JobInfoJobCategory\WebInfoJobCategory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,6 +253,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\CompanyServiceReference\CompanyService.wsdl" />
+    <None Include="Connected Services\CompanyServiceReference\DekstopApplication.CompanyServiceReference.BusinessType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\CompanyServiceReference\DekstopApplication.CompanyServiceReference.Company.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

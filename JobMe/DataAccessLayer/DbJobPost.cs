@@ -268,6 +268,26 @@ namespace DataAccessLayer
             }
 
         }
+
+
+        /// <summary>
+        /// Return the number of rows in the jobPost table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetJobPostTableSize()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                   
+                    cmd.CommandText = "SELECT COUNT(*) FROM JobPost";
+                    int count = (int)cmd.ExecuteScalar();
+                    return count;
+                }
+            }
+        }
     }
 }
 

@@ -1,47 +1,58 @@
 ﻿@model JobMe_Homepage.Models.VMApplierANDJobCategory
-
 @{
     ViewBag.Title = "UpdateUserProfile";
     Layout = "~/Views/Shared/_LayoutApplier.cshtml";
-
 }
-
-<div class="container ApplierProfile-Content">
+<div class="container body-content ApplierProfile-Content">
     <div class="row">
         <div class="panel panel-default">
             <div class=""> <img id="Banner" class="img-responsive" src="@Model.Applier.BannerURL" /></div>
             <div class="panel-body">
-                <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4">
-                    <img alt="User Pic" src="@Model.Applier.ImageURL" id="profile-image" class="img-circle img-responsive">
-                </div>
+                @if (Model.Applier.ImageURL != null)
+                {
+                    <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4">
+                        <img alt="User Pic" src="@Model.Applier.ImageURL" id="profile-image" class="img-circle img-responsive">
+                    </div>
+                }
+                else
+                { <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4">
+                    <img alt="User Pic" src="https://imgur.com/fAu4Ngg.png" id="profile-image"  class="img-responsive img-circle"> 
+                </div> 
+                }
                 <div class="col-md-8 col-xs-12 col-sm-12 col-lg-8">
                     <div class="row">
                         <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                            @if (TempData["Success"] != null)
+                            {
+                                <p class="text-success" id="successMessage">@TempData["Success"]</p>
+                            }
+                            @if (TempData["Fail"] != null)
+                            {
+                                <p class="text-danger" id="successMessage">@TempData["Fail"]</p>
+                            }
                             <h3>Ændre adgangskode</h3>
-                            <label class="ApplierUpdateText">Nuværende adgangskode</label>
-                            <div class="input-group" id="ApplierInputContainer">
-                                <input type="text" class="form-control" id="usr" value="" name="currentPassword" required>
-                            </div>
-                            <label class="ApplierUpdateText">Ny adgangskode</label>
-                            <div class="input-group" id="ApplierInputContainer">
-                                <input type="text" class="form-control" id="usr" value="" name="newPassword" required>
-                            </div>
-                            <label class="ApplierUpdateText">Gentag ny adgangskode</label>
-                            <div class="input-group" id="ApplierInputContainer">
-                                <input type="text" class="form-control" id="usr" value="" name="RepeatNewPassword" required>
-                            </div>
-
-                            <button type="button" class="btn btn-primary" id="SavePasswordButton">Gem ny adgangskode</button>
+                            <form action="/Applier/UpdatePassword" method="post">
+                                <label class="ApplierUpdateText">Nuværende adgangskode</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="password" class="form-control" id="usr" value="" name="currentPassword" required>
+                                </div>
+                                <label class="ApplierUpdateText">Ny adgangskode</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="password" class="form-control" id="usr" value="" name="newPassword" required>
+                                </div>
+                                <label class="ApplierUpdateText">Gentag ny adgangskode</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="password" class="form-control" id="usr" value="" name="RepeatNewPassword" required>
+                                </div>
+                                <button type="submit" class="btn btn-blue" id="SavePasswordButton">Gem ny adgangskode</button>
+                            </form>
                         </div>
                     </div>
-
                     <div id="UserUpdateSeperator"></div>
-
                     <div class="row">
                         <div class="col-sm-12"><h3>Ændre profil information</h3></div>
                         <form action="/Applier/_UpdateUserProfile" method="post">
                             <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6">
-
                                 <label class="ApplierUpdateText">Name:</label>
                                 <div class="input-group" id="ApplierInputContainer">
                                     <input type="text" class="form-control" id="usr" value="@Model.Applier.FName" name="fNameInput" required>
@@ -102,34 +113,36 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
-
                                 <label for="description">Email:</label>
                                 <div class="input-group" id="ApplierInputContainer">
-                                    <input type="text" class="form-control" name="emailInput" value="@Model.Applier.Email" required />
+                                    <input type="email" class="form-control" name="emailInput" value="@Model.Applier.Email" required />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="description">Profil billede URL:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="imageInput" value="@Model.Applier.ImageURL" required />
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="description">Banner billede URL:</label>
+                                <div class="input-group" id="ApplierInputContainer">
+                                    <input type="text" class="form-control" name="bannerInput" value="@Model.Applier.BannerURL" required />
                                 </div>
                             </div>
                             <div class="col-md-6 col-xs-12 col-sm-12 col-lg-6">
                                 <label class="ApplierUpdateText">Jeg søger job som er:</label>
                                 <div class="input-group" id="ApplierInputContainer">
                                     <div class="checkbox">
-
-
-
                                         @foreach (var category in Model.JobCategoryList)
                                         {
-
-
                                             if (category.IsChecked)
                                             {
                                                 <label><input type="checkbox" value="@category.Id" name="Categories" checked>@category.Name</label>
                                             }
-
-
                                             else
                                             {
-
                                                 <label><input type="checkbox" value="@category.Id" name="Categories">@category.Name</label>
-
                                             }
 
                                         }
@@ -142,13 +155,7 @@
                                     <textarea class="form-control" rows="10" id="textAreaControl" name="descriptionInput" required>@Model.Applier.Description</textarea>
                                 </div>
                             </div>
-
-                            <input type="hidden" name="imageInput" value="@Model.Applier.ImageURL" />
-                            <input type="hidden" name="bannerInput" value="@Model.Applier.BannerURL" />
-
-                            <input type="hidden" name="applierId" value="@Model.Applier.Id" />
-                            <input type="hidden" name="jobCvId" value="@Model.Applier.JobCV.Id" />
-                            <button type="submit" class="btn btn-primary" id="SaveProfileButton">Gem ændringer</button>
+                            <button type="submit" class="btn btn-blue" id="SaveProfileButton">Gem ændringer</button>
                         </form>
                     </div>
                 </div>
@@ -156,16 +163,3 @@
         </div>
     </div>
 </div>
-
-
-@section scripts {
-
-
-
-
-    @*<script>
-
-            var dateControl = document.querySelector('input[type="date"]');
-            dateControl.value = @Model.Applier.Birthdate.ToString("yyyy/MM/dd");
-        </script>*@
-}

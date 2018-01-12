@@ -1,0 +1,37 @@
+﻿@model JobMe_Homepage.ApplierServiceReference.JobCV
+
+<!-- #region Deployement-->
+   <div class="row" id="profileInfoRight">
+        <div class="col-sm-12">
+            <p id="CVHeadlinge">Erhvervserfaring</p>
+        </div>
+       @foreach (var item in Model.JobExperienceList)
+        {
+            <div class="companyName">@item.Title</div>
+            <div class="DateAndPosition">@item.StartDate.ToShortDateString() -  @item.EndDate.ToShortDateString() <!--<div id="boldText">Marketing Specialist</div>--></div>
+            <div class="jobDescription">@item.Description</div>
+
+        }
+
+        <!--#endregion-->
+        <!-- #region Education-->
+        <div class="col-sm-12">
+            <p id="CVHeadlinge">Uddannelse</p>
+        </div>
+        @foreach (var education in Model.ApplierEducationList)
+        {
+            <div class="row" id="educationMargin">
+                <div class="col-sm-6">
+                    <div class="educationPlaceAndTitle">@education.Institution</div>
+                    <div class="educationPlaceAndTitle">@education.EducationName</div>
+
+                </div>
+                <div class="col-sm-6">
+                    <div class="educationTimeDate">@education.StartDate.ToShortDateString() - @education.EndDate.ToShortDateString()</div>
+                </div>
+            </div>}
+
+        <!--#endregion-->
+       </div>
+  
+

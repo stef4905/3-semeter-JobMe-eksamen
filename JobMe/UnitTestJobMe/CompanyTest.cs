@@ -35,7 +35,7 @@ namespace UnitTestJobMe
             bool check = companyCtr.Create(company);
 
             //Assert
-            Assert.IsNotNull(check);
+            Assert.IsTrue(check);
         }
 
         [TestMethod]
@@ -79,11 +79,11 @@ namespace UnitTestJobMe
             CompanyCtr companyCtr = new CompanyCtr();
 
             //Act
-            companyCtr.Delete(1017);
-            Company company = companyCtr.Get(1017);
+            companyCtr.Delete(1023);
+            Company company = companyCtr.Get(1023);
 
             //Assert
-            Assert.IsNull(company.Email);
+            Assert.AreEqual(null, company.CompanyName);
         }
 
         [TestMethod]
@@ -94,11 +94,104 @@ namespace UnitTestJobMe
             Company company = new Company();
 
             //Act
-            company = companyCtr.Get(1017);
+            company = companyCtr.Get(1016);
 
             //Assert
-            Assert.AreEqual(company.Id, 1017);
+            Assert.AreEqual(company.Id, 1016);
         }
+
+        [TestMethod]
+        public void BusinessTypeCreate()
+        {
+            //Arrange
+            BusinessType businessType = new BusinessType();
+            businessType.Type = "UnitTest";
+            BusinessTypeCtr businessTypeCtr = new BusinessTypeCtr();
+
+            //Act
+            bool inserted = businessTypeCtr.Create(businessType);
+
+            //Assert
+            Assert.IsTrue(inserted);
+        }
+
+        [TestMethod]
+        public void BusinessTypeGet()
+        {
+            //Arrange
+            int id = 8;
+            BusinessType businessType = null;
+            BusinessTypeCtr businessTypeCtr = new BusinessTypeCtr();
+
+            //Act
+            businessType = businessTypeCtr.Get(id);
+
+            //Assert
+            Assert.IsNotNull(businessType);
+        }
+
+        [TestMethod]
+        public void BusinessTypeGetAll()
+        {
+            //Arrange
+            List<BusinessType> businessTypeList = null;
+            BusinessTypeCtr businessTypeCtr = new BusinessTypeCtr();
+
+            //Act
+            businessTypeList = businessTypeCtr.GetAll();
+
+            //Assert
+            Assert.IsNotNull(businessTypeList);
+            Assert.IsTrue(businessTypeList.Count > 0);
+        }
+
+        [TestMethod]
+        public void BusintessTypeUpdate()
+        {
+            //Arrange
+            BusinessType businessType = new BusinessType(8, "UnitestUpdate");
+            BusinessTypeCtr businessTypeCtr = new BusinessTypeCtr();
+
+            //Act
+            bool updated = businessTypeCtr.Update(businessType);
+
+            //Assert
+            Assert.IsTrue(updated);
+        }
+
+        [TestMethod]
+        public void BusinessTypeDelete()
+        {
+            //Arrange
+            int id = 11;
+            BusinessTypeCtr businessTypeCtr = new BusinessTypeCtr();
+
+            //Act
+            businessTypeCtr.Delete(id);
+            BusinessType businessType = businessTypeCtr.Get(id);
+
+            //Assert
+            Assert.AreEqual(null, businessType.Type);
+        }
+
+        /// <summary>
+        /// Test method to see if GetCompanyTableSize in company controller works.
+        /// Should return more than 0 if there is any companies in the database.
+        /// </summary>
+        [TestMethod]
+        public void CompanyTableSize()
+        {
+            //Arrange
+            int count = 0;
+            CompanyCtr companyCtr = new CompanyCtr();
+
+            //Act
+            count = companyCtr.GetCompanyTableSize();
+
+            //Assert
+            Assert.IsTrue(count >= 0);
+        }
+       
 
     }
 }

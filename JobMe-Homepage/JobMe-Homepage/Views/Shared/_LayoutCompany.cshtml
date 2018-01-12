@@ -12,7 +12,7 @@
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container" id="HeaderSize">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -23,25 +23,24 @@
             </div>
             <div class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Jobs", "Index", "Home")</li> <!-- Make link to Jobspage -->
-                    <!-- | indsætte her -->
-                    <li>@Html.ActionLink("Virksomhed", "About", "Home")</li> <!-- Make link til companies -->
+                    <li>@Html.ActionLink("Dashboard", "Index", "Company")</li> 
                     <li class="dropdown">
                         @Html.Partial("_CurrentCompany", Session["company"])
                     </li>
-
-
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container body-content">
+    
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <footer class="container-fluid">
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year - JobMe</p>
+        </div>
+
+    </footer>
+  
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

@@ -1282,9 +1282,6 @@ namespace DekstopApplication.JobPostServiceReference {
         private System.Collections.Generic.List<DekstopApplication.JobPostServiceReference.ApplierEducation> ApplierEducationListField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ApplierIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1318,19 +1315,6 @@ namespace DekstopApplication.JobPostServiceReference {
                 if ((object.ReferenceEquals(this.ApplierEducationListField, value) != true)) {
                     this.ApplierEducationListField = value;
                     this.RaisePropertyChanged("ApplierEducationList");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ApplierId {
-            get {
-                return this.ApplierIdField;
-            }
-            set {
-                if ((this.ApplierIdField.Equals(value) != true)) {
-                    this.ApplierIdField = value;
-                    this.RaisePropertyChanged("ApplierId");
                 }
             }
         }
@@ -1919,6 +1903,12 @@ namespace DekstopApplication.JobPostServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostByMeetingId", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostByMeetingIdResponse")]
         System.Threading.Tasks.Task<DekstopApplication.JobPostServiceReference.JobPost> GetJobPostByMeetingIdAsync(int meetingId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostTableSize", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostTableSizeResponse")]
+        int GetJobPostTableSize();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostTableSize", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostTableSizeResponse")]
+        System.Threading.Tasks.Task<int> GetJobPostTableSizeAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -2082,6 +2072,14 @@ namespace DekstopApplication.JobPostServiceReference {
         
         public System.Threading.Tasks.Task<DekstopApplication.JobPostServiceReference.JobPost> GetJobPostByMeetingIdAsync(int meetingId) {
             return base.Channel.GetJobPostByMeetingIdAsync(meetingId);
+        }
+        
+        public int GetJobPostTableSize() {
+            return base.Channel.GetJobPostTableSize();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetJobPostTableSizeAsync() {
+            return base.Channel.GetJobPostTableSizeAsync();
         }
     }
 }

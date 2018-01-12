@@ -94,10 +94,10 @@ namespace UnitTest.DataAccessLayer
             Applier applier = new Applier();
 
             //Act
-            applier = ctrApplier.Get(2);
+            applier = ctrApplier.Get(4);
 
             //Assert
-            Assert.AreEqual(applier.Id, 2);
+            Assert.AreEqual(applier.Id, 4);
         }
 
         /// <summary>

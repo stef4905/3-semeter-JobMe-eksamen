@@ -21,15 +21,16 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class Admin : UserControl
     {
-
         //Instance variables
         AdminServiceClient AdminClient = new AdminServiceClient();
         AdminCreate AdminCreateView = new AdminCreate();
-        public List<AdminServiceReference.Admin> adminList = new List<AdminServiceReference.Admin>();
-
+        private List<AdminServiceReference.Admin> AdminList = new List<AdminServiceReference.Admin>();
+        private AdminServiceReference.Admin AdminI = new AdminServiceReference.Admin();
+        private AdminServiceReference.Admin AdminSelected = null; // Used to store the current selected Admin
+        private int IndexSelected;
 
         /// <summary>
-        /// Construct the User Control view for admin
+        /// Constructor for the User Control view for admin
         /// </summary>
         public Admin()
         {
@@ -43,12 +44,12 @@ namespace DekstopApplication.Views
         /// </summary>
         public void UpdateTable()
         {
-            adminList = AdminClient.GetAllAdmin();
-            AdminTable.ItemsSource = adminList;
+            AdminList = AdminClient.GetAllAdmin();
+            AdminTable.ItemsSource = AdminList;
         }
 
         /// <summary>
-        /// Clear textfields method is called on the AdminCreateView and add it to the Child
+        /// Clear textfields method is called on the AdminCreateView and adds it to the Child
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -67,7 +68,6 @@ namespace DekstopApplication.Views
         private void UpdateAdminButton_Click(object sender, RoutedEventArgs e)
         {
             AdminServiceReference.Admin admin = (AdminServiceReference.Admin)AdminTable.SelectedItem;
-
             if(admin == null)
             {
                 FailCheckLabel.Content = "Vælg en admin at updatere";
@@ -81,27 +81,55 @@ namespace DekstopApplication.Views
         }
 
         /// <summary>
-        /// Deletes the current selected Admin
+        /// Calls Delete() Method through AdminClient on the SelectedIndex, and it will store the SelectedIndex as index variable
+        /// A confirmation will show which requires Yes/No response, before the AdminClient will execute the Delete() method
+        /// If an admin has been removed, it will show by confirmation.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void DeleteAdminButton_Click(object sender, RoutedEventArgs e)
         {
-
-            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette", "Confirmation", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
+            if (AdminTable.SelectedIndex >= 0)
             {
-                int index = AdminTable.SelectedIndex;
-                AdminClient.Delete(adminList[index].Id);
-                adminList.Remove(adminList[index]);
-                AdminTable.ClearValue(ListView.ItemsSourceProperty);
-                AdminTable.ItemsSource = adminList;
+                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette" + AdminI.Email, "Confirmation", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    int index = AdminTable.SelectedIndex;
+                    AdminClient.Delete(AdminList[index].Id);
+                    AdminList.Remove(AdminList[index]);
+                    MessageBox.Show("Admin " + AdminI.Email + " er blevet slettet!");
+                    AdminTable.ClearValue(ListView.ItemsSourceProperty);
+                    AdminTable.ItemsSource = AdminList;
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    // No code here
+                }
             }
-            else if (result == MessageBoxResult.No)
+            else
             {
-                // No code here
+                MessageBox.Show("Du har ikke valgt en admin");
             }
+        }
 
+        /// <summary>
+        /// live opdates the current selected Admin that are used through the class.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AdminTable_Selected(object sender, SelectionChangedEventArgs e)
+        {
+            int index;
+            //Get the current selected Admin object from the list 
+            if (AdminTable.SelectedIndex >= 0)
+            {
+                index = AdminTable.SelectedIndex;
+            }
+            else
+            {
+                index = IndexSelected;
+            }
+            AdminSelected = AdminList[index];
         }
     }
 }

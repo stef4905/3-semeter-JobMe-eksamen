@@ -167,6 +167,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\JobCVServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\JobPostServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,6 +179,7 @@
     </Compile>
     <Compile Include="Controllers\ApplierController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -182,7 +188,9 @@
     <Compile Include="Models\VMApplierANDJobCategory.cs" />
     <Compile Include="Models\VMBookingSession.cs" />
     <Compile Include="Models\VMCompanyANDJobPost.cs" />
+    <Compile Include="Models\VMJobPostAndApplierLists.cs" />
     <Compile Include="Models\VMJobPostANDJobApplication.cs" />
+    <Compile Include="Models\VMJobPostANDJobPostList.cs" />
     <Compile Include="Models\VMJobPostJobApplication.cs" />
     <Compile Include="Models\VMJobPostLists.cs" />
     <Compile Include="Models\VMJobPostWorkHoursJobCategory.cs" />
@@ -274,8 +282,31 @@
     <None Include="Connected Services\JobApplicationServiceReference\service21.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\JobCVServiceReference\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JobCVServiceReference\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JobCVServiceReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\JobCVServiceReference\JobCVService.wsdl" />
+    <Content Include="Connected Services\JobCVServiceReference\JobMe_Homepage.JobCVServiceReference.Applier.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\JobCVServiceReference\JobMe_Homepage.JobCVServiceReference.JobCV.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\JobPostServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\JobPostServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\JobCVServiceReference\item.disco" />
+    <None Include="Connected Services\JobCVServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\JobCVServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\JobCVServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\JobPostServiceReference\JobMe_Homepage.JobPostServiceReference.JobCategory.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -298,6 +329,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\image\JobMeHorizontal.png" />
     <Content Include="Content\image\JobMeIcon.png" />
+    <Content Include="Content\image\notfoundImage.jpg" />
     <Content Include="Content\simplePagination.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -368,8 +400,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutApplier.cshtml" />
     <Content Include="Views\Applier\Index.cshtml" />
@@ -405,9 +435,12 @@
     <Content Include="Views\Applier\UpdateUserProfile.cshtml" />
     <Content Include="Views\Company\Meeting.cshtml" />
     <Content Include="Views\Applier\Booking.cshtml" />
+    <Content Include="Views\Applier\_ReadJobCV.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -420,6 +453,7 @@
     <WCFMetadataStorage Include="Connected Services\BookingService\" />
     <WCFMetadataStorage Include="Connected Services\CompanyServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\JobApplicationServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\JobCVServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\JobPostServiceReference\" />
   </ItemGroup>
   <ItemGroup>

@@ -13,8 +13,8 @@
     <link href="~/Content/simplePagination.css" rel="stylesheet" />
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top"> 
+        <div class="container" id="HeaderSize">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -25,25 +25,26 @@
             </div>
             <div class="navbar-collapse collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Jobs", "FindJobPosts", "Applier")</li> <!-- Make link to Jobspage -->
-                    <!-- | indsætte her -->
-                    <li>@Html.ActionLink("Virksomhed", "FindJobPosts", "Applier")</li> <!-- Make link til companies -->
+                    <li>@Html.ActionLink("Dashboard", "Index", "Applier")</li> 
+                    <li>@Html.ActionLink("Find jobs", "FindJobPosts", "Applier")</li> 
                     <li class="dropdown">
                         @Html.Partial("_CurrentUser", Session["applier"])
                     </li>
-
-
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container body-content">
+  
         @RenderBody()
+
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <footer class="container-fluid">
+        <div class="container">
+            <p>&copy; @DateTime.Now.Year - JobMe</p>
+        </div>
+
+    </footer>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
