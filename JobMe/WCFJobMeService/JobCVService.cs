@@ -13,7 +13,8 @@ namespace WCFJobMeService
     public class JobCVService : IJobCVService
     {
         JobCVCtr jobCVCtr = new JobCVCtr();
-
+        JobExperienceCtr jobExperienceCtr = new JobExperienceCtr();
+        ApplierEducationCtr applierEducationCtr = new ApplierEducationCtr();
         /// <summary>
         /// Creates a new JobCV in the database returns the Primary key on the Applier.
         /// </summary>
@@ -70,5 +71,42 @@ namespace WCFJobMeService
         {
             jobCVCtr.Update(obj); ;
         }
+
+        #region JobExperience
+        public void CreateJobexpericene(JobExperience jobExperience)
+        {
+            jobExperienceCtr.Create(jobExperience);
+        }
+
+        public void UpdateJobexpericene(JobExperience jobExperience)
+        {
+            jobExperienceCtr.Update(jobExperience);
+        }
+
+        public void DeleteJobexpericene(int id)
+        {
+            jobExperienceCtr.Delete(id);
+        }
+
+
+        #endregion
+        #region ApplierEducation
+        public void CreateApplierEducation(ApplierEducation applierEducation)
+        {
+            applierEducationCtr.Create(applierEducation);
+        }
+
+        public void UpdateApplierEducation(ApplierEducation applierEducation)
+        {
+            applierEducationCtr.Update(applierEducation);
+        }
+
+        public void DeleteApplierEducation(int id)
+        {
+            applierEducationCtr.Delete(id);
+        }
+
+        #endregion
+
     }
 }

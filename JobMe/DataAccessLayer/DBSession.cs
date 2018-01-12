@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ModelLayer;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Transactions;
 
 namespace DataAccessLayer
 {
@@ -60,7 +61,7 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "DELETE * FROM Session WHERE Id = @Id";
+                    cmd.CommandText = "DELETE FROM Session WHERE Id = @Id";
                     cmd.Parameters.AddWithValue("Id", session.Id);
 
                     try
@@ -77,7 +78,7 @@ namespace DataAccessLayer
         }
 
 
-        
+
 
         /// <summary>
         /// Returns a session from database
@@ -103,12 +104,21 @@ namespace DataAccessLayer
                             session.Id = (int)reader["Id"];
                             session.StartTime = (DateTime)reader["StartTime"];
                             session.EndTime = (DateTime)reader["EndTime"];
-                            session.ApplierId = (int)reader["ApplierId"];
+
+
+                            if (reader["ApplierId"] == DBNull.Value)
+                            {
+                                session.ApplierId = 0;
+                            }
+                            else
+                            {
+                                session.ApplierId = (int)reader["ApplierId"];
+                            }
                             session.BookingId = (int)reader["BookingId"];
                         }
                         return session;
                     }
-                    catch(SqlException e)
+                    catch (SqlException e)
                     {
                         throw e;
                     }
@@ -156,13 +166,44 @@ namespace DataAccessLayer
                         }
                         return sessionList;
                     }
-                    catch(SqlException e)
+                    catch (SqlException e)
                     {
                         throw e;
                     }
                 }
             }
         }
+
+
+        /// <summary>
+        /// Removes the current Applier on the given session object
+        /// </summary>
+        /// <param name="session"></param>
+        /// <returns>bool</returns>
+        public bool RemoveApplierFromSession(Session session)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    try
+                    {
+                        cmd.CommandText = "UPDATE Session SET ApplierId = @ApplierId WHERE Id = @Id";
+                        cmd.Parameters.AddWithValue("ApplierId", DBNull.Value);
+                        cmd.Parameters.AddWithValue("Id", session.Id);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
+        }
+
+
 
         /// <summary>
         /// Updates a session in the database
@@ -171,28 +212,47 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Update(Session session)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            TransactionOptions options = new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }; //Sets the isolationlevel needed for the situation.
+            using (var scope = new System.Transactions.TransactionScope(TransactionScopeOption.Required, options))
             {
-                connection.Open();
-                using (SqlCommand cmd = connection.CreateCommand())
-                {
-                    cmd.CommandText = "UPDATE Session SET StartTime = @StartTime, EndTime = @EndTime, ApplierId = @ApplierId, BookingId = @BookingId WHERE Id = @Id";
-                    try
-                    {
-                        cmd.Parameters.AddWithValue("StartTime", session.StartTime);
-                        cmd.Parameters.AddWithValue("EndTime", session.EndTime);
-                        cmd.Parameters.AddWithValue("ApplierId", session.ApplierId);
-                        cmd.Parameters.AddWithValue("BookingId", session.BookingId);
-                        cmd.Parameters.AddWithValue("Id", session.Id);
-                        cmd.ExecuteNonQuery();
-                        return true;
-                    }
-                    catch(SqlException e)
-                    {
-                        throw e;
-                    }
 
+                Session sessionToCheck = Get(session.Id);
+
+                if (sessionToCheck.ApplierId == 0)
+                {
+
+                    using (SqlConnection connection = new SqlConnection(ConnectionString))
+                    {
+                        connection.Open();
+                        using (SqlCommand cmd = connection.CreateCommand())
+                        {
+                            cmd.CommandText = "UPDATE Session SET StartTime = @StartTime, EndTime = @EndTime, ApplierId = @ApplierId, BookingId = @BookingId WHERE Id = @Id";
+                            try
+                            {
+                                cmd.Parameters.AddWithValue("StartTime", session.StartTime);
+                                cmd.Parameters.AddWithValue("EndTime", session.EndTime);
+                                if (session.ApplierId == 0)
+                                {
+                                    cmd.Parameters.AddWithValue("ApplierId", DBNull.Value);
+                                }
+                                else
+                                {
+                                    cmd.Parameters.AddWithValue("ApplierId", session.ApplierId);
+                                }
+                                cmd.Parameters.AddWithValue("BookingId", session.BookingId);
+                                cmd.Parameters.AddWithValue("Id", session.Id);
+                                cmd.ExecuteNonQuery();
+                                scope.Complete();
+                                return true;
+                            }
+                            catch (SqlException e)
+                            {
+                                throw e;
+                            }
+                        }
+                    }
                 }
+                return false;
             }
         }
     }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cb5caea3-08fe-4829-890e-77c591880026" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://localhost:8710/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="8036ba18-20a7-4697-8c3c-470832631d33" SourceId="1" SourceUrl="https://localhost:8710/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="0a69fb27-1995-427e-a6f9-21dd9395bfcf" SourceId="1" SourceUrl="https://localhost:8710/?xsd=xsd1" />
+    <MetadataFile FileName="CompanyService.wsdl" MetadataType="Wsdl" ID="f7d4bd52-c4be-44f7-9290-9c3618d610dc" SourceId="1" SourceUrl="https://localhost:8710/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="a93c4cba-88f1-47d2-a199-9f562adba20e" SourceId="1" SourceUrl="https://localhost:8710/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="855f4468-459f-4bb5-9c4f-83ffab79f71c" SourceId="1" SourceUrl="https://localhost:8710/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

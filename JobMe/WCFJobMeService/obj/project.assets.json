@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "targets": {
     ".NETFramework,Version=v4.6.1": {
       "Microsoft.Data.Tools.UnitTest/10.0.60809": {
@@ -52,6 +52,12 @@
           "DataAccessLayer": "1.0.0",
           "Microsoft.Data.Tools.UnitTest": "10.0.60809",
           "ModelLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogicLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogicLayer.dll": {}
         }
       },
       "DataAccessLayer/1.0.0": {
@@ -60,6 +66,12 @@
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809",
           "ModelLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataAccessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccessLayer.dll": {}
         }
       },
       "ModelLayer/1.0.0": {
@@ -67,6 +79,12 @@
         "framework": ".NETFramework,Version=v4.6.1",
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809"
+        },
+        "compile": {
+          "bin/placeholder/ModelLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ModelLayer.dll": {}
         }
       }
     },
@@ -121,6 +139,12 @@
           "DataAccessLayer": "1.0.0",
           "Microsoft.Data.Tools.UnitTest": "10.0.60809",
           "ModelLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogicLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogicLayer.dll": {}
         }
       },
       "DataAccessLayer/1.0.0": {
@@ -129,6 +153,12 @@
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809",
           "ModelLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataAccessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccessLayer.dll": {}
         }
       },
       "ModelLayer/1.0.0": {
@@ -136,6 +166,12 @@
         "framework": ".NETFramework,Version=v4.6.1",
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809"
+        },
+        "compile": {
+          "bin/placeholder/ModelLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ModelLayer.dll": {}
         }
       }
     },
@@ -190,6 +226,12 @@
           "DataAccessLayer": "1.0.0",
           "Microsoft.Data.Tools.UnitTest": "10.0.60809",
           "ModelLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogicLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogicLayer.dll": {}
         }
       },
       "DataAccessLayer/1.0.0": {
@@ -198,6 +240,12 @@
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809",
           "ModelLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataAccessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccessLayer.dll": {}
         }
       },
       "ModelLayer/1.0.0": {
@@ -205,6 +253,12 @@
         "framework": ".NETFramework,Version=v4.6.1",
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809"
+        },
+        "compile": {
+          "bin/placeholder/ModelLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ModelLayer.dll": {}
         }
       }
     },
@@ -259,6 +313,12 @@
           "DataAccessLayer": "1.0.0",
           "Microsoft.Data.Tools.UnitTest": "10.0.60809",
           "ModelLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogicLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogicLayer.dll": {}
         }
       },
       "DataAccessLayer/1.0.0": {
@@ -267,6 +327,12 @@
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809",
           "ModelLayer": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DataAccessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataAccessLayer.dll": {}
         }
       },
       "ModelLayer/1.0.0": {
@@ -274,6 +340,12 @@
         "framework": ".NETFramework,Version=v4.6.1",
         "dependencies": {
           "Microsoft.Data.Tools.UnitTest": "10.0.60809"
+        },
+        "compile": {
+          "bin/placeholder/ModelLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ModelLayer.dll": {}
         }
       }
     }
@@ -324,27 +396,37 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\wow99\\.nuget\\packages\\": {}
+    "C:\\Users\\sofie\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
+      "projectUniqueName": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
       "projectName": "WCFJobMeService",
-      "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
-      "outputPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\WCFJobMeService\\obj\\",
+      "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj",
+      "packagesPath": "C:\\Users\\sofie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\WCFJobMeService\\obj\\",
       "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "configFilePaths": [
+        "C:\\Users\\sofie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
       "originalTargetFrameworks": [
         "net461"
       ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+            "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+              "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
             },
-            "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semeter-JobMe-eksamen\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\sofie\\Source\\Repos\\3-semeter-JobMe-eksamen8\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }

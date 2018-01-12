@@ -5,7 +5,7 @@
 }
 @if (TempData["Success"] != null)
 {
-                  <!-- Modal -->
+    <!-- Modal -->
     <div class="modal fade in" id="succesModal" role="dialog">
         <div class="modal-dialog">
 
@@ -13,62 +13,50 @@
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div class="modal-body">
-
                     <p class="text-success" id="successMessage">@TempData["Success"]</p>
-
                 </div>
-
             </div>
-
         </div>
     </div>
-
-
 }
-
-<h2>@Model.Company.CompanyName</h2>
-
-<div class="row">
-    <div class="col-sm-6 bg-white">
-        <h2>Dine aktuelle jobannoncer:</h2>
-        <div class="row">
-            <div class="col-sm-6">
-                <b>Job title:</b>
-            </div>
-            <div class="col-sm-3">
-                <b> Link til jobpost:</b>
-            </div>
-            <div class="col-sm-3">
-                <b> Link til ansøgere:</b>
-            </div>
-        </div>
-
-        @foreach (var JobPost in Model.JobPost)
-        {
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <b>@JobPost.Title</b>
-                </div>
-                <div class="col-sm-3">
-                    <a href="company/JobPost/@JobPost.Id">Link til jobPost</a>
-                </div>
-                <div class="col-sm-3">
-                    <a href="company/AppliersForJob/@JobPost.Id">Ansøgerer</a>
+<!--#region infographics about all jobs and relevant jobs on the applier-->
+<div class="container-fluid body-content">
+        <div class="panel-body" id="CompanyIndexTopBackground">
+            <div>
+                <div id="textOfCount">
+                    <h2>@Model.Company.CompanyName</h2>
                 </div>
             </div>
-
-        }
     </div>
 </div>
-
+<!--#endregion-->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Dine aktuelle jobannoncer:</h2>
+            @foreach (var JobPost in Model.JobPost)
+            {
+                <div class="col-sm-12 bg-white jobPost content panel panel-default">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img class="img-responsive" src="@JobPost.company.ImageURL">
+                        </div>
+                        <div class="col-xs-7">
+                            <h4 class="company-Name"><strong>@JobPost.Title</strong></h4><h5><strong>@JobPost.company.CompanyName</strong></h5><h4><small>@JobPost.Description</small></h4>
+                        </div>
+                        <div class="col-xs-2 pull-right">
+                            <a id="buttonStyle" class="btn btn-blue" href="company/JobPost/@JobPost.Id">Se jobopslag</a>
+                            <a id="buttonStyle" class="btn btn-blue" href="company/AppliersForJob/@JobPost.Id">Se ansøgere</a>
+                            <a id="buttonStyle" class="btn btn-blue" href="company/Meeting/@JobPost.Meeting.Id">Arrangere møder</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
 @section scripts {
-
-
-
     <script>
-
-
         window.onload = function () {
             $('#succesModal').show();
 
@@ -77,6 +65,4 @@
             });
         }
     </script>
-
-
 }

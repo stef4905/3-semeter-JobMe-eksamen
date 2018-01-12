@@ -148,6 +148,9 @@ namespace JobMe_Homepage.JobPostServiceReference {
         private string AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CompanyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -158,6 +161,9 @@ namespace JobMe_Homepage.JobPostServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string JobTitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JobMe_Homepage.JobPostServiceReference.Meeting MeetingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDateField;
@@ -193,6 +199,19 @@ namespace JobMe_Homepage.JobPostServiceReference {
                 if ((object.ReferenceEquals(this.AddressField, value) != true)) {
                     this.AddressField = value;
                     this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CompanyName {
+            get {
+                return this.CompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyNameField, value) != true)) {
+                    this.CompanyNameField = value;
+                    this.RaisePropertyChanged("CompanyName");
                 }
             }
         }
@@ -245,6 +264,19 @@ namespace JobMe_Homepage.JobPostServiceReference {
                 if ((object.ReferenceEquals(this.JobTitleField, value) != true)) {
                     this.JobTitleField = value;
                     this.RaisePropertyChanged("JobTitle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public JobMe_Homepage.JobPostServiceReference.Meeting Meeting {
+            get {
+                return this.MeetingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeetingField, value) != true)) {
+                    this.MeetingField = value;
+                    this.RaisePropertyChanged("Meeting");
                 }
             }
         }
@@ -310,6 +342,83 @@ namespace JobMe_Homepage.JobPostServiceReference {
                 if ((object.ReferenceEquals(this.workHoursField, value) != true)) {
                     this.workHoursField = value;
                     this.RaisePropertyChanged("workHours");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Meeting", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class Meeting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CompanyIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.Booking> bookingField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CompanyId {
+            get {
+                return this.CompanyIdField;
+            }
+            set {
+                if ((this.CompanyIdField.Equals(value) != true)) {
+                    this.CompanyIdField = value;
+                    this.RaisePropertyChanged("CompanyId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.Booking> booking {
+            get {
+                return this.bookingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.bookingField, value) != true)) {
+                    this.bookingField = value;
+                    this.RaisePropertyChanged("booking");
                 }
             }
         }
@@ -579,6 +688,1057 @@ namespace JobMe_Homepage.JobPostServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Booking", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class Booking : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndDateAndTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int InterviewAmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MeetingIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartDateAndTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.Session> sessionListField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndDateAndTime {
+            get {
+                return this.EndDateAndTimeField;
+            }
+            set {
+                if ((this.EndDateAndTimeField.Equals(value) != true)) {
+                    this.EndDateAndTimeField = value;
+                    this.RaisePropertyChanged("EndDateAndTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int InterviewAmount {
+            get {
+                return this.InterviewAmountField;
+            }
+            set {
+                if ((this.InterviewAmountField.Equals(value) != true)) {
+                    this.InterviewAmountField = value;
+                    this.RaisePropertyChanged("InterviewAmount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MeetingId {
+            get {
+                return this.MeetingIdField;
+            }
+            set {
+                if ((this.MeetingIdField.Equals(value) != true)) {
+                    this.MeetingIdField = value;
+                    this.RaisePropertyChanged("MeetingId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartDateAndTime {
+            get {
+                return this.StartDateAndTimeField;
+            }
+            set {
+                if ((this.StartDateAndTimeField.Equals(value) != true)) {
+                    this.StartDateAndTimeField = value;
+                    this.RaisePropertyChanged("StartDateAndTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.Session> sessionList {
+            get {
+                return this.sessionListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sessionListField, value) != true)) {
+                    this.sessionListField = value;
+                    this.RaisePropertyChanged("sessionList");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Session", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class Session : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JobMe_Homepage.JobPostServiceReference.Applier ApplierField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ApplierIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BookingIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartTimeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public JobMe_Homepage.JobPostServiceReference.Applier Applier {
+            get {
+                return this.ApplierField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApplierField, value) != true)) {
+                    this.ApplierField = value;
+                    this.RaisePropertyChanged("Applier");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ApplierId {
+            get {
+                return this.ApplierIdField;
+            }
+            set {
+                if ((this.ApplierIdField.Equals(value) != true)) {
+                    this.ApplierIdField = value;
+                    this.RaisePropertyChanged("ApplierId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BookingId {
+            get {
+                return this.BookingIdField;
+            }
+            set {
+                if ((this.BookingIdField.Equals(value) != true)) {
+                    this.BookingIdField = value;
+                    this.RaisePropertyChanged("BookingId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndTime {
+            get {
+                return this.EndTimeField;
+            }
+            set {
+                if ((this.EndTimeField.Equals(value) != true)) {
+                    this.EndTimeField = value;
+                    this.RaisePropertyChanged("EndTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartTime {
+            get {
+                return this.StartTimeField;
+            }
+            set {
+                if ((this.StartTimeField.Equals(value) != true)) {
+                    this.StartTimeField = value;
+                    this.RaisePropertyChanged("StartTime");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Applier", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class Applier : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string AddressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AgeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BannerURLField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime BirthdateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CountryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CurrentJobField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HomePageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ImageURLField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JobMe_Homepage.JobPostServiceReference.JobCV JobCVField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory> JobCategoryListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MaxRadiusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PhoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool StatusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Address {
+            get {
+                return this.AddressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AddressField, value) != true)) {
+                    this.AddressField = value;
+                    this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Age {
+            get {
+                return this.AgeField;
+            }
+            set {
+                if ((this.AgeField.Equals(value) != true)) {
+                    this.AgeField = value;
+                    this.RaisePropertyChanged("Age");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BannerURL {
+            get {
+                return this.BannerURLField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BannerURLField, value) != true)) {
+                    this.BannerURLField = value;
+                    this.RaisePropertyChanged("BannerURL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Birthdate {
+            get {
+                return this.BirthdateField;
+            }
+            set {
+                if ((this.BirthdateField.Equals(value) != true)) {
+                    this.BirthdateField = value;
+                    this.RaisePropertyChanged("Birthdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Country {
+            get {
+                return this.CountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CountryField, value) != true)) {
+                    this.CountryField = value;
+                    this.RaisePropertyChanged("Country");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CurrentJob {
+            get {
+                return this.CurrentJobField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CurrentJobField, value) != true)) {
+                    this.CurrentJobField = value;
+                    this.RaisePropertyChanged("CurrentJob");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FName {
+            get {
+                return this.FNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FNameField, value) != true)) {
+                    this.FNameField = value;
+                    this.RaisePropertyChanged("FName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HomePage {
+            get {
+                return this.HomePageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HomePageField, value) != true)) {
+                    this.HomePageField = value;
+                    this.RaisePropertyChanged("HomePage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ImageURL {
+            get {
+                return this.ImageURLField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageURLField, value) != true)) {
+                    this.ImageURLField = value;
+                    this.RaisePropertyChanged("ImageURL");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public JobMe_Homepage.JobPostServiceReference.JobCV JobCV {
+            get {
+                return this.JobCVField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JobCVField, value) != true)) {
+                    this.JobCVField = value;
+                    this.RaisePropertyChanged("JobCV");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory> JobCategoryList {
+            get {
+                return this.JobCategoryListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JobCategoryListField, value) != true)) {
+                    this.JobCategoryListField = value;
+                    this.RaisePropertyChanged("JobCategoryList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LName {
+            get {
+                return this.LNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LNameField, value) != true)) {
+                    this.LNameField = value;
+                    this.RaisePropertyChanged("LName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MaxRadius {
+            get {
+                return this.MaxRadiusField;
+            }
+            set {
+                if ((this.MaxRadiusField.Equals(value) != true)) {
+                    this.MaxRadiusField = value;
+                    this.RaisePropertyChanged("MaxRadius");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Phone {
+            get {
+                return this.PhoneField;
+            }
+            set {
+                if ((this.PhoneField.Equals(value) != true)) {
+                    this.PhoneField = value;
+                    this.RaisePropertyChanged("Phone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JobCV", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class JobCV : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.ApplierEducation> ApplierEducationListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobAppendix> JobAppendixListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobExperience> JobExperienceListField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.ApplierEducation> ApplierEducationList {
+            get {
+                return this.ApplierEducationListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApplierEducationListField, value) != true)) {
+                    this.ApplierEducationListField = value;
+                    this.RaisePropertyChanged("ApplierEducationList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Bio {
+            get {
+                return this.BioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BioField, value) != true)) {
+                    this.BioField = value;
+                    this.RaisePropertyChanged("Bio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobAppendix> JobAppendixList {
+            get {
+                return this.JobAppendixListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JobAppendixListField, value) != true)) {
+                    this.JobAppendixListField = value;
+                    this.RaisePropertyChanged("JobAppendixList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobExperience> JobExperienceList {
+            get {
+                return this.JobExperienceListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.JobExperienceListField, value) != true)) {
+                    this.JobExperienceListField = value;
+                    this.RaisePropertyChanged("JobExperienceList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ApplierEducation", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class ApplierEducation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EducationNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string InstitutionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int JobCVIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string EducationName {
+            get {
+                return this.EducationNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EducationNameField, value) != true)) {
+                    this.EducationNameField = value;
+                    this.RaisePropertyChanged("EducationName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndDate {
+            get {
+                return this.EndDateField;
+            }
+            set {
+                if ((this.EndDateField.Equals(value) != true)) {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Institution {
+            get {
+                return this.InstitutionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InstitutionField, value) != true)) {
+                    this.InstitutionField = value;
+                    this.RaisePropertyChanged("Institution");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int JobCVId {
+            get {
+                return this.JobCVIdField;
+            }
+            set {
+                if ((this.JobCVIdField.Equals(value) != true)) {
+                    this.JobCVIdField = value;
+                    this.RaisePropertyChanged("JobCVId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartDate {
+            get {
+                return this.StartDateField;
+            }
+            set {
+                if ((this.StartDateField.Equals(value) != true)) {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JobAppendix", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class JobAppendix : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FilePathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int JobCVIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FilePath {
+            get {
+                return this.FilePathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FilePathField, value) != true)) {
+                    this.FilePathField = value;
+                    this.RaisePropertyChanged("FilePath");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int JobCVId {
+            get {
+                return this.JobCVIdField;
+            }
+            set {
+                if ((this.JobCVIdField.Equals(value) != true)) {
+                    this.JobCVIdField = value;
+                    this.RaisePropertyChanged("JobCVId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JobExperience", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class JobExperience : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int JobCVIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TitleField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndDate {
+            get {
+                return this.EndDateField;
+            }
+            set {
+                if ((this.EndDateField.Equals(value) != true)) {
+                    this.EndDateField = value;
+                    this.RaisePropertyChanged("EndDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int JobCVId {
+            get {
+                return this.JobCVIdField;
+            }
+            set {
+                if ((this.JobCVIdField.Equals(value) != true)) {
+                    this.JobCVIdField = value;
+                    this.RaisePropertyChanged("JobCVId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartDate {
+            get {
+                return this.StartDateField;
+            }
+            set {
+                if ((this.StartDateField.Equals(value) != true)) {
+                    this.StartDateField = value;
+                    this.RaisePropertyChanged("StartDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Title {
+            get {
+                return this.TitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TitleField, value) != true)) {
+                    this.TitleField = value;
+                    this.RaisePropertyChanged("Title");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BusinessType", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
     [System.SerializableAttribute()]
     public partial class BusinessType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -661,10 +1821,10 @@ namespace JobMe_Homepage.JobPostServiceReference {
         System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.WorkHours> GetWorkHoursAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllWorkHours", ReplyAction="http://tempuri.org/IJobPostService/GetAllWorkHoursResponse")]
-        JobMe_Homepage.JobPostServiceReference.WorkHours[] GetAllWorkHours();
+        System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.WorkHours> GetAllWorkHours();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllWorkHours", ReplyAction="http://tempuri.org/IJobPostService/GetAllWorkHoursResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.WorkHours[]> GetAllWorkHoursAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.WorkHours>> GetAllWorkHoursAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateWorkHours", ReplyAction="http://tempuri.org/IJobPostService/UpdateWorkHoursResponse")]
         void UpdateWorkHours(JobMe_Homepage.JobPostServiceReference.WorkHours obj);
@@ -691,10 +1851,10 @@ namespace JobMe_Homepage.JobPostServiceReference {
         System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobCategory> GetJobCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobCategories", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobCategoriesResponse")]
-        JobMe_Homepage.JobPostServiceReference.JobCategory[] GetAllJobCategories();
+        System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory> GetAllJobCategories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobCategories", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobCategoriesResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobCategory[]> GetAllJobCategoriesAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory>> GetAllJobCategoriesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateJobCategory", ReplyAction="http://tempuri.org/IJobPostService/UpdateJobCategoryResponse")]
         void UpdateJobCategory(JobMe_Homepage.JobPostServiceReference.JobCategory obj);
@@ -721,16 +1881,34 @@ namespace JobMe_Homepage.JobPostServiceReference {
         System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost> GetJobPostAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPost", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostResponse")]
-        JobMe_Homepage.JobPostServiceReference.JobPost[] GetAllJobPost();
+        System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost> GetAllJobPost();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPost", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostResponse")]
-        System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost[]> GetAllJobPostAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost>> GetAllJobPostAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateJobPost", ReplyAction="http://tempuri.org/IJobPostService/UpdateJobPostResponse")]
         void UpdateJobPost(JobMe_Homepage.JobPostServiceReference.JobPost obj);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/UpdateJobPost", ReplyAction="http://tempuri.org/IJobPostService/UpdateJobPostResponse")]
         System.Threading.Tasks.Task UpdateJobPostAsync(JobMe_Homepage.JobPostServiceReference.JobPost obj);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplication", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplicationResponse")]
+        System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost> GetAllJobPostToAJobApplication(int jobApplicationId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplication", ReplyAction="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplicationResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost>> GetAllJobPostToAJobApplicationAsync(int jobApplicationId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostByMeetingId", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostByMeetingIdResponse")]
+        JobMe_Homepage.JobPostServiceReference.JobPost GetJobPostByMeetingId(int meetingId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostByMeetingId", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostByMeetingIdResponse")]
+        System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost> GetJobPostByMeetingIdAsync(int meetingId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostTableSize", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostTableSizeResponse")]
+        int GetJobPostTableSize();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IJobPostService/GetJobPostTableSize", ReplyAction="http://tempuri.org/IJobPostService/GetJobPostTableSizeResponse")]
+        System.Threading.Tasks.Task<int> GetJobPostTableSizeAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -784,11 +1962,11 @@ namespace JobMe_Homepage.JobPostServiceReference {
             return base.Channel.GetWorkHoursAsync(id);
         }
         
-        public JobMe_Homepage.JobPostServiceReference.WorkHours[] GetAllWorkHours() {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.WorkHours> GetAllWorkHours() {
             return base.Channel.GetAllWorkHours();
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.WorkHours[]> GetAllWorkHoursAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.WorkHours>> GetAllWorkHoursAsync() {
             return base.Channel.GetAllWorkHoursAsync();
         }
         
@@ -824,11 +2002,11 @@ namespace JobMe_Homepage.JobPostServiceReference {
             return base.Channel.GetJobCategoryAsync(id);
         }
         
-        public JobMe_Homepage.JobPostServiceReference.JobCategory[] GetAllJobCategories() {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory> GetAllJobCategories() {
             return base.Channel.GetAllJobCategories();
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobCategory[]> GetAllJobCategoriesAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobCategory>> GetAllJobCategoriesAsync() {
             return base.Channel.GetAllJobCategoriesAsync();
         }
         
@@ -864,11 +2042,11 @@ namespace JobMe_Homepage.JobPostServiceReference {
             return base.Channel.GetJobPostAsync(id);
         }
         
-        public JobMe_Homepage.JobPostServiceReference.JobPost[] GetAllJobPost() {
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost> GetAllJobPost() {
             return base.Channel.GetAllJobPost();
         }
         
-        public System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost[]> GetAllJobPostAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost>> GetAllJobPostAsync() {
             return base.Channel.GetAllJobPostAsync();
         }
         
@@ -878,6 +2056,30 @@ namespace JobMe_Homepage.JobPostServiceReference {
         
         public System.Threading.Tasks.Task UpdateJobPostAsync(JobMe_Homepage.JobPostServiceReference.JobPost obj) {
             return base.Channel.UpdateJobPostAsync(obj);
+        }
+        
+        public System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost> GetAllJobPostToAJobApplication(int jobApplicationId) {
+            return base.Channel.GetAllJobPostToAJobApplication(jobApplicationId);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<JobMe_Homepage.JobPostServiceReference.JobPost>> GetAllJobPostToAJobApplicationAsync(int jobApplicationId) {
+            return base.Channel.GetAllJobPostToAJobApplicationAsync(jobApplicationId);
+        }
+        
+        public JobMe_Homepage.JobPostServiceReference.JobPost GetJobPostByMeetingId(int meetingId) {
+            return base.Channel.GetJobPostByMeetingId(meetingId);
+        }
+        
+        public System.Threading.Tasks.Task<JobMe_Homepage.JobPostServiceReference.JobPost> GetJobPostByMeetingIdAsync(int meetingId) {
+            return base.Channel.GetJobPostByMeetingIdAsync(meetingId);
+        }
+        
+        public int GetJobPostTableSize() {
+            return base.Channel.GetJobPostTableSize();
+        }
+        
+        public System.Threading.Tasks.Task<int> GetJobPostTableSizeAsync() {
+            return base.Channel.GetJobPostTableSizeAsync();
         }
     }
 }

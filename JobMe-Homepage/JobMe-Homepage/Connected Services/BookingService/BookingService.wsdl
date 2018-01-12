@@ -57,6 +57,12 @@
   <wsdl:message name="IBookingService_UpdateBooking_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateBookingResponse" />
   </wsdl:message>
+  <wsdl:message name="IBookingService_DeleteBooking_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBooking" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_DeleteBooking_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBookingResponse" />
+  </wsdl:message>
   <wsdl:message name="IBookingService_CreateMeeting_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateMeeting" />
   </wsdl:message>
@@ -105,6 +111,18 @@
   <wsdl:message name="IBookingService_DeleteSession_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteSessionResponse" />
   </wsdl:message>
+  <wsdl:message name="IBookingService_UpdateSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSession" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_UpdateSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_RemoveApplierFromSession_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveApplierFromSession" />
+  </wsdl:message>
+  <wsdl:message name="IBookingService_RemoveApplierFromSession_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveApplierFromSessionResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBookingService">
     <wsdl:operation name="CreateBooking">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/CreateBooking" message="tns:IBookingService_CreateBooking_InputMessage" />
@@ -121,6 +139,10 @@
     <wsdl:operation name="UpdateBooking">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/UpdateBooking" message="tns:IBookingService_UpdateBooking_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/UpdateBookingResponse" message="tns:IBookingService_UpdateBooking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBooking">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/DeleteBooking" message="tns:IBookingService_DeleteBooking_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/DeleteBookingResponse" message="tns:IBookingService_DeleteBooking_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateMeeting">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/CreateMeeting" message="tns:IBookingService_CreateMeeting_InputMessage" />
@@ -153,6 +175,14 @@
     <wsdl:operation name="DeleteSession">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/DeleteSession" message="tns:IBookingService_DeleteSession_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/DeleteSessionResponse" message="tns:IBookingService_DeleteSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/UpdateSession" message="tns:IBookingService_UpdateSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/UpdateSessionResponse" message="tns:IBookingService_UpdateSession_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApplierFromSession">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookingService/RemoveApplierFromSession" message="tns:IBookingService_RemoveApplierFromSession_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookingService/RemoveApplierFromSessionResponse" message="tns:IBookingService_RemoveApplierFromSession_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IBookingService" type="tns:IBookingService">
@@ -187,6 +217,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateBooking">
       <soap12:operation soapAction="http://tempuri.org/IBookingService/UpdateBooking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBooking">
+      <soap12:operation soapAction="http://tempuri.org/IBookingService/DeleteBooking" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -259,6 +298,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteSession">
       <soap12:operation soapAction="http://tempuri.org/IBookingService/DeleteSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSession">
+      <soap12:operation soapAction="http://tempuri.org/IBookingService/UpdateSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveApplierFromSession">
+      <soap12:operation soapAction="http://tempuri.org/IBookingService/RemoveApplierFromSession" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

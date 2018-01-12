@@ -13,14 +13,15 @@ namespace BusinessLogicLayer
 
         //Instance variables
         private DbCompany dbCompany = new DbCompany();
+        
 
         /// <summary>
         /// Sends an object through the DataAccessLayer, and executes Create Method
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(Company obj)
+        public bool Create(Company obj)
         {
-            dbCompany.Create(obj);
+            return dbCompany.Create(obj);
         }
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace BusinessLogicLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            dbCompany.Delete(id);
         }
 
         /// <summary>
@@ -39,7 +40,8 @@ namespace BusinessLogicLayer
         /// <returns></returns>
         public Company Get(int id)
         {
-            throw new NotImplementedException();
+            Company company = dbCompany.Get(id);
+            return company;
         }
 
         /// <summary>
@@ -48,16 +50,16 @@ namespace BusinessLogicLayer
         /// <returns>List of Company</returns>
         public List<Company> GetAll()
         {
-            throw new NotImplementedException();
+            return dbCompany.GetAll();
         }
 
         /// <summary>
         /// Updates the Company in the database
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(Company obj)
+        public bool Update(Company obj)
         {
-            throw new NotImplementedException();
+            return dbCompany.Update(obj);
         }
 
 
@@ -70,6 +72,15 @@ namespace BusinessLogicLayer
         public Company Login(string email, string password)
         {
             return dbCompany.Login(email, password);
+        }
+
+        /// <summary>
+        /// Returns a int (count) for the numbers of rows of companies in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetCompanyTableSize()
+        {
+            return dbCompany.GetCompanyTableSize();
         }
     }
 }

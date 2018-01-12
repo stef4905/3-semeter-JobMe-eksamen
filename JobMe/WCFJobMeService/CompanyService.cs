@@ -13,9 +13,7 @@ namespace WCFJobMeService
     public class CompanyService : ICompanyService
     {
         private CompanyCtr companyCtr = new CompanyCtr();
-        private WorkHoursCtr workHoursCtr = new WorkHoursCtr();
-        private JobCategoryCtr jobCategoryCtr = new JobCategoryCtr();
-        private JobPostCtr jobPostCtr = new JobPostCtr();
+        private BusinessTypeCtr BusinessTypeCtr = new BusinessTypeCtr();
 
         #region Company service
 
@@ -77,9 +75,66 @@ namespace WCFJobMeService
             return companyCtr.Login(email, password);
         }
 
+        /// <summary>
+        /// Returns a int (count) for the numbers of rows of companies in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetCompanyTableSize()
+        {
+            return companyCtr.GetCompanyTableSize();
+        }
         #endregion
 
-    
+        #region BusinessType Service
+        /// <summary>
+        /// Creates a new BusinessType in the database by the given object
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>bool</returns>
+        public bool CreateBusinessType(BusinessType obj)
+        {
+            return BusinessTypeCtr.Create(obj);
+        }
+
+        /// <summary>
+        /// Returns a specific BusinessType from the database by the given id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>BusinessType</returns>
+        public BusinessType GetBusinessType(int id)
+        {
+            return BusinessTypeCtr.Get(id);
+        }
+
+        /// <summary>
+        /// Returns a list of all BusinessType in the database
+        /// </summary>
+        /// <returns>List<BusinessType></returns>
+        public List<BusinessType> GetAllBusinessType()
+        {
+            return BusinessTypeCtr.GetAll();
+        }
+
+        /// <summary>
+        /// Updates the given BusinessType object in the database
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>bool</returns>
+        public bool UpdateBusinessType(BusinessType obj)
+        {
+            return BusinessTypeCtr.Update(obj);
+        }
+
+        /// <summary>
+        /// Deletes a specific BusinessType from the database by the given id
+        /// </summary>
+        /// <param name="id"></param>
+        public void DeleteBusinessType(int id)
+        {
+            BusinessTypeCtr.Delete(id);
+        }
+        #endregion
+
 
     }
 }

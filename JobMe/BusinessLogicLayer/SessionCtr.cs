@@ -11,6 +11,7 @@ namespace BusinessLogicLayer
     public class SessionCtr
     {
         DBSession DbSession = new DBSession();
+        ApplierCtr ApplierCtr = new ApplierCtr();
 
         /// <summary>
         /// Creates a new session in the database
@@ -30,7 +31,9 @@ namespace BusinessLogicLayer
         /// <returns></returns>
         public Session Get(int id)
         {
-            return DbSession.Get(id);
+            Session session = DbSession.Get(id);
+            session.Applier = ApplierCtr.Get(session.ApplierId);
+            return session;
         }
 
         /// <summary>
@@ -40,7 +43,12 @@ namespace BusinessLogicLayer
         /// <returns></returns>
         public List<Session> GetAll(int id)
         {
-            return DbSession.GetAll(id);
+            List<Session> sessionList = DbSession.GetAll(id);
+            foreach (var session in sessionList)
+            {
+                session.Applier = ApplierCtr.Get(session.ApplierId);
+            }
+            return sessionList;
         }
 
         /// <summary>
@@ -61,6 +69,16 @@ namespace BusinessLogicLayer
         public bool Update(Session session)
         {
             return DbSession.Update(session);
+        }
+
+        /// <summary>
+        /// Removes the current Applier on the given session object.
+        /// </summary>
+        /// <param name="session"></param>
+        /// <returns>bool</returns>
+        public bool RemoveApplierFromSession(Session session)
+        {
+            return DbSession.RemoveApplierFromSession(session);
         }
     }
 }

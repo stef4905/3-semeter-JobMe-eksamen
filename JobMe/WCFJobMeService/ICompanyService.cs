@@ -13,80 +13,44 @@ namespace WCFJobMeService
     public interface ICompanyService
     {
         #region Company Service
-                [OperationContract]
-                void CreateCompany(Company company);
+        [OperationContract]
+        void CreateCompany(Company company);
 
-                [OperationContract]
-                void DeleteCompany(int id);
+        [OperationContract]
+        void DeleteCompany(int id);
 
-                [OperationContract]
-                Company GetCompany(int id);
+        [OperationContract]
+        Company GetCompany(int id);
 
-                [OperationContract]
-                List<Company> GetAllCompany();
+        [OperationContract]
+        List<Company> GetAllCompany();
 
-                [OperationContract]
-                void UpdateCompany(Company obj);
+        [OperationContract]
+        void UpdateCompany(Company obj);
 
-                [OperationContract]
-                Company Login(string email, string password);
+        [OperationContract]
+        Company Login(string email, string password);
 
-                #endregion
+        [OperationContract]
+        int GetCompanyTableSize();
+        #endregion
 
-//        #region JobPost Service
-//        [OperationContract]
-//        void CreateJobPost(JobPost jobPost);
+        #region BusinessType Service
+        [OperationContract]
+        bool CreateBusinessType(BusinessType obj);
 
-//        [OperationContract]
-//        void DeleteJobPost(int id);
+        [OperationContract]
+        BusinessType GetBusinessType(int id);
 
-//        [OperationContract]
-//        List<JobPost> GetAllJobPost();
+        [OperationContract]
+        List<BusinessType> GetAllBusinessType();
 
-//        [OperationContract]
-//        void UpdateJobPost(JobPost obj);
+        [OperationContract]
+        bool UpdateBusinessType(BusinessType obj);
 
-//        [OperationContract]
-//        JobPost GetJobPost(int id);
-//        #endregion
-
-//        #region JobCategory Service
-//        [OperationContract]
-//        void CreateJobCategory(JobCategory obj);
-
-//        [OperationContract]
-//        void DeleteJobCategory(int id);
-
-//        [OperationContract]
-//        JobCategory GetJobCategory(int id);
-
-//        [OperationContract]
-//        List<JobCategory> GetAllJobCategories();
-
-//        [OperationContract]
-//        void UpdateJobCategory(JobCategory obj);
-//        #endregion
-
-//        #region WorkHours Service
-
-//        [OperationContract]
-//        void CreateWorkHours(WorkHours obj);
-
-//        [OperationContract]
-//        void DeleteWorkHours(int id);
-
-
-//        [OperationContract]
-//        WorkHours GetWorkHours(int id);
-
-
-//        [OperationContract]
-//        List<WorkHours> GetlAllWorkHours();
-
-//        [OperationContract]
-//        void UpdateWorkHours(WorkHours obj);
-
-//#endregion
+        [OperationContract]
+        void DeleteBusinessType(int id);
+        #endregion
     }
 
 }

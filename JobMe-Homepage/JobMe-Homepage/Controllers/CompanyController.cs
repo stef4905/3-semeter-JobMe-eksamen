@@ -13,14 +13,19 @@ namespace JobMe_Homepage.Controllers
 {
     public class CompanyController : Controller
     {
+        //Service Referencer
         CompanyServiceClient client = new CompanyServiceClient();
         JobPostServiceReference.JobPostServiceClient jobClient = new JobPostServiceReference.JobPostServiceClient();
         JobApplicationServiceReference.JobApplicationServiceClient jobApplicationService = new JobApplicationServiceReference.JobApplicationServiceClient();
         ApplierServiceClient applierServiceClient = new ApplierServiceClient();
-        BookingServiceClient BookingServiceCLient = new BookingServiceClient();
+        BookingServiceClient BookingServiceClient = new BookingServiceClient();
 
+        #region Generel
 
-        // GET: Company
+        /// <summary>
+        /// Displays an Index view
+        /// </summary>
+        /// <returns>Returns the index with, with the viewModel vmCompany and jobPost with the object company and list of jobposts</returns>
         public ActionResult Index()
         {
             Company company = new Company();
@@ -32,17 +37,72 @@ namespace JobMe_Homepage.Controllers
             {
                 Company = company,
                 JobPost = job
-
             };
 
             return View(vMCompanyANDJobPost);
         }
 
+        /// <summary>
+        /// An HTTPPost method there respone on httpPost requst, and calls the login method from the ApplierService
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns> if true it returns the index page of applier else it returns the index of the home</returns>
+        [HttpPost]
+        public ActionResult _Login(string email, string password)
+        {
+            Company company = client.Login(email, password);
+
+            // Creates sessions for company login
+            if (company != null)
+            {
+
+                Session["company"] = company;
+                return RedirectToAction("Index");
+
+            }
+            TempData["FailCompany"] = "Fail";
+            return RedirectToAction("Index", "Home");
+
+
+
+        }
+
+        #endregion
+
+        #region Company
+
+
+        /// <summary>
+        /// Displays a partiel view _CreateCompany
+        /// </summary>
+        /// <returns>Return a _CreateCompany partiel view</returns>
         public ActionResult _CreateCompany()
         {
+
             return PartialView();
         }
 
+
+        /// <summary>
+        /// Displays a partiel view _CreateCompany
+        /// </summary>
+        /// <returns>Returns a _CurrentCompany partiel view with a company object</returns>
+        public ActionResult _CurrentCompany()
+        {
+            Company company = new Company();
+            company = Session["company"] as Company;
+            return PartialView(company);
+        }
+
+
+        /// <summary>
+        /// An HTTPPost method there respone on httpPost requst, and calls the createCompany method from the ApplierService
+        /// </summary>
+        /// <param name="Email"></param>
+        /// <param name="Password"></param>
+        /// <param name="PasswordControl"></param>
+        /// <returns> returns a redicret to action to the index page in company</returns>
         [HttpPost]
         public ActionResult _CreateCompany(string Email, string Password, string PasswordControl)
         {
@@ -59,18 +119,19 @@ namespace JobMe_Homepage.Controllers
             }
             else
             {
-                //Giv fejl omkring at password ikke stemmer overens
+                return null;   
             }
-
-            return null;
         }
 
+        #endregion
+
+        #region JobPost
         public ActionResult CreateJobPost()
         {
             VMWorkHoursJobCategory VM = new VMWorkHoursJobCategory();
             VM.WorkHoursList = jobClient.GetAllWorkHours().ToList();
             VM.JobCategoryList = jobClient.GetAllJobCategories().ToList();
-            TempData["Success"] = "Successfuld lavet!";
+
             return View(VM);
         }
         /// <summary>
@@ -92,7 +153,13 @@ namespace JobMe_Homepage.Controllers
 
             JobPostServiceReference.WorkHours workHours = new JobPostServiceReference.WorkHours { Id = WorkHours };
             JobPostServiceReference.JobCategory jobCategory = new JobPostServiceReference.JobCategory { Id = JobCategory };
-            JobPostServiceReference.Company company = Session["company"] as JobPostServiceReference.Company;
+            CompanyServiceReference.Company company = Session["company"] as CompanyServiceReference.Company;
+
+            JobPostServiceReference.Company com = new JobPostServiceReference.Company
+            {
+                Id = company.Id
+            };
+
             JobPostServiceReference.JobPost jobPost = new JobPostServiceReference.JobPost
             {
                 Title = Title,
@@ -102,13 +169,15 @@ namespace JobMe_Homepage.Controllers
                 JobTitle = JobTitle,
                 workHours = workHours,
                 Address = Address,
-                company = company,
+                company = com,
                 jobCategory = jobCategory
-                
+
             };
             try
             {
+
                 jobClient.CreateJobPost(jobPost);
+                TempData["Success"] = "Successfuld lavet!";
                 return RedirectToAction("Index");
             }
             catch (Exception)
@@ -118,45 +187,19 @@ namespace JobMe_Homepage.Controllers
 
         }
 
-
+        /// <summary>
+        /// Displays a view JobPost with the param id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Returns a view with a jobpost object</returns>
         public ActionResult JobPost(int id)
         {
             JobPostServiceReference.JobPost jobPost = jobClient.GetJobPost(id);
             return View(jobPost);
         }
+        #endregion
 
-        [HttpPost]
-        public ActionResult _Login(string email, string password)
-        {
-            Company company = client.Login(email, password);
-
-            // Creates sessions for company login
-
-
-
-
-            if (company != null)
-            {
-
-                Session["company"] = company;
-                return RedirectToAction("Index");
-
-            }
-            TempData["FailCompany"] = "Fail";
-            return RedirectToAction("Index", "Home");
-
-
-
-        }
-
-        public ActionResult _CurrentCompany()
-        {
-            Company company = new Company();
-            // Mangler fagterm på as
-            company = Session["company"] as Company;
-            return PartialView(company);
-        }
-
+        #region Appliers
         /// <summary>
         /// Returns all JobApplications from a specific JobPost
         /// </summary>
@@ -165,7 +208,7 @@ namespace JobMe_Homepage.Controllers
         public ActionResult AppliersForJob(int id)
         {
 
-            JobPost jobPost = new JobPost
+            JobPostServiceReference.JobPost jobPost = new JobPostServiceReference.JobPost
             {
                 Id = id
             };
@@ -211,61 +254,136 @@ namespace JobMe_Homepage.Controllers
             jobApplicationService.AcceptDeclineJobApplication(jobApplication, jobPost, accept);
             return RedirectToAction("");
         }
+
+
+        /// <summary>
+        /// Displays a partial view _JobApplication
+        /// </summary>
+        /// <returns>Returns a partialview with a jobAppliaction object</returns>
         public ActionResult _JobApplication()
         {
             JobApplicationServiceReference.JobApplication jobApplication = new JobApplicationServiceReference.JobApplication();
             return PartialView(jobApplication);
         }
 
+        /// <summary>
+        /// Displays a partial view _JobCV
+        /// </summary>
+        /// <returns>Returns a partialview with a jobCV object</returns>
         public ActionResult _JobCV()
         {
-            JobCV jobCV = new JobCV();
+            JobApplicationServiceReference.JobCV jobCV = new JobApplicationServiceReference.JobCV();
             return PartialView(jobCV);
         }
 
 
-        public ActionResult Accept()
-        {
+        //public ActionResult Accept()
+        //{
+        //    return RedirectToAction("ApplierForJob");
+        //}
 
-            return RedirectToAction("ApplierForJob");
-        }
-
-
-
-
-
-
+        #endregion
 
         #region Meeting
+        
 
-        public ActionResult Meeting()
+        /// <summary>
+        /// Displays a meeting view, with the param id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Returns a view with the viewModel vMMetting with a meeting Object and a list with bookings</returns>
+        public ActionResult Meeting(int id)
         {
-            return View();
+            JobPostServiceReference.JobPost JobPost = jobClient.GetJobPostByMeetingId(id);
+            Company company = new Company();
+            company = Session["company"] as Company;
+
+            Meeting meeting = BookingServiceClient.GetMeeting(JobPost.Meeting.Id);
+            List<BookingService.Booking> bookingList = BookingServiceClient.GetAllBooking(meeting.Id);
+
+            VMMeeting vMMeeting = new VMMeeting
+            {
+
+                Meeting = meeting,
+                BookingList = bookingList
+
+            };
+            return View(vMMeeting);
         }
 
 
+        /// <summary>
+        /// An HTTPPost method there respone on httpPost requst, and calls the createBooking method from the BookingService
+        /// with the params meetingDate, startTime, endTime, amountOfInterview and meetingId
+        /// </summary>
+        /// <param name="meetingDate"></param>
+        /// <param name="startTime"></param>
+        /// <param name="endTime"></param>
+        /// <param name="amountOfInterview"></param>
+        /// <param name="meetingId"></param>
+        /// <returns>Returns a redirectToAction meeting with a meetingId</returns>
         [HttpPost]
-        public ActionResult CreateBooking(string meetingDate, string startTime, string endTime, int amountOfInterview, Meeting meeting)
+        public ActionResult CreateBooking(string meetingDate, string startTime, string endTime, int amountOfInterview, int meetingId)
         {
             //Create a new booking object and set the needed variables
             Booking booking = new Booking();
 
-            booking.StartDateAndTime = Convert.ToDateTime(meetingDate +" " + startTime +":00.000");
+            booking.StartDateAndTime = Convert.ToDateTime(meetingDate + " " + startTime + ":00.000");
             booking.EndDateAndTime = Convert.ToDateTime(meetingDate + " " + endTime + ":00.000");
-            //booking.MeetingId = meeting.Id;
-            booking.MeetingId = 6;
+            booking.MeetingId = meetingId;
             booking.InterviewAmount = amountOfInterview;
 
             //Call the client´s create method that retusrns a bool
-            bool returned = BookingServiceCLient.CreateBooking(booking);
+            bool returned = BookingServiceClient.CreateBooking(booking);
 
             if (returned == true)
             {
-                return RedirectToAction("Meeting");
+
+                return RedirectToAction("Meeting/" + meetingId);
             }
-            else {
+            else
+            {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Deletes a boooking in bookingServiceclient with the param id and meetingId
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="meetingId"></param>
+        /// <returns>Returns a redirectToAction Meeting with a meetingId</returns>
+        public ActionResult DeleteBooking(int id, int meetingId)
+        {
+            bool deleted = BookingServiceClient.DeleteBooking(id);
+            return RedirectToAction("Meeting/" + meetingId);
+        }
+        
+        /// <summary>
+        /// Removes a person on meeting by getting the method removeApplierfromSession in the bookingClientService
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="meetingId"></param>
+        /// <returns>Returns a redirectToActions meeting with a meeting Id</returns>
+        public ActionResult RemovePersonOnMeeting(int id, int meetingId)
+        {
+            Session session = BookingServiceClient.GetSession(id);
+            session.ApplierId = 0;
+            bool updated = BookingServiceClient.RemoveApplierFromSession(session);
+            return RedirectToAction("Meeting/" + meetingId);
+        }
+
+        /// <summary>
+        /// Deletes a session in bookingServiceclient with the param id and meetingId
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="meetingId"></param>
+        /// <returns>Returns a redirectToAction Meeting with a meetingId</returns>
+        public ActionResult DeleteMeeting(int id, int meetingId)
+        {
+            Session session = BookingServiceClient.GetSession(id);
+            bool deleted = BookingServiceClient.DeleteSession(session);
+            return RedirectToAction("Meeting/" + meetingId);
         }
 
         #endregion

@@ -12,14 +12,23 @@ namespace BusinessLogicLayer
     {
         DbAdmin dbAdmin = new DbAdmin();
 
-        public void Create(Admin obj)
+        /// <summary>
+        /// Create a admin login
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public bool Create(Admin obj)
         {
-            throw new NotImplementedException();
+            return dbAdmin.Create(obj);
         }
 
+        /// <summary>
+        /// Deletes a specific Admin by id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            dbAdmin.Delete(id);
         }
 
         /// <summary>
@@ -33,14 +42,23 @@ namespace BusinessLogicLayer
             return admin;
         }
 
+        /// <summary>
+        /// Returns All Admins
+        /// </summary>
+        /// <returns></returns>
         public List<Admin> GetAll()
         {
-            throw new NotImplementedException();
+            return dbAdmin.GetAll();
         }
 
-        public void Update(Admin obj)
+        /// <summary>
+        /// Update an admin in DB
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public bool Update(Admin obj)
         {
-            throw new NotImplementedException();
+            return dbAdmin.Update(obj);
         }
 
         /// <summary>
@@ -53,5 +71,7 @@ namespace BusinessLogicLayer
         {
             return dbAdmin.Login(username, password);
         }
+
+
     }
 }

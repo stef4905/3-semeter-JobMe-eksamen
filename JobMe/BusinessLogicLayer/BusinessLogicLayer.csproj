@@ -46,6 +46,7 @@
     <Compile Include="ApplierCtr.cs" />
     <Compile Include="ApplierEducationCtr.cs" />
     <Compile Include="BookingCtr.cs" />
+    <Compile Include="BusinessTypeCtr.cs" />
     <Compile Include="CompanyCtr.cs" />
     <Compile Include="IController.cs" />
     <Compile Include="JobAppendixCtr.cs" />

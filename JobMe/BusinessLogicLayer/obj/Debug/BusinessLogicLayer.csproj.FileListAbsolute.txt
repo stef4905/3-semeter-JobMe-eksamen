@@ -67,18 +67,6 @@ C:\Users\Sofie\Source\Repos\3-semeter-JobMe-eksamen3\JobMe\BusinessLogicLayer\ob
 C:\Users\Sofie\Source\Repos\3-semeter-JobMe-eksamen3\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
 E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
@@ -91,18 +79,6 @@ E:\Skole\GitHub Repo\3 Semester Projekt\JobMe\BusinessLogicLayer\obj\Debug\Busin
 C:\Users\KasperV\source\repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
 C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
@@ -168,29 +144,6 @@ C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v3\JobMe\BusinessLogicLayer
 C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v3\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
 C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v3\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v3\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
-C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
@@ -213,3 +166,184 @@ C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\Mathias\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt 3\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Mathias\source\repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen6\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-jobme-eksamen-v4\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+E:\Skole\GitHub Repo\3 Semester Projekt Final\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\Sofie\source\repos\3-semeter-JobMe-eksamen7\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Debug\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\KasperV\Source\Repos\3-semeter-JobMe-eksamen2\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTesting.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\Microsoft.Data.Tools.Schema.Sql.UnitTestingAdapter.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\br\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\cn\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\de\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\es\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\fr\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\it\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\ja\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\ko\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\ru\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
+C:\Users\sofie\Source\Repos\3-semeter-JobMe-eksamen8\JobMe\BusinessLogicLayer\bin\Debug\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll

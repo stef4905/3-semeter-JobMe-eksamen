@@ -1,37 +1,75 @@
-﻿@{
+﻿@model JobMe_Homepage.Models.VMJobPostAndApplierLists
+@{
     ViewBag.Title = "Home Page";
+
 }
-
-
-
-
-
-
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<!--#region Create a profile area-->
+<div class="panel-body" id="FrontpageBackground">
+    <div id="" class="container">
+        <div id="textCounter">
+            <h2>Vi har lige nu @Model.countOfJobPosts jobannoncer og @Model.countOfAppliers jobsøgende profiler</h2>
+        </div>
+        <div class="panel panel-default center-block" id="createBox">
+            <div id="formStyling">
+                <div id="CreateBoxHeadline"> <h3>Opret dig nu og få adgang med det samme!</h3></div>
+               
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#Jobansogere" data-toggle="tab">Jobansøger</a></li>
+                        <li><a href="#Virksomheden" data-toggle="tab">Virksomhed</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="Jobansogere" class="tab-pane fade in active">
+                            @Html.Partial("_CreateApplier", "Applier")
+                        </div>
+                        <div id="Virksomheden" class="tab-pane fade">
+                            @Html.Partial("_CreateCompany", "Company")
+                        </div>
+                    </div>
+              
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<!--#endregion-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="col-sm-12" id="feature1">
+                <img src="https://imgur.com/HC7Uhbf.jpg" width="120" height="120" align="middle" class="FeatureImages" />
+                <h2>Find job</h2>
+                <p>
+                    På JobMe er det nemt at finde de jobs der passer dine kriterier. Igennem filtere kan du sortere i søgningen så du kun får relevante jobslag.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-sm-12" id="feature1">
+                <img src="https://imgur.com/AaQu0cb.jpg" width="120" height="120" align="middle" class="FeatureImages" />
+                <h2>Find jobs nær dig</h2>
+                <p>
+                    På JobMe har du muligheden for at begrændse din jobsøgning til en bestemt radius. Det giver dig muligheden
+                    for at kun se jobs der er relevante for dig!
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-sm-12" id="feature1">
+                <img src="https://imgur.com/cmWNI7o.jpg" width="120" height="120" align="middle" class="FeatureImages" />
+                <h2>Find medarbejder</h2>
+                <p>
+                    Som firma, kan du hos JobMe finde den medarbejder du lige står og mangler. Med hjælp af filter søgning og mødebooking, har det aldrig været nemmere.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="col-sm-12" id="feature1">
+                <img src="https://imgur.com/ZeZNOur.jpg" width="120" height="120" align="middle" class="FeatureImages" />
+                <h2>Book et møde</h2>
+                <p>
+                    Når du har fundet de mest relevante til en jobstilling, kan du planlægge og arrangere et møde igennem vores møde booking system.
+                </p>
+            </div>
+        </div>
     </div>
 </div>

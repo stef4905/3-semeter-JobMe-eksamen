@@ -1,13 +1,24 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
-</head>
-<body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
-</body>
-</html>
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    if (Session["applier"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutApplier.cshtml";
+    }
+
+    if (Session["company"] != null)
+    {
+        Layout = "~/Views/Shared/_LayoutCompany.cshtml";
+    }
+
+
+
+
+}
+
+    <div class="container bg-white text-center body-content">
+        <h1>Fejl 500 - Siden du prøver at tilgå kan ikke findes </h1>
+
+        <img src="~/Content/image/notfoundImage.jpg" />
+    </div>
+

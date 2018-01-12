@@ -1,186 +1,91 @@
-﻿
+﻿@model JobMe_Homepage.Models.VMJobPostLists
+
 @{
-	ViewBag.Title = "Index";
-	Layout = "~/Views/Shared/_LayoutApplier.cshtml";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutApplier.cshtml";
 }
 @if (TempData["Success"] != null)
 {
-                  <!-- Modal -->
+  <!-- Modal -->
     <div class="modal fade in" id="succesModal" role="dialog">
         <div class="modal-dialog">
-
             <!-- Modal content-->
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <div class="modal-body">
-
                     <p class="text-success" id="successMessage">@TempData["Success"]</p>
-
                 </div>
-
             </div>
-
         </div>
     </div>
-
-
 }
-		<!--#region infographics about all jobs and relevant jobs on the applier-->
-			<div class="panel">
-				<div class="panel-body" id="ApplierIndexTopBackground">
-					<div id="textOfCount">
-						Vi har lige nu 12.301 joannoncer hvor 458 paaser på din profil
-					</div>
-					<button class="seeRelativeJobsButton" type="submit">Klik og se</button>
-				</div>
-			</div>
-		<!--#endregion-->
-
-
-		<!-- #region Search function -->
-<div class="panel panel-default">
-	<div class="panel-body">
-		<label id="ApplierIndexTitle">Søg efter job</label>
-		<div class="input-group" id="ApplierInputContainer">
-			<input type="text" class="form-control" placeholder="Søgord: stilling, firmanavn osv" name="search" />
-			<div class="input-group-btn">
-				<button class="btn btn-blue" id="ApplierSearchButton" type="submit">Søg</button>
-			</div>
-		</div>
-<!--#endregion-->
-
-		
-		<!--#region List of jbopost that are relactive to the current applier-->
-			<label  id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Relevante jobs</label>
-			<div id="applierIndexSeperator"></div>
-			
-			<div class="row ">
-				<div class="jobPostMargin">
-					<div class="col-sm-12 bg-white content">
-						<div class="row">
-							<div class="col-xs-3">
-								<img class="img-responsive" src="https://ny.skolefodbold.dk/data/team/1765/medium.jpeg">
-							</div>
-							<div class="col-xs-7">
-								<h4 class="company-Name"><strong>Fodboldspiller</strong></h4><h5><strong>Gandrup Skole</strong></h5><h4><small>Vi vinder i år</small></h4>
-							</div>
-							<div class="col-xs-2 pull-right">
-								<button type="button" class="btn btn-link btn-lg">
-									<span class="glyphicon glyphicon-ok"> </span>
-								</button>
-								<button type="button" class="btn btn-link btn-lg ">
-									<span class="glyphicon glyphicon glyphicon-remove"> </span>
-								</button>
-								<a class="btn btn-blue" href="/applier/JobPost/#">Se mere</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row ">
-				<div class="jobPostMargin">
-					<div class="col-sm-12 bg-white content">
-						<div class="row">
-							<div class="col-xs-3">
-								<img class="img-responsive" src="https://ny.skolefodbold.dk/data/team/1765/medium.jpeg">
-							</div>
-							<div class="col-xs-7">
-								<h4 class="company-Name"><strong>Fodboldspiller</strong></h4><h5><strong>Gandrup Skole</strong></h5><h4><small>Vi vinder i år</small></h4>
-							</div>
-							<div class="col-xs-2 pull-right">
-								<button type="button" class="btn btn-link btn-lg">
-									<span class="glyphicon glyphicon-ok"> </span>
-								</button>
-								<button type="button" class="btn btn-link btn-lg ">
-									<span class="glyphicon glyphicon glyphicon-remove"> </span>
-								</button>
-								<a class="btn btn-blue" href="/applier/JobPost/#">Se mere</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		<!--#endregion-->
-		
-		<!-- #region last job where a jobApplication has been sent-->
-		<label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Sidst ansøgte job</label>
-		<div id="applierIndexSeperator"></div>
-
-		<div class="row ">
-			<div class="jobPostMargin">
-				<div class="col-sm-12 bg-white content">
-					<div class="row">
-						<div class="col-xs-3">
-							<img class="img-responsive" src="https://ny.skolefodbold.dk/data/team/1765/medium.jpeg">
-						</div>
-						<div class="col-xs-7">
-							<h4 class="company-Name"><strong>Fodboldspiller</strong></h4><h5><strong>Gandrup Skole</strong></h5><h4><small>Vi vinder i år</small></h4>
-						</div>
-						<div class="col-xs-2 pull-right">
-							<button type="button" class="btn btn-link btn-lg">
-								<span class="glyphicon glyphicon-ok"> </span>
-							</button>
-							<button type="button" class="btn btn-link btn-lg ">
-								<span class="glyphicon glyphicon glyphicon-remove"> </span>
-							</button>
-							<a class="btn btn-blue" href="/applier/JobPost/#">Se mere</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="row ">
-			<div class="jobPostMargin">
-				<div class="col-sm-12 bg-white content">
-					<div class="row">
-						<div class="col-xs-3">
-							<img class="img-responsive" src="https://ny.skolefodbold.dk/data/team/1765/medium.jpeg">
-						</div>
-						<div class="col-xs-7">
-							<h4 class="company-Name"><strong>Fodboldspiller</strong></h4><h5><strong>Gandrup Skole</strong></h5><h4><small>Vi vinder i år</small></h4>
-						</div>
-						<div class="col-xs-2 pull-right">
-							<button type="button" class="btn btn-link btn-lg">
-								<span class="glyphicon glyphicon-ok"> </span>
-							</button>
-							<button type="button" class="btn btn-link btn-lg ">
-								<span class="glyphicon glyphicon glyphicon-remove"> </span>
-							</button>
-							<a class="btn btn-blue" href="/applier/JobPost/#">Se mere</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-		<!-- #endregion -->
-
-
-
-	</div>
-</div>
-
-
-@section scripts {
-
-   
-
-    <script>
-
-
-        window.onload = function () {
-            $('#succesModal').show();
-
-            $('#succesModal').click(function (event) {
-              $('#succesModal').hide();
-            });
-
-
+<div class="container-fluid body-content">
+    <!--#region infographics about all jobs and relevant jobs on the applier-->
+    <div class="panel-body" id="ApplierIndexTopBackground">
+        <div>
+            <div id="textOfCount">
+                Vi har lige nu @Model.countOfJobPosts jobannoncer
+            </div>
+            <a id="buttonStyle2" class="seeRelativeJobsButton" href="~/Applier/FindJobPosts">Find Job</a>
+        </div>
+    </div>
+  </div>
+    <!--#endregion-->
+    <!--#region Jobsmeeting-->
+    <div class="container">
+        @if (Model.jobPostListMeeting.Count() > 0)
+        {
+            <div class="col-sm-12 ">
+                <h2>Møde indkaldelse fra virksomhed:</h2>
+                @foreach (var JobPost in Model.jobPostListMeeting)
+                {
+                    <div class="col-sm-12 bg-white jobPost content panel panel-default">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img class="img-responsive" src="@JobPost.company.ImageURL">
+                            </div>
+                            <div class="col-xs-7">
+                                <h4 class="company-Name"><strong>@JobPost.Title</strong></h4><h5><strong>@JobPost.company.CompanyName</strong></h5><h4><small>@JobPost.Description</small></h4>
+                            </div>
+                            <div class="col-xs-2 pull-right">
+                                <a id="jobPostButtonStyle" class="btn btn-blue" href="/Applier/Booking/@JobPost.Id">Book møde</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
         }
-    </script>
+        <!--#endregion-->
+        <!--#region List of jbopost that are relactive to the current applier-->
+        <div class="col-sm-12 ">
+            <label id="ApplierIndexTitle" class="ApplierIndexTitleMargin">Mulige jobs</label>
+                @foreach (var jobPost in Model.jobPostList.OrderBy(x => Guid.NewGuid()).Take(6))
+                {
+                <div class="col-sm-12 bg-white jobPost content panel panel-default">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img class="img-responsive" src="@jobPost.company.ImageURL">
+                        </div>
+                        <div class="col-xs-7">
+                            <h4 class="company-Name"><strong>@jobPost.Title</strong></h4><h5><strong>@jobPost.company.CompanyName</strong></h5><h4><small>@jobPost.Description</small></h4>
+                        </div>
+                        <div class="col-xs-2 pull-right">
+                            <a id="jobPostButtonStyle" class="btn btn-blue" href="/applier/JobPost/@jobPost.Id">Læs mere</a>
+                        </div>
+                    </div>
+                </div>             
+            }
+            <!--#endregion-->
+        </div>
+    </div>
+    @section scripts {
+        <script>
+            window.onload = function () {
+                $('#succesModal').show();
 
-
-}
+                $('#succesModal').click(function (event) {
+                    $('#succesModal').hide();
+                });
+            }
+        </script>
+    }

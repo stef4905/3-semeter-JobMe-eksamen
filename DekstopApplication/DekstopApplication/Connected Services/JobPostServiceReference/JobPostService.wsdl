@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="JobPostService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IJobPostService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://localhost:8712/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://localhost:8712/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://localhost:8712/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ModelLayer" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IJobPostService_CreateWorkHours_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateWorkHours" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_CreateWorkHours_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateWorkHoursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_DeleteWorkHours_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWorkHours" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_DeleteWorkHours_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWorkHoursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetWorkHours_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkHours" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetWorkHours_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkHoursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetAllWorkHours_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWorkHours" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetAllWorkHours_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWorkHoursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_UpdateWorkHours_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorkHours" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_UpdateWorkHours_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWorkHoursResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_CreateJobCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateJobCategory" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_CreateJobCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateJobCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_DeleteJobCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJobCategory" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_DeleteJobCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJobCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetJobCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobCategory" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetJobCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetAllJobCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllJobCategories" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetAllJobCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllJobCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_UpdateJobCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJobCategory" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_UpdateJobCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJobCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_CreateJobPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateJobPost" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_CreateJobPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateJobPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_DeleteJobPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJobPost" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_DeleteJobPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteJobPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetJobPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobPost" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetJobPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetAllJobPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllJobPost" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetAllJobPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllJobPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_UpdateJobPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJobPost" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_UpdateJobPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateJobPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetAllJobPostToAJobApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllJobPostToAJobApplication" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetAllJobPostToAJobApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllJobPostToAJobApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetJobPostByMeetingId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobPostByMeetingId" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetJobPostByMeetingId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobPostByMeetingIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetJobPostTableSize_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobPostTableSize" />
+  </wsdl:message>
+  <wsdl:message name="IJobPostService_GetJobPostTableSize_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobPostTableSizeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IJobPostService">
+    <wsdl:operation name="CreateWorkHours">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/CreateWorkHours" message="tns:IJobPostService_CreateWorkHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/CreateWorkHoursResponse" message="tns:IJobPostService_CreateWorkHours_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkHours">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/DeleteWorkHours" message="tns:IJobPostService_DeleteWorkHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/DeleteWorkHoursResponse" message="tns:IJobPostService_DeleteWorkHours_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkHours">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetWorkHours" message="tns:IJobPostService_GetWorkHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetWorkHoursResponse" message="tns:IJobPostService_GetWorkHours_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkHours">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetAllWorkHours" message="tns:IJobPostService_GetAllWorkHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetAllWorkHoursResponse" message="tns:IJobPostService_GetAllWorkHours_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkHours">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/UpdateWorkHours" message="tns:IJobPostService_UpdateWorkHours_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/UpdateWorkHoursResponse" message="tns:IJobPostService_UpdateWorkHours_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateJobCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/CreateJobCategory" message="tns:IJobPostService_CreateJobCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/CreateJobCategoryResponse" message="tns:IJobPostService_CreateJobCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/DeleteJobCategory" message="tns:IJobPostService_DeleteJobCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/DeleteJobCategoryResponse" message="tns:IJobPostService_DeleteJobCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetJobCategory" message="tns:IJobPostService_GetJobCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetJobCategoryResponse" message="tns:IJobPostService_GetJobCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetAllJobCategories" message="tns:IJobPostService_GetAllJobCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetAllJobCategoriesResponse" message="tns:IJobPostService_GetAllJobCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/UpdateJobCategory" message="tns:IJobPostService_UpdateJobCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/UpdateJobCategoryResponse" message="tns:IJobPostService_UpdateJobCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateJobPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/CreateJobPost" message="tns:IJobPostService_CreateJobPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/CreateJobPostResponse" message="tns:IJobPostService_CreateJobPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/DeleteJobPost" message="tns:IJobPostService_DeleteJobPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/DeleteJobPostResponse" message="tns:IJobPostService_DeleteJobPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetJobPost" message="tns:IJobPostService_GetJobPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetJobPostResponse" message="tns:IJobPostService_GetJobPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetAllJobPost" message="tns:IJobPostService_GetAllJobPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetAllJobPostResponse" message="tns:IJobPostService_GetAllJobPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/UpdateJobPost" message="tns:IJobPostService_UpdateJobPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/UpdateJobPostResponse" message="tns:IJobPostService_UpdateJobPost_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobPostToAJobApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplication" message="tns:IJobPostService_GetAllJobPostToAJobApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplicationResponse" message="tns:IJobPostService_GetAllJobPostToAJobApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobPostByMeetingId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetJobPostByMeetingId" message="tns:IJobPostService_GetJobPostByMeetingId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetJobPostByMeetingIdResponse" message="tns:IJobPostService_GetJobPostByMeetingId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobPostTableSize">
+      <wsdl:input wsaw:Action="http://tempuri.org/IJobPostService/GetJobPostTableSize" message="tns:IJobPostService_GetJobPostTableSize_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IJobPostService/GetJobPostTableSizeResponse" message="tns:IJobPostService_GetJobPostTableSize_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IJobPostService" type="tns:IJobPostService">
+    <wsp:PolicyReference URI="#WSHttpBinding_IJobPostService_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateWorkHours">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/CreateWorkHours" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWorkHours">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/DeleteWorkHours" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkHours">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetWorkHours" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllWorkHours">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetAllWorkHours" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWorkHours">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/UpdateWorkHours" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateJobCategory">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/CreateJobCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobCategory">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/DeleteJobCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobCategory">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetJobCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobCategories">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetAllJobCategories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobCategory">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/UpdateJobCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateJobPost">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/CreateJobPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteJobPost">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/DeleteJobPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobPost">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetJobPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobPost">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetAllJobPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateJobPost">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/UpdateJobPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllJobPostToAJobApplication">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetAllJobPostToAJobApplication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobPostByMeetingId">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetJobPostByMeetingId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobPostTableSize">
+      <soap12:operation soapAction="http://tempuri.org/IJobPostService/GetJobPostTableSize" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="JobPostService">
+    <wsdl:port name="WSHttpBinding_IJobPostService" binding="tns:WSHttpBinding_IJobPostService">
+      <soap12:address location="https://localhost:8712/JopPostService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>https://localhost:8712/JopPostService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

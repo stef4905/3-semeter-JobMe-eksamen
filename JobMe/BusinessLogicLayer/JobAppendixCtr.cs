@@ -18,9 +18,9 @@ namespace BusinessLogicLayer
         /// Creates a JobAppendix in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(JobAppendix obj)
+        public bool Create(JobAppendix obj)
         {
-            dbJobAppendix.Create(obj);
+            return dbJobAppendix.Create(obj);
         }
 
         /// <summary>
@@ -66,9 +66,9 @@ namespace BusinessLogicLayer
         /// Updates the given JobAppendix in the database
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(JobAppendix obj)
+        public bool Update(JobAppendix obj)
         {
-            dbJobAppendix.Update(obj);
+            return dbJobAppendix.Update(obj);
         }
     }
 }

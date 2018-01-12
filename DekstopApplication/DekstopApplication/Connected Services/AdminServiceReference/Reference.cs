@@ -23,7 +23,16 @@ namespace DekstopApplication.AdminServiceReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
@@ -42,6 +51,32 @@ namespace DekstopApplication.AdminServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FName {
+            get {
+                return this.FNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FNameField, value) != true)) {
+                    this.FNameField = value;
+                    this.RaisePropertyChanged("FName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -50,6 +85,19 @@ namespace DekstopApplication.AdminServiceReference {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LName {
+            get {
+                return this.LNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LNameField, value) != true)) {
+                    this.LNameField = value;
+                    this.RaisePropertyChanged("LName");
                 }
             }
         }
@@ -107,10 +155,10 @@ namespace DekstopApplication.AdminServiceReference {
         System.Threading.Tasks.Task DeleteAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/GetAllAdmin", ReplyAction="http://tempuri.org/IAdminService/GetAllAdminResponse")]
-        DekstopApplication.AdminServiceReference.Admin[] GetAllAdmin();
+        System.Collections.Generic.List<DekstopApplication.AdminServiceReference.Admin> GetAllAdmin();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/GetAllAdmin", ReplyAction="http://tempuri.org/IAdminService/GetAllAdminResponse")]
-        System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin[]> GetAllAdminAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<DekstopApplication.AdminServiceReference.Admin>> GetAllAdminAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/GetAdmin", ReplyAction="http://tempuri.org/IAdminService/GetAdminResponse")]
         DekstopApplication.AdminServiceReference.Admin GetAdmin(int id);
@@ -125,10 +173,10 @@ namespace DekstopApplication.AdminServiceReference {
         System.Threading.Tasks.Task UpdateAsync(DekstopApplication.AdminServiceReference.Admin admin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/Login", ReplyAction="http://tempuri.org/IAdminService/LoginResponse")]
-        DekstopApplication.AdminServiceReference.Admin Login(string email, string password);
+        DekstopApplication.AdminServiceReference.Admin Login(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAdminService/Login", ReplyAction="http://tempuri.org/IAdminService/LoginResponse")]
-        System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin> LoginAsync(string email, string password);
+        System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin> LoginAsync(string username, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -174,11 +222,11 @@ namespace DekstopApplication.AdminServiceReference {
             return base.Channel.DeleteAsync(id);
         }
         
-        public DekstopApplication.AdminServiceReference.Admin[] GetAllAdmin() {
+        public System.Collections.Generic.List<DekstopApplication.AdminServiceReference.Admin> GetAllAdmin() {
             return base.Channel.GetAllAdmin();
         }
         
-        public System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin[]> GetAllAdminAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<DekstopApplication.AdminServiceReference.Admin>> GetAllAdminAsync() {
             return base.Channel.GetAllAdminAsync();
         }
         
@@ -198,12 +246,12 @@ namespace DekstopApplication.AdminServiceReference {
             return base.Channel.UpdateAsync(admin);
         }
         
-        public DekstopApplication.AdminServiceReference.Admin Login(string email, string password) {
-            return base.Channel.Login(email, password);
+        public DekstopApplication.AdminServiceReference.Admin Login(string username, string password) {
+            return base.Channel.Login(username, password);
         }
         
-        public System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin> LoginAsync(string email, string password) {
-            return base.Channel.LoginAsync(email, password);
+        public System.Threading.Tasks.Task<DekstopApplication.AdminServiceReference.Admin> LoginAsync(string username, string password) {
+            return base.Channel.LoginAsync(username, password);
         }
     }
 }

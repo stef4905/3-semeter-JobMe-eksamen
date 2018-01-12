@@ -33,7 +33,7 @@ namespace BusinessLogicLayer
         /// Creates a ned jobCV with no independence on an Applier in the database. This wil not be added to any Applier.
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(JobCV obj)
+        public bool Create(JobCV obj)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace BusinessLogicLayer
         {
             throw new NotImplementedException();
         }
-        
+
         /// <summary>
         /// Returns a single JobCV from the database by the given id.
         /// </summary>
@@ -54,7 +54,15 @@ namespace BusinessLogicLayer
         /// <returns></returns>
         public JobCV Get(int applierId)
         {
-            JobCV jobCV = dbJobCV.Get(applierId);
+            JobCV jobCV = new JobCV();
+            if (applierId == 0)
+            {
+                //Return a empty JobCV
+            }
+            else
+            {
+                jobCV = dbJobCV.Get(applierId);
+            }
             return jobCV;
         }
 
@@ -71,22 +79,33 @@ namespace BusinessLogicLayer
         /// Updates the given JobCV object in the database
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(JobCV obj)
+        public bool Update(JobCV obj)
         {
-            dbJobCV.Update(obj);
+            try
+            {
+                dbJobCV.Update(obj);
 
-            foreach (var Experience in obj.JobExperienceList)
-            {
-                jobExperienceCtr.Update(Experience);
+                foreach (var Experience in obj.JobExperienceList)
+                {
+                    jobExperienceCtr.Update(Experience);
+                }
+                foreach (var Education in obj.ApplierEducationList)
+                {
+                    applierEducationCtr.Update(Education);
+                }
+                foreach (var Appendix in obj.JobAppendixList)
+                {
+                    jobAppendixCtr.Update(Appendix);
+                }
+
+                return true;
             }
-            foreach (var Education in obj.ApplierEducationList)
+            catch (Exception)
             {
-                applierEducationCtr.Update(Education);
+                return false;
+                throw;
             }
-            foreach (var Appendix in obj.JobAppendixList)
-            {
-                jobAppendixCtr.Update(Appendix);
-            }
+
         }
     }
 }

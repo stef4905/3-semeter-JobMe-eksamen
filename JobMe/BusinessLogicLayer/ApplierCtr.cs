@@ -18,14 +18,27 @@ namespace BusinessLogicLayer
         /// Inserts the Applier in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(Applier obj)
+        public bool Create(Applier obj)
         {
+            try
+            {
                 Applier applier = dbApplier.CreateAndReturnApplier(obj);
                 applier.Birthdate = DateTime.Now;
-                applier.JobCV = new JobCV(0, "Ikke endnu redigeret", 0, "Bio tekst");
+                applier.JobCV = new JobCV(0, "Ikke endnu redigeret", "Bio tekst");
+
                 Applier applierReturned = jobCVCtr.CreateAndReturnPrimaryKey(applier.JobCV, applier);
-                Update(applierReturned);      
-         }
+                Update(applierReturned);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+
+
+
+        }
 
 
         /// <summary>
@@ -34,7 +47,7 @@ namespace BusinessLogicLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            dbApplier.Delete(id);
         }
 
         /// <summary>
@@ -45,7 +58,10 @@ namespace BusinessLogicLayer
         public Applier Get(int id)
         {
             Applier applier = dbApplier.Get(id);
-            applier.JobCV = jobCVCtr.Get(applier.JobCV.Id);
+            if (applier.JobCV != null)
+            {
+                applier.JobCV = jobCVCtr.Get(applier.JobCV.Id);
+            }
             return applier;
         }
 
@@ -55,18 +71,46 @@ namespace BusinessLogicLayer
         /// <returns>List of Appliers</returns>
         public List<Applier> GetAll()
         {
-            throw new NotImplementedException();
+            return dbApplier.GetAll();
         }
 
         /// <summary>
         /// Updates Applier in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(Applier obj)
+        public bool Update(Applier obj)
         {
-            dbApplier.Update(obj);
+            try
+            {
+
+                dbApplier.Update(obj);
+                if (obj.JobCategoryList != null)
+                {
+                    UpdateApplierJobCategories(obj);
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
+        public void UpdateApplierJobCategories(Applier obj)
+        {
+
+            dbApplier.DeleteApplierJobCategories(obj.Id);
+
+
+
+            foreach (var item in obj.JobCategoryList)
+            {
+                dbApplier.CreateApplierJobCategories(item.Id, obj.Id);
+            }
+
+
+        }
 
         /// <summary>
         /// returns an Appiler with the given param from the login
@@ -77,6 +121,25 @@ namespace BusinessLogicLayer
         public Applier Login(string email, string password)
         {
             return dbApplier.Login(email, password);
+        }
+
+        /// <summary>
+        /// Return the number of rows in the Applier table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetApplierTableSize()
+        {
+            return dbApplier.GetApplierTableSize();
+        }
+
+
+        /// <summary>
+        /// Updates the given Appleir objects password
+        /// </summary>
+        /// <param name="applier"></param>
+        public void UpdatePassword(Applier applier)
+        {
+            dbApplier.UpdatePassword(applier);
         }
     }
 }

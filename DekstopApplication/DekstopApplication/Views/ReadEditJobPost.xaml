@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="DekstopApplication.Views.ReadEditJobPost"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DekstopApplication.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="953" d:DesignWidth="1410" >
+    <Grid Background="White" Width="1410" Height="953">
+        <Label Name="JobPostJobTitleLabel" Content="Job Titel:" HorizontalAlignment="Left" Margin="55,130,0,0" VerticalAlignment="Top" Height="44" Width="109" FontSize="22" FontWeight="Bold"/>
+        <Label Name="JobPostDescriptionLabel" Content="Beskrivelse:" HorizontalAlignment="Left" Margin="48,392,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <Label Name="JobPostTitleLabel" Content="Titel:" HorizontalAlignment="Left" Margin="55,66,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <TextBox Name="JobPostTitleTextBox" HorizontalAlignment="Left" Height="34" Margin="221,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="442" FontSize="16"/>
+        <TextBox Name="JobPostJobTitleTextBox" HorizontalAlignment="Left" Height="34" Margin="221,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="442" FontSize="16"/>
+        <Label Name="JobPostStartDateLabel" Content="StartDato:" HorizontalAlignment="Left" Margin="48,337,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <Label Name="JobPostEndDateLabel" Content="SlutDato:" HorizontalAlignment="Left" Margin="766,335,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+		<TextBox Name="JobPostDescriptionTextBox" HorizontalAlignment="Left" Height="428" Margin="221,392,0,0" Text="" VerticalAlignment="Top" Width="1077" FontSize="16" TextWrapping="Wrap" AcceptsReturn="True"/>
+        <Label Name="JobPostCategoryLabel" Content="Kategori:" HorizontalAlignment="Left" Margin="55,194,0,0" VerticalAlignment="Top" Height="44" Width="109" FontSize="22" FontWeight="Bold"/>
+        <Label Name="JobPostAdressLabel" Content="Adresse:" HorizontalAlignment="Left" Margin="55,262,0,0" VerticalAlignment="Top" Height="44" Width="109" FontSize="22" FontWeight="Bold"/>
+        <TextBox Name="JobPostAdressTextbox" HorizontalAlignment="Left" Height="34" Margin="221,272,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="442" FontSize="16"/>
+        <Button Name="UpdateJobPostButton" Content="Opdater Jobpost" HorizontalAlignment="Left" Margin="1142,872,0,0" VerticalAlignment="Top" Width="156" Height="38" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="UpdateJobPostButton_Click"/>
+        <Button Name="BackToMainMenuButton" Content="Tilbage til Hovedmenu" HorizontalAlignment="Left" Margin="221,872,0,0" VerticalAlignment="Top" Width="198" Height="38" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="BackToMainMenuButton_Click"/>
+        <DatePicker Name="StartDateBox" HorizontalAlignment="Left" Margin="221,341,0,0" VerticalAlignment="Top" Height="34" Width="442" FontSize="16"/>
+        <DatePicker Name="EndDateBox" HorizontalAlignment="Left" Margin="877,341,0,0" VerticalAlignment="Top" Height="34" Width="442" FontSize="16"/>
+        <ComboBox Name="CategoryListBox" HorizontalAlignment="Left" Margin="221,194,0,0" VerticalAlignment="Top" Width="442" Height="34" FontSize="16"/>
+        <Image Name="jobPostImage" HorizontalAlignment="Left" Height="224" Margin="877,66,0,0" VerticalAlignment="Top" Width="442"/>
+        <Label Name="CompanyNameLabel" Content="Virksomhed:" HorizontalAlignment="Left" Margin="55,22,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <TextBox Name="CompanyNameBox" HorizontalAlignment="Left" Height="34" Margin="221,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="442" FontSize="16"/>
+
+    </Grid>
+</UserControl>

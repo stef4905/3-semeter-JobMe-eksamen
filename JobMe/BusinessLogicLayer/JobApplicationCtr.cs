@@ -17,9 +17,9 @@ namespace BusinessLogicLayer
         /// Creates a jobapplication by calling the method Jobapplication in DBAccesLayer.
         /// </summary>
         /// <param name="obj"></param>
-        public void Create(JobApplication obj)
+        public bool Create(JobApplication obj)
         {
-            dbJobApplication.Create(obj);
+            return dbJobApplication.Create(obj);
         }
 
         /// <summary>
@@ -64,9 +64,9 @@ namespace BusinessLogicLayer
         /// Updates the given JobApplication in the database.
         /// </summary>
         /// <param name="obj"></param>
-        public void Update(JobApplication obj)
+        public bool Update(JobApplication obj)
         {
-            dbJobApplication.Update(obj);
+            return dbJobApplication.Update(obj);
         }
 
         /// <summary>

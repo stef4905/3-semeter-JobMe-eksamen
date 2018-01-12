@@ -164,6 +164,29 @@ namespace WCFJobMeService
             jobPostCtr.Update(obj);
         }
 
+        public List<JobPost> GetAllJobPostToAJobApplication(int jobApplicationId)
+        {
+           return jobPostCtr.GetAllJobPostToAJobApplication(jobApplicationId);
+        }
+
+        /// <summary>
+        /// Returns a single jobpost by the given meetingId
+        /// </summary>
+        /// <param name="meetingId"></param>
+        /// <returns>JobPost</returns>
+        public JobPost GetJobPostByMeetingId(int meetingId)
+        {
+            return jobPostCtr.GetJobPostByMeetingId(meetingId);
+        }
+
+        /// <summary>
+        /// Return the number of rows in the jobPost table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetJobPostTableSize()
+        {
+            return jobPostCtr.GetJobPostTableSize();
+        }
         #endregion
     }
 }

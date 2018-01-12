@@ -44,6 +44,15 @@ namespace WCFJobMeService
         /// <returns>bool to see if the create method was a success or not</returns>
         [OperationContract]
         bool UpdateBooking(Booking booking);
+
+        /// <summary>
+        /// Deletes a single booking object in the database
+        /// </summary>
+        /// <param name="bookingId"></param>
+        /// <returns></returns>
+        [OperationContract]
+        bool DeleteBooking(int bookingId);
+
         #endregion
 
         #region Meeting Service
@@ -119,7 +128,11 @@ namespace WCFJobMeService
         /// </summary>
         /// <param name="session"></param>
         /// <returns></returns>
+       [OperationContract]
         bool UpdateSession(Session session);
+
+        [OperationContract]
+        bool RemoveApplierFromSession(Session session);
         #endregion
 
 

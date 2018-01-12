@@ -14,14 +14,54 @@ namespace DataAccessLayer
 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
+        /// <summary>
+        /// Create an admin login
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Create(Admin obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "INSERT INTO Admin (Username, Password, FName, LName, Email) VALUES (@Username, @Password, @FName, @LName, @Email)";
+                    cmd.Parameters.AddWithValue("Username", obj.Username);
+                    cmd.Parameters.AddWithValue("Password", obj.Password);
+                    cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Email", obj.Email ?? (object)DBNull.Value);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch(SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
 
+        /// <summary>
+        /// Is a method that deletes a Admin from the database by the id
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM Admin WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("Id", id);
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
         }
 
         /// <summary>
@@ -55,14 +95,93 @@ namespace DataAccessLayer
             }
         }
 
+
+        /// <summary>
+        /// Get a list of all admins in the database
+        /// </summary>
+        /// <returns></returns>
         public List<Admin> GetAll()
         {
-            throw new NotImplementedException();
+            List<Admin> adminList = new List<Admin>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Admin";
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Admin admin = new Admin();
+                        admin.Id = (int)reader["Id"];
+                        admin.Username = (string)reader["Username"];
+                        admin.Password = (string)reader["Password"];
+                        if(reader["FName"] == DBNull.Value)
+                        {
+                            admin.FName = null;
+                        }
+                        else
+                        {
+                            admin.FName = (string)reader["FName"];
+                        }
+
+                        if (reader["LName"] == DBNull.Value)
+                        {
+                            admin.LName = null;
+                        }
+                        else
+                        {
+                            admin.LName = (string)reader["LName"];
+                        }
+
+                        if (reader["Email"] == DBNull.Value)
+                        {
+                            admin.Email = null;
+                        }
+                        else
+                        {
+                            admin.Email = (string)reader["Email"];
+                        }
+
+                        adminList.Add(admin);
+                    }
+                }
+            }
+            return adminList;
         }
 
+        /// <summary>
+        /// Update a admin in DB
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public bool Update(Admin obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE Admin SET Username = @Username, Password = @Password, FName = @FName, LName = @LName, Email = @Email WHERE Id = @Id";
+                    cmd.Parameters.AddWithValue("Username", obj.Username);
+                    cmd.Parameters.AddWithValue("Password", obj.Password);
+                    cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Email", obj.Email ?? (object)DBNull.Value);
+                    cmd.Parameters.AddWithValue("Id", obj.Id);
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch(SqlException e)
+                    {
+                        throw e;
+                    }
+                    
+                }
+            }
         }
 
 

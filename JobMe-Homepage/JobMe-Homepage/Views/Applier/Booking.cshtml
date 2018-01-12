@@ -1,0 +1,167 @@
+﻿@model JobMe_Homepage.Models.VMBookingSession
+@{
+    ViewBag.Title = "Booking";
+    Layout = "~/Views/Shared/_LayoutApplier.cshtml";
+    bool dis = false;
+}
+@if (TempData["Success"] != null)
+{
+                  <!-- Modal -->
+    <div class="modal fade in" id="succesModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-body">
+                    <p class="text-success" id="successMessage">@TempData["Success"]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (TempData["Failed"] != null)
+{
+    <!-- Modal -->
+    <div class="modal fade in" id="succesModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-body">
+                    <p class="text-success" id="successMessage">@TempData["Failed"]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="container body-content">
+    <div class="bg-white booking">
+        <h1>Job hos @Model.JobPost.company.CompanyName - @Model.JobPost.JobTitle</h1>
+        <h3><b>Adresse:</b> @Model.JobPost.Address</h3>
+        <p><b>Beskrivelse:</b>@Model.JobPost.Description</p>
+        <p><b>Vilkår:</b>@Model.JobPost.workHours.Type</p>
+
+        <div class="row" id="marginTopMeeting">
+            <div class="col-sm-12">
+                @foreach (var Booking in Model.BookingList)
+                {
+                    foreach (var session in Booking.sessionList)
+                    {
+
+                        if (session.ApplierId == Model.Applier.Id)
+                        {
+                            <h2><b>Du har et møde @session.StartTime - @session.EndTime</b></h2>
+                            <a class="btn btn-danger btn-deleteBooking" data-toggle="modal" data-target="#@session.Id" href="#">Slet Booking</a>
+                          <!-- Modal -->
+                            <div class="modal fade" id="@session.Id" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4>Er du sikker på du vil slette mødet? andre får mulighed for at vælge tiden</h4>
+                                        <div class="modal-body">
+                                            <a class="btn btn-danger btn-deleteBooking" href="/Applier/DeleteBooking/?id=@session.Id&JobPostId=@Model.JobPost.Id">Slet Booking</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        if (session.ApplierId == Model.Applier.Id)
+                        {
+                            dis = true;
+                        }
+                    }
+                }
+
+
+                <div class="">
+                    @foreach (var Booking in Model.BookingList)
+                    {
+
+                        <div class="BookingTitleMeeting"> <b>Bookings Dato:</b>@Booking.StartDateAndTime.DayOfWeek d.@Booking.StartDateAndTime.ToShortDateString() </div>
+                        <div class="row bookings">
+                            <div class="col-sm-4 cell">Tidsrum</div>
+                            <div class="col-sm-4 cell">Ledig/Optaget</div>
+                            <div class="col-sm-4 cell">Tidsrum</div>
+                        </div>
+                <!-- #region content -->
+
+                        foreach (var session in Booking.sessionList)
+                        {
+
+
+                            string label;
+                            if (session.ApplierId != 0)
+                            {
+                                label = "label-danger";
+                            }
+                            else
+                            {
+                                label = "label-success";
+                            }
+
+                            <div class="@label row bookings">
+
+                                <div class="col-sm-4 cell">@session.StartTime.ToShortTimeString() - @session.EndTime.ToShortTimeString()</div>
+                                @if (session.ApplierId != 0)
+                    {
+                                    <div class="col-sm-4 cell">
+                                        Optaget
+                                    </div>
+
+                                    <div class="col-sm-4 cell">
+                                        <button type="button" name="removePerson" class="btn btn-blue">Optaget</button>
+
+                                    </div>
+                                }
+                                else if (dis)
+                                {
+                                    <div class="col-sm-4 cell">
+                                        Ledig
+                                    </div>
+                                    <div class="col-sm-4 cell">
+                                        <button type="button" name="removePerson" class="btn btn-blue">du har allerede booket</button>
+
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-sm-4 cell">
+                                        Ledig
+                                    </div>
+
+                                    <div class="col-sm-4 cell">
+                                        <a class="btn btn-blue" href="/Applier/BookMeeting/?id=@session.Id&JobPostId=@Model.JobPost.Id">Book</a>
+                                    </div>
+                                }
+
+                            </div>
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- #endregion -->
+
+
+@section scripts {
+    <script>
+
+
+        window.onload = function () {
+            $('#succesModal').show();
+
+            $('#succesModal').click(function (event) {
+                $('#succesModal').hide();
+            });
+
+
+        }
+    </script>
+}

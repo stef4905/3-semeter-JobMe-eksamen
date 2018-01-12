@@ -14,14 +14,22 @@ namespace WCFJobMeService
     {
         AdminCtr adminCtr = new AdminCtr();
 
+        /// <summary>
+        /// Create admin
+        /// </summary>
+        /// <param name="admin"></param>
         public void Create(Admin admin)
         {
-            throw new NotImplementedException();
+            adminCtr.Create(admin);
         }
 
+        /// <summary>
+        /// Deletes a Admin
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            adminCtr.Delete(id);
         }
 
         /// <summary>
@@ -34,9 +42,13 @@ namespace WCFJobMeService
             return adminCtr.Get(id);
         }
 
+        /// <summary>
+        /// Gets all Admin objects.
+        /// </summary>
+        /// <returns></returns>
         public List<Admin> GetAllAdmin()
         {
-            throw new NotImplementedException();
+            return adminCtr.GetAll();
         }
 
         /// <summary>
@@ -50,9 +62,13 @@ namespace WCFJobMeService
             return adminCtr.Login(username, password);
         }
 
+        /// <summary>
+        /// Update admin
+        /// </summary>
+        /// <param name="admin"></param>
         public void Update(Admin admin)
         {
-            throw new NotImplementedException();
+            adminCtr.Update(admin);
         }
     }
 }

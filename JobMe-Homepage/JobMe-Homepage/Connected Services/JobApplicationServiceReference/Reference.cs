@@ -997,6 +997,9 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
         private string AddressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CompanyNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1007,6 +1010,9 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string JobTitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JobMe_Homepage.JobApplicationServiceReference.Meeting MeetingField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime StartDateField;
@@ -1042,6 +1048,19 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
                 if ((object.ReferenceEquals(this.AddressField, value) != true)) {
                     this.AddressField = value;
                     this.RaisePropertyChanged("Address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CompanyName {
+            get {
+                return this.CompanyNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CompanyNameField, value) != true)) {
+                    this.CompanyNameField = value;
+                    this.RaisePropertyChanged("CompanyName");
                 }
             }
         }
@@ -1094,6 +1113,19 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
                 if ((object.ReferenceEquals(this.JobTitleField, value) != true)) {
                     this.JobTitleField = value;
                     this.RaisePropertyChanged("JobTitle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public JobMe_Homepage.JobApplicationServiceReference.Meeting Meeting {
+            get {
+                return this.MeetingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MeetingField, value) != true)) {
+                    this.MeetingField = value;
+                    this.RaisePropertyChanged("Meeting");
                 }
             }
         }
@@ -1159,6 +1191,83 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
                 if ((object.ReferenceEquals(this.workHoursField, value) != true)) {
                     this.workHoursField = value;
                     this.RaisePropertyChanged("workHours");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Meeting", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class Meeting : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CompanyIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JobMe_Homepage.JobApplicationServiceReference.Booking[] bookingField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CompanyId {
+            get {
+                return this.CompanyIdField;
+            }
+            set {
+                if ((this.CompanyIdField.Equals(value) != true)) {
+                    this.CompanyIdField = value;
+                    this.RaisePropertyChanged("CompanyId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public JobMe_Homepage.JobApplicationServiceReference.Booking[] booking {
+            get {
+                return this.bookingField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.bookingField, value) != true)) {
+                    this.bookingField = value;
+                    this.RaisePropertyChanged("booking");
                 }
             }
         }
@@ -1473,6 +1582,256 @@ namespace JobMe_Homepage.JobApplicationServiceReference {
                 if ((object.ReferenceEquals(this.TypeField, value) != true)) {
                     this.TypeField = value;
                     this.RaisePropertyChanged("Type");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Booking", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class Booking : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndDateAndTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int InterviewAmountField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MeetingIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartDateAndTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JobMe_Homepage.JobApplicationServiceReference.Session[] sessionListField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndDateAndTime {
+            get {
+                return this.EndDateAndTimeField;
+            }
+            set {
+                if ((this.EndDateAndTimeField.Equals(value) != true)) {
+                    this.EndDateAndTimeField = value;
+                    this.RaisePropertyChanged("EndDateAndTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int InterviewAmount {
+            get {
+                return this.InterviewAmountField;
+            }
+            set {
+                if ((this.InterviewAmountField.Equals(value) != true)) {
+                    this.InterviewAmountField = value;
+                    this.RaisePropertyChanged("InterviewAmount");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MeetingId {
+            get {
+                return this.MeetingIdField;
+            }
+            set {
+                if ((this.MeetingIdField.Equals(value) != true)) {
+                    this.MeetingIdField = value;
+                    this.RaisePropertyChanged("MeetingId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartDateAndTime {
+            get {
+                return this.StartDateAndTimeField;
+            }
+            set {
+                if ((this.StartDateAndTimeField.Equals(value) != true)) {
+                    this.StartDateAndTimeField = value;
+                    this.RaisePropertyChanged("StartDateAndTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public JobMe_Homepage.JobApplicationServiceReference.Session[] sessionList {
+            get {
+                return this.sessionListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.sessionListField, value) != true)) {
+                    this.sessionListField = value;
+                    this.RaisePropertyChanged("sessionList");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Session", Namespace="http://schemas.datacontract.org/2004/07/ModelLayer")]
+    [System.SerializableAttribute()]
+    public partial class Session : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private JobMe_Homepage.JobApplicationServiceReference.Applier ApplierField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ApplierIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BookingIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime EndTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime StartTimeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public JobMe_Homepage.JobApplicationServiceReference.Applier Applier {
+            get {
+                return this.ApplierField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ApplierField, value) != true)) {
+                    this.ApplierField = value;
+                    this.RaisePropertyChanged("Applier");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ApplierId {
+            get {
+                return this.ApplierIdField;
+            }
+            set {
+                if ((this.ApplierIdField.Equals(value) != true)) {
+                    this.ApplierIdField = value;
+                    this.RaisePropertyChanged("ApplierId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BookingId {
+            get {
+                return this.BookingIdField;
+            }
+            set {
+                if ((this.BookingIdField.Equals(value) != true)) {
+                    this.BookingIdField = value;
+                    this.RaisePropertyChanged("BookingId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime EndTime {
+            get {
+                return this.EndTimeField;
+            }
+            set {
+                if ((this.EndTimeField.Equals(value) != true)) {
+                    this.EndTimeField = value;
+                    this.RaisePropertyChanged("EndTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime StartTime {
+            get {
+                return this.StartTimeField;
+            }
+            set {
+                if ((this.StartTimeField.Equals(value) != true)) {
+                    this.StartTimeField = value;
+                    this.RaisePropertyChanged("StartTime");
                 }
             }
         }

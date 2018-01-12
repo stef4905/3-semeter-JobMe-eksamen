@@ -53,12 +53,60 @@ namespace DataAccessLayer
         }
 
         /// <summary>
+        /// Returns a single jobpost object from the database by the given meetingId
+        /// </summary>
+        /// <param name="meetingId"></param>
+        /// <returns></returns>
+        public JobPost GetJogPostByMeetingId(int meetingId)
+        {
+            DbWorkHour dbWorkHour = new DbWorkHour();
+            DbCompany dbCompany = new DbCompany();
+            DbJobCategory dbJobCategory = new DbJobCategory();
+            JobPost jobPost = new JobPost();
+            DBMeeting dBMeeting = new DBMeeting();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM JobPost WHERE MeetingId = @MeetingId";
+                    cmd.Parameters.AddWithValue("MeetingId", meetingId);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        jobPost.Id = (int)reader["Id"];
+                        jobPost.Title = (string)reader["Title"];
+                        jobPost.Description = (string)reader["Description"];
+                        jobPost.StartDate = (DateTime)reader["StartDate"];
+                        jobPost.EndDate = (DateTime)reader["EndDate"];
+                        jobPost.JobTitle = (string)reader["JobTitle"];
+                        jobPost.workHours = dbWorkHour.Get((int)reader["WorkHoursId"]);
+                        jobPost.Address = (string)reader["Address"];
+                        jobPost.company = dbCompany.Get((int)reader["CompanyId"]);
+                        jobPost.jobCategory = dbJobCategory.Get((int)reader["JobCategoryId"]);
+                        jobPost.Meeting = dBMeeting.Get((int)reader["MeetingId"]);
+                    };
+                    return jobPost;
+                }
+            }
+        }
+
+        /// <summary>
         /// Deletes a specific JobPost by the given id
         /// </summary>
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM JobPost WHERE Id = @id";
+                    cmd.Parameters.AddWithValue("id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         /// <summary>
@@ -83,6 +131,9 @@ namespace DataAccessLayer
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
+                        //Gets the company on the jobPost
+                        Company companyReturned = dbCompany.Get((int)reader["CompanyId"]);
+
                         jobPost.Id = (int)reader["Id"];
                         jobPost.Title = (string)reader["Title"];
                         jobPost.Description = (string)reader["Description"];
@@ -91,7 +142,8 @@ namespace DataAccessLayer
                         jobPost.JobTitle = (string)reader["JobTitle"];
                         jobPost.workHours = dbWorkHour.Get((int)reader["WorkHoursId"]);
                         jobPost.Address = (string)reader["Address"];
-                        jobPost.company = dbCompany.Get((int)reader["CompanyId"]);
+                        jobPost.company = companyReturned;
+                        jobPost.CompanyName = companyReturned.CompanyName;
                         jobPost.jobCategory = dbJobCategory.Get((int)reader["JobCategoryId"]);
                         jobPost.Meeting = dBMeeting.Get((int)reader["MeetingId"]);
                     };
@@ -107,6 +159,7 @@ namespace DataAccessLayer
         public List<JobPost> GetAll()
         {
             List<JobPost> jobPostList = new List<JobPost>();
+            DBMeeting dbMeeting = new DBMeeting();
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
@@ -120,6 +173,10 @@ namespace DataAccessLayer
                         DbWorkHour dbWorkHour = new DbWorkHour();
                         DbCompany dbCompany = new DbCompany();
                         DbJobCategory dbJobCategory = new DbJobCategory();
+
+                        //Gets the company on the jobPost
+                        Company companyReturned = dbCompany.Get((int)reader["CompanyId"]);
+
                         JobPost jobPost = new JobPost
                         {
                             Id = (int)reader["Id"],
@@ -130,8 +187,10 @@ namespace DataAccessLayer
                             JobTitle = (string)reader["JobTitle"],
                             workHours = dbWorkHour.Get((int)reader["WorkHoursId"]),
                             Address = (string)reader["Address"],
-                            company = dbCompany.Get((int)reader["CompanyId"]),
-                            jobCategory = dbJobCategory.Get((int)reader["JobCategoryId"])
+                            company = companyReturned,
+                            CompanyName = companyReturned.CompanyName,
+                            jobCategory = dbJobCategory.Get((int)reader["JobCategoryId"]),
+                            Meeting = dbMeeting.Get((int)reader["MeetingId"])
                         };
                         jobPostList.Add(jobPost);
                     }
@@ -148,7 +207,32 @@ namespace DataAccessLayer
         /// <returns>Bool to ensure update was succesfull</returns>
         public bool Update(JobPost obj)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE JobPost SET Title = @Title, Description = @Description, StartDate = @StartDate, EndDate = @EndDate, JobTitle = @JobTitle, WorkHoursId = @WorkHoursId, Address = @Address, JobCategoryId = @JobCategoryId WHERE Id = @Id";
+                    try
+                    {
+                        cmd.Parameters.AddWithValue("Title", obj.Title);
+                        cmd.Parameters.AddWithValue("Description", obj.Description);
+                        cmd.Parameters.AddWithValue("StartDate", obj.StartDate);
+                        cmd.Parameters.AddWithValue("EndDate", obj.EndDate);
+                        cmd.Parameters.AddWithValue("JobTitle", obj.JobTitle);
+                        cmd.Parameters.AddWithValue("WorkHoursId", obj.workHours.Id);
+                        cmd.Parameters.AddWithValue("Address", obj.Address);
+                        cmd.Parameters.AddWithValue("JobCategoryId", obj.jobCategory.Id);
+                        cmd.Parameters.AddWithValue("Id", obj.Id);
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (SqlException e)
+                    {
+                        throw e;
+                    }
+                }
+            }
         }
 
 
@@ -183,6 +267,26 @@ namespace DataAccessLayer
                 }
             }
 
+        }
+
+
+        /// <summary>
+        /// Return the number of rows in the jobPost table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetJobPostTableSize()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                   
+                    cmd.CommandText = "SELECT COUNT(*) FROM JobPost";
+                    int count = (int)cmd.ExecuteScalar();
+                    return count;
+                }
+            }
         }
     }
 }

@@ -6,21 +6,26 @@
         xmlns:local="clr-namespace:DekstopApplication"
         mc:Ignorable="d"
         Title="CMS" Height="1020" Width="1671" WindowStyle="None" AllowsTransparency="True">
-	<Grid>
-		<Rectangle Fill="#FF083056" HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="1671" MouseDown="Rectangle_MouseDown"/>
-		<Button Content="_" Margin="1598,2,39,970" Click="MinimizeWindow" Foreground="#FCFFFFFF" BorderBrush="#00707070" FontSize="36" FontFamily="Verdana Pro" HorizontalAlignment="Center" VerticalAlignment="Center" Height="48" Width="34" Background="{x:Null}"/>
-		<Button Content="X" Margin="1632,6,7,970" Click="CloseWindow" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="White" FontSize="36" FontFamily="Verdana Pro" />
-		<Label Content="JobMe - V0.0.1" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Arial Nova"/>
-		<Rectangle Fill="#FF142638" HorizontalAlignment="Left" Height="953" Margin="0,67,0,0" VerticalAlignment="Top" Width="261"/>
+    <Grid>
+        <Rectangle Fill="#FF083056" HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="1671" MouseDown="Rectangle_MouseDown"/>
+        <Button Content="_" Margin="1598,2,39,970" Click="MinimizeWindow" Foreground="#FCFFFFFF" BorderBrush="#00707070" FontSize="36" FontFamily="Verdana Pro" HorizontalAlignment="Center" VerticalAlignment="Center" Height="48" Width="34" Background="{x:Null}"/>
+        <Button Content="X" Margin="1632,6,7,970" Click="CloseWindow" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="White" FontSize="36" FontFamily="Verdana Pro" />
+        <Label Content="JobMe - V1.0.0" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36" FontFamily="Arial Nova"/>
+        <Rectangle Fill="#FF142638" HorizontalAlignment="Left" Height="953" Margin="0,67,0,0" VerticalAlignment="Top" Width="261"/>
 
-		<Button Content="Forside" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click"/>
+        <Button Content="Forside" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click"/>
 
-		<Rectangle Fill="#FFC2C2C3" HorizontalAlignment="Left" Height="953" Margin="261,67,0,0" VerticalAlignment="Top" Width="1410"/>
-		<Grid HorizontalAlignment="Left" Height="953" Margin="325,67,0,0" VerticalAlignment="Top" Width="1346"/>
-		<Button Content="Virksomheder" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click_1"/>
-		<Button Content="Joboplsag" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click_2"/>
-		<Button Content="Ansøgere" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click_3"/>
-		<StackPanel Name="GuiPanel" HorizontalAlignment="Left" Height="953" Margin="261,67,0,0" VerticalAlignment="Top" Width="1410"/>
+        <Rectangle Fill="#FFC2C2C3" HorizontalAlignment="Left" Height="953" Margin="261,67,0,0" VerticalAlignment="Top" Width="1410"/>
+        <Grid HorizontalAlignment="Left" Height="953" Margin="325,67,0,0" VerticalAlignment="Top" Width="1346"/>
+        <Button Content="Virksomheder" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click_1"/>
+        <Button Name="JobPostButton" Content="Jobopslag" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click_2"/>
+        <Button Content="Ansøgere" HorizontalAlignment="Left" Margin="10,238,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" Click="Button_Click_3"/>
+        <StackPanel Name="GuiPanel" HorizontalAlignment="Left" Height="953" Margin="261,67,0,0" VerticalAlignment="Top" Width="1410"/>
+        <Button Content="Log ud" HorizontalAlignment="Left" Background="#011223" Margin="10,965,0,0" VerticalAlignment="Top" Width="237" Height="45" Click="Button_Click_4" Foreground="White" FontSize="18" />
+        <Image HorizontalAlignment="Left" Height="100" Margin="150,914,0,0" VerticalAlignment="Top" Width="100" Source="https://imgur.com/jTou6OH"/>
+        <Button x:Name="AdminPanel" Content="Admin" HorizontalAlignment="Left" Margin="10,286,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" RenderTransformOrigin="0.54,2.417" Click="AdminPanel_Click"/>
+		<Button Name="WebsiteInfo" Content="Web info" HorizontalAlignment="Left" Margin="10,339,0,0" VerticalAlignment="Top" Width="237" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Height="48" FontSize="32" HorizontalContentAlignment="Center" RenderTransformOrigin="0.54,2.417" Click="WebInfo_Click"/>
+
 
 
 	</Grid>

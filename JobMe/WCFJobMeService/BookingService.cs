@@ -39,6 +39,12 @@ namespace WCFJobMeService
             return BookingCtr.Update(booking);
         }
 
+        public bool DeleteBooking(int bookingId)
+        {
+            return BookingCtr.Delete(bookingId);
+        }
+
+
         #endregion
 
         #region Meeting Service
@@ -92,6 +98,10 @@ namespace WCFJobMeService
             return SessionCtr.Update(session);
         }
 
+        public bool RemoveApplierFromSession(Session session)
+        {
+            return SessionCtr.RemoveApplierFromSession(session);
+        }
         #endregion
     }
 }

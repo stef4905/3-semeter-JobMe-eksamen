@@ -3,45 +3,42 @@
     ViewBag.Title = "ApplierProfile";
     Layout = "~/Views/Shared/_LayoutApplier.cshtml";
 }
-
-
-
 <!-- #region Applier Profile region! -->
-<div class="ApplierProfile-Content">
-    <div class="row">
-        <div class="panel panel-default">
-            <div class=""> <img id="Banner" class="img-responsive" src="@Model.BannerURL"/></div>
-            <div class="panel-body">
-                <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-                    <img alt="User Pic" src="@Model.ImageURL" id="profile-image" class="img-circle img-responsive">
-                </div>
-                <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
-                    <div class="container">
-                        <h2>@Model.FName @Model.LName</h2>
-
-                        <p>Fødselsdag <b>@Model.Birthdate.ToShortDateString()</b></p>
-
-                        <p>Nuværrende Job: <b> @Model.CurrentJob</b></p>
-                        <p>Location: <b> @Model.Address</b></p>
-                        <p>  Job kategorier: </p>
-                        <ul>
-                            @foreach (var category in Model.JobCategoryList)
-                            {
-                                <li> <b>@category.Title</b> </li>
-                            }
-                        </ul>
+<div class="container body-content">
+    <div class="ApplierProfile-Content">
+        <div class="row">
+            <div class="panel panel-default">
+                <div class=""> <img id="Banner" class="img-responsive" src="@Model.BannerURL" /></div>
+                <div class="panel-body">
+                    <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+                        <img alt="User Pic" src="@Model.ImageURL" id="profile-image" class="img-circle img-responsive">
                     </div>
-                    <h3>Beskrivelse:</h3>
-                    <p>@Model.Description</p>
+                    <div class="col-md-6 col-xs-12 col-sm-4 col-lg-6">
+                        <div class="container">
+                            <h2>@Model.FName @Model.LName</h2>
 
-                </div>
-                <div class="col-md-2 col-xs-12 col-sm-4 col-lg-2">
-                    
-                    <a class="btn btn-blue" href="/Applier/UpdateUserProfile">Redigere profil</a>
-                
+                            <p>Fødselsdag <b>@Model.Birthdate.ToShortDateString()</b></p>
+
+                            <p>Nuværrende Job: <b> @Model.CurrentJob</b></p>
+                            <p>Location: <b> @Model.Address</b></p>
+                            <p>  Job kategorier: </p>
+                            <ul>
+                                @foreach (var category in Model.JobCategoryList)
+                                {
+                                    <li> <b>@category.Title</b> </li>
+                                }
+                            </ul>
+                        </div>
+                        <h3>Beskrivelse:</h3>
+                        <p>@Model.Description</p>
+
+                    </div>
+                    <div class="col-md-2 col-xs-12 col-sm-4 col-lg-2">
+                        <a class="btn btn-blue" href="/Applier/UpdateUserProfile">Redigere profil</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- #endregion -->
+    </div>
+    <!-- #endregion -->

@@ -13,10 +13,10 @@ namespace BusinessLogicLayer
     /// <typeparam name="T"></typeparam>
     interface IController<T>
     {
-        void Create(T obj);
+        bool Create(T obj);
         T Get(int id);
         List<T> GetAll();
-        void Update(T obj);
+        bool Update(T obj);
         void Delete(int id);
     }
 }

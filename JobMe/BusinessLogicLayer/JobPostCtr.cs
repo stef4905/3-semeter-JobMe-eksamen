@@ -24,7 +24,7 @@ namespace BusinessLogicLayer
             DBMeeting dBMeeting = new DBMeeting();
             Meeting meeting = new Meeting
             {
-                Id = obj.company.Id
+                CompanyId = obj.company.Id
 
             };
             dBMeeting.Create(meeting);
@@ -40,7 +40,7 @@ namespace BusinessLogicLayer
         /// <param name="id"></param>
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            dbJobPost.Delete(id);
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public void Update(JobPost obj)
         {
-            throw new NotImplementedException();
+            dbJobPost.Update(obj);
         }
 
         /// <summary>
@@ -79,6 +79,25 @@ namespace BusinessLogicLayer
         public List<JobPost> GetAllJobPostToAJobApplication(int jobApplicationId)
         {
             return dbJobPost.GetAllJobPostToAJobApplication(jobApplicationId);
+        }
+
+        /// <summary>
+        /// Returns a single jobpost object from the database by the give meetingId
+        /// </summary>
+        /// <param name="meetingId"></param>
+        /// <returns></returns>
+        public JobPost GetJobPostByMeetingId(int meetingId)
+        {
+            return dbJobPost.GetJogPostByMeetingId(meetingId);
+        }
+
+        /// <summary>
+        /// Return the number of rows in the jobPost table in the database
+        /// </summary>
+        /// <returns></returns>
+        public int GetJobPostTableSize()
+        {
+            return dbJobPost.GetJobPostTableSize();
         }
     }
 }

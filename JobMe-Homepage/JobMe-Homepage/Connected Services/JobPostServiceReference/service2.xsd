@@ -187,4 +187,44 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllJobPostToAJobApplication">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="jobApplicationId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllJobPostToAJobApplicationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ModelLayer" minOccurs="0" name="GetAllJobPostToAJobApplicationResult" nillable="true" type="q13:ArrayOfJobPost" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobPostByMeetingId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="meetingId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobPostByMeetingIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ModelLayer" minOccurs="0" name="GetJobPostByMeetingIdResult" nillable="true" type="q14:JobPost" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobPostTableSize">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobPostTableSizeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetJobPostTableSizeResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

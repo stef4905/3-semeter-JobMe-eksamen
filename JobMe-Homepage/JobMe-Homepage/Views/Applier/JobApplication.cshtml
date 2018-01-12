@@ -6,158 +6,120 @@
 <!-- Link for this page is JobApplication/?applierId={applierId}&jobApplicationId={jobApplicationId} -->
 <!-- #region ContactInfoAndImage -->
 <!-- JobCV design and creationg -->
-<div class="row">
-
-    <div class="col-sm-4" id="profile-col">
-        <img id="profileImage" src="@Model.Applier.ImageURL" class="img-circle" width="300" height="300">
-        <div class="firstName" align="center">@Model.Applier.FName</div>
-        <div class="lastName" align="center">@Model.Applier.LName</div>
-
-        <!-- Contact information about the profile. -->
-        <div class="profileInfoLeft">
-            <div class="row">
-                <div class="col-sm-12">
-                    <p>
-                        <span class="glyphicon glyphicon-envelope"></span>
-                        Kontakt info
-                    </p>
-                </div>
-                <div class="row" id="infoContent">
-                    <div class="col-sm-6">
-                        <p id="infoContentBold">Nationalitet</p>
+<div class="container body-content">
+    <div class="row">
+        <div class="col-sm-4" id="profile-col">
+            <img id="profileImage" src="@Model.Applier.ImageURL" class="img-circle" width="300" height="300">
+            <div class="firstName" align="center">@Model.Applier.FName</div>
+            <div class="lastName" align="center">@Model.Applier.LName</div>
+            <!-- Contact information about the profile. -->
+            <div class="profileInfoLeft">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>
+                            <span class="glyphicon glyphicon-envelope"></span>
+                            Kontakt info
+                        </p>
                     </div>
-                    <div class="col-sm-6">
-                        <p>@Model.Applier.Country</p>
+                    <div class="row" id="infoContent">
+                        <div class="col-sm-4">
+                            <p id="infoContentBold">Nationalitet</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p>@Model.Applier.Country</p>
+                        </div>
                     </div>
-                </div>
-                <div class="row" id="infoContent">
-                    <div class="col-sm-6">
-                        <p id="infoContentBold">Fødselsdag</p>
+                    <div class="row" id="infoContent">
+                        <div class="col-sm-4">
+                            <p id="infoContentBold">Fødselsdag</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p>@Model.Applier.Birthdate.ToShortDateString()</p>
+                        </div>
                     </div>
-                    <div class="col-sm-6">
-                        <p>@Model.Applier.Birthdate.ToShortDateString()</p>
+                    <div class="row" id="infoContent">
+                        <div class="col-sm-4">
+                            <p id="infoContentBold">Adresse</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p>@Model.Applier.Address</p>
+                        </div>
                     </div>
-                </div>
-                <div class="row" id="infoContent">
-                    <div class="col-sm-6">
-                        <p id="infoContentBold">Adresse</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p>@Model.Applier.Address</p>
-                    </div>
-                </div>
-                <div class="row" id="infoContent">
-                    <div class="col-sm-6">
-                        <p id="infoContentBold">email:</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p>@Model.Applier.Email</p>
+                    <div class="row" id="infoContent">
+                        <div class="col-sm-4">
+                            <p id="infoContentBold">Email</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p>@Model.Applier.Email</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- #endregion -->
-        <!-- #region Biografy from the profile-->
-        <div class="profileInfoLeft">
-            <div class="row">
-                <div class="col-sm-12">
-                    <p>
-                        <span class="glyphicon glyphicon-user"></span>
-                        Biografi
-                    </p>
-                </div>
-                <div class="row" id="infoContent">
-                    <div class="col-sm-11">
-                        <p>@Model.Applier.Description</p>
+            <!-- #endregion -->
+            <!-- #region Biografy from the profile-->
+            <div class="profileInfoLeft">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>
+                            <span class="glyphicon glyphicon-user"></span>
+                            Biografi
+                        </p>
+                    </div>
+                    <div class="row" id="infoContent">
+                        <div class="col-sm-11">
+                            <p>@Model.Applier.Description</p>
+                        </div>
+
                     </div>
 
                 </div>
-
             </div>
+            <!-- #endregion -->
         </div>
-        <!-- #endregion -->
-        <!-- #region languages -->
-        <div class="profileInfoLeft">
-            <div class="row">
-                <div class="col-sm-12">
-                    <p>
-                        <span class="glyphicon glyphicon-globe"></span>
-                        Sprog
-                    </p>
-                </div>
-                <div class="row" id="infoContent">
-                    <div class="col-sm-6">
-                        <p id="infoContentBold">Dansk</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p>Moderssprog</p>
-                    </div>
-                </div>
-                <div class="row" id="infoContent">
-                    <div class="col-sm-6">
-                        <p id="infoContentBold">Engelsk</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p>Flydende</p>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-    </div>
+        <!-- #region Deployement-->
+        <div class="col-sm-8" id="experience-col">
+            <div class="row" id="profileInfoRight">
 
-    <!-- #endregion -->
-    <!-- #region Deployement-->
-    <div class="col-sm-8" id="experience-col">
-        <div class="row" id="profileInfoRight">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#Application">Ansøgning</a></li>
+                    <li><a href="#JobCV">CV</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="Application" class="tab-pane fade in active">
 
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#Application">Ansøgning</a></li>
-                <li><a href="#JobCV">CV</a></li>
-            </ul>
-            <div class="tab-content">
-                <div id="Application" class="tab-pane fade in active">
-                    
-                    @Html.Partial("_JobApplication", Model)
-                </div>
-                <div id="JobCV" class="tab-pane fade">
-                    @Html.Partial("_JobCV", Model.Applier)
+                        @Html.Partial("_JobApplication", Model)
+                    </div>
+                    <div id="JobCV" class="tab-pane fade">
+                        @Html.Partial("_JobCV", Model.Applier)
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+    <!--#endregion-->
 
-<!--#endregion-->
 
+    @section scripts {
+        <script>
 
-@section scripts {
-
-    <script>
-
-    $(document).ready(function () {
-        $(".nav-tabs a").click(function () {
-            $(this).tab('show');
-        });
-    });
-    </script>
-
-    <script>
-       
-  
-        window.onload = function () {
-            $('#succesModal').show();
-
-            $('#succesModal').click(function (event) {
-              $('#succesModal').hide();
+            $(document).ready(function () {
+                $(".nav-tabs a").click(function () {
+                    $(this).tab('show');
+                });
             });
+        </script>
+        <script>
+            window.onload = function () {
+                $('#succesModal').show();
 
-        
-        }
-    </script>
-
-
-}
+                $('#succesModal').click(function (event) {
+                    $('#succesModal').hide();
+                });
+            }
+        </script>
+    }
 
 
 
