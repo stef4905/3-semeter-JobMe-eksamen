@@ -291,6 +291,7 @@ namespace DataAccessLayer
                             //{
                             //    applier.OldTimestamp = new DateTime();
                             //}
+                            reader.Close();
 
                         }
                     }
@@ -497,14 +498,12 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Update(Applier obj)
         {
+            Applier toCheck = Get(obj.Id);
             TransactionOptions options = new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }; //Sets the isolationlevel needed for the situation.
             using (var scope = new System.Transactions.TransactionScope(TransactionScopeOption.Required, options))
             {
-
-
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
-                    Applier toCheck = Get(obj.Id);
                     if(toCheck.OldTimestamp == obj.OldTimestamp)
                     {
                         connection.Open();
