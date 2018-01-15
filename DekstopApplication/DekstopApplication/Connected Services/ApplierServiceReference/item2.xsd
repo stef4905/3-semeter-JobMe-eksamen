@@ -60,7 +60,9 @@
   </xs:element>
   <xs:element name="UpdateResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateResult" type="xs:boolean" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Login">

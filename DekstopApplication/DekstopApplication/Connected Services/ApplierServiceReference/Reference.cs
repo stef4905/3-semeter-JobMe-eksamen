@@ -71,6 +71,12 @@ namespace DekstopApplication.ApplierServiceReference {
         private int MaxRadiusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OldTimestampField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OldUpdateIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -293,6 +299,32 @@ namespace DekstopApplication.ApplierServiceReference {
                 if ((this.MaxRadiusField.Equals(value) != true)) {
                     this.MaxRadiusField = value;
                     this.RaisePropertyChanged("MaxRadius");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OldTimestamp {
+            get {
+                return this.OldTimestampField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OldTimestampField, value) != true)) {
+                    this.OldTimestampField = value;
+                    this.RaisePropertyChanged("OldTimestamp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OldUpdateId {
+            get {
+                return this.OldUpdateIdField;
+            }
+            set {
+                if ((this.OldUpdateIdField.Equals(value) != true)) {
+                    this.OldUpdateIdField = value;
+                    this.RaisePropertyChanged("OldUpdateId");
                 }
             }
         }
@@ -904,10 +936,10 @@ namespace DekstopApplication.ApplierServiceReference {
         System.Threading.Tasks.Task<DekstopApplication.ApplierServiceReference.Applier> GetApplierAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/Update", ReplyAction="http://tempuri.org/IApplierService/UpdateResponse")]
-        void Update(DekstopApplication.ApplierServiceReference.Applier applier);
+        bool Update(DekstopApplication.ApplierServiceReference.Applier applier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/Update", ReplyAction="http://tempuri.org/IApplierService/UpdateResponse")]
-        System.Threading.Tasks.Task UpdateAsync(DekstopApplication.ApplierServiceReference.Applier applier);
+        System.Threading.Tasks.Task<bool> UpdateAsync(DekstopApplication.ApplierServiceReference.Applier applier);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/Login", ReplyAction="http://tempuri.org/IApplierService/LoginResponse")]
         DekstopApplication.ApplierServiceReference.Applier Login(string email, string password);
@@ -987,11 +1019,11 @@ namespace DekstopApplication.ApplierServiceReference {
             return base.Channel.GetApplierAsync(id);
         }
         
-        public void Update(DekstopApplication.ApplierServiceReference.Applier applier) {
-            base.Channel.Update(applier);
+        public bool Update(DekstopApplication.ApplierServiceReference.Applier applier) {
+            return base.Channel.Update(applier);
         }
         
-        public System.Threading.Tasks.Task UpdateAsync(DekstopApplication.ApplierServiceReference.Applier applier) {
+        public System.Threading.Tasks.Task<bool> UpdateAsync(DekstopApplication.ApplierServiceReference.Applier applier) {
             return base.Channel.UpdateAsync(applier);
         }
         

@@ -28,7 +28,7 @@ namespace WCFJobMeService
         Applier GetApplier(int id);
 
         [OperationContract]
-        void Update(Applier applier);
+        bool Update(Applier applier);
 
         [OperationContract]
         Applier Login(string email, string password);

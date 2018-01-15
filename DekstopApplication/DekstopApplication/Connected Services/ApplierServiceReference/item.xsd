@@ -18,6 +18,8 @@
       <xs:element minOccurs="0" name="JobCategoryList" nillable="true" type="tns:ArrayOfJobCategory" />
       <xs:element minOccurs="0" name="LName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="MaxRadius" type="xs:int" />
+      <xs:element minOccurs="0" name="OldTimestamp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OldUpdateId" type="xs:int" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Phone" type="xs:int" />
       <xs:element minOccurs="0" name="Status" type="xs:boolean" />
