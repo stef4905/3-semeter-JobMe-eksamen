@@ -48,6 +48,10 @@ namespace ModelLayer
         public List<JobCategory> JobCategoryList { get; set; }
         [DataMember]
         public JobCV JobCV { get; set; }
+        [DataMember]
+        public int OldUpdateId { get; set; }
+        [DataMember]
+        public string OldTimestamp { get; set; }
 
         /// <summary>
         /// Constructor for Applier with the needed parameters.

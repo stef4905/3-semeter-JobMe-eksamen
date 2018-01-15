@@ -920,6 +920,12 @@ namespace DekstopApplication.ApplierServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/GetApplierTableSize", ReplyAction="http://tempuri.org/IApplierService/GetApplierTableSizeResponse")]
         System.Threading.Tasks.Task<int> GetApplierTableSizeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/UpdatePassword", ReplyAction="http://tempuri.org/IApplierService/UpdatePasswordResponse")]
+        void UpdatePassword(DekstopApplication.ApplierServiceReference.Applier applier);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IApplierService/UpdatePassword", ReplyAction="http://tempuri.org/IApplierService/UpdatePasswordResponse")]
+        System.Threading.Tasks.Task UpdatePasswordAsync(DekstopApplication.ApplierServiceReference.Applier applier);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1003,6 +1009,14 @@ namespace DekstopApplication.ApplierServiceReference {
         
         public System.Threading.Tasks.Task<int> GetApplierTableSizeAsync() {
             return base.Channel.GetApplierTableSizeAsync();
+        }
+        
+        public void UpdatePassword(DekstopApplication.ApplierServiceReference.Applier applier) {
+            base.Channel.UpdatePassword(applier);
+        }
+        
+        public System.Threading.Tasks.Task UpdatePasswordAsync(DekstopApplication.ApplierServiceReference.Applier applier) {
+            return base.Channel.UpdatePasswordAsync(applier);
         }
     }
 }

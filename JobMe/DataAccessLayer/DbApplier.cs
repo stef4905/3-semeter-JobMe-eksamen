@@ -7,6 +7,7 @@ using DataAccessLayer;
 using ModelLayer;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Transactions;
 
 namespace DataAccessLayer
 {
@@ -282,7 +283,14 @@ namespace DataAccessLayer
                             {
                                 applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
                             }
-
+                            if (reader["CurrentTimestamp"] != DBNull.Value)
+                            {
+                                applier.OldTimestamp = Convert.ToBase64String(reader["CurrentTimestamp"] as Byte[]);
+                            }
+                            //else
+                            //{
+                            //    applier.OldTimestamp = new DateTime();
+                            //}
 
                         }
                     }
@@ -465,6 +473,14 @@ namespace DataAccessLayer
                         {
                             applier.JobCV = dBJobCV.Get((int)reader["JobCVId"]);
                         }
+                        if (reader["CurrentTimestamp"] != DBNull.Value)
+                        {
+                            applier.OldTimestamp = Convert.ToBase64String(reader["CurrentTimestamp"] as Byte[]);
+                        }
+                        //else
+                        //{
+                        //    applier.OldTimestamp = 0;
+                        //}
                         applier = GetJobCategoryOnApplier(applier);
                         applierList.Add(applier);
 
@@ -481,47 +497,112 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Update(Applier obj)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            TransactionOptions options = new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }; //Sets the isolationlevel needed for the situation.
+            using (var scope = new System.Transactions.TransactionScope(TransactionScopeOption.Required, options))
             {
-                connection.Open();
-                using (SqlCommand cmd = connection.CreateCommand())
-                {
-                    cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Address = @Address, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
-                        " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
-                        " CurrentJob = @CurrentJob, Birthdate = @Birthdate, Password = @Password, JobCVId = @JobCVId" +
-                        "WHERE Id = @Id";
-                    cmd.Parameters.AddWithValue("Email", obj.Email);
-                    cmd.Parameters.AddWithValue("Phone", obj.Phone);
-                    cmd.Parameters.AddWithValue("Address", obj.Address ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("Country", obj.Country ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("Description", obj.Description ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("BannerURL", obj.BannerURL ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("ImageURL", obj.ImageURL ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("MaxRadius", obj.MaxRadius);
-                    cmd.Parameters.AddWithValue("HomePage", obj.HomePage ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("Age", obj.Age);
-                    cmd.Parameters.AddWithValue("Status", obj.Status);
-                    cmd.Parameters.AddWithValue("CurrentJob", obj.CurrentJob ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("Birthdate", obj.Birthdate);
-                    cmd.Parameters.AddWithValue("Password", obj.Password);
-                    cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
-                    cmd.Parameters.AddWithValue("Id", obj.Id);
-                    
 
-                    try
+
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = connection.CreateCommand())
                     {
-                        cmd.ExecuteNonQuery();
-                        return true;
-                    }
-                    catch (SqlException e)
-                    {
-                        throw e;
+                        cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Address = @Address, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
+                            " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
+                            " CurrentJob = @CurrentJob, Birthdate = @Birthdate, Password = @Password, JobCVId = @JobCVId " +
+                            "WHERE Id = @Id AND CurrentTimestamp = @OldTimestamp";
+                        cmd.Parameters.AddWithValue("Email", obj.Email);
+                        cmd.Parameters.AddWithValue("Phone", obj.Phone);
+                        cmd.Parameters.AddWithValue("Address", obj.Address ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("Country", obj.Country ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("Description", obj.Description ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("BannerURL", obj.BannerURL ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("ImageURL", obj.ImageURL ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("MaxRadius", obj.MaxRadius);
+                        cmd.Parameters.AddWithValue("HomePage", obj.HomePage ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("Age", obj.Age);
+                        cmd.Parameters.AddWithValue("Status", obj.Status);
+                        cmd.Parameters.AddWithValue("CurrentJob", obj.CurrentJob ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("Birthdate", obj.Birthdate);
+                        cmd.Parameters.AddWithValue("Password", obj.Password);
+                        cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
+                        cmd.Parameters.AddWithValue("Id", obj.Id);
+                        cmd.Parameters.AddWithValue("OldTimestamp", Convert.FromBase64String(obj.OldTimestamp));
+
+                        try
+                        {
+                            cmd.ExecuteNonQuery();
+                            scope.Complete();
+                            return true;
+                        }
+                        catch (SqlException e)
+                        {
+                            throw e;
+                        }
                     }
                 }
             }
         }
+
+        ///// <summary>
+        ///// Updates the Applier object in the database
+        ///// </summary>
+        ///// <param name="obj"></param>
+        ///// <returns></returns>
+        //public bool Update(Applier obj)
+        //{
+        //    TransactionOptions options = new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }; //Sets the isolationlevel needed for the situation.
+        //    using (var scope = new System.Transactions.TransactionScope(TransactionScopeOption.Required, options))
+        //    {
+
+
+        //        using (SqlConnection connection = new SqlConnection(ConnectionString))
+        //        {
+        //            connection.Open();
+        //            using (SqlCommand cmd = connection.CreateCommand())
+        //            {
+        //                cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Address = @Address, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
+        //                    " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
+        //                    " CurrentJob = @CurrentJob, Birthdate = @Birthdate, Password = @Password, JobCVId = @JobCVId, UpdateId = @UpdateId " +
+        //                    "WHERE Id = @Id AND UpdateId = @OldUpdateId";
+        //                cmd.Parameters.AddWithValue("Email", obj.Email);
+        //                cmd.Parameters.AddWithValue("Phone", obj.Phone);
+        //                cmd.Parameters.AddWithValue("Address", obj.Address ?? (object)DBNull.Value);
+        //                cmd.Parameters.AddWithValue("Country", obj.Country ?? (object)DBNull.Value);
+        //                cmd.Parameters.AddWithValue("Description", obj.Description ?? (object)DBNull.Value);
+        //                cmd.Parameters.AddWithValue("BannerURL", obj.BannerURL ?? (object)DBNull.Value);
+        //                cmd.Parameters.AddWithValue("ImageURL", obj.ImageURL ?? (object)DBNull.Value);
+        //                cmd.Parameters.AddWithValue("MaxRadius", obj.MaxRadius);
+        //                cmd.Parameters.AddWithValue("HomePage", obj.HomePage ?? (object)DBNull.Value);
+        //                cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
+        //                cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
+        //                cmd.Parameters.AddWithValue("Age", obj.Age);
+        //                cmd.Parameters.AddWithValue("Status", obj.Status);
+        //                cmd.Parameters.AddWithValue("CurrentJob", obj.CurrentJob ?? (object)DBNull.Value);
+        //                cmd.Parameters.AddWithValue("Birthdate", obj.Birthdate);
+        //                cmd.Parameters.AddWithValue("Password", obj.Password);
+        //                cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
+        //                int updateId = obj.OldUpdateId + 1;
+        //                cmd.Parameters.AddWithValue("UpdateId", updateId);
+        //                cmd.Parameters.AddWithValue("Id", obj.Id);
+        //                cmd.Parameters.AddWithValue("OldUpdateId", obj.OldUpdateId);
+
+        //                try
+        //                {
+        //                    cmd.ExecuteNonQuery();
+        //                    scope.Complete();
+        //                    return true;
+        //                }
+        //                catch (SqlException e)
+        //                {
+        //                    throw e;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
 
         /// <summary>
