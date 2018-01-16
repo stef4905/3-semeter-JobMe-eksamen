@@ -81,6 +81,29 @@ namespace UnitTestJobMe
             //Assert
             Assert.IsTrue(check);
         }
+        [TestMethod]
+        public void RemoveApplierFromSessionTest()
+        {
+            //Arrange
+            DateTime startDateAndTime1 = new DateTime(2017, 11, 30, 12, 0, 0);
+            DateTime endDateAndtime1 = new DateTime(2017, 11, 30, 12, 30, 0);
+            Session session = new Session(1014, startDateAndTime1, endDateAndtime1);
+            DateTime startDateAndTime = new DateTime(2017, 11, 30, 12, 0, 0);
+            DateTime endDateAndtime = new DateTime(2017, 11, 30, 16, 0, 0);
+            int numbersOfInterviews = 4;
+            Booking booking = new Booking(startDateAndTime, endDateAndtime, numbersOfInterviews, 72);
+            booking.Id = 103;
+            SessionCtr sessionCtr = new SessionCtr();
+
+            //Act
+            sessionCtr.Create(session, booking);
+            // Remove the session on a specific ApplierId.
+            Session SessionToCheck = sessionCtr.Get(231);
+            bool removed = sessionCtr.RemoveApplierFromSession(SessionToCheck);
+
+            //Assert
+            Assert.IsTrue(removed);
+        }
     }
 
 }

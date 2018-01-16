@@ -160,5 +160,16 @@ namespace UnitTestJobMe
             //Assert
             Assert.IsNull(deletedJobPost.JobTitle);
         }
+        [TestMethod]
+        public void GetAllJobPostTest()
+        {
+            //Arrange
+            JobPostCtr jobPostCtr = new JobPostCtr();
+            //Act
+            List<JobPost> jobPostList = jobPostCtr.GetAll();
+            //Assert
+            Assert.IsNotNull(jobPostList);
+
+        }
     }
 }
