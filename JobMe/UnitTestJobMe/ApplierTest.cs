@@ -5,6 +5,7 @@ using ModelLayer;
 using DataAccessLayer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BusinessLogicLayer;
+using DataAccessLayer;
 
 namespace UnitTest.DataAccessLayer
 {
@@ -152,6 +153,49 @@ namespace UnitTest.DataAccessLayer
 
             //Assert
             Assert.IsNotNull(applierList);
+        }
+
+        [TestMethod]
+        public void UpdatePasswordTest()
+        {
+            //Arrange
+            ApplierCtr applierCtr = new ApplierCtr();
+            DbApplier dbApplier = new DbApplier();
+            JobCategory jobCategory = new JobCategory
+            {
+                Id = 1
+            };
+            List<JobCategory> jobCategoryList = new List<JobCategory>();
+            jobCategoryList.Add(jobCategory);
+
+            Applier applierNonUpdated = new Applier
+            {
+                Password = "123456",
+                Email = "hej@nej.dk",
+                Address = "hejvej 1",
+                Country = "BonBonLand",
+                ImageURL = "langIndePåNettet",
+                Description = "En applier description",
+                BannerURL = "LængereIndePåNettet",
+                MaxRadius = 20,
+                HomePage = "www.Hejvej.dk",
+                FName = "Benny",
+                LName = "Børge",
+                Age = 41,
+                Status = true,
+                CurrentJob = "HejSigende",
+                Birthdate = new DateTime(1989, 09, 11),
+                JobCategoryList = jobCategoryList
+            };
+
+            //Act
+            Applier returnedApplier = dbApplier.CreateAndReturnApplier(applierNonUpdated);
+            returnedApplier.Password = "654321";
+            applierCtr.UpdatePassword(returnedApplier);
+            Applier applierToCheck = applierCtr.Get(returnedApplier.Id);
+
+            //Assert
+            Assert.AreEqual(returnedApplier, applierNonUpdated);
 
         }
     }
