@@ -80,21 +80,22 @@ namespace BusinessLogicLayer
         /// <param name="obj"></param>
         public bool Update(Applier obj)
         {
-            try
-            {
 
-                dbApplier.Update(obj);
+            bool updated = dbApplier.Update(obj);
+            if (updated == true)
+            {
                 if (obj.JobCategoryList != null)
                 {
                     UpdateApplierJobCategories(obj);
                 }
-
                 return true;
             }
-            catch (Exception e)
+
+            else
             {
-                throw e;
+                return false;
             }
+
         }
 
         public void UpdateApplierJobCategories(Applier obj)
