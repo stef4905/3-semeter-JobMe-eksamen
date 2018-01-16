@@ -152,6 +152,67 @@ namespace UnitTest.DataAccessLayer
 
             //Assert
             Assert.IsNotNull(applierList);
+        }
+
+        [TestMethod]
+        public void UpdatePasswordTest()
+        {
+            //Arrange
+            ApplierCtr applierCtr = new ApplierCtr();
+            JobCategory jobCategory = new JobCategory
+            {
+                Id = 1
+            };
+            List<JobCategory> jobCategoryList = new List<JobCategory>();
+            jobCategoryList.Add(jobCategory);
+
+            Applier applierNonUpdated = new Applier
+            {
+                Password = "123456",
+                Email = "hej@nej.dk",
+                Address = "hejvej 1",
+                Country = "BonBonLand",
+                ImageURL = "langIndePåNettet",
+                Description = "En applier description",
+                BannerURL = "LængereIndePåNettet",
+                MaxRadius = 20,
+                HomePage = "www.Hejvej.dk",
+                FName = "Benny",
+                LName = "Børge",
+                Age = 41,
+                Status = true,
+                CurrentJob = "HejSigende",
+                Birthdate = new DateTime(1989, 09, 11),
+                JobCategoryList = jobCategoryList
+            };
+
+            Applier applierUpdated = new Applier
+            {
+                Password = "654321",
+                Email = "hej@nej.dk",
+                Address = "hejvej 1",
+                Country = "BonBonLand",
+                ImageURL = "langIndePåNettet",
+                Description = "En applier description",
+                BannerURL = "LængereIndePåNettet",
+                MaxRadius = 20,
+                HomePage = "www.Hejvej.dk",
+                FName = "Benny",
+                LName = "Børge",
+                Age = 41,
+                Status = true,
+                CurrentJob = "HejSigende",
+                Birthdate = new DateTime(1989, 09, 11),
+                JobCategoryList = jobCategoryList
+            };
+
+            //Act
+            applierCtr.Create(applierUpdated);
+            applierCtr.UpdatePassword(applierUpdated);
+            Applier applierToCheck = applierCtr.Get(applierUpdated.Id);
+
+            //Assert
+            Assert.AreNotEqual(applierNonUpdated, applierUpdated);
 
         }
     }
