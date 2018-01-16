@@ -18,6 +18,7 @@ namespace JobMe_Homepage.Controllers
         ///  Displays a index view
         /// </summary>
         /// <returns>Returns view Index with a ViewModel with a count of jobposts and appliers </returns>
+
         public ActionResult Index()
         {
             VMJobPostAndApplierLists vmJobPostAndApplierLists = new VMJobPostAndApplierLists

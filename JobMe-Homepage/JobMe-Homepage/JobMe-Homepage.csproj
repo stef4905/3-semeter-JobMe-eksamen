@@ -179,6 +179,7 @@
     </Compile>
     <Compile Include="Controllers\ApplierController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -328,6 +329,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\image\JobMeHorizontal.png" />
     <Content Include="Content\image\JobMeIcon.png" />
+    <Content Include="Content\image\notfoundImage.jpg" />
     <Content Include="Content\simplePagination.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -434,9 +436,11 @@
     <Content Include="Views\Company\Meeting.cshtml" />
     <Content Include="Views\Applier\Booking.cshtml" />
     <Content Include="Views\Applier\_ReadJobCV.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

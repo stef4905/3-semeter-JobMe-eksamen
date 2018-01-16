@@ -60,7 +60,9 @@
   </xs:element>
   <xs:element name="UpdateResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateResult" type="xs:boolean" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Login">
@@ -88,6 +90,18 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="GetApplierTableSizeResult" type="xs:int" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ModelLayer" minOccurs="0" name="applier" nillable="true" type="q6:Applier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePasswordResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

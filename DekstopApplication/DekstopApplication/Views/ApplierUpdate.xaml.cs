@@ -103,7 +103,7 @@ namespace DekstopApplication.Views
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil opdatere" + applier.FName + applier.LName + "?", "Confirmation", MessageBoxButton.YesNo);
+                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil opdatere " + applier.FName + " " + applier.LName + "?", "Confirmation", MessageBoxButton.YesNo);
                 if (result == MessageBoxResult.Yes)
                 {
                     applier.Email = EmailInput.Text;
@@ -116,8 +116,15 @@ namespace DekstopApplication.Views
                     applier.HomePage = HomePageInput.Text;
                     applier.CurrentJob = CurrentJobInput.Text;
                  
-                    ApplierClient.Update(applier);
-                    SuccesCheck.Content = "Brugeren er opdateret!";
+                    bool updated = ApplierClient.Update(applier);
+                    if(updated == true)
+                    {
+                        SuccesCheck.Content = "Brugeren er opdateret!";
+                    }
+                    else
+                    {
+                        SuccesCheck.Content = "Brugeren er ikke opdateret!";
+                    }
                     FailCheckLabel.Content = "";
                 }
                 else if (result == MessageBoxResult.No)

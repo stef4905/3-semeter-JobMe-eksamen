@@ -7,6 +7,7 @@ using DataAccessLayer;
 using ModelLayer;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Transactions;
 
 namespace DataAccessLayer
 {
@@ -14,8 +15,6 @@ namespace DataAccessLayer
     {
         //Connection string for instanciating sql connection 
         private string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-
-
 
 
         /// <summary>
@@ -29,11 +28,15 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
+                    var salt = HashingHelper.GenerateSalt();
+                    string saltedHash = HashingHelper.HashPassword(obj.Password, salt);
+                    cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId, PasswordHash, Salt) output INSERTED.Id VALUES (@Email, @Password, @MaxRadius, @JobCVId, @PasswordHash, @Salt)";
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Password", obj.Password);
                     cmd.Parameters.AddWithValue("MaxRadius", 50);
-                    cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
+                    cmd.Parameters.AddWithValue("JobCVId", 1);
+                    cmd.Parameters.AddWithValue("PasswordHash", saltedHash);
+                    cmd.Parameters.AddWithValue("Salt", salt);
                     try
                     {
 
@@ -49,6 +52,38 @@ namespace DataAccessLayer
             }
         }
 
+
+        ///// <summary>
+        ///// Is a method that creates a Applier in the database with the variables Email & Password.
+        ///// </summary>
+        ///// <param name="obj">Is a Applier object</param>
+        //public bool Create(Applier obj)
+        //{
+        //    using (SqlConnection connection = new SqlConnection(ConnectionString))
+        //    {
+        //        connection.Open();
+        //        using (SqlCommand cmd = connection.CreateCommand())
+        //        {
+        //            cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
+        //            cmd.Parameters.AddWithValue("Email", obj.Email);
+        //            cmd.Parameters.AddWithValue("Password", obj.Password);
+        //            cmd.Parameters.AddWithValue("MaxRadius", 50);
+        //            cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
+        //            try
+        //            {
+
+        //                cmd.ExecuteNonQuery();
+        //                return true;
+        //            }
+        //            catch (SqlException e)
+        //            {
+        //                return false;
+        //                throw e;
+        //            }
+        //        }
+        //    }
+        //}
+
         /// <summary>
         /// Is a method that creates a Applier in the database and returns the Applier with the primary key set in the database.
         /// </summary>
@@ -60,17 +95,44 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) output INSERTED.Id VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
+                    var salt = HashingHelper.GenerateSalt();
+                    string saltedHash = HashingHelper.HashPassword(obj.Password, salt);
+                    cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId, PasswordHash, Salt) output INSERTED.Id VALUES (@Email, @Password, @MaxRadius, @JobCVId, @PasswordHash, @Salt)";
                     cmd.Parameters.AddWithValue("Email", obj.Email);
                     cmd.Parameters.AddWithValue("Password", obj.Password);
                     cmd.Parameters.AddWithValue("MaxRadius", 50);
                     cmd.Parameters.AddWithValue("JobCVId", 1);
-
+                    cmd.Parameters.AddWithValue("PasswordHash", saltedHash);
+                    cmd.Parameters.AddWithValue("Salt", salt);
+                    
                     obj.Id = (int)cmd.ExecuteScalar();
                     return obj;
                 }
             }
         }
+
+        ///// <summary>
+        ///// Is a method that creates a Applier in the database and returns the Applier with the primary key set in the database.
+        ///// </summary>
+        ///// <param name="obj">Is a Applier object</param>
+        //public Applier CreateAndReturnApplier(Applier obj)
+        //{
+        //    using (SqlConnection connection = new SqlConnection(ConnectionString))
+        //    {
+        //        connection.Open();
+        //        using (SqlCommand cmd = connection.CreateCommand())
+        //        {
+        //            cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) output INSERTED.Id VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
+        //            cmd.Parameters.AddWithValue("Email", obj.Email);
+        //            cmd.Parameters.AddWithValue("Password", obj.Password);
+        //            cmd.Parameters.AddWithValue("MaxRadius", 50);
+        //            cmd.Parameters.AddWithValue("JobCVId", 1);
+
+        //            obj.Id = (int)cmd.ExecuteScalar();
+        //            return obj;
+        //        }
+        //    }
+        //}
 
 
         /// <summary>
@@ -221,7 +283,15 @@ namespace DataAccessLayer
                             {
                                 applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
                             }
-
+                            if (reader["CurrentTimestamp"] != DBNull.Value)
+                            {
+                                applier.OldTimestamp = Convert.ToBase64String(reader["CurrentTimestamp"] as Byte[]);
+                            }
+                            //else
+                            //{
+                            //    applier.OldTimestamp = new DateTime();
+                            //}
+                            reader.Close();
 
                         }
                     }
@@ -404,6 +474,14 @@ namespace DataAccessLayer
                         {
                             applier.JobCV = dBJobCV.Get((int)reader["JobCVId"]);
                         }
+                        if (reader["CurrentTimestamp"] != DBNull.Value)
+                        {
+                            applier.OldTimestamp = Convert.ToBase64String(reader["CurrentTimestamp"] as Byte[]);
+                        }
+                        //else
+                        //{
+                        //    applier.OldTimestamp = 0;
+                        //}
                         applier = GetJobCategoryOnApplier(applier);
                         applierList.Add(applier);
 
@@ -420,47 +498,64 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Update(Applier obj)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            Applier toCheck = Get(obj.Id);
+            TransactionOptions options = new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }; //Sets the isolationlevel needed for the situation.
+            using (var scope = new System.Transactions.TransactionScope(TransactionScopeOption.Required, options))
             {
-                connection.Open();
-                using (SqlCommand cmd = connection.CreateCommand())
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
-                    cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Address = @Address, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
-                        " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
-                        " CurrentJob = @CurrentJob, Birthdate = @Birthdate, Password = @Password, JobCVId = @JobCVId " +
-                        "WHERE Id = @Id";
-                    cmd.Parameters.AddWithValue("Email", obj.Email);
-                    cmd.Parameters.AddWithValue("Phone", obj.Phone);
-                    cmd.Parameters.AddWithValue("Address", obj.Address ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("Country", obj.Country ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("Description", obj.Description ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("BannerURL", obj.BannerURL ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("ImageURL", obj.ImageURL ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("MaxRadius", obj.MaxRadius);
-                    cmd.Parameters.AddWithValue("HomePage", obj.HomePage ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("Age", obj.Age);
-                    cmd.Parameters.AddWithValue("Status", obj.Status);
-                    cmd.Parameters.AddWithValue("CurrentJob", obj.CurrentJob ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("Birthdate", obj.Birthdate);
-                    cmd.Parameters.AddWithValue("Password", obj.Password);
-                    cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
-                    cmd.Parameters.AddWithValue("Id", obj.Id);
-                    
+                    if(toCheck.OldTimestamp == obj.OldTimestamp)
+                    {
+                        connection.Open();
+                        using (SqlCommand cmd = connection.CreateCommand())
+                        {
+                            cmd.CommandText = "UPDATE Applier SET Email = @Email, Phone = @Phone, Address = @Address, Country = @Country, Description = @Description, BannerURL = @BannerURL," +
+                                " ImageURL = @ImageURL,  MaxRadius = @MaxRadius, HomePage = @HomePage, FName = @FName, LName = @LName, Age = @Age, Status = @Status," +
+                                " CurrentJob = @CurrentJob, Birthdate = @Birthdate, Password = @Password, JobCVId = @JobCVId " +
+                                "WHERE Id = @Id AND CurrentTimestamp = @OldTimestamp";
+                            cmd.Parameters.AddWithValue("Email", obj.Email);
+                            cmd.Parameters.AddWithValue("Phone", obj.Phone);
+                            cmd.Parameters.AddWithValue("Address", obj.Address ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("Country", obj.Country ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("Description", obj.Description ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("BannerURL", obj.BannerURL ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("ImageURL", obj.ImageURL ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("MaxRadius", obj.MaxRadius);
+                            cmd.Parameters.AddWithValue("HomePage", obj.HomePage ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("FName", obj.FName ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("LName", obj.LName ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("Age", obj.Age);
+                            cmd.Parameters.AddWithValue("Status", obj.Status);
+                            cmd.Parameters.AddWithValue("CurrentJob", obj.CurrentJob ?? (object)DBNull.Value);
+                            cmd.Parameters.AddWithValue("Birthdate", obj.Birthdate);
+                            cmd.Parameters.AddWithValue("Password", obj.Password);
+                            cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
+                            cmd.Parameters.AddWithValue("Id", obj.Id);
+                            cmd.Parameters.AddWithValue("OldTimestamp", Convert.FromBase64String(obj.OldTimestamp));
 
-                    try
-                    {
-                        cmd.ExecuteNonQuery();
-                        return true;
+
+
+                            try
+                            {
+                                cmd.ExecuteNonQuery();
+                                scope.Complete();
+                                return true;
+                            }
+                            catch (SqlException e)
+                            {
+                                throw e;
+                            }
+                        }
                     }
-                    catch (SqlException e)
+                   else
                     {
-                        throw e;
-                    }
+                        return false;
+                    } 
                 }
             }
         }
+
+       
 
 
         /// <summary>
@@ -478,51 +573,91 @@ namespace DataAccessLayer
                 connection.Open();
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = "SELECT * FROM Applier WHERE Email = @email AND Password = @password";
+                    cmd.CommandText = "SELECT * FROM Applier WHERE Email = @email";
                     cmd.Parameters.AddWithValue("email", email);
-                    cmd.Parameters.AddWithValue("password", password);
-                     
+
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-
-                        DBJobCV dbJobCV = new DBJobCV();
                         applier.Id = (int)reader["Id"];
-                        applier.Email = (string)reader["Email"];
                         applier.Password = (string)reader["Password"];
 
-
-                        if (reader["JobCVId"] != DBNull.Value)
+                        string currentSalt = reader.GetString(reader.GetOrdinal("Salt"));
+                        string currentSaltedHash = reader.GetString(reader.GetOrdinal("PasswordHash"));
+                        if (HashingHelper.CheckPassword(password, currentSalt, currentSaltedHash))
                         {
-                            applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
-                        }
-                        if (reader.IsDBNull(reader.GetOrdinal("Description")))
-                        { // Kan evt ændres til status når den bliver sat værk.
-                            applier.Description = null;
+                            applier = Get(applier.Id);
                         }
                         else
                         {
-                            applier.Description = (string)reader["Description"];
-                        }
-
-                    }
-                    reader.Close();
-                    if (applier.Email == email && applier.Password == password && applier.Description != null)
-                    {
-                        Applier Login = Get(applier.Id);
-                        return Login;
-                    }
-                    else
-                    {
-                        if (applier.Email == email && applier.Password == password)
-                        {
-                            return applier;
+                            applier = null;
                         }
                     }
-                    return null;
+                    return applier;
                 }
             }
         }
+
+        ///// <summary>
+        ///// Finds an applier in the database with the given param, and return the applier
+        ///// </summary>
+        ///// <param name="email"></param>
+        ///// <param name="password"></param>
+        ///// <returns></returns>
+        //public Applier Login(string email, string password)
+        //{
+        //    using (SqlConnection connection = new SqlConnection(ConnectionString))
+        //    {
+        //        Applier applier = new Applier();
+
+        //        connection.Open();
+        //        using (SqlCommand cmd = connection.CreateCommand())
+        //        {
+        //            cmd.CommandText = "SELECT * FROM Applier WHERE Email = @email AND Password = @password";
+        //            cmd.Parameters.AddWithValue("email", email);
+        //            cmd.Parameters.AddWithValue("password", password);
+
+        //            SqlDataReader reader = cmd.ExecuteReader();
+        //            if (reader.Read())
+        //            {
+
+        //                DBJobCV dbJobCV = new DBJobCV();
+        //                applier.Id = (int)reader["Id"];
+        //                applier.Email = (string)reader["Email"];
+        //                applier.Password = (string)reader["Password"];
+
+
+        //                if (reader["JobCVId"] != DBNull.Value)
+        //                {
+        //                    applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
+        //                }
+        //                if (reader.IsDBNull(reader.GetOrdinal("Description")))
+        //                { // Kan evt ændres til status når den bliver sat værk.
+        //                    applier.Description = null;
+        //                }
+        //                else
+        //                {
+        //                    applier.Description = (string)reader["Description"];
+        //                }
+
+        //            }
+        //            reader.Close();
+        //            if (applier.Email == email && applier.Password == password && applier.Description != null)
+        //            {
+        //                Applier Login = Get(applier.Id);
+        //                return Login;
+        //            }
+        //            else
+        //            {
+        //                if (applier.Email == email && applier.Password == password)
+        //                {
+        //                    return applier;
+        //                }
+        //            }
+        //            return null;
+        //        }
+        //    }
+        //}
 
 
         /// <summary>
@@ -605,8 +740,12 @@ namespace DataAccessLayer
                 {
                     try
                     {
-                        cmd.CommandText = "UPDATE Applier set Password = @Password WHERE Id = @Id";
+                        var salt = HashingHelper.GenerateSalt();
+                        string saltedHash = HashingHelper.HashPassword(applier.Password, salt);
+                        cmd.CommandText = "UPDATE Applier set Password = @Password, PasswordHash = @PasswordHash, Salt = @Salt WHERE Id = @Id";
                         cmd.Parameters.AddWithValue("Password", applier.Password);
+                        cmd.Parameters.AddWithValue("PasswordHash", saltedHash);
+                        cmd.Parameters.AddWithValue("Salt", salt);
                         cmd.Parameters.AddWithValue("Id", applier.Id);
                         cmd.ExecuteNonQuery();
                     }

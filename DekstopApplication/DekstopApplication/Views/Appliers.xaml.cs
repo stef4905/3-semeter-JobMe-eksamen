@@ -21,20 +21,20 @@ namespace DekstopApplication.Views
     /// </summary>
     public partial class Appliers : UserControl
     {
-        
         //Instance variables
         ApplierCreate applierCreateView = new ApplierCreate();
         ApplierServiceClient applierClient = new ApplierServiceClient();
         public List<Applier> applierList = new List<Applier>();
+        public Applier ApplierSelected = null; //Used to keet knowlegde of who the current selected applier is
+        private int LastIndexSeletected;
 
         /// <summary>
-        /// Cunstructor for the Applier User Control View
+        /// Constructor for the Applier User Control View
         /// </summary>
         public Appliers()
         {
             InitializeComponent();
             UpdateTableAndList();
-            applierCreateView.TheFunc = UpdateTableAndList;
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace DekstopApplication.Views
             applierList = applierClient.GetAllAppliers();
             ApplierTable.ItemsSource = applierList;
         }
-    
+
         /// <summary>
         /// Opens the User Control view for creating a new Applier
         /// </summary>
@@ -55,6 +55,7 @@ namespace DekstopApplication.Views
         {
             GuiPanelApplier.Children.Clear();
             GuiGridApplier.Children.Add(applierCreateView);
+            applierCreateView.TheFunc = UpdateTableAndList;
         }
 
 
@@ -67,7 +68,6 @@ namespace DekstopApplication.Views
         {
             Applier applier = (Applier)ApplierTable.SelectedItem;
 
-
             if (applier == null)
             {
                 FailCheckLabel.Content = "Vælg en ansøger at opdatere";
@@ -78,7 +78,6 @@ namespace DekstopApplication.Views
                 GuiPanelApplier.Children.Clear();
                 GuiGridApplier.Children.Add(applierUpdateView);
             }
-
         }
 
         /// <summary>
@@ -86,23 +85,29 @@ namespace DekstopApplication.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void DeleteApplier(object sender, RoutedEventArgs e)
         {
-            Applier applier = (Applier)ApplierTable.SelectedItem;
+            if (ApplierTable.SelectedIndex >= 0)
+            {
+                Applier applier = (Applier)ApplierTable.SelectedItem;
 
-            MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette", "Confirmation", MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
-            {
-                applierClient.Delete(applier.Id);
-                applierList.Remove(applier);
-                ApplierTable.ClearValue(ListView.ItemsSourceProperty);
-                ApplierTable.ItemsSource = applierList;
+                MessageBoxResult result = MessageBox.Show("Er du sikker på du vil slette " + ApplierSelected.Email, "Confirmation", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    applierClient.Delete(ApplierSelected.Id);
+                    MessageBox.Show("Ansøgeren " + ApplierSelected.Email + " er blevet slettet!");
+                    UpdateTableAndList();
+                }
+                else if (result == MessageBoxResult.No)
+                {
+                    // No code here
+                }
             }
-            else if (result == MessageBoxResult.No)
+            else
             {
-                // No code here
+                MessageBox.Show("Du har ikke valgt en ansøger!");
             }
-            
+
 
         }
 
@@ -146,9 +151,24 @@ namespace DekstopApplication.Views
         /// <param name="e"></param>
         private void ShowAllCurentAppliers(object sender, RoutedEventArgs e)
         {
-                ApplierTable.ClearValue(ListView.ItemsSourceProperty);
-                ApplierTable.ItemsSource = applierList;
-                ApplierSearchBox.Text = "";
+            ApplierTable.ClearValue(ListView.ItemsSourceProperty);
+            ApplierTable.ItemsSource = applierList;
+            ApplierSearchBox.Text = "";
+        }
+
+        private void ApplierTable_SelectedApplier(object sender, SelectionChangedEventArgs e)
+        {
+            int index;
+
+            if (ApplierTable.SelectedIndex >= 0)
+            {
+                index = ApplierTable.SelectedIndex;
+            }
+            else
+            {
+                index = LastIndexSeletected;
+            }
+            ApplierSelected = applierList[index];
         }
     }
 }

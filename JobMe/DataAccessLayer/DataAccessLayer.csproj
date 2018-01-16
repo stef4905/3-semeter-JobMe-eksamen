@@ -50,7 +50,6 @@
     <Compile Include="DBBooking.cs" />
     <Compile Include="DBBusinessType.cs" />
     <Compile Include="DbCompany.cs" />
-    <Compile Include="DbConnection.cs" />
     <Compile Include="DBJobAppendix.cs" />
     <Compile Include="DbJobApplication.cs" />
     <Compile Include="DbJobCategory.cs" />
@@ -58,6 +57,7 @@
     <Compile Include="DBMeeting.cs" />
     <Compile Include="DBSession.cs" />
     <Compile Include="DbWorkHour.cs" />
+    <Compile Include="HashingHelper.cs" />
     <Compile Include="IDataAccess.cs" />
     <Compile Include="DBJobExperience.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

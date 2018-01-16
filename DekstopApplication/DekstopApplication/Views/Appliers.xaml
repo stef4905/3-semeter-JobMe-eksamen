@@ -12,9 +12,9 @@
 		<Button x:Name="searchButton" Content="Søg" HorizontalAlignment="Left" Margin="515,10,0,0" VerticalAlignment="Top" Width="135" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="searchButton_Click"/>
 		<Button x:Name="CreateApplierButton" Content="Opret ansøger" HorizontalAlignment="Left" Margin="1224,52,0,0" VerticalAlignment="Top" Width="169" Height="37" FontSize="18" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="CreateApplierButton_Click"/>
 		<Button x:Name="UpdateApplierButton" Content="Opdatere ansøgere" HorizontalAlignment="Left" Margin="1224,110,0,0" VerticalAlignment="Top" Width="169" Height="37" FontSize="18" BorderBrush="#FF2C5781" Background="#FF2C5781" Foreground="White" Click="UpdateApplierButton_Click" />
-		<Button Content="Slet ansøger" HorizontalAlignment="Left" Margin="1227,906,0,0" VerticalAlignment="Top" Width="169" Height="37" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White" Click="Button_Click"/>
+        <Button Content="Slet ansøger" HorizontalAlignment="Left" Margin="1227,906,0,0" VerticalAlignment="Top" Width="169" Height="37" FontSize="18" Background="#FFAC2925" BorderBrush="#FF6E1616" Foreground="White" Click="DeleteApplier"/>
 		<StackPanel Name="GuiPanelApplier" HorizontalAlignment="Left" Height="953" VerticalAlignment="Top" Width="1410"/>
-		<ListView x:Name="ApplierTable" HorizontalAlignment="Left" Height="891" Margin="10,52,0,0" VerticalAlignment="Top" Width="1199" Background="White">
+		<ListView x:Name="ApplierTable" HorizontalAlignment="Left" Height="891" Margin="10,52,0,0" VerticalAlignment="Top" Width="1199" Background="White" SelectionChanged="ApplierTable_SelectedApplier">
 			<ListView.View>
 				<GridView>
 					<GridViewColumn Header="Id" Width="100px" DisplayMemberBinding="{Binding Id}"/>
