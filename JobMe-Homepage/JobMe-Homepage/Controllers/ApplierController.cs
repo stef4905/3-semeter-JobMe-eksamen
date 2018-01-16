@@ -57,9 +57,10 @@ namespace JobMe_Homepage.Controllers
         public ActionResult _Login()
         {
             return PartialView();
+
         }
 
-        /// <summary>
+        /// <summary> 
         /// An HTTPPost method there respone on httpPost requst, and calls the login method from the ApplierService
         /// </summary>
         /// <param name="email"></param>

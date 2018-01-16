@@ -20,3 +20,13 @@ C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\bin
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\obj\Release\BusinessLogicLayer.csprojResolveAssemblyReference.cache
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\obj\Release\BusinessLogicLayer.dll
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\BusinessLogicLayer\obj\Release\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Release\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Release\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Release\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Release\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Release\DataAccessLayer.dll.config
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\bin\Release\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\obj\Release\BusinessLogicLayer.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\obj\Release\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\BusinessLogicLayer\obj\Release\BusinessLogicLayer.pdb

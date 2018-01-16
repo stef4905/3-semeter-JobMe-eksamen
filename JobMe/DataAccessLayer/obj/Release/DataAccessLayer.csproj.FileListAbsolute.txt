@@ -18,3 +18,11 @@ C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\bin\Re
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Release\DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Release\DataAccessLayer.dll
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\DataAccessLayer\bin\Release\DataAccessLayer.dll.config
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\DataAccessLayer\bin\Release\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\DataAccessLayer\bin\Release\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\DataAccessLayer\obj\Release\DataAccessLayer.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\DataAccessLayer\obj\Release\DataAccessLayer.pdb

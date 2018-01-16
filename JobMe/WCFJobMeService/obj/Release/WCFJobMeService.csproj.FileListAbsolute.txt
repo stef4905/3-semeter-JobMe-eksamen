@@ -23,3 +23,16 @@ C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\bin\Re
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Release\WCFJobMeService.csprojResolveAssemblyReference.cache
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Release\WCFJobMeService.dll
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\WCFJobMeService\obj\Release\WCFJobMeService.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\bin\Release\WCFJobMeService.dll.config
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\bin\Release\WCFJobMeService.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\bin\Release\WCFJobMeService.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\bin\Release\BusinessLogicLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\bin\Release\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\bin\Release\DataAccessLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\bin\Release\BusinessLogicLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\bin\Release\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\bin\Release\DataAccessLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\bin\Release\DataAccessLayer.dll.config
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\obj\Release\WCFJobMeService.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\obj\Release\WCFJobMeService.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\WCFJobMeService\obj\Release\WCFJobMeService.pdb

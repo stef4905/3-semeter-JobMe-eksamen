@@ -14,3 +14,8 @@ C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\bin\Release\tw\Microsoft.Data.Tools.Schema.Sql.UnitTesting.resources.dll
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Release\ModelLayer.dll
 C:\Users\wow99\Source\Repos\3-semeter-JobMe-eksamen\JobMe\ModelLayer\obj\Release\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\ModelLayer\bin\Release\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\ModelLayer\bin\Release\ModelLayer.pdb
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\ModelLayer\obj\Release\ModelLayer.csprojResolveAssemblyReference.cache
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\ModelLayer\obj\Release\ModelLayer.dll
+C:\Users\wow99\Source\Repos\3-semester-JobMe-Eksamen-v5\JobMe\ModelLayer\obj\Release\ModelLayer.pdb
