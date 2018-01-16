@@ -250,10 +250,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v4\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
       "projectName": "DataAccessLayer",
-      "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v4\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
-      "outputPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v4\\JobMe\\DataAccessLayer\\obj\\",
+      "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\DataAccessLayer\\DataAccessLayer.csproj",
+      "outputPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "net461"
@@ -261,8 +261,8 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v4\\JobMe\\ModelLayer\\ModelLayer.csproj": {
-              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v4\\JobMe\\ModelLayer\\ModelLayer.csproj"
+            "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\ModelLayer\\ModelLayer.csproj": {
+              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\ModelLayer\\ModelLayer.csproj"
             }
           }
         }

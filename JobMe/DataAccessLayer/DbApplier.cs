@@ -291,16 +291,152 @@ namespace DataAccessLayer
                             //{
                             //    applier.OldTimestamp = new DateTime();
                             //}
-                            reader.Close();
+                            
 
                         }
+                        
                     }
-
-                    Applier applierToReturn = GetJobCategoryOnApplier(applier);
-
-                    return applierToReturn;
                 }
+                Applier applierToReturn = GetJobCategoryOnApplier(applier);
+
+                return applierToReturn;
             }
+
+            
+        }
+
+        public Applier GetApplierWithoutJobCv(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                Applier applier = new Applier();
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM Applier WHERE Id = @id";
+                    cmd.Parameters.AddWithValue("id", id);
+
+
+                    DBJobCV dbJobCV = new DBJobCV();
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            applier.Id = (int)reader["Id"];
+                            applier.Email = (string)reader["Email"];
+                            applier.Password = (string)reader["Password"];
+                            if (reader["Phone"] == DBNull.Value)
+                            {
+                                applier.Phone = 0;
+                            }
+                            else
+                            {
+                                applier.Phone = (int)reader["Phone"];
+                            }
+                            if (reader["Address"] == DBNull.Value)
+                            {
+                                applier.Address = null;
+                            }
+                            else
+                            {
+                                applier.Address = (string)reader["Address"];
+                            }
+
+                            if (reader["Country"] == DBNull.Value)
+                            {
+                                applier.Country = null;
+                            }
+                            else
+                            {
+                                applier.Country = (string)reader["Country"];
+                            }
+
+                            if (reader["Description"] == DBNull.Value)
+                            {
+                                applier.Description = null;
+                            }
+                            else
+                            {
+                                applier.Description = (string)reader["Description"];
+                            }
+                            if (reader["BannerURL"] == DBNull.Value)
+                            {
+                                applier.BannerURL = null;
+                            }
+                            else
+                            {
+                                applier.BannerURL = (string)reader["BannerURL"];
+                            }
+
+                            if (reader["ImageURL"] != DBNull.Value)
+                            {
+                                applier.ImageURL = (string)reader["ImageURL"];
+                            }
+
+
+
+                            if (reader["MaxRadius"] != DBNull.Value)
+                            {
+                                applier.MaxRadius = (int)reader["MaxRadius"];
+                            }
+
+
+                            if (reader["HomePage"] != DBNull.Value)
+                            {
+                                applier.HomePage = (string)reader["HomePage"];
+                            }
+
+
+                            if (reader["FName"] != DBNull.Value)
+                            {
+                                applier.FName = (string)reader["FName"];
+                            }
+
+
+                            if (reader["LName"] != DBNull.Value)
+                            {
+                                applier.LName = (string)reader["LName"];
+                            }
+
+
+                            if (reader["Age"] != DBNull.Value)
+                            {
+                                applier.Age = (int)reader["Age"];
+                            }
+
+
+                            if (reader["Status"] != DBNull.Value)
+                            {
+                                applier.Status = (bool)reader["Status"];
+                            }
+
+                            if (reader["CurrentJob"] != DBNull.Value)
+                            {
+                                applier.CurrentJob = (string)reader["CurrentJob"];
+                            }
+
+                            if (reader["Birthdate"] == DBNull.Value)
+                            {
+                                applier.Birthdate = new DateTime();
+                            }
+                            else
+                            {
+                                applier.Birthdate = (DateTime)reader["Birthdate"];
+                            }
+
+                            if (reader["CurrentTimestamp"] != DBNull.Value)
+                            {
+                                applier.OldTimestamp = Convert.ToBase64String(reader["CurrentTimestamp"] as Byte[]);
+                            }
+                        }
+
+                    }
+                }
+
+                return applier;
+                
+            }
+
         }
 
         /// <summary>
@@ -498,13 +634,14 @@ namespace DataAccessLayer
         /// <returns></returns>
         public bool Update(Applier obj)
         {
-            Applier toCheck = Get(obj.Id);
+            
             TransactionOptions options = new TransactionOptions { IsolationLevel = IsolationLevel.ReadCommitted }; //Sets the isolationlevel needed for the situation.
             using (var scope = new System.Transactions.TransactionScope(TransactionScopeOption.Required, options))
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
-                    if(toCheck.OldTimestamp == obj.OldTimestamp)
+                    Applier toCheck = GetApplierWithoutJobCv(obj.Id);
+                    if (toCheck.OldTimestamp == obj.OldTimestamp)
                     {
                         connection.Open();
                         using (SqlCommand cmd = connection.CreateCommand())

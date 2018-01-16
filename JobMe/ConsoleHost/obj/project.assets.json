@@ -369,10 +369,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v4\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
+      "projectUniqueName": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
       "projectName": "ConsoleHost",
-      "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v4\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
-      "outputPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v4\\JobMe\\ConsoleHost\\obj\\",
+      "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\ConsoleHost\\ConsoleHost.csproj",
+      "outputPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\ConsoleHost\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "net461"
@@ -380,8 +380,8 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v4\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj": {
-              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-jobme-eksamen-v4\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj"
+            "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj": {
+              "projectPath": "C:\\Users\\wow99\\Source\\Repos\\3-semester-JobMe-Eksamen-v5\\JobMe\\WCFJobMeService\\WCFJobMeService.csproj"
             }
           }
         }
