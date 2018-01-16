@@ -13,7 +13,7 @@
 		<Button Name="UpdateButton" Content="Opdatere" HorizontalAlignment="Left" Margin="1219,886,0,0" VerticalAlignment="Top" Width="153" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="UpdateButton_Click"  />
 		<Label Content="Ansøger &gt; Opdatere ansøger" HorizontalAlignment="Left" Margin="35,17,0,0" VerticalAlignment="Top" FontSize="14" FontStyle="Italic"/>
 		<Button Name="BackButton" Content="&lt;- Tilbage" HorizontalAlignment="Left" Margin="1247,10,0,0" VerticalAlignment="Top" Width="153" Height="36" Background="#FF2C5781" BorderBrush="#FF2C5781" Foreground="White" Click="BackButton_Click" />
-		<Label Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="214" Foreground="Red"/>
+		<Label Name="FailCheckLabel" Content="" HorizontalAlignment="Left" Margin="35,84,0,0" VerticalAlignment="Top" Width="845" Foreground="Red"/>
 		<Label Name="UserLabel" Content="" HorizontalAlignment="Left" Margin="301,44,0,0" VerticalAlignment="Top" FontSize="32" Width="252"/>
 		<TextBox Name="FNameInput" HorizontalAlignment="Left" Height="37" Margin="35,219,0,0"  VerticalAlignment="Top" Width="705" FontSize="22" Text=""/>
 		<Label Content="Fornavn:" HorizontalAlignment="Left" Margin="35,180,0,0" VerticalAlignment="Top" FontSize="22"/>
@@ -35,7 +35,7 @@
 		<Label Content="Nuværende job:" HorizontalAlignment="Left" Margin="395,841,0,0" VerticalAlignment="Top" FontSize="22"/>
 
 		<DatePicker x:Name="BirtdatePicker" HorizontalAlignment="Left" Margin="38,386,0,0" VerticalAlignment="Top" Width="705"/>
-		<Label Name="SuccesCheck" HorizontalAlignment="Left" Margin="35,79,0,0" VerticalAlignment="Top" Width="214" Foreground="#FF23D611" FontSize="20"/>
+		<Label Name="SuccesCheck" HorizontalAlignment="Left" Margin="35,79,0,0" VerticalAlignment="Top" Width="704" Foreground="#FF23D611" FontSize="20" Height="31"/>
 		<Image Name="ApplierImage" HorizontalAlignment="Left" Height="230" Margin="885,84,0,0" VerticalAlignment="Top" Width="441"/>
 
 	</Grid>

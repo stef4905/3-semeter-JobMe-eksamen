@@ -35,6 +35,7 @@ namespace DekstopApplication.Views
         {
             InitializeComponent();
             UpdateTableAndList();
+            
         }
 
         /// <summary>
@@ -76,6 +77,7 @@ namespace DekstopApplication.Views
             {
                 ApplierUpdate applierUpdateView = new ApplierUpdate(applier);
                 GuiPanelApplier.Children.Clear();
+                applierUpdateView.TheFunc = UpdateTableAndList;
                 GuiGridApplier.Children.Add(applierUpdateView);
             }
         }
