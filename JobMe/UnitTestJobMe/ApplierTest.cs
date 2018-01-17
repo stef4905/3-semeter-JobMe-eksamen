@@ -6,6 +6,7 @@ using DataAccessLayer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BusinessLogicLayer;
 using DataAccessLayer;
+using System.Threading;
 
 namespace UnitTest.DataAccessLayer
 {
@@ -197,6 +198,25 @@ namespace UnitTest.DataAccessLayer
             //Assert
             Assert.AreEqual(returnedApplier, applierNonUpdated);
 
+        }
+
+        [TestMethod]
+        public void TestCuncurrencyUpdateApplier()
+        {
+
+            //Arrange
+            DbApplier dbApplier = new DbApplier();
+            bool updated1 = false;
+            bool updated2 = false;
+
+            //Act
+            Applier returnedApplier = dbApplier.Get(2137); //Christina from the database;
+            updated1 = dbApplier.Update(returnedApplier);
+            updated2 = dbApplier.Update(returnedApplier);
+
+            //Assert
+            Assert.IsTrue(updated1);
+            Assert.IsFalse(updated2);
         }
     }
 }

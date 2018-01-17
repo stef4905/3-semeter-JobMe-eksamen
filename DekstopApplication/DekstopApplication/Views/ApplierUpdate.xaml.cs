@@ -27,6 +27,10 @@ namespace DekstopApplication.Views
         //Instance variables
         private ApplierServiceClient ApplierClient = new ApplierServiceClient();
         private Applier Applier = new Applier();
+        public delegate void ParentFunction();
+
+        //Poiting to outside function on parent
+        public ParentFunction TheFunc;
 
         /// <summary>
         /// Constructor for the ApplierUpdate User Control.
@@ -78,6 +82,7 @@ namespace DekstopApplication.Views
         /// <param name="e"></param>
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            TheFunc();
             ((Panel)this.Parent).Children.Remove(this);
         }
 
@@ -123,9 +128,8 @@ namespace DekstopApplication.Views
                     }
                     else
                     {
-                        SuccesCheck.Content = "Brugeren er ikke opdateret!";
+                        FailCheckLabel.Content = "Brugeren er allerede opdateret. Tryk tilbage og prøv igen! OPS: Dette kan tage nogle sekunder";
                     }
-                    FailCheckLabel.Content = "";
                 }
                 else if (result == MessageBoxResult.No)
                 {

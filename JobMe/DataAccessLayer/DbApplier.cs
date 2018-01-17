@@ -52,38 +52,6 @@ namespace DataAccessLayer
             }
         }
 
-
-        ///// <summary>
-        ///// Is a method that creates a Applier in the database with the variables Email & Password.
-        ///// </summary>
-        ///// <param name="obj">Is a Applier object</param>
-        //public bool Create(Applier obj)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(ConnectionString))
-        //    {
-        //        connection.Open();
-        //        using (SqlCommand cmd = connection.CreateCommand())
-        //        {
-        //            cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
-        //            cmd.Parameters.AddWithValue("Email", obj.Email);
-        //            cmd.Parameters.AddWithValue("Password", obj.Password);
-        //            cmd.Parameters.AddWithValue("MaxRadius", 50);
-        //            cmd.Parameters.AddWithValue("JobCVId", obj.JobCV.Id);
-        //            try
-        //            {
-
-        //                cmd.ExecuteNonQuery();
-        //                return true;
-        //            }
-        //            catch (SqlException e)
-        //            {
-        //                return false;
-        //                throw e;
-        //            }
-        //        }
-        //    }
-        //}
-
         /// <summary>
         /// Is a method that creates a Applier in the database and returns the Applier with the primary key set in the database.
         /// </summary>
@@ -110,30 +78,6 @@ namespace DataAccessLayer
                 }
             }
         }
-
-        ///// <summary>
-        ///// Is a method that creates a Applier in the database and returns the Applier with the primary key set in the database.
-        ///// </summary>
-        ///// <param name="obj">Is a Applier object</param>
-        //public Applier CreateAndReturnApplier(Applier obj)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(ConnectionString))
-        //    {
-        //        connection.Open();
-        //        using (SqlCommand cmd = connection.CreateCommand())
-        //        {
-        //            cmd.CommandText = "INSERT INTO Applier (Email, Password, MaxRadius, JobCVId) output INSERTED.Id VALUES (@Email, @Password, @MaxRadius, @JobCVId)";
-        //            cmd.Parameters.AddWithValue("Email", obj.Email);
-        //            cmd.Parameters.AddWithValue("Password", obj.Password);
-        //            cmd.Parameters.AddWithValue("MaxRadius", 50);
-        //            cmd.Parameters.AddWithValue("JobCVId", 1);
-
-        //            obj.Id = (int)cmd.ExecuteScalar();
-        //            return obj;
-        //        }
-        //    }
-        //}
-
 
         /// <summary>
         /// Is a method that Deletes a Applier from the database by the id.
@@ -734,68 +678,6 @@ namespace DataAccessLayer
                 }
             }
         }
-
-        ///// <summary>
-        ///// Finds an applier in the database with the given param, and return the applier
-        ///// </summary>
-        ///// <param name="email"></param>
-        ///// <param name="password"></param>
-        ///// <returns></returns>
-        //public Applier Login(string email, string password)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(ConnectionString))
-        //    {
-        //        Applier applier = new Applier();
-
-        //        connection.Open();
-        //        using (SqlCommand cmd = connection.CreateCommand())
-        //        {
-        //            cmd.CommandText = "SELECT * FROM Applier WHERE Email = @email AND Password = @password";
-        //            cmd.Parameters.AddWithValue("email", email);
-        //            cmd.Parameters.AddWithValue("password", password);
-
-        //            SqlDataReader reader = cmd.ExecuteReader();
-        //            if (reader.Read())
-        //            {
-
-        //                DBJobCV dbJobCV = new DBJobCV();
-        //                applier.Id = (int)reader["Id"];
-        //                applier.Email = (string)reader["Email"];
-        //                applier.Password = (string)reader["Password"];
-
-
-        //                if (reader["JobCVId"] != DBNull.Value)
-        //                {
-        //                    applier.JobCV = dbJobCV.Get((int)reader["JobCVId"]);
-        //                }
-        //                if (reader.IsDBNull(reader.GetOrdinal("Description")))
-        //                { // Kan evt ændres til status når den bliver sat værk.
-        //                    applier.Description = null;
-        //                }
-        //                else
-        //                {
-        //                    applier.Description = (string)reader["Description"];
-        //                }
-
-        //            }
-        //            reader.Close();
-        //            if (applier.Email == email && applier.Password == password && applier.Description != null)
-        //            {
-        //                Applier Login = Get(applier.Id);
-        //                return Login;
-        //            }
-        //            else
-        //            {
-        //                if (applier.Email == email && applier.Password == password)
-        //                {
-        //                    return applier;
-        //                }
-        //            }
-        //            return null;
-        //        }
-        //    }
-        //}
-
 
         /// <summary>
         /// Inserter a ApplierJobCategory into the database with the params JobCategory and ApplierId
