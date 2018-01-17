@@ -405,60 +405,6 @@ namespace DataAccessLayer
             }
         }
 
-        ///// <summary>
-        /////  Finds a company in the database with the given param, and return the company
-        ///// </summary>
-        ///// <param name="email"></param>
-        ///// <param name="password"></param>
-        ///// <returns></returns>
-        //public Company Login(string email, string password)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(ConnectionString))
-        //    {
-        //        Company company = new Company();
-        //        connection.Open();
-        //        using (SqlCommand cmd = connection.CreateCommand())
-        //        {
-        //            cmd.CommandText = "SELECT * FROM Company WHERE Email = @email AND Password = @password";
-        //            cmd.Parameters.AddWithValue("email", email);
-        //            cmd.Parameters.AddWithValue("password", password);
-
-        //            SqlDataReader reader = cmd.ExecuteReader();
-        //            if (reader.Read())
-        //            {
-        //                company.Id = (int)reader["Id"];
-        //                company.Email = (string)reader["Email"];
-        //                company.Password = (string)reader["Password"];
-        //                if (reader.IsDBNull(reader.GetOrdinal("Description"))) // Kan evt ændres til status når den bliver sat værk.
-        //                    company.Description = null;
-        //                else
-        //                    company.Description = (string)reader["Description"];
-
-
-        //            }
-        //            reader.Close();
-
-
-        //            if (company.Email == email && company.Password == password && company.Description != null)
-        //            {
-        //                Company FullCompany = Get(company.Id);
-        //                return FullCompany;
-        //            }
-
-        //            else
-        //            {
-        //                if (company.Email == email && company.Password == password)
-        //                {
-        //                    return company;
-        //                }
-        //            }
-
-        //            return null;
-
-        //        }
-        //    }
-        //}
-
         /// <summary>
         /// Returns a int (count) for the numbers of rows of companies in the database
         /// </summary>
